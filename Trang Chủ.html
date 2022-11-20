@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="trang chủ.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Roboto:ital,wght@0,300;0,500;0,700;1,100;1,300;1,700&display=swap" rel="stylesheet">
+    <title>Citric</title>
+</head>
+<body>
+    <div class="thanhchucnang">
+        <div class="logo">Logo</div>
+        <div class="tenweb">Tên web</div>
+        <span class="khuchucnangtrai">
+            <ul class="chucnangtrai">
+                <li class="tenchucnangtrai">Cửa hàng</li>
+                <li class="tenchucnangtrai">Câu hỏi thường gặp</li>
+                <li class="tenchucnangtrai">Hỗ trợ</li>
+
+            </ul>
+        </span>
+        <span class="khuchucnangphai">
+            <ul class="chucnangphai">
+                <li class="tenchucnangphai">Ngôn ngữ</li>
+                <li class="tenchucnangphai">Đăng nhập</li>
+            </ul>
+        </span>
+    </div>
+    <main class="main">
+        <div class="nengiua">
+            <div class="nencongcu">
+                <div class="nenthanhtimkiem">
+                    <div class="thanhtimkiem">
+                        <form action="" class="search" method="post">
+                            <input type="text" class="searchTerm" placeholder="Tìm ứng dụng...">
+                            <button type="submit" class="nuttimkiem">
+                            </button>
+                        </form>
+                    </div>
+                    <span class="khucongcu">
+                        <ul class="congcu">
+                            <li class="tencongcu">Game mới</li>
+                            <li class="tencongcu">Game mới</li>
+                            <li class="tencongcu">Game mới</li>
+                            <li class="tencongcu">Game mới</li>
+                            <li class="tencongcu">Game mới</li>
+        
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <div class="nenungdung">
+                <div class="slideshow">
+                    <div class="image">
+                        <div class="display-container">
+                       
+                            <img class="slides animate-fading" onclick="changeImage()" src="Images/nền ứng dụng 1.jpg">
+                            <img class="slides animate-fading" onclick="changeImage()" src="Images/ứng dụng 1.1.jpg">
+                            <img class="slides animate-fading" onclick="changeImage()" src="Images/ứng dụng 1.2.jpg">
+                             <!--Nút qua lại-->
+                            <button class="image-button button-left" onclick="plusDivs(-1)">&#10094;</button>
+                            <button class="image-button button-right" onclick="plusDivs(1)">&#10095;</button>
+                    
+                            <!-- Chấm tròn -->
+                            <div class="badge" style="width:100%">
+                            <span class="image-badge" onclick="currentDiv(1)"></span>
+                            <span class="image-badge" onclick="currentDiv(2)"></span>
+                            <span class="image-badge" onclick="currentDiv(3)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script language="Javascript" src="Trang Chủ.js"></script>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

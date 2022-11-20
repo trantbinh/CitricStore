@@ -1,0 +1,279 @@
+*{
+    margin: 0;
+}
+body{
+      font-family: 'Quicksand', sans-serif;
+      background-color:#303e47;
+      
+} 
+/* .body {
+   font-family: "Open Sans",sans-serif;
+   line-height: 1.7;
+   letter-spacing: .015em;
+   word-wrap: break-word;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+.body {
+   position: relative;
+   color: #d0d0d0;
+   background-color: #171e22;
+   padding-top: 40px;
+}
+.body {
+   margin: 0;
+   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1.5;
+   color: #212529;
+   text-align: left;
+} */
+.nengiua{
+   background-color:#e3c99a;
+   height: 2000px;
+   width: 1200px;
+   margin: 0px auto;
+   min-width: 1000px;
+}
+.thanhchucnang{
+   background-color: darkblue;
+   width: 100%;
+   height: 52px;
+   position: absolute;
+   z-index: 1;
+   min-width: 1000px;
+}
+.logo{
+   background-color: blueviolet;
+   height: 52px;
+   width: 52px;
+   margin-left: 30px;
+   position: absolute;
+}
+.tenweb{
+   background-color: white;
+   position: absolute;
+   width: 118px;
+   height: 52px;
+   margin-left: 82px;
+   text-align: center;
+} 
+.khuchucnangtrai{
+   background-color: darkgreen;
+   height: 52px;
+   width: 45%;
+   margin-left: 200px;
+   position: absolute;
+   display: flex;
+   flex-direction: row;
+}
+.chucnangtrai{
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+   display: flex;
+   align-items: center;
+   height: 100%;
+
+}
+.tenchucnangtrai{
+   padding: 15px;
+}
+.khuchucnangphai{
+   background-color: plum;
+   height: 52px;
+   width: 25%;
+   right: 0px;
+   position: absolute;
+   display: flex;
+   flex-direction: row-reverse;
+   
+}
+.chucnangphai{
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+   display: flex;
+   align-items: center;
+   height: 100%;
+
+}
+.tenchucnangphai{
+   padding: 15px;
+}
+
+
+
+.main{
+      width: 100%;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      z-index: auto;
+}
+.nencongcu{
+   background-color: pink;
+   height: 100px;
+   width: 1200px;
+   margin-top: 52px;
+   position: fixed;
+   min-width: 300px;
+   max-width: 1600px;
+   display: flex;
+   z-index: 10;
+}
+.nenthanhtimkiem{
+   background-color: yellowgreen;
+   width: 290px;
+   height: 100%;
+
+}
+.thanhtimkiem{
+   align-items: center;
+   height: 40px;
+   width: 230px;
+   top: 50%;
+   transform: translateY(-50%);
+   position: absolute;
+   display: flex;
+   border-radius: 24px;
+   min-width: 230px;
+   margin-left: 20px;
+}
+.searchTerm {
+   width: 100%;
+   border: 3px solid black;
+   border-right: none;
+   border-radius: 24px 0 0 24px;
+   outline: none;
+   color: #00B4CC;
+}
+.nuttimkiem{
+   height: 40px;
+   width: 40px;
+   background-color: #00B4CC;
+   border: 3px solid black;
+   border-left: none;
+   text-align: center;
+   border-radius: 0 24px 24px 0;
+   cursor: pointer;
+   font-size: 20px;
+}
+ .search {
+   width: 100%;
+   position: relative;
+   display: flex;
+ }
+.khucongcu{
+   background-color: coral;
+   height: 100%;
+   width: 910px;
+   right: 0;
+   position: absolute;
+   min-width: 300px;
+   display: flex;
+   flex-direction: row;
+}
+.congcu{
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+   align-items: center;
+   display: flex;
+   height: 100%;
+}
+.tencongcu{
+   padding-left: 10px;
+   padding-right: 20px;
+}
+
+
+.nenungdung{
+   background-color: chartreuse;
+   height: 1900px;
+   width: 1200px;
+   position: absolute;
+   top: 152px;
+   min-width: 300px;
+}
+
+/* Slide image auto */
+.slideshow{
+   background-color: violet;
+   width: 100%;
+   height: 360px;
+}
+.slides {
+   display:none; 
+   width:100%;
+   height: 360px;
+}
+
+.display-container{
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
+
+/*Nút qua lại*/
+.button-left{
+   left:1%; 
+   font-size:20px
+}
+.button-right{
+   right:1%; 
+   font-size:20px;
+}
+.image-button{
+   border:none;
+   display:inline-block;
+   padding:10px;
+   height:50px;
+   vertical-align:middle;
+   overflow:hidden; 
+   color:#fff;
+   background:#000;
+   position:absolute;
+   top:calc(50% - 25px); 
+   opacity:0.5;
+   top:50%;
+   transform: translateY(-50%);    
+}
+.image-button:hover{
+   color:#000;
+   background:#ccc;
+}
+/*Chấm tròn*/
+.badge {
+   text-align:center; 
+   margin-bottom:16px; 
+   font-size:20px;
+   position:absolute;
+   bottom:0;
+}
+.badge-white{
+   color:#000!important;
+   background-color:#fff!important}
+.image-badge {
+   display:inline-block;
+   border-radius:50%;
+   height:14px;
+   width:14px; 
+   border:1px solid #ccc;
+}
+.image-badge:hover{
+   background:#fff;
+}
+/*Hiệu ứng chuyển ảnh*/
+.animate-fading{
+   width:100%; 
+   animation:fading;
+   animation-duration: 11s;
+}
+@keyframes fading{
+   0%{opacity:0}
+   50%{opacity:1}
+   100%{opacity:0}
+}
