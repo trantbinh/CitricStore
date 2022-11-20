@@ -121,6 +121,26 @@
     <value>Câu hỏi thường gặp</value>
     <comment>_Layout_HomePage</comment>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Đăng Nhập</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Đăng Xuất</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>Member</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
+  <data name="PersonalInformation" xml:space="preserve">
+    <value>Xem Thông Tin</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
+  <data name="PurchasedOrders" xml:space="preserve">
+    <value>Đơn Hàng Đã Mua</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
   <data name="SearchInStore" xml:space="preserve">
     <value>Tìm kiếm ứng dụng...</value>
     <comment>_Layout_HomePage</comment>
@@ -133,5 +153,4 @@
     <value>Hỗ trợ</value>
     <comment>_Layout_HomePage</comment>
   </data>
-
 </root>
