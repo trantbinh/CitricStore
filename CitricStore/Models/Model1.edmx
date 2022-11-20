@@ -1,0 +1,1112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CitricStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="APP">
+          <Key>
+            <PropertyRef Name="MaApp" />
+          </Key>
+          <Property Name="MaApp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenApp" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GioiThieu" Type="ntext" />
+          <Property Name="DungLuong" Type="nvarchar" MaxLength="10" />
+          <Property Name="MaTheLoaiApp" Type="int" />
+          <Property Name="MaNPH" Type="int" />
+          <Property Name="MaHDH" Type="int" />
+          <Property Name="MaNgonNgu" Type="int" />
+          <Property Name="NgayCapNhat" Type="datetime" />
+          <Property Name="DanhGia" Type="nvarchar" MaxLength="5" />
+          <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HinhNen" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT1" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT2" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT3" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT4" Type="nvarchar" MaxLength="30" />
+          <Property Name="LinkTai" Type="ntext" />
+        </EntityType>
+        <EntityType Name="BANK">
+          <Key>
+            <PropertyRef Name="BankID" />
+          </Key>
+          <Property Name="BankID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="GAME">
+          <Key>
+            <PropertyRef Name="MaGame" />
+          </Key>
+          <Property Name="MaGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenGame" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GioiThieu" Type="ntext" />
+          <Property Name="DungLuong" Type="nvarchar" MaxLength="10" />
+          <Property Name="NgonNgu" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeDieuHanh" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaTheLoaiGame" Type="int" />
+          <Property Name="MaNPH" Type="int" />
+          <Property Name="MaHDH" Type="int" />
+          <Property Name="MaNgonNgu" Type="int" />
+          <Property Name="NgayCapNhat" Type="datetime" />
+          <Property Name="DanhGia" Type="nvarchar" MaxLength="5" />
+          <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HinhNen" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT1" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT2" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT3" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT4" Type="nvarchar" MaxLength="30" />
+          <Property Name="LinkTai" Type="ntext" />
+        </EntityType>
+        <EntityType Name="HEDIEUHANH">
+          <Key>
+            <PropertyRef Name="MaHDH" />
+          </Key>
+          <Property Name="MaHDH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHDH" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTenKH" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DienthoaiKH" Type="varchar" MaxLength="10" />
+          <Property Name="TenDN" Type="varchar" MaxLength="15" />
+          <Property Name="Matkhau" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Ngaysinh" Type="smalldatetime" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NGONNGU">
+          <Key>
+            <PropertyRef Name="MaNgonNgu" />
+          </Key>
+          <Property Name="MaNgonNgu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNgonNgu" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="NHAPHATHANH">
+          <Key>
+            <PropertyRef Name="MaNPH" />
+          </Key>
+          <Property Name="MaNPH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNPH" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORDER_INFO">
+          <Key>
+            <PropertyRef Name="MaOrder" />
+          </Key>
+          <Property Name="MaOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayOrder" Type="datetime" />
+          <Property Name="MaKH" Type="int" />
+          <Property Name="TenOrder" Type="nvarchar(max)" />
+          <Property Name="SDTOrder" Type="varchar" MaxLength="10" />
+          <Property Name="EmailOrder" Type="varchar" MaxLength="50" />
+          <Property Name="MaNganHang" Type="int" />
+          <Property Name="MaTaiKhoan" Type="varchar" MaxLength="50" />
+          <Property Name="TenTaiKhoan" Type="nvarchar(max)" />
+          <Property Name="TongTien" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="ORDER_PRODUCT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaUngDung" Type="int" />
+          <Property Name="MaOrder" Type="int" />
+          <Property Name="SoLuong" Type="int" />
+          <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="OVERALL">
+          <Key>
+            <PropertyRef Name="Ma" />
+          </Key>
+          <Property Name="Ma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GioiThieu" Type="ntext" />
+          <Property Name="DungLuong" Type="nvarchar" MaxLength="10" />
+          <Property Name="MaNPH" Type="int" />
+          <Property Name="MaHDH" Type="int" />
+          <Property Name="MaNgonNgu" Type="int" />
+          <Property Name="MaTheLoai" Type="int" />
+          <Property Name="NgayCapNhat" Type="datetime" />
+          <Property Name="DanhGia" Type="nvarchar" MaxLength="5" />
+          <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="HinhNen" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT1" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT2" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT3" Type="nvarchar" MaxLength="30" />
+          <Property Name="HinhCT4" Type="nvarchar" MaxLength="30" />
+          <Property Name="LinkTai" Type="ntext" />
+          <Property Name="AppOrGame" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="THELOAI">
+          <Key>
+            <PropertyRef Name="MaTheLoai" />
+          </Key>
+          <Property Name="MaTheLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTheLoai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="THELOAIAPP">
+          <Key>
+            <PropertyRef Name="MaTheLoaiApp" />
+          </Key>
+          <Property Name="MaTheLoaiApp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTheLoai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="THELOAIGAME">
+          <Key>
+            <PropertyRef Name="MaTheLoaiGame" />
+          </Key>
+          <Property Name="MaTheLoaiGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTheLoai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_APP_HEDIEUHANH">
+          <End Role="HEDIEUHANH" Type="Self.HEDIEUHANH" Multiplicity="0..1" />
+          <End Role="APP" Type="Self.APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HEDIEUHANH">
+              <PropertyRef Name="MaHDH" />
+            </Principal>
+            <Dependent Role="APP">
+              <PropertyRef Name="MaHDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_NGONNGU">
+          <End Role="NGONNGU" Type="Self.NGONNGU" Multiplicity="0..1" />
+          <End Role="APP" Type="Self.APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGONNGU">
+              <PropertyRef Name="MaNgonNgu" />
+            </Principal>
+            <Dependent Role="APP">
+              <PropertyRef Name="MaNgonNgu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_NHAPHATHANH">
+          <End Role="NHAPHATHANH" Type="Self.NHAPHATHANH" Multiplicity="0..1" />
+          <End Role="APP" Type="Self.APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAPHATHANH">
+              <PropertyRef Name="MaNPH" />
+            </Principal>
+            <Dependent Role="APP">
+              <PropertyRef Name="MaNPH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_THELOAIAPP">
+          <End Role="THELOAIAPP" Type="Self.THELOAIAPP" Multiplicity="0..1" />
+          <End Role="APP" Type="Self.APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THELOAIAPP">
+              <PropertyRef Name="MaTheLoaiApp" />
+            </Principal>
+            <Dependent Role="APP">
+              <PropertyRef Name="MaTheLoaiApp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GAME_HEDIEUHANH">
+          <End Role="HEDIEUHANH" Type="Self.HEDIEUHANH" Multiplicity="0..1" />
+          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HEDIEUHANH">
+              <PropertyRef Name="MaHDH" />
+            </Principal>
+            <Dependent Role="GAME">
+              <PropertyRef Name="MaHDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GAME_NGONNGU">
+          <End Role="NGONNGU" Type="Self.NGONNGU" Multiplicity="0..1" />
+          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGONNGU">
+              <PropertyRef Name="MaNgonNgu" />
+            </Principal>
+            <Dependent Role="GAME">
+              <PropertyRef Name="MaNgonNgu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GAME_NHAPHATHANH">
+          <End Role="NHAPHATHANH" Type="Self.NHAPHATHANH" Multiplicity="0..1" />
+          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAPHATHANH">
+              <PropertyRef Name="MaNPH" />
+            </Principal>
+            <Dependent Role="GAME">
+              <PropertyRef Name="MaNPH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GAME_THELOAIGAME">
+          <End Role="THELOAIGAME" Type="Self.THELOAIGAME" Multiplicity="0..1" />
+          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THELOAIGAME">
+              <PropertyRef Name="MaTheLoaiGame" />
+            </Principal>
+            <Dependent Role="GAME">
+              <PropertyRef Name="MaTheLoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERINFO_BANK">
+          <End Role="BANK" Type="Self.BANK" Multiplicity="0..1" />
+          <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANK">
+              <PropertyRef Name="BankID" />
+            </Principal>
+            <Dependent Role="ORDER_INFO">
+              <PropertyRef Name="MaNganHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERINFO_KHACHHANG">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+          <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="ORDER_INFO">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERPRODUCT_ORDERINFO">
+          <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="0..1" />
+          <End Role="ORDER_PRODUCT" Type="Self.ORDER_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_INFO">
+              <PropertyRef Name="MaOrder" />
+            </Principal>
+            <Dependent Role="ORDER_PRODUCT">
+              <PropertyRef Name="MaOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERPRODUCT_OVERALL">
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="0..1" />
+          <End Role="ORDER_PRODUCT" Type="Self.ORDER_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OVERALL">
+              <PropertyRef Name="Ma" />
+            </Principal>
+            <Dependent Role="ORDER_PRODUCT">
+              <PropertyRef Name="MaUngDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OVERALL_HEDIEUHANH">
+          <End Role="HEDIEUHANH" Type="Self.HEDIEUHANH" Multiplicity="0..1" />
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HEDIEUHANH">
+              <PropertyRef Name="MaHDH" />
+            </Principal>
+            <Dependent Role="OVERALL">
+              <PropertyRef Name="MaHDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OVERALL_NGONNGU">
+          <End Role="NGONNGU" Type="Self.NGONNGU" Multiplicity="0..1" />
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGONNGU">
+              <PropertyRef Name="MaNgonNgu" />
+            </Principal>
+            <Dependent Role="OVERALL">
+              <PropertyRef Name="MaNgonNgu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OVERALL_NHAPHATHANH">
+          <End Role="NHAPHATHANH" Type="Self.NHAPHATHANH" Multiplicity="0..1" />
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAPHATHANH">
+              <PropertyRef Name="MaNPH" />
+            </Principal>
+            <Dependent Role="OVERALL">
+              <PropertyRef Name="MaNPH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OVERALL_THELOAI">
+          <End Role="THELOAI" Type="Self.THELOAI" Multiplicity="0..1" />
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THELOAI">
+              <PropertyRef Name="MaTheLoai" />
+            </Principal>
+            <Dependent Role="OVERALL">
+              <PropertyRef Name="MaTheLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CitricStoreModelStoreContainer">
+          <EntitySet Name="APP" EntityType="Self.APP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BANK" EntityType="Self.BANK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GAME" EntityType="Self.GAME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HEDIEUHANH" EntityType="Self.HEDIEUHANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGONNGU" EntityType="Self.NGONNGU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHAPHATHANH" EntityType="Self.NHAPHATHANH" Schema="dbo" store:Type="Tables" />
+
+          <EntitySet Name="ORDER_INFO" EntityType="Self.ORDER_INFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDER_PRODUCT" EntityType="Self.ORDER_PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OVERALL" EntityType="Self.OVERALL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
+
+          <EntitySet Name="THELOAIAPP" EntityType="Self.THELOAIAPP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THELOAIGAME" EntityType="Self.THELOAIGAME" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_APP_HEDIEUHANH" Association="Self.FK_APP_HEDIEUHANH">
+            <End Role="HEDIEUHANH" EntitySet="HEDIEUHANH" />
+            <End Role="APP" EntitySet="APP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_NGONNGU" Association="Self.FK_APP_NGONNGU">
+            <End Role="NGONNGU" EntitySet="NGONNGU" />
+            <End Role="APP" EntitySet="APP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_NHAPHATHANH" Association="Self.FK_APP_NHAPHATHANH">
+            <End Role="NHAPHATHANH" EntitySet="NHAPHATHANH" />
+            <End Role="APP" EntitySet="APP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_THELOAIAPP" Association="Self.FK_APP_THELOAIAPP">
+            <End Role="THELOAIAPP" EntitySet="THELOAIAPP" />
+            <End Role="APP" EntitySet="APP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GAME_HEDIEUHANH" Association="Self.FK_GAME_HEDIEUHANH">
+            <End Role="HEDIEUHANH" EntitySet="HEDIEUHANH" />
+            <End Role="GAME" EntitySet="GAME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GAME_NGONNGU" Association="Self.FK_GAME_NGONNGU">
+            <End Role="NGONNGU" EntitySet="NGONNGU" />
+            <End Role="GAME" EntitySet="GAME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GAME_NHAPHATHANH" Association="Self.FK_GAME_NHAPHATHANH">
+            <End Role="NHAPHATHANH" EntitySet="NHAPHATHANH" />
+            <End Role="GAME" EntitySet="GAME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GAME_THELOAIGAME" Association="Self.FK_GAME_THELOAIGAME">
+            <End Role="THELOAIGAME" EntitySet="THELOAIGAME" />
+            <End Role="GAME" EntitySet="GAME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERINFO_BANK" Association="Self.FK_ORDERINFO_BANK">
+            <End Role="BANK" EntitySet="BANK" />
+            <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERINFO_KHACHHANG" Association="Self.FK_ORDERINFO_KHACHHANG">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERPRODUCT_ORDERINFO" Association="Self.FK_ORDERPRODUCT_ORDERINFO">
+            <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
+            <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERPRODUCT_OVERALL" Association="Self.FK_ORDERPRODUCT_OVERALL">
+            <End Role="OVERALL" EntitySet="OVERALL" />
+            <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OVERALL_HEDIEUHANH" Association="Self.FK_OVERALL_HEDIEUHANH">
+            <End Role="HEDIEUHANH" EntitySet="HEDIEUHANH" />
+            <End Role="OVERALL" EntitySet="OVERALL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OVERALL_NGONNGU" Association="Self.FK_OVERALL_NGONNGU">
+            <End Role="NGONNGU" EntitySet="NGONNGU" />
+            <End Role="OVERALL" EntitySet="OVERALL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OVERALL_NHAPHATHANH" Association="Self.FK_OVERALL_NHAPHATHANH">
+            <End Role="NHAPHATHANH" EntitySet="NHAPHATHANH" />
+            <End Role="OVERALL" EntitySet="OVERALL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OVERALL_THELOAI" Association="Self.FK_OVERALL_THELOAI">
+            <End Role="THELOAI" EntitySet="THELOAI" />
+            <End Role="OVERALL" EntitySet="OVERALL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CitricStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="APP">
+          <Key>
+            <PropertyRef Name="MaApp" />
+          </Key>
+          <Property Name="MaApp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenApp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GioiThieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DungLuong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MaTheLoaiApp" Type="Int32" />
+          <Property Name="MaNPH" Type="Int32" />
+          <Property Name="MaHDH" Type="Int32" />
+          <Property Name="MaNgonNgu" Type="Int32" />
+          <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+          <Property Name="DanhGia" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HinhNen" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LinkTai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HEDIEUHANH" Relationship="Self.FK_APP_HEDIEUHANH" FromRole="APP" ToRole="HEDIEUHANH" />
+          <NavigationProperty Name="NGONNGU" Relationship="Self.FK_APP_NGONNGU" FromRole="APP" ToRole="NGONNGU" />
+          <NavigationProperty Name="NHAPHATHANH" Relationship="Self.FK_APP_NHAPHATHANH" FromRole="APP" ToRole="NHAPHATHANH" />
+          <NavigationProperty Name="THELOAIAPP" Relationship="Self.FK_APP_THELOAIAPP" FromRole="APP" ToRole="THELOAIAPP" />
+        </EntityType>
+        <EntityType Name="BANK">
+          <Key>
+            <PropertyRef Name="BankID" />
+          </Key>
+          <Property Name="BankID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ORDER_INFO" Relationship="Self.FK_ORDERINFO_BANK" FromRole="BANK" ToRole="ORDER_INFO" />
+        </EntityType>
+        <EntityType Name="GAME">
+          <Key>
+            <PropertyRef Name="MaGame" />
+          </Key>
+          <Property Name="MaGame" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenGame" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GioiThieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DungLuong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NgonNgu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeDieuHanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaTheLoaiGame" Type="Int32" />
+          <Property Name="MaNPH" Type="Int32" />
+          <Property Name="MaHDH" Type="Int32" />
+          <Property Name="MaNgonNgu" Type="Int32" />
+          <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+          <Property Name="DanhGia" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HinhNen" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LinkTai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HEDIEUHANH1" Relationship="Self.FK_GAME_HEDIEUHANH" FromRole="GAME" ToRole="HEDIEUHANH" />
+          <NavigationProperty Name="NGONNGU1" Relationship="Self.FK_GAME_NGONNGU" FromRole="GAME" ToRole="NGONNGU" />
+          <NavigationProperty Name="NHAPHATHANH" Relationship="Self.FK_GAME_NHAPHATHANH" FromRole="GAME" ToRole="NHAPHATHANH" />
+          <NavigationProperty Name="THELOAIGAME" Relationship="Self.FK_GAME_THELOAIGAME" FromRole="GAME" ToRole="THELOAIGAME" />
+        </EntityType>
+        <EntityType Name="HEDIEUHANH">
+          <Key>
+            <PropertyRef Name="MaHDH" />
+          </Key>
+          <Property Name="MaHDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenHDH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="APPs" Relationship="Self.FK_APP_HEDIEUHANH" FromRole="HEDIEUHANH" ToRole="APP" />
+          <NavigationProperty Name="GAMEs" Relationship="Self.FK_GAME_HEDIEUHANH" FromRole="HEDIEUHANH" ToRole="GAME" />
+          <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_HEDIEUHANH" FromRole="HEDIEUHANH" ToRole="OVERALL" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DienthoaiKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TenDN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Matkhau" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ngaysinh" Type="DateTime" Precision="0" />
+          <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ORDER_INFO" Relationship="Self.FK_ORDERINFO_KHACHHANG" FromRole="KHACHHANG" ToRole="ORDER_INFO" />
+        </EntityType>
+        <EntityType Name="NGONNGU">
+          <Key>
+            <PropertyRef Name="MaNgonNgu" />
+          </Key>
+          <Property Name="MaNgonNgu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNgonNgu" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="APPs" Relationship="Self.FK_APP_NGONNGU" FromRole="NGONNGU" ToRole="APP" />
+          <NavigationProperty Name="GAMEs" Relationship="Self.FK_GAME_NGONNGU" FromRole="NGONNGU" ToRole="GAME" />
+          <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_NGONNGU" FromRole="NGONNGU" ToRole="OVERALL" />
+        </EntityType>
+        <EntityType Name="NHAPHATHANH">
+          <Key>
+            <PropertyRef Name="MaNPH" />
+          </Key>
+          <Property Name="MaNPH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNPH" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="APPs" Relationship="Self.FK_APP_NHAPHATHANH" FromRole="NHAPHATHANH" ToRole="APP" />
+          <NavigationProperty Name="GAMEs" Relationship="Self.FK_GAME_NHAPHATHANH" FromRole="NHAPHATHANH" ToRole="GAME" />
+          <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_NHAPHATHANH" FromRole="NHAPHATHANH" ToRole="OVERALL" />
+        </EntityType>
+        <EntityType Name="ORDER_INFO">
+          <Key>
+            <PropertyRef Name="MaOrder" />
+          </Key>
+          <Property Name="MaOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayOrder" Type="DateTime" Precision="3" />
+          <Property Name="MaKH" Type="Int32" />
+          <Property Name="TenOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SDTOrder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EmailOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaNganHang" Type="Int32" />
+          <Property Name="MaTaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TenTaiKhoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TongTien" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="BANK" Relationship="Self.FK_ORDERINFO_BANK" FromRole="ORDER_INFO" ToRole="BANK" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_ORDERINFO_KHACHHANG" FromRole="ORDER_INFO" ToRole="KHACHHANG" />
+          <NavigationProperty Name="ORDER_PRODUCT" Relationship="Self.FK_ORDERPRODUCT_ORDERINFO" FromRole="ORDER_INFO" ToRole="ORDER_PRODUCT" />
+        </EntityType>
+        <EntityType Name="ORDER_PRODUCT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaUngDung" Type="Int32" />
+          <Property Name="MaOrder" Type="Int32" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="ORDER_INFO" Relationship="Self.FK_ORDERPRODUCT_ORDERINFO" FromRole="ORDER_PRODUCT" ToRole="ORDER_INFO" />
+          <NavigationProperty Name="OVERALL" Relationship="Self.FK_ORDERPRODUCT_OVERALL" FromRole="ORDER_PRODUCT" ToRole="OVERALL" />
+        </EntityType>
+        <EntityType Name="OVERALL">
+          <Key>
+            <PropertyRef Name="Ma" />
+          </Key>
+          <Property Name="Ma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GioiThieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DungLuong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MaNPH" Type="Int32" />
+          <Property Name="MaHDH" Type="Int32" />
+          <Property Name="MaNgonNgu" Type="Int32" />
+          <Property Name="MaTheLoai" Type="Int32" />
+          <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+          <Property Name="DanhGia" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="HinhNen" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HinhCT4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LinkTai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AppOrGame" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HEDIEUHANH" Relationship="Self.FK_OVERALL_HEDIEUHANH" FromRole="OVERALL" ToRole="HEDIEUHANH" />
+          <NavigationProperty Name="NGONNGU" Relationship="Self.FK_OVERALL_NGONNGU" FromRole="OVERALL" ToRole="NGONNGU" />
+          <NavigationProperty Name="NHAPHATHANH" Relationship="Self.FK_OVERALL_NHAPHATHANH" FromRole="OVERALL" ToRole="NHAPHATHANH" />
+          <NavigationProperty Name="ORDER_PRODUCT" Relationship="Self.FK_ORDERPRODUCT_OVERALL" FromRole="OVERALL" ToRole="ORDER_PRODUCT" />
+          <NavigationProperty Name="THELOAI" Relationship="Self.FK_OVERALL_THELOAI" FromRole="OVERALL" ToRole="THELOAI" />
+        </EntityType>
+        <EntityType Name="THELOAI">
+          <Key>
+            <PropertyRef Name="MaTheLoai" />
+          </Key>
+          <Property Name="MaTheLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_THELOAI" FromRole="THELOAI" ToRole="OVERALL" />
+        </EntityType>
+        <EntityType Name="THELOAIAPP">
+          <Key>
+            <PropertyRef Name="MaTheLoaiApp" />
+          </Key>
+          <Property Name="MaTheLoaiApp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="APPs" Relationship="Self.FK_APP_THELOAIAPP" FromRole="THELOAIAPP" ToRole="APP" />
+        </EntityType>
+        <EntityType Name="THELOAIGAME">
+          <Key>
+            <PropertyRef Name="MaTheLoaiGame" />
+          </Key>
+          <Property Name="MaTheLoaiGame" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GAMEs" Relationship="Self.FK_GAME_THELOAIGAME" FromRole="THELOAIGAME" ToRole="GAME" />
+        </EntityType>
+        <Association Name="FK_APP_HEDIEUHANH">
+          <End Role="HEDIEUHANH" Type="Self.HEDIEUHANH" Multiplicity="0..1" />
+          <End Role="APP" Type="Self.APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HEDIEUHANH">
+              <PropertyRef Name="MaHDH" />
+            </Principal>
+            <Dependent Role="APP">
+              <PropertyRef Name="MaHDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_NGONNGU">
+          <End Role="NGONNGU" Type="Self.NGONNGU" Multiplicity="0..1" />
+          <End Role="APP" Type="Self.APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGONNGU">
+              <PropertyRef Name="MaNgonNgu" />
+            </Principal>
+            <Dependent Role="APP">
+              <PropertyRef Name="MaNgonNgu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_NHAPHATHANH">
+          <End Role="NHAPHATHANH" Type="Self.NHAPHATHANH" Multiplicity="0..1" />
+          <End Role="APP" Type="Self.APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAPHATHANH">
+              <PropertyRef Name="MaNPH" />
+            </Principal>
+            <Dependent Role="APP">
+              <PropertyRef Name="MaNPH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APP_THELOAIAPP">
+          <End Role="THELOAIAPP" Type="Self.THELOAIAPP" Multiplicity="0..1" />
+          <End Role="APP" Type="Self.APP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THELOAIAPP">
+              <PropertyRef Name="MaTheLoaiApp" />
+            </Principal>
+            <Dependent Role="APP">
+              <PropertyRef Name="MaTheLoaiApp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERINFO_BANK">
+          <End Role="BANK" Type="Self.BANK" Multiplicity="0..1" />
+          <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANK">
+              <PropertyRef Name="BankID" />
+            </Principal>
+            <Dependent Role="ORDER_INFO">
+              <PropertyRef Name="MaNganHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GAME_HEDIEUHANH">
+          <End Role="HEDIEUHANH" Type="Self.HEDIEUHANH" Multiplicity="0..1" />
+          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HEDIEUHANH">
+              <PropertyRef Name="MaHDH" />
+            </Principal>
+            <Dependent Role="GAME">
+              <PropertyRef Name="MaHDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GAME_NGONNGU">
+          <End Role="NGONNGU" Type="Self.NGONNGU" Multiplicity="0..1" />
+          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGONNGU">
+              <PropertyRef Name="MaNgonNgu" />
+            </Principal>
+            <Dependent Role="GAME">
+              <PropertyRef Name="MaNgonNgu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GAME_NHAPHATHANH">
+          <End Role="NHAPHATHANH" Type="Self.NHAPHATHANH" Multiplicity="0..1" />
+          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAPHATHANH">
+              <PropertyRef Name="MaNPH" />
+            </Principal>
+            <Dependent Role="GAME">
+              <PropertyRef Name="MaNPH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GAME_THELOAIGAME">
+          <End Role="THELOAIGAME" Type="Self.THELOAIGAME" Multiplicity="0..1" />
+          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THELOAIGAME">
+              <PropertyRef Name="MaTheLoaiGame" />
+            </Principal>
+            <Dependent Role="GAME">
+              <PropertyRef Name="MaTheLoaiGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OVERALL_HEDIEUHANH">
+          <End Role="HEDIEUHANH" Type="Self.HEDIEUHANH" Multiplicity="0..1" />
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HEDIEUHANH">
+              <PropertyRef Name="MaHDH" />
+            </Principal>
+            <Dependent Role="OVERALL">
+              <PropertyRef Name="MaHDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERINFO_KHACHHANG">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+          <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="ORDER_INFO">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OVERALL_NGONNGU">
+          <End Role="NGONNGU" Type="Self.NGONNGU" Multiplicity="0..1" />
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGONNGU">
+              <PropertyRef Name="MaNgonNgu" />
+            </Principal>
+            <Dependent Role="OVERALL">
+              <PropertyRef Name="MaNgonNgu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OVERALL_NHAPHATHANH">
+          <End Role="NHAPHATHANH" Type="Self.NHAPHATHANH" Multiplicity="0..1" />
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHAPHATHANH">
+              <PropertyRef Name="MaNPH" />
+            </Principal>
+            <Dependent Role="OVERALL">
+              <PropertyRef Name="MaNPH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERPRODUCT_ORDERINFO">
+          <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="0..1" />
+          <End Role="ORDER_PRODUCT" Type="Self.ORDER_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_INFO">
+              <PropertyRef Name="MaOrder" />
+            </Principal>
+            <Dependent Role="ORDER_PRODUCT">
+              <PropertyRef Name="MaOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERPRODUCT_OVERALL">
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="0..1" />
+          <End Role="ORDER_PRODUCT" Type="Self.ORDER_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OVERALL">
+              <PropertyRef Name="Ma" />
+            </Principal>
+            <Dependent Role="ORDER_PRODUCT">
+              <PropertyRef Name="MaUngDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OVERALL_THELOAI">
+          <End Role="THELOAI" Type="Self.THELOAI" Multiplicity="0..1" />
+          <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THELOAI">
+              <PropertyRef Name="MaTheLoai" />
+            </Principal>
+            <Dependent Role="OVERALL">
+              <PropertyRef Name="MaTheLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CitricStoreEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="APPs" EntityType="Self.APP" />
+          <EntitySet Name="BANKs" EntityType="Self.BANK" />
+          <EntitySet Name="GAMEs" EntityType="Self.GAME" />
+          <EntitySet Name="HEDIEUHANHs" EntityType="Self.HEDIEUHANH" />
+          <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="NGONNGUs" EntityType="Self.NGONNGU" />
+          <EntitySet Name="NHAPHATHANHs" EntityType="Self.NHAPHATHANH" />
+          <EntitySet Name="ORDER_INFO" EntityType="Self.ORDER_INFO" />
+          <EntitySet Name="ORDER_PRODUCT" EntityType="Self.ORDER_PRODUCT" />
+          <EntitySet Name="OVERALLs" EntityType="Self.OVERALL" />
+          <EntitySet Name="THELOAIs" EntityType="Self.THELOAI" />
+          <EntitySet Name="THELOAIAPPs" EntityType="Self.THELOAIAPP" />
+          <EntitySet Name="THELOAIGAMEs" EntityType="Self.THELOAIGAME" />
+          <AssociationSet Name="FK_APP_HEDIEUHANH" Association="Self.FK_APP_HEDIEUHANH">
+            <End Role="HEDIEUHANH" EntitySet="HEDIEUHANHs" />
+            <End Role="APP" EntitySet="APPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_NGONNGU" Association="Self.FK_APP_NGONNGU">
+            <End Role="NGONNGU" EntitySet="NGONNGUs" />
+            <End Role="APP" EntitySet="APPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_NHAPHATHANH" Association="Self.FK_APP_NHAPHATHANH">
+            <End Role="NHAPHATHANH" EntitySet="NHAPHATHANHs" />
+            <End Role="APP" EntitySet="APPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APP_THELOAIAPP" Association="Self.FK_APP_THELOAIAPP">
+            <End Role="THELOAIAPP" EntitySet="THELOAIAPPs" />
+            <End Role="APP" EntitySet="APPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERINFO_BANK" Association="Self.FK_ORDERINFO_BANK">
+            <End Role="BANK" EntitySet="BANKs" />
+            <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GAME_HEDIEUHANH" Association="Self.FK_GAME_HEDIEUHANH">
+            <End Role="HEDIEUHANH" EntitySet="HEDIEUHANHs" />
+            <End Role="GAME" EntitySet="GAMEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GAME_NGONNGU" Association="Self.FK_GAME_NGONNGU">
+            <End Role="NGONNGU" EntitySet="NGONNGUs" />
+            <End Role="GAME" EntitySet="GAMEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GAME_NHAPHATHANH" Association="Self.FK_GAME_NHAPHATHANH">
+            <End Role="NHAPHATHANH" EntitySet="NHAPHATHANHs" />
+            <End Role="GAME" EntitySet="GAMEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GAME_THELOAIGAME" Association="Self.FK_GAME_THELOAIGAME">
+            <End Role="THELOAIGAME" EntitySet="THELOAIGAMEs" />
+            <End Role="GAME" EntitySet="GAMEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OVERALL_HEDIEUHANH" Association="Self.FK_OVERALL_HEDIEUHANH">
+            <End Role="HEDIEUHANH" EntitySet="HEDIEUHANHs" />
+            <End Role="OVERALL" EntitySet="OVERALLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERINFO_KHACHHANG" Association="Self.FK_ORDERINFO_KHACHHANG">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OVERALL_NGONNGU" Association="Self.FK_OVERALL_NGONNGU">
+            <End Role="NGONNGU" EntitySet="NGONNGUs" />
+            <End Role="OVERALL" EntitySet="OVERALLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OVERALL_NHAPHATHANH" Association="Self.FK_OVERALL_NHAPHATHANH">
+            <End Role="NHAPHATHANH" EntitySet="NHAPHATHANHs" />
+            <End Role="OVERALL" EntitySet="OVERALLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERPRODUCT_ORDERINFO" Association="Self.FK_ORDERPRODUCT_ORDERINFO">
+            <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
+            <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERPRODUCT_OVERALL" Association="Self.FK_ORDERPRODUCT_OVERALL">
+            <End Role="OVERALL" EntitySet="OVERALLs" />
+            <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OVERALL_THELOAI" Association="Self.FK_OVERALL_THELOAI">
+            <End Role="THELOAI" EntitySet="THELOAIs" />
+            <End Role="OVERALL" EntitySet="OVERALLs" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="CitricStoreModel.sysdiagram" />
+        </EntityContainer>
+
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CitricStoreModelStoreContainer" CdmEntityContainer="CitricStoreEntities4">
+          <EntitySetMapping Name="APPs">
+            <EntityTypeMapping TypeName="CitricStoreModel.APP">
+              <MappingFragment StoreEntitySet="APP">
+                <ScalarProperty Name="MaApp" ColumnName="MaApp" />
+                <ScalarProperty Name="TenApp" ColumnName="TenApp" />
+                <ScalarProperty Name="GioiThieu" ColumnName="GioiThieu" />
+                <ScalarProperty Name="DungLuong" ColumnName="DungLuong" />
+                <ScalarProperty Name="MaTheLoaiApp" ColumnName="MaTheLoaiApp" />
+                <ScalarProperty Name="MaNPH" ColumnName="MaNPH" />
+                <ScalarProperty Name="MaHDH" ColumnName="MaHDH" />
+                <ScalarProperty Name="MaNgonNgu" ColumnName="MaNgonNgu" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+                <ScalarProperty Name="DanhGia" ColumnName="DanhGia" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="HinhNen" ColumnName="HinhNen" />
+                <ScalarProperty Name="HinhCT1" ColumnName="HinhCT1" />
+                <ScalarProperty Name="HinhCT2" ColumnName="HinhCT2" />
+                <ScalarProperty Name="HinhCT3" ColumnName="HinhCT3" />
+                <ScalarProperty Name="HinhCT4" ColumnName="HinhCT4" />
+                <ScalarProperty Name="LinkTai" ColumnName="LinkTai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BANKs">
+            <EntityTypeMapping TypeName="CitricStoreModel.BANK">
+              <MappingFragment StoreEntitySet="BANK">
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GAMEs">
+            <EntityTypeMapping TypeName="CitricStoreModel.GAME">
+              <MappingFragment StoreEntitySet="GAME">
+                <ScalarProperty Name="MaGame" ColumnName="MaGame" />
+                <ScalarProperty Name="TenGame" ColumnName="TenGame" />
+                <ScalarProperty Name="GioiThieu" ColumnName="GioiThieu" />
+                <ScalarProperty Name="DungLuong" ColumnName="DungLuong" />
+                <ScalarProperty Name="NgonNgu" ColumnName="NgonNgu" />
+                <ScalarProperty Name="HeDieuHanh" ColumnName="HeDieuHanh" />
+                <ScalarProperty Name="MaTheLoaiGame" ColumnName="MaTheLoaiGame" />
+                <ScalarProperty Name="MaNPH" ColumnName="MaNPH" />
+                <ScalarProperty Name="MaHDH" ColumnName="MaHDH" />
+                <ScalarProperty Name="MaNgonNgu" ColumnName="MaNgonNgu" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+                <ScalarProperty Name="DanhGia" ColumnName="DanhGia" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="HinhNen" ColumnName="HinhNen" />
+                <ScalarProperty Name="HinhCT1" ColumnName="HinhCT1" />
+                <ScalarProperty Name="HinhCT2" ColumnName="HinhCT2" />
+                <ScalarProperty Name="HinhCT3" ColumnName="HinhCT3" />
+                <ScalarProperty Name="HinhCT4" ColumnName="HinhCT4" />
+                <ScalarProperty Name="LinkTai" ColumnName="LinkTai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HEDIEUHANHs">
+            <EntityTypeMapping TypeName="CitricStoreModel.HEDIEUHANH">
+              <MappingFragment StoreEntitySet="HEDIEUHANH">
+                <ScalarProperty Name="MaHDH" ColumnName="MaHDH" />
+                <ScalarProperty Name="TenHDH" ColumnName="TenHDH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="CitricStoreModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="HoTenKH" ColumnName="HoTenKH" />
+                <ScalarProperty Name="DienthoaiKH" ColumnName="DienthoaiKH" />
+                <ScalarProperty Name="TenDN" ColumnName="TenDN" />
+                <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+                <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NGONNGUs">
+            <EntityTypeMapping TypeName="CitricStoreModel.NGONNGU">
+              <MappingFragment StoreEntitySet="NGONNGU">
+                <ScalarProperty Name="MaNgonNgu" ColumnName="MaNgonNgu" />
+                <ScalarProperty Name="TenNgonNgu" ColumnName="TenNgonNgu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHAPHATHANHs">
+            <EntityTypeMapping TypeName="CitricStoreModel.NHAPHATHANH">
+              <MappingFragment StoreEntitySet="NHAPHATHANH">
+                <ScalarProperty Name="MaNPH" ColumnName="MaNPH" />
+                <ScalarProperty Name="TenNPH" ColumnName="TenNPH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_INFO">
+            <EntityTypeMapping TypeName="CitricStoreModel.ORDER_INFO">
+              <MappingFragment StoreEntitySet="ORDER_INFO">
+                <ScalarProperty Name="MaOrder" ColumnName="MaOrder" />
+                <ScalarProperty Name="NgayOrder" ColumnName="NgayOrder" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="TenOrder" ColumnName="TenOrder" />
+                <ScalarProperty Name="SDTOrder" ColumnName="SDTOrder" />
+                <ScalarProperty Name="EmailOrder" ColumnName="EmailOrder" />
+                <ScalarProperty Name="MaNganHang" ColumnName="MaNganHang" />
+                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_PRODUCT">
+            <EntityTypeMapping TypeName="CitricStoreModel.ORDER_PRODUCT">
+              <MappingFragment StoreEntitySet="ORDER_PRODUCT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MaUngDung" ColumnName="MaUngDung" />
+                <ScalarProperty Name="MaOrder" ColumnName="MaOrder" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OVERALLs">
+            <EntityTypeMapping TypeName="CitricStoreModel.OVERALL">
+              <MappingFragment StoreEntitySet="OVERALL">
+                <ScalarProperty Name="Ma" ColumnName="Ma" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="GioiThieu" ColumnName="GioiThieu" />
+                <ScalarProperty Name="DungLuong" ColumnName="DungLuong" />
+                <ScalarProperty Name="MaNPH" ColumnName="MaNPH" />
+                <ScalarProperty Name="MaHDH" ColumnName="MaHDH" />
+                <ScalarProperty Name="MaNgonNgu" ColumnName="MaNgonNgu" />
+                <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+                <ScalarProperty Name="DanhGia" ColumnName="DanhGia" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="HinhNen" ColumnName="HinhNen" />
+                <ScalarProperty Name="HinhCT1" ColumnName="HinhCT1" />
+                <ScalarProperty Name="HinhCT2" ColumnName="HinhCT2" />
+                <ScalarProperty Name="HinhCT3" ColumnName="HinhCT3" />
+                <ScalarProperty Name="HinhCT4" ColumnName="HinhCT4" />
+                <ScalarProperty Name="LinkTai" ColumnName="LinkTai" />
+                <ScalarProperty Name="AppOrGame" ColumnName="AppOrGame" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THELOAIs">
+            <EntityTypeMapping TypeName="CitricStoreModel.THELOAI">
+              <MappingFragment StoreEntitySet="THELOAI">
+                <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
+                <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THELOAIAPPs">
+            <EntityTypeMapping TypeName="CitricStoreModel.THELOAIAPP">
+              <MappingFragment StoreEntitySet="THELOAIAPP">
+                <ScalarProperty Name="MaTheLoaiApp" ColumnName="MaTheLoaiApp" />
+                <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THELOAIGAMEs">
+            <EntityTypeMapping TypeName="CitricStoreModel.THELOAIGAME">
+              <MappingFragment StoreEntitySet="THELOAIGAME">
+                <ScalarProperty Name="MaTheLoaiGame" ColumnName="MaTheLoaiGame" />
+                <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

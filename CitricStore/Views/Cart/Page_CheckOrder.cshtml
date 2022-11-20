@@ -1,0 +1,65 @@
+﻿@using CitricStore.Models
+@{
+    ViewBag.Title = "Page_CheckOrder";
+    Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<style>
+    .thanhtoan{
+        color:white;
+        font-size:16px;
+        margin-left:200px;
+    }
+</style>
+<div class="container" style="margin:0px auto; min-height:900px;">
+    <h3 style="text-align: center; color:white">KIỂM TRA THÔNG TIN ĐƠN HÀNG</h3>
+    <div style="color:white; font-size:18px;">
+        <table class="table table-borderless" style="color:white; text-align:center; table-layout:fixed; width:100%">
+            <thead>
+                <tr>
+                    <th colspan="2">ỨNG DỤNG</th>
+
+                    <th>SỐ LƯỢNG</th>
+                    <th>ĐƠN GIÁ</th>
+                    <th>THÀNH TIỀN</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+
+                {
+                    <tr>
+                        <td><img src="~/Images/OVERALL/@product.HinhNen" style="width:100px; height:100px;" /></td>
+                        <td class="align-middle" style="font-size:25px; font-weight:500;">@product.TenUngDung</td>
+
+                        <td class="align-middle">@product.SoLuong</td>
+                        <td class="align-middle">@String.Format("{0:0,0}", @product.DonGia) VND</td>
+                        <td class="align-middle">@String.Format("{0:0,0}", @product.FinalPrice()) VND</td>
+                    </tr>
+                }
+                <tr style="font-size: 22px; font-weight: 500; text-align: right; color: white;">
+                    <td></td>
+                    <td colspan="2" style="text-align:right">Tống số lượng: @ViewBag.TotalNumber</td>
+                    <td colspan="2" style="text-align:center">Tổng thanh toán: @String.Format("{0:0,0}", @ViewBag.TotalPrice) VND</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr />
+    <h3 style="text-align: center; color:white; margin-top:50px;">THÔNG TIN THANH TOÁN VÀ NHẬN HÀNG</h3>
+    @Html.Action("Page_ShowPayment", "Cart", new { idor = Session["MaOrder"] })
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xác nhận đơn hàng"class="btn btn-dark" style="margin-top:20px; margin-left:430px; font-size:23px;" />
+            @*@Html.ActionLink("Quay về", "Page_Payment")*@
+        </div>
+    }
+</div>
+

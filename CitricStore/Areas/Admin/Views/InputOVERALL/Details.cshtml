@@ -1,0 +1,155 @@
+﻿@model CitricStore.Models.OVERALL
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OVERALL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiThieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiThieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DungLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DungLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkTai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkTai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhNen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhNen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhCT1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhCT1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhCT2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhCT2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhCT3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhCT3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhCT4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhCT4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppOrGame)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppOrGame)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HEDIEUHANH.TenHDH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HEDIEUHANH.TenHDH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGONNGU.TenNgonNgu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGONNGU.TenNgonNgu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHAPHATHANH.TenNPH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHAPHATHANH.TenNPH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THELOAI.TenTheLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THELOAI.TenTheLoai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Ma }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

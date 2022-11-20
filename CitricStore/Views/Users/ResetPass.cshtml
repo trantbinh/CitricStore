@@ -1,0 +1,59 @@
+﻿@model CitricStore.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "ResetPass";
+    Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/User.css" />
+
+<div class="container col-lg-5 col-md-11" style="margin:0px auto;">
+    <h2 style="text-align: center; color:white">ĐẶT LẠI MẬT KHẨU</h2>
+    <h2 style="color: #FCAE03; margin: 0px auto; font-size: 20px;">@ViewBag.ThongBao</h2>
+
+    <div style="color:white; font-size:18px;">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.MaKH)
+                @Html.HiddenFor(model => model.TenDN)
+                @Html.HiddenFor(model => model.Email)
+                @Html.HiddenFor(model => model.GioiTinh)
+                @Html.HiddenFor(model => model.DienthoaiKH)
+                @Html.HiddenFor(model => model.HoTenKH)
+                @Html.HiddenFor(model => model.Ngaysinh)
+
+
+                <div class="form-group">
+                    <strong>Tên đăng nhập:</strong> @Model.TenDN
+                </div>
+
+                <div class="form-group">
+                    <strong>Email:</strong> @Model.Email
+                </div>
+
+
+                <div class="form-group">
+                    Mật khẩu:
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Matkhau, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Matkhau, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Lưu" class="btn btn-dark" style="width:45%; margin-left:7px" />
+
+                        @Html.ActionLink("Đăng nhập","Login",null, new{ @class= "btn btn-dark quayvedangnhap" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

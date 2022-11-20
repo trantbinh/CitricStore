@@ -1,0 +1,1545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A45756F3-87A9-43C7-BA62-8B37BAF0A00C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CitricStore</RootNamespace>
+    <AssemblyName>CitricStore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44314</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InputDataAPPController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InputDataGAMEController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InputDataHEDIEUHANHController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InputDataNGONNGUController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InputDataNHAPHATHANHController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InputDataTHELOAIController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InputOVERALLController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CitricStoreController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+
+
+    <Compile Include="Controllers\LanguageController.cs" />
+
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\APP.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BANK.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\GAME.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HEDIEUHANH.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHACHHANG.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NGONNGU.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHAPHATHANH.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORDER_INFO.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORDER_PRODUCT.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OVERALL.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THELOAI.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THELOAIAPP.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\THELOAIGAME.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+
+    <Compile Include="Resources\Language.en.Designer.cs">
+      <DependentUpon>Language.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Language.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.resx</DependentUpon>
+
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\AppPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap5\css\bootstrap.rtl.min.css" />
+    <Content Include="Content\bootstrap5\js\bootstrap.bundle.js" />
+    <Content Include="Content\bootstrap5\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\bootstrap5\js\bootstrap.esm.js" />
+    <Content Include="Content\bootstrap5\js\bootstrap.esm.min.js" />
+    <Content Include="Content\bootstrap5\js\bootstrap.js" />
+    <Content Include="Content\bootstrap5\js\bootstrap.min.js" />
+    <Content Include="Content\classify.css" />
+    <Content Include="Content\HomePage.css" />
+    <Content Include="Content\Layout_HomePage.css" />
+    <Content Include="Content\Question.css" />
+    <Content Include="Content\Rating,js.js" />
+    <Content Include="Content\Search.css" />
+    <Content Include="Content\User.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\4183289.jpg" />
+    <Content Include="Images\APP\APP10.1.jpg" />
+    <Content Include="Images\APP\APP10.2.jpg" />
+    <Content Include="Images\APP\APP10.3.jpg" />
+    <Content Include="Images\APP\APP10.4.jpg" />
+    <Content Include="Images\APP\APP11.1.jpg" />
+    <Content Include="Images\APP\APP11.2.jpg" />
+    <Content Include="Images\APP\APP11.3.jpg" />
+    <Content Include="Images\APP\APP11.4.jpg" />
+    <Content Include="Images\APP\APP12.1.jpg" />
+    <Content Include="Images\APP\APP12.2.jpg" />
+    <Content Include="Images\APP\APP12.3.jpg" />
+    <Content Include="Images\APP\APP12.4.jpg" />
+    <Content Include="Images\APP\APP13.1.jpg" />
+    <Content Include="Images\APP\APP13.2.jpg" />
+    <Content Include="Images\APP\APP13.3.jpg" />
+    <Content Include="Images\APP\APP13.4.jpg" />
+    <Content Include="Images\APP\APP14.1.jpg" />
+    <Content Include="Images\APP\APP14.2.jpg" />
+    <Content Include="Images\APP\APP14.3.jpg" />
+    <Content Include="Images\APP\APP14.4.jpg" />
+    <Content Include="Images\APP\APP15.1.jpg" />
+    <Content Include="Images\APP\APP15.2.jpg" />
+    <Content Include="Images\APP\APP15.3.jpg" />
+    <Content Include="Images\APP\APP15.4.jpg" />
+    <Content Include="Images\APP\APP16.1.jpg" />
+    <Content Include="Images\APP\APP16.2.jpg" />
+    <Content Include="Images\APP\APP16.3.jpg" />
+    <Content Include="Images\APP\APP16.4.jpg" />
+    <Content Include="Images\APP\APP17.1.jpg" />
+    <Content Include="Images\APP\APP17.2.jpg" />
+    <Content Include="Images\APP\APP17.3.jpg" />
+    <Content Include="Images\APP\APP17.4.jpg" />
+    <Content Include="Images\APP\APP20.1.jpg" />
+    <Content Include="Images\APP\APP20.2.jpg" />
+    <Content Include="Images\APP\APP20.3.jpg" />
+    <Content Include="Images\APP\APP20.4.jpg" />
+    <Content Include="Images\APP\APP21.1.jpg" />
+    <Content Include="Images\APP\APP21.2.jpg" />
+    <Content Include="Images\APP\APP21.3.jpg" />
+    <Content Include="Images\APP\APP21.4.jpg" />
+    <Content Include="Images\APP\APP22.1.jpg" />
+    <Content Include="Images\APP\APP22.2.jpg" />
+    <Content Include="Images\APP\APP22.3.jpg" />
+    <Content Include="Images\APP\APP22.4.jpg" />
+    <Content Include="Images\APP\APP23.1.jpg" />
+    <Content Include="Images\APP\APP23.2.jpg" />
+    <Content Include="Images\APP\APP23.3.jpg" />
+    <Content Include="Images\APP\APP23.4.jpg" />
+    <Content Include="Images\APP\APP24.1.jpg" />
+    <Content Include="Images\APP\APP24.2.jpg" />
+    <Content Include="Images\APP\APP24.3.jpg" />
+    <Content Include="Images\APP\APP24.4.jpg" />
+    <Content Include="Images\APP\APP25.1.jpg" />
+    <Content Include="Images\APP\APP25.2.jpg" />
+    <Content Include="Images\APP\APP25.3.jpg" />
+    <Content Include="Images\APP\APP25.4.jpg" />
+    <Content Include="Images\APP\APP3.1.jpg" />
+    <Content Include="Images\APP\APP3.2.jpg" />
+    <Content Include="Images\APP\APP3.3.jpg" />
+    <Content Include="Images\APP\APP3.4.jpg" />
+    <Content Include="Images\APP\APP42.1.jpg" />
+    <Content Include="Images\APP\APP42.2.jpg" />
+    <Content Include="Images\APP\APP42.3.jpg" />
+    <Content Include="Images\APP\APP42.4.jpg" />
+    <Content Include="Images\APP\APP43.1.jpg" />
+    <Content Include="Images\APP\APP43.2.jpg" />
+    <Content Include="Images\APP\APP43.3.jpg" />
+    <Content Include="Images\APP\APP43.4.jpg" />
+    <Content Include="Images\APP\APP44.1.jpg" />
+    <Content Include="Images\APP\APP44.2.jpg" />
+    <Content Include="Images\APP\APP44.3.jpg" />
+    <Content Include="Images\APP\APP44.4.jpg" />
+    <Content Include="Images\APP\APP45.1.jpg" />
+    <Content Include="Images\APP\APP45.2.jpg" />
+    <Content Include="Images\APP\APP45.3.jpg" />
+    <Content Include="Images\APP\APP45.4.jpg" />
+    <Content Include="Images\APP\APP46.1.jpg" />
+    <Content Include="Images\APP\APP46.2.jpg" />
+    <Content Include="Images\APP\APP46.3.jpg" />
+    <Content Include="Images\APP\APP46.4.jpg" />
+    <Content Include="Images\APP\APP47.1.jpg" />
+    <Content Include="Images\APP\APP47.2.jpg" />
+    <Content Include="Images\APP\APP47.3.jpg" />
+    <Content Include="Images\APP\APP47.4.jpg" />
+    <Content Include="Images\APP\APP48.1.jpg" />
+    <Content Include="Images\APP\APP48.2.jpg" />
+    <Content Include="Images\APP\APP48.3.jpg" />
+    <Content Include="Images\APP\APP48.4.jpg" />
+    <Content Include="Images\APP\APP49.1.jpg" />
+    <Content Include="Images\APP\APP49.2.jpg" />
+    <Content Include="Images\APP\APP49.3.jpg" />
+    <Content Include="Images\APP\APP49.4.jpg" />
+    <Content Include="Images\APP\APP50.1.jpg" />
+    <Content Include="Images\APP\APP50.2.jpg" />
+    <Content Include="Images\APP\APP50.3.jpg" />
+    <Content Include="Images\APP\APP50.4.jpg" />
+    <Content Include="Images\APP\APP6.1.jpg" />
+    <Content Include="Images\APP\APP6.2.jpg" />
+    <Content Include="Images\APP\APP6.3.jpg" />
+    <Content Include="Images\APP\APP6.4.jpg" />
+    <Content Include="Images\APP\APP8.1.jpg" />
+    <Content Include="Images\APP\APP8.2.jpg" />
+    <Content Include="Images\APP\APP8.3.jpg" />
+    <Content Include="Images\APP\APP8.4.jpg" />
+    <Content Include="Images\APP\APP9.1.jpg" />
+    <Content Include="Images\APP\APP9.2.jpg" />
+    <Content Include="Images\APP\APP9.3.jpg" />
+    <Content Include="Images\APP\APP9.4.jpg" />
+    <Content Include="Images\APP\BGAPP10.jpg" />
+    <Content Include="Images\APP\BGAPP11.jpg" />
+    <Content Include="Images\APP\BGAPP12.jpg" />
+    <Content Include="Images\APP\BGAPP13.jpg" />
+    <Content Include="Images\APP\BGAPP14.jpg" />
+    <Content Include="Images\APP\BGAPP15.jpg" />
+    <Content Include="Images\APP\BGAPP16.jpg" />
+    <Content Include="Images\APP\BGAPP17.jpg" />
+    <Content Include="Images\APP\BGAPP20.jpg" />
+    <Content Include="Images\APP\BGAPP21.jpg" />
+    <Content Include="Images\APP\BGAPP22.jpg" />
+    <Content Include="Images\APP\BGAPP23.jpg" />
+    <Content Include="Images\APP\BGAPP24.jpg" />
+    <Content Include="Images\APP\BGAPP25.jpg" />
+    <Content Include="Images\APP\BGAPP3.jpg" />
+    <Content Include="Images\APP\BGAPP42.jpg" />
+    <Content Include="Images\APP\BGAPP43.jpg" />
+    <Content Include="Images\APP\BGAPP44.jpg" />
+    <Content Include="Images\APP\BGAPP45.jpg" />
+    <Content Include="Images\APP\BGAPP46.jpg" />
+    <Content Include="Images\APP\BGAPP47.jpg" />
+    <Content Include="Images\APP\BGAPP48.jpg" />
+    <Content Include="Images\APP\BGAPP49.jpg" />
+    <Content Include="Images\APP\BGAPP50.jpg" />
+    <Content Include="Images\APP\BGAPP6.jpg" />
+    <Content Include="Images\APP\BGAPP8.jpg" />
+    <Content Include="Images\APP\BGAPP9.jpg" />
+    <Content Include="Images\GAME\BG1.jpg" />
+    <Content Include="Images\GAME\BG10.jpg" />
+    <Content Include="Images\GAME\BG100.jpg" />
+    <Content Include="Images\GAME\BG18.jpg" />
+    <Content Include="Images\GAME\BG19.jpg" />
+    <Content Include="Images\GAME\BG2.jpg" />
+    <Content Include="Images\GAME\BG20.jpg" />
+    <Content Include="Images\GAME\BG27.jpg" />
+    <Content Include="Images\GAME\BG28.jpg" />
+    <Content Include="Images\GAME\BG29.jpg" />
+    <Content Include="Images\GAME\BG30.jpg" />
+    <Content Include="Images\GAME\BG31.jpg" />
+    <Content Include="Images\GAME\BG32.jpg" />
+    <Content Include="Images\GAME\BG33.jpg" />
+    <Content Include="Images\GAME\BG34.jpg" />
+    <Content Include="Images\GAME\BG35.jpg" />
+    <Content Include="Images\GAME\BG36.jpg" />
+    <Content Include="Images\GAME\BG37.jpg" />
+    <Content Include="Images\GAME\BG38.jpg" />
+    <Content Include="Images\GAME\BG39.jpg" />
+    <Content Include="Images\GAME\BG4.jpg" />
+    <Content Include="Images\GAME\BG40.jpg" />
+    <Content Include="Images\GAME\BG41.jpg" />
+    <Content Include="Images\GAME\BG5.jpg" />
+    <Content Include="Images\GAME\BG51.jpg" />
+    <Content Include="Images\GAME\BG52.jpg" />
+    <Content Include="Images\GAME\BG53.jpg" />
+    <Content Include="Images\GAME\BG54.jpg" />
+    <Content Include="Images\GAME\BG55.jpg" />
+    <Content Include="Images\GAME\BG56.jpg" />
+    <Content Include="Images\GAME\BG57.jpg" />
+    <Content Include="Images\GAME\BG58.jpg" />
+    <Content Include="Images\GAME\BG59.jpg" />
+    <Content Include="Images\GAME\BG6.jpg" />
+    <Content Include="Images\GAME\BG60.jpg" />
+    <Content Include="Images\GAME\BG61.jpg" />
+    <Content Include="Images\GAME\BG62.jpg" />
+    <Content Include="Images\GAME\BG63.jpg" />
+    <Content Include="Images\GAME\BG64.jpg" />
+    <Content Include="Images\GAME\BG65.jpg" />
+    <Content Include="Images\GAME\BG66.jpg" />
+    <Content Include="Images\GAME\BG67.jpg" />
+    <Content Include="Images\GAME\BG68.jpg" />
+    <Content Include="Images\GAME\BG69.jpg" />
+    <Content Include="Images\GAME\BG7.jpg" />
+    <Content Include="Images\GAME\BG70.jpg" />
+    <Content Include="Images\GAME\BG71.jpg" />
+    <Content Include="Images\GAME\BG72.jpg" />
+    <Content Include="Images\GAME\BG73.jpg" />
+    <Content Include="Images\GAME\BG74.jpg" />
+    <Content Include="Images\GAME\BG75.jpg" />
+    <Content Include="Images\GAME\BG76.jpg" />
+    <Content Include="Images\GAME\BG77.jpg" />
+    <Content Include="Images\GAME\BG78.jpg" />
+    <Content Include="Images\GAME\BG79.jpg" />
+    <Content Include="Images\GAME\BG80.jpg" />
+    <Content Include="Images\GAME\BG81.jpg" />
+    <Content Include="Images\GAME\BG82.jpg" />
+    <Content Include="Images\GAME\BG83.jpg" />
+    <Content Include="Images\GAME\BG84.jpg" />
+    <Content Include="Images\GAME\BG85.jpg" />
+    <Content Include="Images\GAME\BG86.jpg" />
+    <Content Include="Images\GAME\BG87.jpg" />
+    <Content Include="Images\GAME\BG88.jpg" />
+    <Content Include="Images\GAME\BG89.jpg" />
+    <Content Include="Images\GAME\BG9.jpg" />
+    <Content Include="Images\GAME\BG90.jpg" />
+    <Content Include="Images\GAME\BG91.jpg" />
+    <Content Include="Images\GAME\BG92.jpg" />
+    <Content Include="Images\GAME\BG93.jpg" />
+    <Content Include="Images\GAME\BG94.jpg" />
+    <Content Include="Images\GAME\BG95.jpg" />
+    <Content Include="Images\GAME\BG96.jpg" />
+    <Content Include="Images\GAME\BG97.jpg" />
+    <Content Include="Images\GAME\BG98.jpg" />
+    <Content Include="Images\GAME\BG99.jpg" />
+    <Content Include="Images\GAME\Game1.1.jpg" />
+    <Content Include="Images\GAME\Game1.2.jpg" />
+    <Content Include="Images\GAME\Game1.3.jpg" />
+    <Content Include="Images\GAME\Game1.4.jpg" />
+    <Content Include="Images\GAME\Game10.1.jpg" />
+    <Content Include="Images\GAME\Game10.2.jpg" />
+    <Content Include="Images\GAME\Game10.3.jpg" />
+    <Content Include="Images\GAME\Game10.4.jpg" />
+    <Content Include="Images\GAME\Game100.1.jpg" />
+    <Content Include="Images\GAME\Game100.2.jpg" />
+    <Content Include="Images\GAME\Game100.3.jpg" />
+    <Content Include="Images\GAME\Game100.4.jpg" />
+    <Content Include="Images\GAME\Game18.1.jpg" />
+    <Content Include="Images\GAME\Game18.2.jpg" />
+    <Content Include="Images\GAME\Game18.3.jpg" />
+    <Content Include="Images\GAME\Game18.4.jpg" />
+    <Content Include="Images\GAME\Game19.1.jpg" />
+    <Content Include="Images\GAME\Game19.2.jpg" />
+    <Content Include="Images\GAME\Game19.3.jpg" />
+    <Content Include="Images\GAME\Game19.4.jpg" />
+    <Content Include="Images\GAME\Game2.1.jpg" />
+    <Content Include="Images\GAME\Game2.2.jpg" />
+    <Content Include="Images\GAME\Game2.3.jpg" />
+    <Content Include="Images\GAME\Game2.4.jpg" />
+    <Content Include="Images\GAME\Game26.1.jpg" />
+    <Content Include="Images\GAME\Game26.2.jpg" />
+    <Content Include="Images\GAME\Game26.3.jpg" />
+    <Content Include="Images\GAME\Game26.4.jpg" />
+    <Content Include="Images\GAME\Game27.1.jpg" />
+    <Content Include="Images\GAME\Game27.2.jpg" />
+    <Content Include="Images\GAME\Game27.3.jpg" />
+    <Content Include="Images\GAME\Game27.4.jpg" />
+    <Content Include="Images\GAME\Game28.1.jpg" />
+    <Content Include="Images\GAME\Game28.2.jpg" />
+    <Content Include="Images\GAME\Game28.3.jpg" />
+    <Content Include="Images\GAME\Game28.4.jpg" />
+    <Content Include="Images\GAME\Game29.1.jpg" />
+    <Content Include="Images\GAME\Game29.2.jpg" />
+    <Content Include="Images\GAME\Game29.3.jpg" />
+    <Content Include="Images\GAME\Game29.4.jpg" />
+    <Content Include="Images\GAME\Game30.1.jpg" />
+    <Content Include="Images\GAME\Game30.2.jpg" />
+    <Content Include="Images\GAME\Game30.3.jpg" />
+    <Content Include="Images\GAME\game30.4.jpg" />
+    <Content Include="Images\GAME\Game31.1.jpg" />
+    <Content Include="Images\GAME\Game31.2.jpg" />
+    <Content Include="Images\GAME\Game31.3.jpg" />
+    <Content Include="Images\GAME\Game31.4.jpg" />
+    <Content Include="Images\GAME\Game32.1.jpg" />
+    <Content Include="Images\GAME\Game32.2.jpg" />
+    <Content Include="Images\GAME\Game32.3.jpg" />
+    <Content Include="Images\GAME\Game32.4.jpg" />
+    <Content Include="Images\GAME\Game33.1.jpg" />
+    <Content Include="Images\GAME\Game33.2.jpg" />
+    <Content Include="Images\GAME\Game33.3.jpg" />
+    <Content Include="Images\GAME\Game33.4.jpg" />
+    <Content Include="Images\GAME\Game34.1.jpg" />
+    <Content Include="Images\GAME\Game34.2.jpg" />
+    <Content Include="Images\GAME\Game34.3.jpg" />
+    <Content Include="Images\GAME\Game34.4.jpg" />
+    <Content Include="Images\GAME\Game35.1.jpg" />
+    <Content Include="Images\GAME\Game35.2.jpg" />
+    <Content Include="Images\GAME\Game35.3.jpg" />
+    <Content Include="Images\GAME\Game35.4.jpg" />
+    <Content Include="Images\GAME\Game36.1.jpg" />
+    <Content Include="Images\GAME\Game36.2.jpg" />
+    <Content Include="Images\GAME\Game36.3.jpg" />
+    <Content Include="Images\GAME\Game36.4.jpg" />
+    <Content Include="Images\GAME\Game37.1.jpg" />
+    <Content Include="Images\GAME\Game37.2.jpg" />
+    <Content Include="Images\GAME\Game37.3.jpg" />
+    <Content Include="Images\GAME\Game37.4.jpg" />
+    <Content Include="Images\GAME\Game38.1.jpg" />
+    <Content Include="Images\GAME\Game38.2.jpg" />
+    <Content Include="Images\GAME\Game38.3.jpg" />
+    <Content Include="Images\GAME\Game38.4.jpg" />
+    <Content Include="Images\GAME\Game39.1.jpg" />
+    <Content Include="Images\GAME\Game39.2.jpg" />
+    <Content Include="Images\GAME\Game39.3.jpg" />
+    <Content Include="Images\GAME\Game39.4.jpg" />
+    <Content Include="Images\GAME\Game4.1.jpg" />
+    <Content Include="Images\GAME\Game4.2.jpg" />
+    <Content Include="Images\GAME\Game4.3.jpg" />
+    <Content Include="Images\GAME\Game4.4.jpg" />
+    <Content Include="Images\GAME\Game40.1.jpg" />
+    <Content Include="Images\GAME\Game40.2.jpg" />
+    <Content Include="Images\GAME\Game40.3.jpg" />
+    <Content Include="Images\GAME\Game40.4.jpg" />
+    <Content Include="Images\GAME\Game41.1.jpg" />
+    <Content Include="Images\GAME\Game41.2.jpg" />
+    <Content Include="Images\GAME\Game41.3.jpg" />
+    <Content Include="Images\GAME\Game41.4.jpg" />
+    <Content Include="Images\GAME\Game5.1.jpg" />
+    <Content Include="Images\GAME\Game5.2.jpg" />
+    <Content Include="Images\GAME\Game5.3.jpg" />
+    <Content Include="Images\GAME\Game5.4.jpg" />
+    <Content Include="Images\GAME\Game51.1.jpg" />
+    <Content Include="Images\GAME\Game51.2.jpg" />
+    <Content Include="Images\GAME\Game51.3.jpg" />
+    <Content Include="Images\GAME\Game51.4.jpg" />
+    <Content Include="Images\GAME\Game52.1.jpg" />
+    <Content Include="Images\GAME\Game52.2.jpg" />
+    <Content Include="Images\GAME\Game52.3.jpg" />
+    <Content Include="Images\GAME\Game52.4.jpg" />
+    <Content Include="Images\GAME\Game53.1.jpg" />
+    <Content Include="Images\GAME\Game53.2.jpg" />
+    <Content Include="Images\GAME\Game53.3.jpg" />
+    <Content Include="Images\GAME\Game53.4.jpg" />
+    <Content Include="Images\GAME\Game54.1.jpg" />
+    <Content Include="Images\GAME\Game54.2.jpg" />
+    <Content Include="Images\GAME\Game54.3.jpg" />
+    <Content Include="Images\GAME\Game54.4.jpg" />
+    <Content Include="Images\GAME\Game55.1.jpg" />
+    <Content Include="Images\GAME\Game55.2.jpg" />
+    <Content Include="Images\GAME\Game55.3.jpg" />
+    <Content Include="Images\GAME\Game55.4.jpg" />
+    <Content Include="Images\GAME\Game56.1.jpg" />
+    <Content Include="Images\GAME\Game56.2.jpg" />
+    <Content Include="Images\GAME\Game56.3.jpg" />
+    <Content Include="Images\GAME\Game56.4.jpg" />
+    <Content Include="Images\GAME\Game57.1.jpg" />
+    <Content Include="Images\GAME\Game57.2.jpg" />
+    <Content Include="Images\GAME\Game57.3.jpg" />
+    <Content Include="Images\GAME\Game57.4.jpg" />
+    <Content Include="Images\GAME\Game58.1.jpg" />
+    <Content Include="Images\GAME\Game58.2.jpg" />
+    <Content Include="Images\GAME\Game58.3.jpg" />
+    <Content Include="Images\GAME\Game58.4.jpg" />
+    <Content Include="Images\GAME\Game59.1.jpg" />
+    <Content Include="Images\GAME\Game59.2.jpg" />
+    <Content Include="Images\GAME\Game59.3.jpg" />
+    <Content Include="Images\GAME\Game59.4.jpg" />
+    <Content Include="Images\GAME\Game6.1.jpg" />
+    <Content Include="Images\GAME\Game6.2.jpg" />
+    <Content Include="Images\GAME\Game6.3.jpg" />
+    <Content Include="Images\GAME\Game6.4.jpg" />
+    <Content Include="Images\GAME\Game60.1.jpg" />
+    <Content Include="Images\GAME\Game60.2.jpg" />
+    <Content Include="Images\GAME\Game60.3.jpg" />
+    <Content Include="Images\GAME\Game60.4.jpg" />
+    <Content Include="Images\GAME\Game61.1.jpg" />
+    <Content Include="Images\GAME\Game61.2.jpg" />
+    <Content Include="Images\GAME\Game61.3.jpg" />
+    <Content Include="Images\GAME\Game61.4.jpg" />
+    <Content Include="Images\GAME\Game62.1.jpg" />
+    <Content Include="Images\GAME\Game62.2.jpg" />
+    <Content Include="Images\GAME\Game62.3.jpg" />
+    <Content Include="Images\GAME\Game62.4.jpg" />
+    <Content Include="Images\GAME\Game63.1.jpg" />
+    <Content Include="Images\GAME\Game63.2.jpg" />
+    <Content Include="Images\GAME\Game63.3.jpg" />
+    <Content Include="Images\GAME\Game63.4.jpg" />
+    <Content Include="Images\GAME\Game64.1.jpg" />
+    <Content Include="Images\GAME\Game64.2.jpg" />
+    <Content Include="Images\GAME\Game64.3.jpg" />
+    <Content Include="Images\GAME\Game64.4.jpg" />
+    <Content Include="Images\GAME\Game65.1.jpg" />
+    <Content Include="Images\GAME\Game65.2.jpg" />
+    <Content Include="Images\GAME\Game65.3.jpg" />
+    <Content Include="Images\GAME\Game65.4.jpg" />
+    <Content Include="Images\GAME\Game66.1.jpg" />
+    <Content Include="Images\GAME\Game66.2.jpg" />
+    <Content Include="Images\GAME\Game66.3.jpg" />
+    <Content Include="Images\GAME\Game66.4.jpg" />
+    <Content Include="Images\GAME\Game67.1.jpg" />
+    <Content Include="Images\GAME\Game67.2.jpg" />
+    <Content Include="Images\GAME\Game67.3.jpg" />
+    <Content Include="Images\GAME\Game67.4.jpg" />
+    <Content Include="Images\GAME\Game68.1.jpg" />
+    <Content Include="Images\GAME\Game68.2.jpg" />
+    <Content Include="Images\GAME\Game68.3.jpg" />
+    <Content Include="Images\GAME\Game68.4.jpg" />
+    <Content Include="Images\GAME\Game69.1.jpg" />
+    <Content Include="Images\GAME\Game69.2.jpg" />
+    <Content Include="Images\GAME\Game69.3.jpg" />
+    <Content Include="Images\GAME\Game69.4.jpg" />
+    <Content Include="Images\GAME\Game7.1.jpg" />
+    <Content Include="Images\GAME\Game7.2.jpg" />
+    <Content Include="Images\GAME\Game7.3.jpg" />
+    <Content Include="Images\GAME\Game7.4.jpg" />
+    <Content Include="Images\GAME\Game70.1.jpg" />
+    <Content Include="Images\GAME\Game70.2.jpg" />
+    <Content Include="Images\GAME\Game70.3.jpg" />
+    <Content Include="Images\GAME\Game70.4.jpg" />
+    <Content Include="Images\GAME\Game71.1.jpg" />
+    <Content Include="Images\GAME\Game71.2.jpg" />
+    <Content Include="Images\GAME\Game71.3.jpg" />
+    <Content Include="Images\GAME\Game71.4.jpg" />
+    <Content Include="Images\GAME\Game72.1.jpg" />
+    <Content Include="Images\GAME\Game72.2.jpg" />
+    <Content Include="Images\GAME\Game72.3.jpg" />
+    <Content Include="Images\GAME\Game72.4.jpg" />
+    <Content Include="Images\GAME\Game73.1.jpg" />
+    <Content Include="Images\GAME\Game73.2.jpg" />
+    <Content Include="Images\GAME\Game73.3.jpg" />
+    <Content Include="Images\GAME\Game73.4.jpg" />
+    <Content Include="Images\GAME\Game74.1.jpg" />
+    <Content Include="Images\GAME\Game74.2.jpg" />
+    <Content Include="Images\GAME\Game74.3.jpg" />
+    <Content Include="Images\GAME\Game74.4.jpg" />
+    <Content Include="Images\GAME\Game75.1.jpg" />
+    <Content Include="Images\GAME\Game75.2.jpg" />
+    <Content Include="Images\GAME\Game75.3.jpg" />
+    <Content Include="Images\GAME\Game75.4.jpg" />
+    <Content Include="Images\GAME\Game76.1.jpg" />
+    <Content Include="Images\GAME\Game76.2.jpg" />
+    <Content Include="Images\GAME\Game76.3.jpg" />
+    <Content Include="Images\GAME\Game76.4.jpg" />
+    <Content Include="Images\GAME\Game77.1.jpg" />
+    <Content Include="Images\GAME\Game77.2.jpg" />
+    <Content Include="Images\GAME\Game77.3.jpg" />
+    <Content Include="Images\GAME\Game77.4.jpg" />
+    <Content Include="Images\GAME\Game78.1.jpg" />
+    <Content Include="Images\GAME\Game78.2.jpg" />
+    <Content Include="Images\GAME\Game78.3.jpg" />
+    <Content Include="Images\GAME\Game78.4.jpg" />
+    <Content Include="Images\GAME\Game79.1.jpg" />
+    <Content Include="Images\GAME\Game79.2.jpg" />
+    <Content Include="Images\GAME\Game79.3.jpg" />
+    <Content Include="Images\GAME\Game79.4.jpg" />
+    <Content Include="Images\GAME\Game80.1.jpg" />
+    <Content Include="Images\GAME\Game80.2.jpg" />
+    <Content Include="Images\GAME\Game80.3.jpg" />
+    <Content Include="Images\GAME\Game80.4.jpg" />
+    <Content Include="Images\GAME\Game81.1.jpg" />
+    <Content Include="Images\GAME\Game81.2.jpg" />
+    <Content Include="Images\GAME\Game81.3.jpg" />
+    <Content Include="Images\GAME\Game81.4.jpg" />
+    <Content Include="Images\GAME\Game82.1.jpg" />
+    <Content Include="Images\GAME\Game82.2.jpg" />
+    <Content Include="Images\GAME\Game82.3.jpg" />
+    <Content Include="Images\GAME\Game82.4.jpg" />
+    <Content Include="Images\GAME\Game83.1.jpg" />
+    <Content Include="Images\GAME\Game83.2.jpg" />
+    <Content Include="Images\GAME\Game83.3.jpg" />
+    <Content Include="Images\GAME\Game83.4.jpg" />
+    <Content Include="Images\GAME\Game84.1.jpg" />
+    <Content Include="Images\GAME\Game84.2.jpg" />
+    <Content Include="Images\GAME\Game84.3.jpg" />
+    <Content Include="Images\GAME\Game84.4.jpg" />
+    <Content Include="Images\GAME\Game85.1.jpg" />
+    <Content Include="Images\GAME\Game85.2.jpg" />
+    <Content Include="Images\GAME\Game85.3.jpg" />
+    <Content Include="Images\GAME\Game85.4.jpg" />
+    <Content Include="Images\GAME\Game86.1.jpg" />
+    <Content Include="Images\GAME\Game86.2.jpg" />
+    <Content Include="Images\GAME\Game86.3.jpg" />
+    <Content Include="Images\GAME\Game86.4.jpg" />
+    <Content Include="Images\GAME\Game87.1.jpg" />
+    <Content Include="Images\GAME\Game87.2.jpg" />
+    <Content Include="Images\GAME\Game87.3.jpg" />
+    <Content Include="Images\GAME\Game87.4.jpg" />
+    <Content Include="Images\GAME\Game88.1.jpg" />
+    <Content Include="Images\GAME\Game88.2.jpg" />
+    <Content Include="Images\GAME\Game88.3.jpg" />
+    <Content Include="Images\GAME\Game88.4.jpg" />
+    <Content Include="Images\GAME\Game89.1.jpg" />
+    <Content Include="Images\GAME\Game89.2.jpg" />
+    <Content Include="Images\GAME\Game89.3.jpg" />
+    <Content Include="Images\GAME\Game89.4.jpg" />
+    <Content Include="Images\GAME\Game9.1.jpg" />
+    <Content Include="Images\GAME\Game9.2.jpg" />
+    <Content Include="Images\GAME\Game9.3.jpg" />
+    <Content Include="Images\GAME\Game9.4.jpg" />
+    <Content Include="Images\GAME\Game90.1.jpg" />
+    <Content Include="Images\GAME\Game90.2.jpg" />
+    <Content Include="Images\GAME\Game90.3.jpg" />
+    <Content Include="Images\GAME\Game90.4.jpg" />
+    <Content Include="Images\GAME\Game91.1.jpg" />
+    <Content Include="Images\GAME\Game91.2.jpg" />
+    <Content Include="Images\GAME\Game91.3.jpg" />
+    <Content Include="Images\GAME\Game91.4.jpg" />
+    <Content Include="Images\GAME\Game92.1.jpg" />
+    <Content Include="Images\GAME\Game92.2.jpg" />
+    <Content Include="Images\GAME\Game92.3.jpg" />
+    <Content Include="Images\GAME\Game92.4.jpg" />
+    <Content Include="Images\GAME\Game93.1.jpg" />
+    <Content Include="Images\GAME\Game93.2.jpg" />
+    <Content Include="Images\GAME\Game93.3.jpg" />
+    <Content Include="Images\GAME\Game93.4.jpg" />
+    <Content Include="Images\GAME\Game94.1.jpg" />
+    <Content Include="Images\GAME\Game94.2.jpg" />
+    <Content Include="Images\GAME\Game94.3.jpg" />
+    <Content Include="Images\GAME\Game94.4.jpg" />
+    <Content Include="Images\GAME\Game95.1.jpg" />
+    <Content Include="Images\GAME\Game95.2.jpg" />
+    <Content Include="Images\GAME\Game95.3.jpg" />
+    <Content Include="Images\GAME\Game95.4.jpg" />
+    <Content Include="Images\GAME\Game96.1.jpg" />
+    <Content Include="Images\GAME\Game96.2.jpg" />
+    <Content Include="Images\GAME\Game96.3.jpg" />
+    <Content Include="Images\GAME\Game96.4.jpg" />
+    <Content Include="Images\GAME\Game97.1.jpg" />
+    <Content Include="Images\GAME\Game97.2.jpg" />
+    <Content Include="Images\GAME\Game97.3.jpg" />
+    <Content Include="Images\GAME\Game97.4.jpg" />
+    <Content Include="Images\GAME\Game98.1.jpg" />
+    <Content Include="Images\GAME\Game98.2.jpg" />
+    <Content Include="Images\GAME\Game98.3.jpg" />
+    <Content Include="Images\GAME\Game98.4.jpg" />
+    <Content Include="Images\GAME\Game99.1.jpg" />
+    <Content Include="Images\GAME\Game99.2.jpg" />
+    <Content Include="Images\GAME\Game99.3.jpg" />
+    <Content Include="Images\GAME\Game99.4.jpg" />
+    <Content Include="Images\Language.png" />
+    <Content Include="Images\LOGO\Cart.png" />
+    <Content Include="Images\LOGO\CITRICSTORE.png" />
+    <Content Include="Images\LOGO\LOGO_Black.png" />
+    <Content Include="Images\LOGO\LOGO_White.png" />
+    <Content Include="Images\OVERALL\APP10.1.jpg" />
+    <Content Include="Images\OVERALL\APP10.2.jpg" />
+    <Content Include="Images\OVERALL\APP10.3.jpg" />
+    <Content Include="Images\OVERALL\APP10.4.jpg" />
+    <Content Include="Images\OVERALL\APP11.1.jpg" />
+    <Content Include="Images\OVERALL\APP11.2.jpg" />
+    <Content Include="Images\OVERALL\APP11.3.jpg" />
+    <Content Include="Images\OVERALL\APP11.4.jpg" />
+    <Content Include="Images\OVERALL\APP12.1.jpg" />
+    <Content Include="Images\OVERALL\APP12.2.jpg" />
+    <Content Include="Images\OVERALL\APP12.3.jpg" />
+    <Content Include="Images\OVERALL\APP12.4.jpg" />
+    <Content Include="Images\OVERALL\APP13.1.jpg" />
+    <Content Include="Images\OVERALL\APP13.2.jpg" />
+    <Content Include="Images\OVERALL\APP13.3.jpg" />
+    <Content Include="Images\OVERALL\APP13.4.jpg" />
+    <Content Include="Images\OVERALL\APP14.1.jpg" />
+    <Content Include="Images\OVERALL\APP14.2.jpg" />
+    <Content Include="Images\OVERALL\APP14.3.jpg" />
+    <Content Include="Images\OVERALL\APP14.4.jpg" />
+    <Content Include="Images\OVERALL\APP15.1.jpg" />
+    <Content Include="Images\OVERALL\APP15.2.jpg" />
+    <Content Include="Images\OVERALL\APP15.3.jpg" />
+    <Content Include="Images\OVERALL\APP15.4.jpg" />
+    <Content Include="Images\OVERALL\APP16.1.jpg" />
+    <Content Include="Images\OVERALL\APP16.2.jpg" />
+    <Content Include="Images\OVERALL\APP16.3.jpg" />
+    <Content Include="Images\OVERALL\APP16.4.jpg" />
+    <Content Include="Images\OVERALL\APP17.1.jpg" />
+    <Content Include="Images\OVERALL\APP17.2.jpg" />
+    <Content Include="Images\OVERALL\APP17.3.jpg" />
+    <Content Include="Images\OVERALL\APP17.4.jpg" />
+    <Content Include="Images\OVERALL\APP20.1.jpg" />
+    <Content Include="Images\OVERALL\APP20.2.jpg" />
+    <Content Include="Images\OVERALL\APP20.3.jpg" />
+    <Content Include="Images\OVERALL\APP20.4.jpg" />
+    <Content Include="Images\OVERALL\APP21.1.jpg" />
+    <Content Include="Images\OVERALL\APP21.2.jpg" />
+    <Content Include="Images\OVERALL\APP21.3.jpg" />
+    <Content Include="Images\OVERALL\APP21.4.jpg" />
+    <Content Include="Images\OVERALL\APP22.1.jpg" />
+    <Content Include="Images\OVERALL\APP22.2.jpg" />
+    <Content Include="Images\OVERALL\APP22.3.jpg" />
+    <Content Include="Images\OVERALL\APP22.4.jpg" />
+    <Content Include="Images\OVERALL\APP23.1.jpg" />
+    <Content Include="Images\OVERALL\APP23.2.jpg" />
+    <Content Include="Images\OVERALL\APP23.3.jpg" />
+    <Content Include="Images\OVERALL\APP23.4.jpg" />
+    <Content Include="Images\OVERALL\APP24.1.jpg" />
+    <Content Include="Images\OVERALL\APP24.2.jpg" />
+    <Content Include="Images\OVERALL\APP24.3.jpg" />
+    <Content Include="Images\OVERALL\APP24.4.jpg" />
+    <Content Include="Images\OVERALL\APP25.1.jpg" />
+    <Content Include="Images\OVERALL\APP25.2.jpg" />
+    <Content Include="Images\OVERALL\APP25.3.jpg" />
+    <Content Include="Images\OVERALL\APP25.4.jpg" />
+    <Content Include="Images\OVERALL\APP3.1.jpg" />
+    <Content Include="Images\OVERALL\APP3.2.jpg" />
+    <Content Include="Images\OVERALL\APP3.3.jpg" />
+    <Content Include="Images\OVERALL\APP3.4.jpg" />
+    <Content Include="Images\OVERALL\APP42.1.jpg" />
+    <Content Include="Images\OVERALL\APP42.2.jpg" />
+    <Content Include="Images\OVERALL\APP42.3.jpg" />
+    <Content Include="Images\OVERALL\APP42.4.jpg" />
+    <Content Include="Images\OVERALL\APP43.1.jpg" />
+    <Content Include="Images\OVERALL\APP43.2.jpg" />
+    <Content Include="Images\OVERALL\APP43.3.jpg" />
+    <Content Include="Images\OVERALL\APP43.4.jpg" />
+    <Content Include="Images\OVERALL\APP44.1.jpg" />
+    <Content Include="Images\OVERALL\APP44.2.jpg" />
+    <Content Include="Images\OVERALL\APP44.3.jpg" />
+    <Content Include="Images\OVERALL\APP44.4.jpg" />
+    <Content Include="Images\OVERALL\APP45.1.jpg" />
+    <Content Include="Images\OVERALL\APP45.2.jpg" />
+    <Content Include="Images\OVERALL\APP45.3.jpg" />
+    <Content Include="Images\OVERALL\APP45.4.jpg" />
+    <Content Include="Images\OVERALL\APP46.1.jpg" />
+    <Content Include="Images\OVERALL\APP46.2.jpg" />
+    <Content Include="Images\OVERALL\APP46.3.jpg" />
+    <Content Include="Images\OVERALL\APP46.4.jpg" />
+    <Content Include="Images\OVERALL\APP47.1.jpg" />
+    <Content Include="Images\OVERALL\APP47.2.jpg" />
+    <Content Include="Images\OVERALL\APP47.3.jpg" />
+    <Content Include="Images\OVERALL\APP47.4.jpg" />
+    <Content Include="Images\OVERALL\APP48.1.jpg" />
+    <Content Include="Images\OVERALL\APP48.2.jpg" />
+    <Content Include="Images\OVERALL\APP48.3.jpg" />
+    <Content Include="Images\OVERALL\APP48.4.jpg" />
+    <Content Include="Images\OVERALL\APP49.1.jpg" />
+    <Content Include="Images\OVERALL\APP49.2.jpg" />
+    <Content Include="Images\OVERALL\APP49.3.jpg" />
+    <Content Include="Images\OVERALL\APP49.4.jpg" />
+    <Content Include="Images\OVERALL\APP50.1.jpg" />
+    <Content Include="Images\OVERALL\APP50.2.jpg" />
+    <Content Include="Images\OVERALL\APP50.3.jpg" />
+    <Content Include="Images\OVERALL\APP50.4.jpg" />
+    <Content Include="Images\OVERALL\APP6.1.jpg" />
+    <Content Include="Images\OVERALL\APP6.2.jpg" />
+    <Content Include="Images\OVERALL\APP6.3.jpg" />
+    <Content Include="Images\OVERALL\APP6.4.jpg" />
+    <Content Include="Images\OVERALL\APP8.1.jpg" />
+    <Content Include="Images\OVERALL\APP8.2.jpg" />
+    <Content Include="Images\OVERALL\APP8.3.jpg" />
+    <Content Include="Images\OVERALL\APP8.4.jpg" />
+    <Content Include="Images\OVERALL\APP9.1.jpg" />
+    <Content Include="Images\OVERALL\APP9.2.jpg" />
+    <Content Include="Images\OVERALL\APP9.3.jpg" />
+    <Content Include="Images\OVERALL\APP9.4.jpg" />
+    <Content Include="Images\OVERALL\BG1.jpg" />
+    <Content Include="Images\OVERALL\BG10.jpg" />
+    <Content Include="Images\OVERALL\BG100.jpg" />
+    <Content Include="Images\OVERALL\BG18.jpg" />
+    <Content Include="Images\OVERALL\BG19.jpg" />
+    <Content Include="Images\OVERALL\BG2.jpg" />
+    <Content Include="Images\OVERALL\BG20.jpg" />
+    <Content Include="Images\OVERALL\BG27.jpg" />
+    <Content Include="Images\OVERALL\BG28.jpg" />
+    <Content Include="Images\OVERALL\BG29.jpg" />
+    <Content Include="Images\OVERALL\BG30.jpg" />
+    <Content Include="Images\OVERALL\BG31.jpg" />
+    <Content Include="Images\OVERALL\BG32.jpg" />
+    <Content Include="Images\OVERALL\BG33.jpg" />
+    <Content Include="Images\OVERALL\BG34.jpg" />
+    <Content Include="Images\OVERALL\BG35.jpg" />
+    <Content Include="Images\OVERALL\BG36.jpg" />
+    <Content Include="Images\OVERALL\BG37.jpg" />
+    <Content Include="Images\OVERALL\BG38.jpg" />
+    <Content Include="Images\OVERALL\BG39.jpg" />
+    <Content Include="Images\OVERALL\BG4.jpg" />
+    <Content Include="Images\OVERALL\BG40.jpg" />
+    <Content Include="Images\OVERALL\BG41.jpg" />
+    <Content Include="Images\OVERALL\BG5.jpg" />
+    <Content Include="Images\OVERALL\BG51.jpg" />
+    <Content Include="Images\OVERALL\BG52.jpg" />
+    <Content Include="Images\OVERALL\BG53.jpg" />
+    <Content Include="Images\OVERALL\BG54.jpg" />
+    <Content Include="Images\OVERALL\BG55.jpg" />
+    <Content Include="Images\OVERALL\BG56.jpg" />
+    <Content Include="Images\OVERALL\BG57.jpg" />
+    <Content Include="Images\OVERALL\BG58.jpg" />
+    <Content Include="Images\OVERALL\BG59.jpg" />
+    <Content Include="Images\OVERALL\BG6.jpg" />
+    <Content Include="Images\OVERALL\BG60.jpg" />
+    <Content Include="Images\OVERALL\BG61.jpg" />
+    <Content Include="Images\OVERALL\BG62.jpg" />
+    <Content Include="Images\OVERALL\BG63.jpg" />
+    <Content Include="Images\OVERALL\BG64.jpg" />
+    <Content Include="Images\OVERALL\BG65.jpg" />
+    <Content Include="Images\OVERALL\BG66.jpg" />
+    <Content Include="Images\OVERALL\BG67.jpg" />
+    <Content Include="Images\OVERALL\BG68.jpg" />
+    <Content Include="Images\OVERALL\BG69.jpg" />
+    <Content Include="Images\OVERALL\BG7.jpg" />
+    <Content Include="Images\OVERALL\BG70.jpg" />
+    <Content Include="Images\OVERALL\BG71.jpg" />
+    <Content Include="Images\OVERALL\BG72.jpg" />
+    <Content Include="Images\OVERALL\BG73.jpg" />
+    <Content Include="Images\OVERALL\BG74.jpg" />
+    <Content Include="Images\OVERALL\BG75.jpg" />
+    <Content Include="Images\OVERALL\BG76.jpg" />
+    <Content Include="Images\OVERALL\BG77.jpg" />
+    <Content Include="Images\OVERALL\BG78.jpg" />
+    <Content Include="Images\OVERALL\BG79.jpg" />
+    <Content Include="Images\OVERALL\BG80.jpg" />
+    <Content Include="Images\OVERALL\BG81.jpg" />
+    <Content Include="Images\OVERALL\BG82.jpg" />
+    <Content Include="Images\OVERALL\BG83.jpg" />
+    <Content Include="Images\OVERALL\BG84.jpg" />
+    <Content Include="Images\OVERALL\BG85.jpg" />
+    <Content Include="Images\OVERALL\BG86.jpg" />
+    <Content Include="Images\OVERALL\BG87.jpg" />
+    <Content Include="Images\OVERALL\BG88.jpg" />
+    <Content Include="Images\OVERALL\BG89.jpg" />
+    <Content Include="Images\OVERALL\BG9.jpg" />
+    <Content Include="Images\OVERALL\BG90.jpg" />
+    <Content Include="Images\OVERALL\BG91.jpg" />
+    <Content Include="Images\OVERALL\BG92.jpg" />
+    <Content Include="Images\OVERALL\BG93.jpg" />
+    <Content Include="Images\OVERALL\BG94.jpg" />
+    <Content Include="Images\OVERALL\BG95.jpg" />
+    <Content Include="Images\OVERALL\BG96.jpg" />
+    <Content Include="Images\OVERALL\BG97.jpg" />
+    <Content Include="Images\OVERALL\BG98.jpg" />
+    <Content Include="Images\OVERALL\BG99.jpg" />
+    <Content Include="Images\OVERALL\BGAPP10.jpg" />
+    <Content Include="Images\OVERALL\BGAPP11.jpg" />
+    <Content Include="Images\OVERALL\BGAPP12.jpg" />
+    <Content Include="Images\OVERALL\BGAPP13.jpg" />
+    <Content Include="Images\OVERALL\BGAPP14.jpg" />
+    <Content Include="Images\OVERALL\BGAPP15.jpg" />
+    <Content Include="Images\OVERALL\BGAPP16.jpg" />
+    <Content Include="Images\OVERALL\BGAPP17.jpg" />
+    <Content Include="Images\OVERALL\BGAPP20.jpg" />
+    <Content Include="Images\OVERALL\BGAPP21.jpg" />
+    <Content Include="Images\OVERALL\BGAPP22.jpg" />
+    <Content Include="Images\OVERALL\BGAPP23.jpg" />
+    <Content Include="Images\OVERALL\BGAPP24.jpg" />
+    <Content Include="Images\OVERALL\BGAPP25.jpg" />
+    <Content Include="Images\OVERALL\BGAPP3.jpg" />
+    <Content Include="Images\OVERALL\BGAPP42.jpg" />
+    <Content Include="Images\OVERALL\BGAPP43.jpg" />
+    <Content Include="Images\OVERALL\BGAPP44.jpg" />
+    <Content Include="Images\OVERALL\BGAPP45.jpg" />
+    <Content Include="Images\OVERALL\BGAPP46.jpg" />
+    <Content Include="Images\OVERALL\BGAPP47.jpg" />
+    <Content Include="Images\OVERALL\BGAPP48.jpg" />
+    <Content Include="Images\OVERALL\BGAPP49.jpg" />
+    <Content Include="Images\OVERALL\BGAPP50.jpg" />
+    <Content Include="Images\OVERALL\BGAPP6.jpg" />
+    <Content Include="Images\OVERALL\BGAPP8.jpg" />
+    <Content Include="Images\OVERALL\BGAPP9.jpg" />
+    <Content Include="Images\OVERALL\Game1.1.jpg" />
+    <Content Include="Images\OVERALL\Game1.2.jpg" />
+    <Content Include="Images\OVERALL\Game1.3.jpg" />
+    <Content Include="Images\OVERALL\Game1.4.jpg" />
+    <Content Include="Images\OVERALL\Game10.1.jpg" />
+    <Content Include="Images\OVERALL\Game10.2.jpg" />
+    <Content Include="Images\OVERALL\Game10.3.jpg" />
+    <Content Include="Images\OVERALL\Game10.4.jpg" />
+    <Content Include="Images\OVERALL\Game100.1.jpg" />
+    <Content Include="Images\OVERALL\Game100.2.jpg" />
+    <Content Include="Images\OVERALL\Game100.3.jpg" />
+    <Content Include="Images\OVERALL\Game100.4.jpg" />
+    <Content Include="Images\OVERALL\Game18.1.jpg" />
+    <Content Include="Images\OVERALL\Game18.2.jpg" />
+    <Content Include="Images\OVERALL\Game18.3.jpg" />
+    <Content Include="Images\OVERALL\Game18.4.jpg" />
+    <Content Include="Images\OVERALL\Game19.1.jpg" />
+    <Content Include="Images\OVERALL\Game19.2.jpg" />
+    <Content Include="Images\OVERALL\Game19.3.jpg" />
+    <Content Include="Images\OVERALL\Game19.4.jpg" />
+    <Content Include="Images\OVERALL\Game2.1.jpg" />
+    <Content Include="Images\OVERALL\Game2.2.jpg" />
+    <Content Include="Images\OVERALL\Game2.3.jpg" />
+    <Content Include="Images\OVERALL\Game2.4.jpg" />
+    <Content Include="Images\OVERALL\Game26.1.jpg" />
+    <Content Include="Images\OVERALL\Game26.2.jpg" />
+    <Content Include="Images\OVERALL\Game26.3.jpg" />
+    <Content Include="Images\OVERALL\Game26.4.jpg" />
+    <Content Include="Images\OVERALL\Game27.1.jpg" />
+    <Content Include="Images\OVERALL\Game27.2.jpg" />
+    <Content Include="Images\OVERALL\Game27.3.jpg" />
+    <Content Include="Images\OVERALL\Game27.4.jpg" />
+    <Content Include="Images\OVERALL\Game28.1.jpg" />
+    <Content Include="Images\OVERALL\Game28.2.jpg" />
+    <Content Include="Images\OVERALL\Game28.3.jpg" />
+    <Content Include="Images\OVERALL\Game28.4.jpg" />
+    <Content Include="Images\OVERALL\Game29.1.jpg" />
+    <Content Include="Images\OVERALL\Game29.2.jpg" />
+    <Content Include="Images\OVERALL\Game29.3.jpg" />
+    <Content Include="Images\OVERALL\Game29.4.jpg" />
+    <Content Include="Images\OVERALL\Game30.1.jpg" />
+    <Content Include="Images\OVERALL\Game30.2.jpg" />
+    <Content Include="Images\OVERALL\Game30.3.jpg" />
+    <Content Include="Images\OVERALL\game30.4.jpg" />
+    <Content Include="Images\OVERALL\Game31.1.jpg" />
+    <Content Include="Images\OVERALL\Game31.2.jpg" />
+    <Content Include="Images\OVERALL\Game31.3.jpg" />
+    <Content Include="Images\OVERALL\Game31.4.jpg" />
+    <Content Include="Images\OVERALL\Game32.1.jpg" />
+    <Content Include="Images\OVERALL\Game32.2.jpg" />
+    <Content Include="Images\OVERALL\Game32.3.jpg" />
+    <Content Include="Images\OVERALL\Game32.4.jpg" />
+    <Content Include="Images\OVERALL\Game33.1.jpg" />
+    <Content Include="Images\OVERALL\Game33.2.jpg" />
+    <Content Include="Images\OVERALL\Game33.3.jpg" />
+    <Content Include="Images\OVERALL\Game33.4.jpg" />
+    <Content Include="Images\OVERALL\Game34.1.jpg" />
+    <Content Include="Images\OVERALL\Game34.2.jpg" />
+    <Content Include="Images\OVERALL\Game34.3.jpg" />
+    <Content Include="Images\OVERALL\Game34.4.jpg" />
+    <Content Include="Images\OVERALL\Game35.1.jpg" />
+    <Content Include="Images\OVERALL\Game35.2.jpg" />
+    <Content Include="Images\OVERALL\Game35.3.jpg" />
+    <Content Include="Images\OVERALL\Game35.4.jpg" />
+    <Content Include="Images\OVERALL\Game36.1.jpg" />
+    <Content Include="Images\OVERALL\Game36.2.jpg" />
+    <Content Include="Images\OVERALL\Game36.3.jpg" />
+    <Content Include="Images\OVERALL\Game36.4.jpg" />
+    <Content Include="Images\OVERALL\Game37.1.jpg" />
+    <Content Include="Images\OVERALL\Game37.2.jpg" />
+    <Content Include="Images\OVERALL\Game37.3.jpg" />
+    <Content Include="Images\OVERALL\Game37.4.jpg" />
+    <Content Include="Images\OVERALL\Game38.1.jpg" />
+    <Content Include="Images\OVERALL\Game38.2.jpg" />
+    <Content Include="Images\OVERALL\Game38.3.jpg" />
+    <Content Include="Images\OVERALL\Game38.4.jpg" />
+    <Content Include="Images\OVERALL\Game39.1.jpg" />
+    <Content Include="Images\OVERALL\Game39.2.jpg" />
+    <Content Include="Images\OVERALL\Game39.3.jpg" />
+    <Content Include="Images\OVERALL\Game39.4.jpg" />
+    <Content Include="Images\OVERALL\Game4.1.jpg" />
+    <Content Include="Images\OVERALL\Game4.2.jpg" />
+    <Content Include="Images\OVERALL\Game4.3.jpg" />
+    <Content Include="Images\OVERALL\Game4.4.jpg" />
+    <Content Include="Images\OVERALL\Game40.1.jpg" />
+    <Content Include="Images\OVERALL\Game40.2.jpg" />
+    <Content Include="Images\OVERALL\Game40.3.jpg" />
+    <Content Include="Images\OVERALL\Game40.4.jpg" />
+    <Content Include="Images\OVERALL\Game41.1.jpg" />
+    <Content Include="Images\OVERALL\Game41.2.jpg" />
+    <Content Include="Images\OVERALL\Game41.3.jpg" />
+    <Content Include="Images\OVERALL\Game41.4.jpg" />
+    <Content Include="Images\OVERALL\Game5.1.jpg" />
+    <Content Include="Images\OVERALL\Game5.2.jpg" />
+    <Content Include="Images\OVERALL\Game5.3.jpg" />
+    <Content Include="Images\OVERALL\Game5.4.jpg" />
+    <Content Include="Images\OVERALL\Game51.1.jpg" />
+    <Content Include="Images\OVERALL\Game51.2.jpg" />
+    <Content Include="Images\OVERALL\Game51.3.jpg" />
+    <Content Include="Images\OVERALL\Game51.4.jpg" />
+    <Content Include="Images\OVERALL\Game52.1.jpg" />
+    <Content Include="Images\OVERALL\Game52.2.jpg" />
+    <Content Include="Images\OVERALL\Game52.3.jpg" />
+    <Content Include="Images\OVERALL\Game52.4.jpg" />
+    <Content Include="Images\OVERALL\Game53.1.jpg" />
+    <Content Include="Images\OVERALL\Game53.2.jpg" />
+    <Content Include="Images\OVERALL\Game53.3.jpg" />
+    <Content Include="Images\OVERALL\Game53.4.jpg" />
+    <Content Include="Images\OVERALL\Game54.1.jpg" />
+    <Content Include="Images\OVERALL\Game54.2.jpg" />
+    <Content Include="Images\OVERALL\Game54.3.jpg" />
+    <Content Include="Images\OVERALL\Game54.4.jpg" />
+    <Content Include="Images\OVERALL\Game55.1.jpg" />
+    <Content Include="Images\OVERALL\Game55.2.jpg" />
+    <Content Include="Images\OVERALL\Game55.3.jpg" />
+    <Content Include="Images\OVERALL\Game55.4.jpg" />
+    <Content Include="Images\OVERALL\Game56.1.jpg" />
+    <Content Include="Images\OVERALL\Game56.2.jpg" />
+    <Content Include="Images\OVERALL\Game56.3.jpg" />
+    <Content Include="Images\OVERALL\Game56.4.jpg" />
+    <Content Include="Images\OVERALL\Game57.1.jpg" />
+    <Content Include="Images\OVERALL\Game57.2.jpg" />
+    <Content Include="Images\OVERALL\Game57.3.jpg" />
+    <Content Include="Images\OVERALL\Game57.4.jpg" />
+    <Content Include="Images\OVERALL\Game58.1.jpg" />
+    <Content Include="Images\OVERALL\Game58.2.jpg" />
+    <Content Include="Images\OVERALL\Game58.3.jpg" />
+    <Content Include="Images\OVERALL\Game58.4.jpg" />
+    <Content Include="Images\OVERALL\Game59.1.jpg" />
+    <Content Include="Images\OVERALL\Game59.2.jpg" />
+    <Content Include="Images\OVERALL\Game59.3.jpg" />
+    <Content Include="Images\OVERALL\Game59.4.jpg" />
+    <Content Include="Images\OVERALL\Game6.1.jpg" />
+    <Content Include="Images\OVERALL\Game6.2.jpg" />
+    <Content Include="Images\OVERALL\Game6.3.jpg" />
+    <Content Include="Images\OVERALL\Game6.4.jpg" />
+    <Content Include="Images\OVERALL\Game60.1.jpg" />
+    <Content Include="Images\OVERALL\Game60.2.jpg" />
+    <Content Include="Images\OVERALL\Game60.3.jpg" />
+    <Content Include="Images\OVERALL\Game60.4.jpg" />
+    <Content Include="Images\OVERALL\Game61.1.jpg" />
+    <Content Include="Images\OVERALL\Game61.2.jpg" />
+    <Content Include="Images\OVERALL\Game61.3.jpg" />
+    <Content Include="Images\OVERALL\Game61.4.jpg" />
+    <Content Include="Images\OVERALL\Game62.1.jpg" />
+    <Content Include="Images\OVERALL\Game62.2.jpg" />
+    <Content Include="Images\OVERALL\Game62.3.jpg" />
+    <Content Include="Images\OVERALL\Game62.4.jpg" />
+    <Content Include="Images\OVERALL\Game63.1.jpg" />
+    <Content Include="Images\OVERALL\Game63.2.jpg" />
+    <Content Include="Images\OVERALL\Game63.3.jpg" />
+    <Content Include="Images\OVERALL\Game63.4.jpg" />
+    <Content Include="Images\OVERALL\Game64.1.jpg" />
+    <Content Include="Images\OVERALL\Game64.2.jpg" />
+    <Content Include="Images\OVERALL\Game64.3.jpg" />
+    <Content Include="Images\OVERALL\Game64.4.jpg" />
+    <Content Include="Images\OVERALL\Game65.1.jpg" />
+    <Content Include="Images\OVERALL\Game65.2.jpg" />
+    <Content Include="Images\OVERALL\Game65.3.jpg" />
+    <Content Include="Images\OVERALL\Game65.4.jpg" />
+    <Content Include="Images\OVERALL\Game66.1.jpg" />
+    <Content Include="Images\OVERALL\Game66.2.jpg" />
+    <Content Include="Images\OVERALL\Game66.3.jpg" />
+    <Content Include="Images\OVERALL\Game66.4.jpg" />
+    <Content Include="Images\OVERALL\Game67.1.jpg" />
+    <Content Include="Images\OVERALL\Game67.2.jpg" />
+    <Content Include="Images\OVERALL\Game67.3.jpg" />
+    <Content Include="Images\OVERALL\Game67.4.jpg" />
+    <Content Include="Images\OVERALL\Game68.1.jpg" />
+    <Content Include="Images\OVERALL\Game68.2.jpg" />
+    <Content Include="Images\OVERALL\Game68.3.jpg" />
+    <Content Include="Images\OVERALL\Game68.4.jpg" />
+    <Content Include="Images\OVERALL\Game69.1.jpg" />
+    <Content Include="Images\OVERALL\Game69.2.jpg" />
+    <Content Include="Images\OVERALL\Game69.3.jpg" />
+    <Content Include="Images\OVERALL\Game69.4.jpg" />
+    <Content Include="Images\OVERALL\Game7.1.jpg" />
+    <Content Include="Images\OVERALL\Game7.2.jpg" />
+    <Content Include="Images\OVERALL\Game7.3.jpg" />
+    <Content Include="Images\OVERALL\Game7.4.jpg" />
+    <Content Include="Images\OVERALL\Game70.1.jpg" />
+    <Content Include="Images\OVERALL\Game70.2.jpg" />
+    <Content Include="Images\OVERALL\Game70.3.jpg" />
+    <Content Include="Images\OVERALL\Game70.4.jpg" />
+    <Content Include="Images\OVERALL\Game71.1.jpg" />
+    <Content Include="Images\OVERALL\Game71.2.jpg" />
+    <Content Include="Images\OVERALL\Game71.3.jpg" />
+    <Content Include="Images\OVERALL\Game71.4.jpg" />
+    <Content Include="Images\OVERALL\Game72.1.jpg" />
+    <Content Include="Images\OVERALL\Game72.2.jpg" />
+    <Content Include="Images\OVERALL\Game72.3.jpg" />
+    <Content Include="Images\OVERALL\Game72.4.jpg" />
+    <Content Include="Images\OVERALL\Game73.1.jpg" />
+    <Content Include="Images\OVERALL\Game73.2.jpg" />
+    <Content Include="Images\OVERALL\Game73.3.jpg" />
+    <Content Include="Images\OVERALL\Game73.4.jpg" />
+    <Content Include="Images\OVERALL\Game74.1.jpg" />
+    <Content Include="Images\OVERALL\Game74.2.jpg" />
+    <Content Include="Images\OVERALL\Game74.3.jpg" />
+    <Content Include="Images\OVERALL\Game74.4.jpg" />
+    <Content Include="Images\OVERALL\Game75.1.jpg" />
+    <Content Include="Images\OVERALL\Game75.2.jpg" />
+    <Content Include="Images\OVERALL\Game75.3.jpg" />
+    <Content Include="Images\OVERALL\Game75.4.jpg" />
+    <Content Include="Images\OVERALL\Game76.1.jpg" />
+    <Content Include="Images\OVERALL\Game76.2.jpg" />
+    <Content Include="Images\OVERALL\Game76.3.jpg" />
+    <Content Include="Images\OVERALL\Game76.4.jpg" />
+    <Content Include="Images\OVERALL\Game77.1.jpg" />
+    <Content Include="Images\OVERALL\Game77.2.jpg" />
+    <Content Include="Images\OVERALL\Game77.3.jpg" />
+    <Content Include="Images\OVERALL\Game77.4.jpg" />
+    <Content Include="Images\OVERALL\Game78.1.jpg" />
+    <Content Include="Images\OVERALL\Game78.2.jpg" />
+    <Content Include="Images\OVERALL\Game78.3.jpg" />
+    <Content Include="Images\OVERALL\Game78.4.jpg" />
+    <Content Include="Images\OVERALL\Game79.1.jpg" />
+    <Content Include="Images\OVERALL\Game79.2.jpg" />
+    <Content Include="Images\OVERALL\Game79.3.jpg" />
+    <Content Include="Images\OVERALL\Game79.4.jpg" />
+    <Content Include="Images\OVERALL\Game80.1.jpg" />
+    <Content Include="Images\OVERALL\Game80.2.jpg" />
+    <Content Include="Images\OVERALL\Game80.3.jpg" />
+    <Content Include="Images\OVERALL\Game80.4.jpg" />
+    <Content Include="Images\OVERALL\Game81.1.jpg" />
+    <Content Include="Images\OVERALL\Game81.2.jpg" />
+    <Content Include="Images\OVERALL\Game81.3.jpg" />
+    <Content Include="Images\OVERALL\Game81.4.jpg" />
+    <Content Include="Images\OVERALL\Game82.1.jpg" />
+    <Content Include="Images\OVERALL\Game82.2.jpg" />
+    <Content Include="Images\OVERALL\Game82.3.jpg" />
+    <Content Include="Images\OVERALL\Game82.4.jpg" />
+    <Content Include="Images\OVERALL\Game83.1.jpg" />
+    <Content Include="Images\OVERALL\Game83.2.jpg" />
+    <Content Include="Images\OVERALL\Game83.3.jpg" />
+    <Content Include="Images\OVERALL\Game83.4.jpg" />
+    <Content Include="Images\OVERALL\Game84.1.jpg" />
+    <Content Include="Images\OVERALL\Game84.2.jpg" />
+    <Content Include="Images\OVERALL\Game84.3.jpg" />
+    <Content Include="Images\OVERALL\Game84.4.jpg" />
+    <Content Include="Images\OVERALL\Game85.1.jpg" />
+    <Content Include="Images\OVERALL\Game85.2.jpg" />
+    <Content Include="Images\OVERALL\Game85.3.jpg" />
+    <Content Include="Images\OVERALL\Game85.4.jpg" />
+    <Content Include="Images\OVERALL\Game86.1.jpg" />
+    <Content Include="Images\OVERALL\Game86.2.jpg" />
+    <Content Include="Images\OVERALL\Game86.3.jpg" />
+    <Content Include="Images\OVERALL\Game86.4.jpg" />
+    <Content Include="Images\OVERALL\Game87.1.jpg" />
+    <Content Include="Images\OVERALL\Game87.2.jpg" />
+    <Content Include="Images\OVERALL\Game87.3.jpg" />
+    <Content Include="Images\OVERALL\Game87.4.jpg" />
+    <Content Include="Images\OVERALL\Game88.1.jpg" />
+    <Content Include="Images\OVERALL\Game88.2.jpg" />
+    <Content Include="Images\OVERALL\Game88.3.jpg" />
+    <Content Include="Images\OVERALL\Game88.4.jpg" />
+    <Content Include="Images\OVERALL\Game89.1.jpg" />
+    <Content Include="Images\OVERALL\Game89.2.jpg" />
+    <Content Include="Images\OVERALL\Game89.3.jpg" />
+    <Content Include="Images\OVERALL\Game89.4.jpg" />
+    <Content Include="Images\OVERALL\Game9.1.jpg" />
+    <Content Include="Images\OVERALL\Game9.2.jpg" />
+    <Content Include="Images\OVERALL\Game9.3.jpg" />
+    <Content Include="Images\OVERALL\Game9.4.jpg" />
+    <Content Include="Images\OVERALL\Game90.1.jpg" />
+    <Content Include="Images\OVERALL\Game90.2.jpg" />
+    <Content Include="Images\OVERALL\Game90.3.jpg" />
+    <Content Include="Images\OVERALL\Game90.4.jpg" />
+    <Content Include="Images\OVERALL\Game91.1.jpg" />
+    <Content Include="Images\OVERALL\Game91.2.jpg" />
+    <Content Include="Images\OVERALL\Game91.3.jpg" />
+    <Content Include="Images\OVERALL\Game91.4.jpg" />
+    <Content Include="Images\OVERALL\Game92.1.jpg" />
+    <Content Include="Images\OVERALL\Game92.2.jpg" />
+    <Content Include="Images\OVERALL\Game92.3.jpg" />
+    <Content Include="Images\OVERALL\Game92.4.jpg" />
+    <Content Include="Images\OVERALL\Game93.1.jpg" />
+    <Content Include="Images\OVERALL\Game93.2.jpg" />
+    <Content Include="Images\OVERALL\Game93.3.jpg" />
+    <Content Include="Images\OVERALL\Game93.4.jpg" />
+    <Content Include="Images\OVERALL\Game94.1.jpg" />
+    <Content Include="Images\OVERALL\Game94.2.jpg" />
+    <Content Include="Images\OVERALL\Game94.3.jpg" />
+    <Content Include="Images\OVERALL\game94.4.jpg" />
+    <Content Include="Images\OVERALL\Game95.1.jpg" />
+    <Content Include="Images\OVERALL\Game95.2.jpg" />
+    <Content Include="Images\OVERALL\Game95.3.jpg" />
+    <Content Include="Images\OVERALL\Game95.4.jpg" />
+    <Content Include="Images\OVERALL\Game96.1.jpg" />
+    <Content Include="Images\OVERALL\Game96.2.jpg" />
+    <Content Include="Images\OVERALL\Game96.3.jpg" />
+    <Content Include="Images\OVERALL\Game96.4.jpg" />
+    <Content Include="Images\OVERALL\Game97.1.jpg" />
+    <Content Include="Images\OVERALL\game97.2.jpg" />
+    <Content Include="Images\OVERALL\Game97.3.jpg" />
+    <Content Include="Images\OVERALL\Game97.4.jpg" />
+    <Content Include="Images\OVERALL\Game98.1.jpg" />
+    <Content Include="Images\OVERALL\Game98.2.jpg" />
+    <Content Include="Images\OVERALL\Game98.3.jpg" />
+    <Content Include="Images\OVERALL\Game98.4.jpg" />
+    <Content Include="Images\OVERALL\Game99.1.jpg" />
+    <Content Include="Images\OVERALL\Game99.2.jpg" />
+    <Content Include="Images\OVERALL\Game99.3.jpg" />
+    <Content Include="Images\OVERALL\Game99.4.jpg" />
+    <Content Include="Images\vecteezyhalloween-festivity-illustration-sceneryAW0721_generated.jpg" />
+    <Content Include="Images\vecteezy_Jack-o%27-lantern-Illustration_AP0920_vecteezy_Jack-o%27-lantern-Illustration_AP0920.jpg" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap5\css\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap5\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap5\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap5\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\bootstrap5\js\bootstrap.esm.js.map" />
+    <Content Include="Content\bootstrap5\js\bootstrap.esm.min.js.map" />
+    <Content Include="Content\bootstrap5\js\bootstrap.js.map" />
+    <Content Include="Content\bootstrap5\js\bootstrap.min.js.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InputOVERALL\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputOVERALL\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputOVERALL\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputOVERALL\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputOVERALL\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataAPP\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataAPP\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataAPP\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataAPP\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataAPP\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataGAME\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataGAME\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataGAME\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataGAME\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataGAME\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataHEDIEUHANH\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataHEDIEUHANH\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataHEDIEUHANH\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataHEDIEUHANH\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataHEDIEUHANH\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNGONNGU\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNGONNGU\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNGONNGU\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNGONNGU\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNGONNGU\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNHAPHATHANH\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNHAPHATHANH\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNHAPHATHANH\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNHAPHATHANH\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataNHAPHATHANH\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataTHELOAI\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataTHELOAI\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataTHELOAI\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataTHELOAI\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataTHELOAI\Index.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\HomePage.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\SlideImageAuto.js" />
+    <Content Include="Scripts\StarVoting.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_HomePage.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Home\AppPage.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\CitricStore\Index.cshtml" />
+    <Content Include="Views\CitricStore\Index_LayTheLoaiApp.cshtml" />
+    <Content Include="Views\CitricStore\TenTheLoaiApp.cshtml" />
+    <Content Include="Views\CitricStore\Index_GameTheoDanhGia.cshtml" />
+    <Content Include="Views\CitricStore\Index_AppMoi.cshtml" />
+    <Content Include="Views\CitricStore\Index_AppTheoDanhGia.cshtml" />
+    <Content Include="Views\CitricStore\DetailsGame.cshtml" />
+    <Content Include="Views\CitricStore\DetailsApp.cshtml" />
+    <Content Include="Views\Users\Register.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Views\CitricStore\Details_AppMoi.cshtml" />
+    <Content Include="Views\CitricStore\Details_AppTheoDanhGia.cshtml" />
+    <Content Include="Views\CitricStore\Details_GameTheoDanhGia.cshtml" />
+    <Content Include="Views\CitricStore\Details_GameMoi.cshtml" />
+    <Content Include="Views\CitricStore\Details_GameCungTheLoai.cshtml" />
+    <Content Include="Views\CitricStore\Details_TenNPH.cshtml" />
+    <Content Include="Views\CitricStore\Details_TenNgonNgu.cshtml" />
+    <Content Include="Views\CitricStore\Details_TenHDH.cshtml" />
+    <Content Include="Views\Users\EditInfo.cshtml" />
+    <Content Include="Views\CitricStore\Index_GameMoi.cshtml" />
+    <Content Include="Views\Users\ViewInfo.cshtml" />
+    <Content Include="Views\Users\FogotPass.cshtml" />
+    <Content Include="Views\Users\ResetPass.cshtml" />
+    <Content Include="Views\CitricStore\Classify.cshtml" />
+    <Content Include="Views\CitricStore\Page_GameTheoTheLoai.cshtml" />
+    <Content Include="Views\CitricStore\Page_Search.cshtml" />
+    <Content Include="Views\CitricStore\Page_App.cshtml" />
+    <Content Include="Views\CitricStore\Index_LayTheLoaiGame.cshtml" />
+    <Content Include="Views\CitricStore\Page_AppTheoTheLoai.cshtml" />
+    <Content Include="Views\CitricStore\TenTheLoaiGame.cshtml" />
+    <Content Include="Views\CitricStore\Details_AppCungTheLoai.cshtml" />
+
+    <Content Include="Views\Shared\_LanguagePartial.cshtml" />
+    <Content Include="Views\Language\Index.cshtml" />
+    <Content Include="Views\Language\Login.cshtml" />
+    <Content Include="Views\Language\FogotPass.cshtml" />
+    <Content Include="Views\Language\Register.cshtml" />
+    <Content Include="Views\Language\DetailsGame.cshtml" />
+    <Content Include="Views\Language\DetailsApp.cshtml" />
+    <Content Include="Views\Home\Question.cshtml" />
+
+    <Content Include="Views\Cart\GetCartInfo.cshtml" />
+    <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\CitricStore\Details_Overall.cshtml" />
+    <Content Include="Views\Cart\Page_Payment.cshtml" />
+    <Content Include="Views\Cart\Page_CheckOrder.cshtml" />
+    <Content Include="Views\Cart\Page_ShowPayment.cshtml" />
+    <Content Include="Views\Cart\Page_PaymentSuccess.cshtml" />
+    <Content Include="Views\Users\Users_DaMua.cshtml" />
+    <Content Include="Views\Users\DaMua_Product.cshtml" />
+    <Content Include="Views\Users\DaMua_UngDung.cshtml" />
+    <Content Include="Views\CitricStore\Page_App_Filter_NgonNguVie.cshtml" />
+    <Content Include="Views\CitricStore\Page_App_Filter_NgonNgu.cshtml" />
+    <Content Include="Views\CitricStore\Page_App_Filter_NgonNguDropDown.cshtml" />
+    <Content Include="Views\CitricStore\Extension_Overall_TenTheLoai.cshtml" />
+    <Content Include="Views\CitricStore\Details_Overall_TheoDanhGia.cshtml" />
+    <Content Include="Views\CitricStore\Details_Overall_Moi.cshtml" />
+    <Content Include="Views\CitricStore\Details_Overall_CungTheLoai.cshtml" />
+   
+
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Views\language\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Language.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61387</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44314/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

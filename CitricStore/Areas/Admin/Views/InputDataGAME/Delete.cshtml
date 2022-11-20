@@ -1,0 +1,147 @@
+﻿@model CitricStore.Models.GAME
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+
+<div class="container" style="margin: 10px auto; width:100%; align-items:center">
+
+    <h2 style="text-align: center; color:white">DỮ LIỆU TRÒ CHƠI (GAME)</h2>
+
+    <h3 style="text-align: center; color: white">XOÁ DỮ LIỆU</h3>
+    <div>
+        <dl class="dl-horizontal" style="color: white">
+            <dt>
+                Tên:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenGame)
+            </dd>
+
+            <dt>
+                Giới thiệu:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GioiThieu)
+            </dd>
+
+            <dt>
+                Dung lượng:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DungLuong)
+            </dd>
+            <dt>
+                Đơn giá:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DonGia)
+            </dd>
+
+            <dt>
+                Ngày cập nhật:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgayCapNhat)
+            </dd>
+
+            <dt>
+                Đánh giá:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DanhGia)
+            </dd>
+            <dt>
+                Hệ điều hành:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HEDIEUHANH1.TenHDH)
+            </dd>
+
+            <dt>
+                Ngôn ngữ:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NGONNGU1.TenNgonNgu)
+            </dd>
+
+            <dt>
+                Nhà phát hành:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NHAPHATHANH.TenNPH)
+            </dd>
+
+            <dt>
+                Thể loại:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.THELOAIGAME.TenTheLoai)
+            </dd>
+
+            <dt>
+                Hình Nền
+            </dt>
+
+            <dd>
+                <img src="~/Images/GAME/@Model.HinhNen" style="width:600px; height:300px" />
+            </dd>
+
+            <dt>
+                Hình chi tiết 1
+            </dt>
+
+            <dd>
+                <img src="~/Images/GAME/@Model.HinhCT1" style="width:600px; height:300px" />
+            </dd>
+
+            <dt>
+                Hình chi tiết 2
+            </dt>
+
+            <dd>
+                <img src="~/Images/GAME/@Model.HinhCT2" style="width:600px; height:300px" />
+            </dd>
+
+            <dt>
+                Hình chi tiết 3
+            </dt>
+
+            <dd>
+                <img src="~/Images/GAME/@Model.HinhCT3" style="width:600px; height:300px" />
+            </dd>
+
+            <dt>
+                Hình chi tiết 4
+            </dt>
+
+            <dd>
+                <img src="~/Images/GAME/@Model.HinhCT4" style="width:600px; height:300px" />
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xoá" class="btn btn-info" /> |
+                @Html.ActionLink("Quay về trang tổng hợp", "Index")
+            </div>
+        }
+    </div>
+</div>

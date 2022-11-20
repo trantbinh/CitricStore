@@ -1,0 +1,23 @@
+﻿@using CitricStore.Models
+
+@foreach (var app in Model)
+{
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="bloggame">
+            <a class="imageblog" href="@Url.Action("DetailsApp", "CitricStore", new {id=app.MaApp})">
+                <img class="card-img-top imageblog-width-height" src="~/Images/APP/@app.HinhNen" alt="Card image">
+            </a>
+            <a class="bloggame-title h4" href="@Url.Action("DetailsApp", "CitricStore", new {id=app.MaApp})">
+                @app.TenApp
+            </a>
+            <div class="bloggame-theloai">
+                Thể loại: @Html.Action("TenTheLoaiApp", "CitricStore", new { idtheloai = app.MaTheLoaiApp })
+            </div>
+            <a class="bloggame-download" href="@Url.Action("DetailsApp", "CitricStore", new {id=app.MaApp})" style="text-decoration:none">
+                <div class="bloggame-download-btn">
+                    Chi Tiết
+                </div>
+            </a>
+        </div>
+    </div>
+}

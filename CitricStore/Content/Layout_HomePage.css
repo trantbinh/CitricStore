@@ -1,0 +1,304 @@
+﻿* {
+    margin: 0px;
+    padding:0px;
+}
+
+html, main {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#body-container {
+    min-height: 100%;
+    position: relative;
+}
+/*-------------HEADER-------------*/
+#header {
+    background-color: #FCAE03;
+    height: 60px;
+    top: 0;
+}
+
+.logo {
+    height: 60px;
+}
+.imagelogo {
+    margin: 0px auto;
+}
+.tenweb {
+    height: 60px;
+    text-align: center;
+}
+
+.header-left-container {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-left {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header-right-container {
+    height: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.header-right {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header-right-name {
+    padding: 15px;
+}
+
+/*Hover Button*/
+* {
+    box-sizing: inherit;
+    transition-property: all;
+    transition-duration: 0.6s;
+    transition-timing-function: ease;
+}
+
+.header-left-name {
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    width: 100px;
+    height: 60px;
+    text-align: center;
+    line-height: 55px;
+    
+}
+
+    .header-left-name:hover {
+        text-decoration: none;
+    }
+
+.header-left-name-btn {
+    letter-spacing: 0;
+}
+
+    .header-left-name-btn:hover, .header-left-name-btn:active {
+        letter-spacing: 3px;
+    }
+
+    .header-left-name-btn:after, .header-left-name-btn:before {
+        border: 1px solid rgba(255, 255, 255, 0);
+        bottom: 0px;
+        content: " ";
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        transition: all 280ms ease-in-out;
+        width: 0;
+    }
+
+    .header-left-name-btn:hover:after, .header-left-name-btn:hover:before {
+        border-color: #fff;
+        transition: width 350ms ease-in-out;
+        width: 70%;
+    }
+
+    .header-left-name-btn:hover:before {
+        bottom: 0;
+        top: 0;
+    }
+ 
+
+/*-------------MAIN-------------*/
+#main {
+    background-color: rgb(18,18,18);
+    padding-top:0px;
+    padding-bottom:200px;
+    margin-top:0px;
+    margin-bottom:0px;
+    
+
+}
+
+.navigationbar-container {
+    background-color:rgb(18,18,18);
+    color:white;
+    height: 100px;
+    position:sticky;
+    top: 0;
+    display: flex;
+    z-index: 1000;
+}
+
+.searchbar-container {
+    height: 100%;
+    align-items:center;
+}
+
+.searchbar {
+    top:50%;
+    transform:translateY(-50%);
+    margin-left:50px;
+    height: 50px;
+    position: absolute;
+    display: flex;
+    border-radius: 24px;
+}
+.searchbar-form {
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .searchbar-form:focus {
+        color: #212529;
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+
+.searchbar-form::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.searchbar-form::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+
+
+
+.navigation-container {
+    height: 100%;
+}
+
+.navigation {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+.navigation-name {
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+/*làm ẩn thanh scollball*/
+
+::-webkit-scrollbar {
+    width: 0px;
+    background-color: rgb(18,18,18);
+}
+
+/*-------------FOOTER-------------*/
+#footer {
+    background-color: #FCAE03;
+    margin: 0px;
+    padding: 0px;
+    bottom: 0px;
+    text-align: center;
+    z-index: 5;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position:absolute;
+    height:200px;
+
+}
+.footer-logo-name-container {
+    align-items: center;
+    width: 300px;
+}
+
+.footer-logo {
+    height: 52px;
+    width: 52px;
+    margin: 0 auto;
+}
+
+.footer-tenweb {
+    width: 120px;
+    height: 52px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.ngaytaoweb {
+    width: 350px;
+}
+
+.ngaytaoweb-caption {
+    height: 50px;
+    width: 300px;
+    padding-top: 65px;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+.gioithieutrangweb {
+    width: 500px;
+}
+
+.timchungtoi {
+    flex-direction: column;
+}
+
+.icon_lienlac {
+    margin-top: 100px;
+    margin-left: 10px;
+    font-size: 30px;
+    color: black;
+}
+
+.text-muted{
+    color:black;
+}
+
+
+
+
+.DangNhap {
+    text-decoration: none;
+    color: black;
+}
+
+.ThanhVien{
+    text-decoration:none;
+    color: white;
+   
+}
+
+.ThanhVien :hover{
+    color:white;
+}

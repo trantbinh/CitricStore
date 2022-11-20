@@ -1,0 +1,80 @@
+﻿@using CitricStore.Models
+@{
+    ViewBag.Title = "Trò chơi";
+    Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/HomePage.css" />
+<script src="~/Content/bootstrap5/js/bootstrap.js"></script>
+
+<div class="slideshow">
+    <div class="display-container">
+        @*            <div class="slides">
+                <img class="imageslides animate-fading" onclick="changeImage()" src="~/Images/nền ứng dụng 1.jpg">
+                <div class="imageslides-caption">
+                    <div class="imageslides-content">
+                        <h3 class="imageslides-title">GAME MỚI</h3>
+                        <p class="imageslides-description">
+                            “Six Inches Under” là một dự án phụ nhỏ được tạo ra để giới thiệu các thành viên nhóm phát triển mới với các công cụ và quy trình làm việc của chúng tôi. Về cơ bản đó là sự chuẩn bị của chúng tôi cho phần tiếp theo của Supraland.
+                        </p>
+                        <div href="" class="imageslides-more-btn">Xem thêm</div>
+                    </div>
+                </div>
+            </div>
+        *@            <div class="slides">
+            <img class="imageslides animate-fading" onclick="changeImage()" src="~/Images/vecteezyhalloween-festivity-illustration-sceneryAW0721_generated.jpg">
+        </div>
+        <div class="slides">
+            <img class="imageslides animate-fading" onclick="changeImage()" src="~/Images/vecteezy_Jack-o'-lantern-Illustration_AP0920_vecteezy_Jack-o'-lantern-Illustration_AP0920.jpg">
+        </div>
+        <div class="slides">
+            <img class="imageslides animate-fading" onclick="changeImage()" src="~/Images/4183289.jpg">
+        </div>
+
+        <!--Nút qua lại-->
+        <button class="image-button button-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="image-button button-right" onclick="plusDivs(1)">&#10095;</button>
+        <!-- Chấm tròn -->
+        <div class="badge" style="width:100%">
+            <span class="image-badge" onclick="currentDiv(1)"></span>
+            <span class="image-badge" onclick="currentDiv(2)"></span>
+            <span class="image-badge" onclick="currentDiv(3)"></span>
+        </div>
+    </div>
+</div>
+<script language="Javascript" src="~/Scripts/HomePage.js"></script>
+
+
+<div class="dexuat-container">
+    <div class="dexuat-name">
+        <div class="line"></div>
+        <span>KẾT QUẢ TÌM KIẾM CHO "@Session["SearchKeyWord"].ToString()"</span>
+        <div class="line"></div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var app in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="bloggame">
+                        <div class="imageblog">
+                            <img class="card-img-top imageblog-width-height" src="~/Images/OVERALL/@app.HinhNen" alt="Card image">
+                        </div>
+                            <div class="bloggame-title h4">
+                                <a class="fix-line">@app.Ten</a>
+                            </div>
+                            <div class="bloggame-theloai">
+                                Thể loại: @Html.Action("Extension_Overall_TenTheLoai", "CitricStore", new { idtheloai = app.MaTheLoai})
+                            </div>
+                            <a class="bloggame-download" href="@Url.Action("Details_Overall", "CitricStore", new {id=app.Ma})" style="text-decoration:none">
+                                <div class="bloggame-download-btn">
+                                    Chi Tiết
+                                </div>
+                            </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

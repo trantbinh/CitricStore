@@ -1,0 +1,36 @@
+﻿@using CitricStore.Models
+@{
+    ViewBag.Title = "Users_DaMua";
+    Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+
+<style>
+    .login-container {
+        height: 700px;
+    }
+
+    .login-btn {
+        width: 46%;
+        margin-left: 10px;
+    }
+</style>
+<div class="container col-lg-6 col-md-12" style="margin:0px auto;">
+    <h2 style="text-align: center; color:white;">ĐƠN HÀNG ĐÃ MUA</h2>
+    <div style="color:white; font-size:18px;">
+        @foreach(var item in Model)
+            {
+        <div>
+            @item.NgayOrder
+
+
+            @Html.Action("DaMua_Product", "Users",new {idor = item.MaOrder })
+
+        </div>
+
+
+
+            }
+        </div>
+    </div>

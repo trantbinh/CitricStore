@@ -1,0 +1,62 @@
+﻿* {
+    margin: 0;
+}
+
+.tennoidung {
+    font-size: 50px;
+    color: white;
+}
+
+
+.theloai td {
+    height: 50px;
+    width: 1000px;
+}
+
+.theloaicantim {
+    background-color: #00B4CC;
+    height: 40px;
+    width: auto;
+    padding-left: 30px;
+    padding-right: 10px;
+    font-size: 25px;
+    display: flex;
+    border-radius: 24px;
+}
+
+    .theloaicantim a {
+        margin: -3px -4px -3px -22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        letter-spacing: 0;
+    }
+
+
+        .theloaicantim a:hover, .theloaicantim a:active {
+            letter-spacing: 3px;
+        }
+
+        .theloaicantim a:after, .theloaicantim a:before {
+            border: 1px solid rgba(255, 255, 255, 0);
+            bottom: 0px;
+            content: " ";
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            transition: all 280ms ease-in-out;
+            width: 0;
+        }
+
+        .theloaicantim a:hover:after, .theloaicantim a:hover:before {
+            border-color: #fff;
+            transition: width 350ms ease-in-out;
+            width: 70%;
+        }
+
+        .theloaicantim a:hover:before {
+            bottom: 0;
+            top: 0;
+        }

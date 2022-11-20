@@ -1,0 +1,11 @@
+﻿@using CitricStore.Models
+
+@foreach (var nn in Model)
+{
+    <a href="@Url.Action("Page_App_Filter_NgonNgu","CitricStore",new {idnn = nn.MaNgonNgu})" class="dropdown-item">
+    @nn.TenNgonNgu
+    </a>
+}
+
+
+

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Đăng Nhập";
+    Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
+}
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+
+
+<style>
+    .login-container {
+        height: 700px;
+    }
+
+    .login-btn {
+        width: 46%;
+        margin-left: 10px;
+    }
+</style>
+<div class="container login-container col-lg-6 col-md-12" style="margin:0px auto;">
+    <h2 style="text-align: center; color:white;">ĐĂNG NHẬP</h2>
+    <h2 style="color: #FCAE03; margin: 0px auto; font-size: 20px;">@ViewBag.ThongBao</h2>
+    <div style="color:white; font-size:18px;">
+
+        @using (Html.BeginForm("Login", "Users"))
+        {
+            @Html.ValidationSummary(true)
+            <div class="mb-3 mt-3">
+                <label for="name" class="form-label">Tên đăng nhập:</label>
+                <input type="text" class="form-control" id="name" name="TenDN" required>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="pass" class="form-label">Mật khẩu:</label>
+                <input type="password" class="form-control" id="pass" name="Matkhau" required>
+            </div>
+            <div class="row">
+
+                <button type="submit" class="btn btn-dark" style="width:46%; margin-left:13px">Đăng Nhập</button>
+
+                @Html.ActionLink("Đăng Ký", "Register", "Users", null, new { @class = "btn btn-dark login-btn" })
+
+                @Html.ActionLink("Quên mật khẩu ?", "FogotPass")
+
+            </div>
+        }
+    </div>
+</div>

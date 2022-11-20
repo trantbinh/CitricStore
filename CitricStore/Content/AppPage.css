@@ -1,0 +1,265 @@
+﻿* {
+    margin: 0;
+}
+/* Slide image auto */
+.slideshow {
+    width: 100%;
+    height: 500px;
+}
+
+.slides {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.display-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/*Nút qua lại*/
+.button-left {
+    left: 1%;
+    font-size: 20px
+}
+
+.button-right {
+    right: 1%;
+    font-size: 20px;
+}
+
+.image-button {
+    border: none;
+    display: inline-block;
+    padding: 10px;
+    height: 50px;
+    vertical-align: middle;
+    overflow: hidden;
+    color: #fff;
+    background: #000;
+    position: absolute;
+    top: calc(50% - 25px);
+    opacity: 0.5;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+    .image-button:hover {
+        color: #000;
+        background: #ccc;
+    }
+/*Chấm tròn*/
+.badge {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
+.badge-white {
+    color: #000 !important;
+    background-color: #fff !important
+}
+
+.image-badge {
+    display: inline-block;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    border: 1px solid #ccc;
+}
+
+    .image-badge:hover {
+        background: #fff;
+    }
+/*Hiệu ứng chuyển ảnh*/
+.animate-fading {
+    width: 100%;
+    animation: fading;
+    animation-duration: 11s;
+}
+
+@keyframes fading {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+
+.app-image {
+    background-color: aquamarine;
+    height: 500px;
+    width: 800px;
+    padding-top: 150px;
+}
+
+.nuttaigame {
+    background-color: #FCAE03;
+    height: 45px;
+    width: 250px;
+    font-size: 25px;
+    display: flex;
+    border-radius: 24px;
+    text-decoration: none;
+    text-decoration-style:unset;
+    color: white;
+    text-align: center;
+    align-content:center;
+}
+
+.nuttaigame:hover{
+    color:white;
+}
+
+.danhgia {
+    color:white;
+    font-size: 40px;
+    margin:0px auto;
+    align-items:center
+}
+
+.ungdung {
+    height: 100px;
+    font-size: 50px;
+}
+
+.tenungdung {
+    margin: 0px;
+    color:white;
+    font-size:50px;
+}
+
+.tieudenoidung {
+    width: auto;
+    margin: 0 auto;
+}
+
+.noidung {
+    font-size: 20px;
+    margin-left:30px;
+    color: white;
+}
+
+.tieude {
+    font-size: 30px;
+    color: white;
+}
+
+
+.chitiet {
+    margin-left:30px;
+    font-size: 20px;
+    color: white;
+}
+
+.game-list {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    overflow-x: auto;
+}
+
+#game-list-scrollbar::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgb(18,18,18);
+}
+
+#game-list-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #FCAE03;
+}
+
+#game-list-scrollbar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+
+
+.game-list-item {
+    margin-right: 30px;
+    position: relative;
+}
+
+.game-list-title {
+    color: aliceblue;
+    padding-top: 30px;
+    font-size:30px;
+}
+
+.game-list-item:hover .game-list-item-img {
+    transform: scale(1.2);
+    margin: 0 30px;
+    opacity: 0.5;
+}
+
+.game-list-item:hover .game-list-item-title,
+.game-list-item:hover .game-list-item-desc,
+.game-list-item:hover .game-list-item-button {
+    opacity: 1;
+}
+
+.game-list-container {
+    padding: 0 20px;
+}
+
+.game-list-wrapper {
+    position: relative;
+}
+
+.game-list-item-img {
+    transition: all 1s ease-in-out;
+    width: 270px;
+    height: 200px;
+}
+
+.game-list-item-title {
+    padding: 0 10px;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}
+
+.game-list-item-desc {
+    background-color: #333;
+    padding: 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 30%;
+    left: 50px;
+    width: 230px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}
+
+.game-list-item-button {
+    padding: 10px;
+    background-color: #1C6758;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}

@@ -1,0 +1,66 @@
+﻿@using System.Linq
+
+@using CitricStore.Models
+
+@{
+    ViewBag.Title = "Thành Viên";
+    Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+
+
+<style>
+    .viewinfo-container{
+        height:500px;
+    }
+    .thongtin{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .edit-btn{
+        width: 70%;
+        margin: 0px auto;
+    }
+
+
+</style>
+<div class="container viewinfo-container col-lg-6 col-md-12" style="margin:0px auto;">
+    <div style="margin: 0px auto; width: 70%;">
+        <h2 style="text-align: center; color:white;">THÔNG TIN THÀNH VIÊN</h2>
+        <div style="color:white; font-size:18px;">
+
+            <div class="thongtin">
+                <strong>Họ Tên:</strong> @Model.HoTenKH
+            </div>
+
+            <div class="thongtin">
+                <strong>Giới Tính: </strong>@Model.GioiTinh
+
+            </div>
+
+
+            <div class="thongtin">
+                <strong>Điện Thoại:</strong> @Model.DienthoaiKH
+
+            </div>
+
+
+            <div class="thongtin">
+                <strong>Ngày Sinh: </strong> @Model.Ngaysinh
+            </div>
+
+            <div class="thongtin">
+                <strong>Email: </strong> @Model.Email
+            </div>
+
+            <div class="thongtin">
+                <strong>Tên Đăng Nhập:</strong> @Model.TenDN
+            </div>
+
+            <div class="thongtin justify-content-center" style="align-items:center">
+                @Html.ActionLink("Sửa thông tin", "EditInfo", "Users" , new {id = Model.MaKH }, new {@class= "btn btn-dark edit-btn justify-content-center" })
+            </div>
+        </div>
+    </div>
+</div>
