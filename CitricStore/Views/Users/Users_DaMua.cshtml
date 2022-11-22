@@ -1,4 +1,6 @@
 ﻿@using CitricStore.Models
+@model PagedList.IPagedList<CitricStore.Models.ORDER_INFO>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Users_DaMua";
     Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
@@ -19,18 +21,24 @@
 <div class="container col-lg-6 col-md-12" style="margin:0px auto;">
     <h2 style="text-align: center; color:white;">ĐƠN HÀNG ĐÃ MUA</h2>
     <div style="color:white; font-size:18px;">
-        @foreach(var item in Model)
-            {
-        <div>
-            @item.NgayOrder
+        @foreach (var item in Model)
+        {
+            <table>
+                <tr>
+                    <td>
+                        @item.MaOrder
 
 
-            @Html.Action("DaMua_Product", "Users",new {idor = item.MaOrder })
+                        @Html.Action("DaMua_Product", "Users", new { idor = item.MaOrder })
+                    </td>
+                </tr>
+            </table>
 
-        </div>
-
-
-
-            }
-        </div>
+        }
     </div>
+</div>
+
+<br />
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",new { page }))

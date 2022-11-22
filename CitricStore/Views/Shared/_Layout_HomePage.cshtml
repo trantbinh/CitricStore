@@ -33,13 +33,13 @@
             <div class="header-left-container col-lg-6 col-sm-5">
                 <div class="header-left">
 
-                    @Html.ActionLink(CitricStore.Resources.Language.Store,"Index","CitricStore", null, new {@class = "header-left-name header-left-name-btn" } )
+                    @*@Html.ActionLink(CitricStore.Resources.Language.Store,"Index","CitricStore", null, new {@class = "header-left-name header-left-name-btn" } )
                    @Html.ActionLink(CitricStore.Resources.Language.FrequentlyAskedQuestions, "Câu hỏi thường gặp","CitricStore", null, new { @class = "header-left-name header-left-name-btn" })</a>
-                    @Html.ActionLink(CitricStore.Resources.Language.Support,"Hỗ trợ", "CitricStore" ,null, new { @class = "header-left-name header-left-name-btn" })</a>
+                    @Html.ActionLink(CitricStore.Resources.Language.Support,"Hỗ trợ", "CitricStore" ,null, new { @class = "header-left-name header-left-name-btn" })</a>*@
 
-                    @*<a class="header-left-name header-left-name-btn" href="@Url.Action("Index", "CitricStore")" style="color:black;">Cửa hàng</a>
+                    <a class="header-left-name header-left-name-btn" href="@Url.Action("Index", "CitricStore")" style="color:black;">Cửa hàng</a>
                     <a style="width:200px; color:black; " class="header-left-name header-left-name-btn">Câu hỏi thường gặp</a>
-                    <a class="header-left-name header-left-name-btn " href="" style="color:black;">Hỗ trợ</a>*@
+                    <a class="header-left-name header-left-name-btn " href="" style="color:black;">Hỗ trợ</a>
 
                 </div>
             </div>
@@ -52,8 +52,8 @@
 
 
                     <li class="header-right-name">
-                        @*<img src="~/Images/Language.png" alt="Ngôn Ngữ" style="width:20px; height:20px" />*@
-                        @Html.Partial("_LanguagePartial")
+                        <img src="~/Images/Language.png" alt="Ngôn Ngữ" style="width:20px; height:20px" />
+                        @*@Html.Partial("_LanguagePartial")*@
                     </li>
 
 
@@ -71,12 +71,12 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu"
                                      style=" border: none; z-index: 1001;background-color: #FCAE03; animation:none;transition:none">
-                                    @Html.ActionLink(CitricStore.Resources.Language.PersonalInformation, "ViewInfo", "Users", new { idkh = Session["MaKH"] }, new { @class = "dropdown-item XemThongTin" })
+                                    @Html.ActionLink("Xem Thông Tin", "ViewInfo", "Users", new { idkh = Session["MaKH"] }, new { @class = "dropdown-item XemThongTin" })
 
-                                    @Html.ActionLink(CitricStore.Resources.Language.PurchasedOrders, "Users_DaMua", "Users", new { idkh = Session["MaKH"] }, new { @class = "dropdown-item XemThongTin" })
+                                    @Html.ActionLink("Đơn Hàng Đã Mua", "Users_DaMua", "Users", new { idkh = Session["MaKH"] }, new { @class = "dropdown-item XemThongTin" })
 
 
-                                    @Html.ActionLink(CitricStore.Resources.Language.LogOut, "LogOut", "Users", null, new { @class = "dropdown-item XemThongTin" })
+                                    @Html.ActionLink("Đăng Xuất", "LogOut", "Users", null, new { @class = "dropdown-item XemThongTin" })
                                 </div>
                             </div>
                         }
