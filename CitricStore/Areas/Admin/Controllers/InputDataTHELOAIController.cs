@@ -12,6 +12,7 @@ namespace CitricStore.Areas.Admin.Controllers
 {
     public class InputDataTHELOAIController : Controller
     {
+
         private CitricStoreEntities db = new CitricStoreEntities();
 
         // GET: Admin/InputDataTHELOAI

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-
   <!-- 
     Microsoft ResX Schema 
     
@@ -122,6 +121,26 @@
     <value>Frequently asked questions</value>
     <comment>_Layout_HomePage</comment>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Log in</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Log out</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>Member</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
+  <data name="PersonalInformation" xml:space="preserve">
+    <value>Personal Information</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
+  <data name="PurchasedOrders" xml:space="preserve">
+    <value>Purchased Orders</value>
+    <comment>_Layout_HomePage</comment>
+  </data>
   <data name="SearchInStore" xml:space="preserve">
     <value>Search in store...</value>
     <comment>_Layout_HomePage</comment>
@@ -134,5 +153,4 @@
     <value>Support</value>
     <comment>_Layout_HomePage</comment>
   </data>
-
 </root>

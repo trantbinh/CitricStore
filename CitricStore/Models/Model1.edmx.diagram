@@ -4,7 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+
       <Diagram DiagramId="f26311143c474e3f8c5cad4f6880e743" Name="Diagram1">
+
         <EntityTypeShape EntityType="CitricStoreModel.APP" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CitricStoreModel.BANK" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CitricStoreModel.GAME" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />

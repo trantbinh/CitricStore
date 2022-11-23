@@ -7,12 +7,15 @@ using System.Web;
 using System.Web.Mvc;
 using CitricStore.Models;
 using System.Resources;
+using PagedList;
 
 namespace CitricStore.Controllers
 {
     public class UsersController : Controller
     {
+
         private CitricStoreEntities database = new CitricStoreEntities();
+
         //GET: User
         //ĐĂNG KÝ
         [HttpGet]
@@ -241,10 +244,38 @@ namespace CitricStore.Controllers
 
 
         //Đơn đã mua
-        public ActionResult Users_DaMua(int idkh)
+
+       
+
+        private List<ORDER_INFO> DonHang(int idkh)
         {
-            var info = database.ORDER_INFO.Where(s => s.MaKH == idkh).ToList();
-            return View(info);
+            return database.ORDER_INFO.Where(s => s.MaKH == idkh).OrderBy(x => x.MaOrder).ToList();
+        }
+        public ActionResult Users_DaMua(int?page)
+        {
+            // 1. Tham số int? dùng để thể hiện null và kiểu int
+            // page có thể có giá trị là null và kiểu int.
+
+            // 2. Nếu page = null thì đặt lại là 1.
+            if (page == null) page = 1;
+
+            // 3. Tạo truy vấn, lưu ý phải sắp xếp theo trường nào đó, ví dụ OrderBy
+            // theo LinkID mới có thể phân trang.
+            //var ORDER_INFO = (from l in database.ORDER_INFO select l).OrderBy(x => x.MaOrder);
+            //var o = database.ORDER_INFO.OrderBy(x => x.MaOrder);
+            // 4. Tạo kích thước trang (pageSize) hay là số Link hiển thị trên 1 trang
+            int pageSize = 3;
+
+            // 4.1 Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+
+            int idkh = (int)Session["MaKH"];
+
+            var info = database.ORDER_INFO.Where(s => s.MaKH == idkh).OrderBy(s => s.MaOrder);
+            
+            //var dsDonHang = SoDonHang(5, idkh);
+            return View(info.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult DaMua_Product(int idor)
@@ -258,6 +289,8 @@ namespace CitricStore.Controllers
             var ud = database.OVERALLs.Where(s => s.Ma == idud) ;
             return PartialView(ud);
         }
+
+
 
         //Game đã có
     }

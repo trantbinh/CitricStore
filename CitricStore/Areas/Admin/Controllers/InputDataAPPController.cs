@@ -13,7 +13,9 @@ namespace CitricStore.Areas.Admin.Controllers
 {
     public class InputDataAPPController : Controller
     {
+
         private CitricStoreEntities db = new CitricStoreEntities();
+
 
         // GET: Admin/InputDataAPP
         public ActionResult Index()

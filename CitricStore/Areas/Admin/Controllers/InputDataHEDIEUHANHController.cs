@@ -12,7 +12,9 @@ namespace CitricStore.Areas.Admin.Controllers
 {
     public class InputDataHEDIEUHANHController : Controller
     {
+
         private CitricStoreEntities db = new CitricStoreEntities();
+
 
         // GET: Admin/InputDataHEDIEUHANH
         public ActionResult Index()

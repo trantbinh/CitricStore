@@ -24,8 +24,8 @@ namespace CitricStore.Resources
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
 
-    public class Language
-    {
+    public class Language {
+        
 
         private static global::System.Resources.ResourceManager resourceMan;
 
@@ -41,13 +41,10 @@ namespace CitricStore.Resources
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
 
-        public static global::System.Resources.ResourceManager ResourceManager
-        {
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
 
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CitricStore.Resources.Language", typeof(Language).Assembly);
                     resourceMan = temp;
                 }
@@ -61,11 +58,9 @@ namespace CitricStore.Resources
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
 
-        public static global::System.Globalization.CultureInfo Culture
-        {
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
 
-            get
-            {
                 return resourceCulture;
             }
             set
@@ -73,7 +68,6 @@ namespace CitricStore.Resources
                 resourceCulture = value;
             }
         }
-
 
         /// <summary>
         ///   Looks up a localized string similar to Câu hỏi thường gặp.
@@ -86,6 +80,51 @@ namespace CitricStore.Resources
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Đăng Nhập.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đăng Xuất.
+        /// </summary>
+        public static string LogOut {
+            get {
+                return ResourceManager.GetString("LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member.
+        /// </summary>
+        public static string Member {
+            get {
+                return ResourceManager.GetString("Member", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xem Thông Tin.
+        /// </summary>
+        public static string PersonalInformation {
+            get {
+                return ResourceManager.GetString("PersonalInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đơn Hàng Đã Mua.
+        /// </summary>
+        public static string PurchasedOrders {
+            get {
+                return ResourceManager.GetString("PurchasedOrders", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Tìm kiếm ứng dụng....
         /// </summary>
@@ -117,7 +156,6 @@ namespace CitricStore.Resources
             {
                 return ResourceManager.GetString("Support", resourceCulture);
             }
-
 
         }
     }
