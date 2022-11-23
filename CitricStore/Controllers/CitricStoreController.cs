@@ -11,7 +11,7 @@ namespace CitricStore.Controllers
 {
     public class CitricStoreController : Controller
     {
-        CitricStoreEntities4 database = new CitricStoreEntities4();
+        CitricStoreEntities database = new CitricStoreEntities();
 
         //Lọc Game theo ngày cập nhật -> Game Mới
         public ActionResult Index()

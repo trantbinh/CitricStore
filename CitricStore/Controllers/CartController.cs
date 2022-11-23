@@ -9,7 +9,7 @@ namespace CitricStore.Controllers
 {
     public class CartController : Controller
     {
-        CitricStoreEntities4 db = new CitricStoreEntities4();
+        CitricStoreEntities db = new CitricStoreEntities();
         // GET: Cart
         public ActionResult Index()
         {
@@ -35,7 +35,6 @@ namespace CitricStore.Controllers
         public ActionResult AddToCart(int id)
         {
             //Lấy giỏ hàng hiện tại
-            var game = "Game";
             List<CartItem> myCart = GetCart();
 
 

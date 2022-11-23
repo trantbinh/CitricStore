@@ -8,10 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CitricStore.Resources {
+namespace CitricStore.Resources
+{
     using System;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,84 +24,101 @@ namespace CitricStore.Resources {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
 
-    public class Language {
+    public class Language
+    {
 
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Language() {
+        internal Language()
+        {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
 
-        public static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager
+        {
 
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
+            get
+            {
+                if (object.ReferenceEquals(resourceMan, null))
+                {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CitricStore.Resources.Language", typeof(Language).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
 
-        public static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture
+        {
 
-            get {
+            get
+            {
                 return resourceCulture;
             }
-            set {
+            set
+            {
                 resourceCulture = value;
             }
         }
 
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Câu hỏi thường gặp.
         /// </summary>
-        public static string FrequentlyAskedQuestions {
-            get {
+        public static string FrequentlyAskedQuestions
+        {
+            get
+            {
                 return ResourceManager.GetString("FrequentlyAskedQuestions", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Tìm kiếm ứng dụng....
         /// </summary>
-        public static string SearchInStore {
-            get {
+        public static string SearchInStore
+        {
+            get
+            {
                 return ResourceManager.GetString("SearchInStore", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Cửa hàng.
         /// </summary>
-        public static string Store {
-            get {
+        public static string Store
+        {
+            get
+            {
                 return ResourceManager.GetString("Store", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Hỗ trợ.
         /// </summary>
-        public static string Support {
-            get {
+        public static string Support
+        {
+            get
+            {
                 return ResourceManager.GetString("Support", resourceCulture);
             }
 
 
+        }
     }
 }

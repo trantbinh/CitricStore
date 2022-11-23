@@ -33,13 +33,9 @@
             <div class="header-left-container col-lg-6 col-sm-5">
                 <div class="header-left">
 
-                    @Html.ActionLink(linkText: CitricStore.Resources.Language.Store, actionName: "Index", controllerName: "CitricStore", null, new {@class = "header-left-name header-left-name-btn" })
-                    <a style="width:200px; color:black" class="header-left-name header-left-name-btn">@Html.ActionLink(linkText: CitricStore.Resources.Language.FrequentlyAskedQuestions, actionName: "Câu hỏi thường gặp", controllerName: "CitricStore")</a>
-                    <a class="header-left-name header-left-name-btn " href="" style="color:black">@Html.ActionLink(linkText: CitricStore.Resources.Language.Support, actionName: "Hỗ trợ", controllerName: "CitricStore")</a>
-
-                    @*<a class="header-left-name header-left-name-btn" href="@Url.Action("Index", "CitricStore")" style="color:black;">Cửa hàng</a>
+                    <a class="header-left-name header-left-name-btn" href="@Url.Action("Index", "CitricStore")" style="color:black;">Cửa hàng</a>
                     <a style="width:200px; color:black; " class="header-left-name header-left-name-btn">Câu hỏi thường gặp</a>
-                    <a class="header-left-name header-left-name-btn " href="" style="color:black;">Hỗ trợ</a>*@
+                    <a class="header-left-name header-left-name-btn " href="" style="color:black;">Hỗ trợ</a>
 
                 </div>
             </div>
@@ -51,10 +47,27 @@
                     </li>
 
 
-                    <li class="header-right-name">
-                        @*<img src="~/Images/Language.png" alt="Ngôn Ngữ" style="width:20px; height:20px" />*@
+                    @*<li class="header-right-name">
+
+                        <div class="dropdown dropdown-center ">
+                            <a href="#" class="dropdown-toggle-split" style="color: black; text-decoration:none;"
+                               role="button" id="dropdownMenu" type="button"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <img src="~/Images/Language.png" alt="Ngôn Ngữ" style="width:20px; height:20px" />
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu"
+                                 style=" border: none; z-index: 1001;background-color: #FCAE03; animation:none;transition:none">
+
+                                @Html.ActionLink(linkText: "English", actionName: "Index", controllerName: "Language", routeValues: new { language = "en" }, htmlAttributes: new { @class = "dropdown-item XemThongTin" })
+                                @Html.ActionLink(linkText: "Vietnamese", actionName: "Index", controllerName: "Language", routeValues: new { language = "vi" }, htmlAttributes: new { @class = "dropdown-item XemThongTin" })
+                            </div>
+                        </div>
+
+                       
                         @Html.Partial("_LanguagePartial")
-                    </li>
+                    </li>*@
 
 
 
