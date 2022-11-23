@@ -14,7 +14,7 @@ namespace CitricStore.Controllers
     public class UsersController : Controller
     {
 
-        private CitricStoreEntities database = new CitricStoreEntities();
+        private CitricStoreEntities2 database = new CitricStoreEntities2();
 
         //GET: User
         //ĐĂNG KÝ
@@ -290,9 +290,6 @@ namespace CitricStore.Controllers
             return PartialView(ud);
         }
 
-
-
-        //Game đã có
     }
 
 }

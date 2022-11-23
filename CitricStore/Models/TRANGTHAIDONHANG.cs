@@ -12,26 +12,17 @@ namespace CitricStore.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class KHACHHANG
+    public partial class TRANGTHAIDONHANG
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KHACHHANG()
+        public TRANGTHAIDONHANG()
         {
-            this.ARCHIVE_ORDER_INFO = new HashSet<ARCHIVE_ORDER_INFO>();
             this.ORDER_INFO = new HashSet<ORDER_INFO>();
         }
     
-        public int MaKH { get; set; }
-        public string HoTenKH { get; set; }
-        public string DienthoaiKH { get; set; }
-        public string TenDN { get; set; }
-        public string Matkhau { get; set; }
-        public Nullable<System.DateTime> Ngaysinh { get; set; }
-        public string GioiTinh { get; set; }
-        public string Email { get; set; }
+        public int Ma { get; set; }
+        public string Ten { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ARCHIVE_ORDER_INFO> ARCHIVE_ORDER_INFO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_INFO> ORDER_INFO { get; set; }
     }

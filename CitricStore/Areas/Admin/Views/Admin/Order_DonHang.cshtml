@@ -1,1 +1,18 @@
 ﻿@using CitricStore.Models
+
+
+@foreach (var item in Model)
+{
+    @Html.Action("Order_InfoUngDung", "Admin", new { idud = item.MaUngDung })
+
+    <div>
+        Số lượng: @item.SoLuong
+
+        Đơn giá: @item.DonGia
+
+        Tổng tiền: 
+    </div>
+
+
+}
+

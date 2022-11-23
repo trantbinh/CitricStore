@@ -10,7 +10,7 @@ namespace CitricStore.Controllers
     public class CartController : Controller
     {
 
-        CitricStoreEntities db = new CitricStoreEntities();
+        CitricStoreEntities2 db = new CitricStoreEntities2();
 
         // GET: Cart
         public ActionResult Index()
@@ -199,11 +199,7 @@ namespace CitricStore.Controllers
                 details.DonGia = item.DonGia;
                 db.ORDER_PRODUCT.Add(details);
                 db.SaveChanges();
-
-
             }
-
-
             return RedirectToAction("Page_PaymentSuccess");
         }
         public ActionResult Page_PaymentSuccess()
