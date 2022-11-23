@@ -35,7 +35,7 @@ namespace CitricStore.Controllers
         public ActionResult AddToCart(int id)
         {
             //Lấy giỏ hàng hiện tại
-            var game = "Game";
+            //var game = "Game";
             List<CartItem> myCart = GetCart();
 
 

@@ -243,9 +243,14 @@ namespace CitricStore.Controllers
 
         //Đơn đã mua
 
-        public ActionResult Index(int? page)
-        {
+       
 
+        private List<ORDER_INFO> DonHang(int idkh)
+        {
+            return database.ORDER_INFO.Where(s => s.MaKH == idkh).OrderBy(x => x.MaOrder).ToList();
+        }
+        public ActionResult Users_DaMua(int?page)
+        {
             // 1. Tham số int? dùng để thể hiện null và kiểu int
             // page có thể có giá trị là null và kiểu int.
 
@@ -254,9 +259,8 @@ namespace CitricStore.Controllers
 
             // 3. Tạo truy vấn, lưu ý phải sắp xếp theo trường nào đó, ví dụ OrderBy
             // theo LinkID mới có thể phân trang.
-            var links = (from l in database.ORDER_INFO
-                         select l).OrderBy(x => x.MaOrder);
-
+            //var ORDER_INFO = (from l in database.ORDER_INFO select l).OrderBy(x => x.MaOrder);
+            //var o = database.ORDER_INFO.OrderBy(x => x.MaOrder);
             // 4. Tạo kích thước trang (pageSize) hay là số Link hiển thị trên 1 trang
             int pageSize = 3;
 
@@ -264,14 +268,12 @@ namespace CitricStore.Controllers
             // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
             int pageNumber = (page ?? 1);
 
-            // 5. Trả về các Link được phân trang theo kích thước và số trang.
-            return View(links.ToPagedList(pageNumber, pageSize));
-        }
+            int idkh = (int)Session["MaKH"];
 
-        public ActionResult Users_DaMua(int idkh)
-        {
-            var info = database.ORDER_INFO.Where(s => s.MaKH == idkh).ToList();
-            return View(info);
+            var info = database.ORDER_INFO.Where(s => s.MaKH == idkh).OrderBy(s => s.MaOrder);
+            
+            //var dsDonHang = SoDonHang(5, idkh);
+            return View(info.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult DaMua_Product(int idor)

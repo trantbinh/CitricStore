@@ -52,14 +52,20 @@
 
 
 
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Xác nhận đơn hàng"class="btn btn-dark" style="margin-top:20px; margin-left:430px; font-size:23px;" />
-            @*@Html.ActionLink("Quay về", "Page_Payment")*@
-        </div>
+<div class="row">
+    <div class=" col-4"></div>
+    <div class=" col-4 no-color d-flex align-items-end justify-content-center" style="margin: 0 auto">
+        <input type="submit" value="Xác nhận đơn hàng" class="btn btn-dark" style="margin-top:20px; font-size:23px;" />
+        @*@Html.ActionLink("Quay về", "Page_Payment")*@
+    </div>
+    <div class="col-4"></div>
+</div>
+
     }
 </div>
 
