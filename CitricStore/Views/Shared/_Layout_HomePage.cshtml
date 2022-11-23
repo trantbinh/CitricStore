@@ -33,13 +33,13 @@
             <div class="header-left-container col-lg-6 col-sm-5">
                 <div class="header-left">
 
-                    @Html.ActionLink(linkText: CitricStore.Resources.Language.Store, actionName: "Index", controllerName: "CitricStore", null, new {@class = "header-left-name header-left-name-btn" })
-                    <a style="width:200px; color:black" class="header-left-name header-left-name-btn">@Html.ActionLink(linkText: CitricStore.Resources.Language.FrequentlyAskedQuestions, actionName: "Câu hỏi thường gặp", controllerName: "CitricStore")</a>
-                    <a class="header-left-name header-left-name-btn " href="" style="color:black">@Html.ActionLink(linkText: CitricStore.Resources.Language.Support, actionName: "Hỗ trợ", controllerName: "CitricStore")</a>
+                    @*@Html.ActionLink(CitricStore.Resources.Language.Store,"Index","CitricStore", null, new {@class = "header-left-name header-left-name-btn" } )
+                   @Html.ActionLink(CitricStore.Resources.Language.FrequentlyAskedQuestions, "Câu hỏi thường gặp","CitricStore", null, new { @class = "header-left-name header-left-name-btn" })</a>
+                    @Html.ActionLink(CitricStore.Resources.Language.Support,"Hỗ trợ", "CitricStore" ,null, new { @class = "header-left-name header-left-name-btn" })</a>*@
 
-                    @*<a class="header-left-name header-left-name-btn" href="@Url.Action("Index", "CitricStore")" style="color:black;">Cửa hàng</a>
+                    <a class="header-left-name header-left-name-btn" href="@Url.Action("Index", "CitricStore")" style="color:black;">Cửa hàng</a>
                     <a style="width:200px; color:black; " class="header-left-name header-left-name-btn">Câu hỏi thường gặp</a>
-                    <a class="header-left-name header-left-name-btn " href="" style="color:black;">Hỗ trợ</a>*@
+                    <a class="header-left-name header-left-name-btn " href="" style="color:black;">Hỗ trợ</a>
 
                 </div>
             </div>
@@ -52,8 +52,8 @@
 
 
                     <li class="header-right-name">
-                        @*<img src="~/Images/Language.png" alt="Ngôn Ngữ" style="width:20px; height:20px" />*@
-                        @Html.Partial("_LanguagePartial")
+                        <img src="~/Images/Language.png" alt="Ngôn Ngữ" style="width:20px; height:20px" />
+                        @*@Html.Partial("_LanguagePartial")*@
                     </li>
 
 

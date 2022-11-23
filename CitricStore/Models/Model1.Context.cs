@@ -13,10 +13,10 @@ namespace CitricStore.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CitricStoreEntities4 : DbContext
+    public partial class CitricStoreEntities5 : DbContext
     {
-        public CitricStoreEntities4()
-            : base("name=CitricStoreEntities4")
+        public CitricStoreEntities5()
+            : base("name=CitricStoreEntities5")
         {
         }
     
@@ -38,6 +38,5 @@ namespace CitricStore.Models
         public virtual DbSet<THELOAI> THELOAIs { get; set; }
         public virtual DbSet<THELOAIAPP> THELOAIAPPs { get; set; }
         public virtual DbSet<THELOAIGAME> THELOAIGAMEs { get; set; }
-
     }
 }

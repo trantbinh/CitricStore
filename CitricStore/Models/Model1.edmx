@@ -147,16 +147,6 @@
           <Property Name="MaTheLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenTheLoai" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="THELOAIAPP">
           <Key>
             <PropertyRef Name="MaTheLoaiApp" />
@@ -371,12 +361,10 @@
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NGONNGU" EntityType="Self.NGONNGU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHAPHATHANH" EntityType="Self.NHAPHATHANH" Schema="dbo" store:Type="Tables" />
-
           <EntitySet Name="ORDER_INFO" EntityType="Self.ORDER_INFO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ORDER_PRODUCT" EntityType="Self.ORDER_PRODUCT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OVERALL" EntityType="Self.OVERALL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
-
           <EntitySet Name="THELOAIAPP" EntityType="Self.THELOAIAPP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THELOAIGAME" EntityType="Self.THELOAIGAME" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_APP_HEDIEUHANH" Association="Self.FK_APP_HEDIEUHANH">
@@ -829,7 +817,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CitricStoreEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CitricStoreEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="APPs" EntityType="Self.APP" />
           <EntitySet Name="BANKs" EntityType="Self.BANK" />
           <EntitySet Name="GAMEs" EntityType="Self.GAME" />
@@ -907,15 +895,13 @@
             <End Role="THELOAI" EntitySet="THELOAIs" />
             <End Role="OVERALL" EntitySet="OVERALLs" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="CitricStoreModel.sysdiagram" />
         </EntityContainer>
-
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CitricStoreModelStoreContainer" CdmEntityContainer="CitricStoreEntities4">
+        <EntityContainerMapping StorageEntityContainer="CitricStoreModelStoreContainer" CdmEntityContainer="CitricStoreEntities5">
           <EntitySetMapping Name="APPs">
             <EntityTypeMapping TypeName="CitricStoreModel.APP">
               <MappingFragment StoreEntitySet="APP">
@@ -1085,7 +1071,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
