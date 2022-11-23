@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -12,7 +13,9 @@ namespace CitricStore.Areas.Admin.Controllers
 {
     public class InputDataAPPController : Controller
     {
-        private CitricStoreEntities5 db = new CitricStoreEntities5();
+
+        private CitricStoreEntities db = new CitricStoreEntities();
+
 
         // GET: Admin/InputDataAPP
         public ActionResult Index()
@@ -51,10 +54,60 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaApp,TenApp,GioiThieu,DungLuong,LinkTai,MaTheLoaiApp,MaNPH,MaHDH,MaNgonNgu,NgayCapNhat,DanhGia,HinhNen,HinhCT1,HinhCT2,HinhCT3,HinhCT4,DonGia")] APP aPP)
+        public ActionResult Create([Bind(Include = "MaApp,TenApp,GioiThieu,DungLuong,LinkTai,MaTheLoaiApp,MaNPH,MaHDH,MaNgonNgu,NgayCapNhat,DanhGia,HinhNen,HinhCT1,HinhCT2,HinhCT3,HinhCT4,DonGia")] APP aPP, 
+            HttpPostedFileBase HinhNen, HttpPostedFileBase HinhCT1, HttpPostedFileBase HinhCT2, HttpPostedFileBase HinhCT3, HttpPostedFileBase HinhCT4)
         {
             if (ModelState.IsValid)
             {
+                if(HinhNen != null)
+                {
+                    var fileName = Path.GetFileName(HinhNen.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/APP"), fileName);
+
+                    aPP.HinhNen = fileName;
+                    HinhNen.SaveAs(path);
+                }
+                if (HinhCT1 != null)
+                {
+                    var fileName = Path.GetFileName(HinhCT1.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/APP"), fileName);
+
+                    aPP.HinhCT1 = fileName;
+                    HinhCT1.SaveAs(path);
+                }
+                if (HinhCT2 != null)
+                {
+                    var fileName = Path.GetFileName(HinhCT2.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/APP"), fileName);
+
+                    aPP.HinhCT2 = fileName;
+                    HinhCT2.SaveAs(path);
+                }
+                if (HinhCT3 != null)
+                {
+                    var fileName = Path.GetFileName(HinhCT3.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/APP"), fileName);
+
+                    aPP.HinhCT3 = fileName;
+                    HinhCT3.SaveAs(path);
+                }
+                if (HinhCT4 != null)
+                {
+                    var fileName = Path.GetFileName(HinhCT4.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/APP"), fileName);
+
+                    aPP.HinhCT4 = fileName;
+                    HinhCT4.SaveAs(path);
+                }
+
+
+
+
                 db.APPs.Add(aPP);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -226,10 +226,6 @@ html, main {
     bottom: 0px;
     text-align: center;
     z-index: 5;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
     position:absolute;
     height:200px;
 
@@ -301,4 +297,9 @@ html, main {
 
 .ThanhVien :hover{
     color:white;
+}
+
+
+.dropdown:hover .dropdown-menu{
+    display:block;
 }

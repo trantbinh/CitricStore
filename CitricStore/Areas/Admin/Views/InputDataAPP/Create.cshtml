@@ -6,145 +6,202 @@
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 
+
 <div class="container" style="margin: 10px auto; width:100%; align-items:center">
 
     <h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (APP)</h2>
 
     <h3 style="text-align: center; color: white">TẠO MỚI</h3>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create", "InputDataAPP", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
-<div class="form-horizontal" style="color: white; font-size:20px;">
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        Tên phần mềm:
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.TenApp, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TenApp, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        <div class="form-horizontal" style="color: white; font-size:20px;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                Tên phần mềm:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenApp, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenApp, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Giới thiệu:
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.GioiThieu, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.GioiThieu, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Giới thiệu:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GioiThieu, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.GioiThieu, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Dung lượng:
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DungLuong, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DungLuong, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Dung lượng:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DungLuong, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DungLuong, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Đơn giá:
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Đơn giá:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Thể loại:
-        <div class="col-md-10">
-            @Html.DropDownList("MaTheLoaiApp", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.MaTheLoaiApp, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Thể loại:
+                <div class="col-md-10">
+                    @Html.DropDownList("MaTheLoaiApp", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaTheLoaiApp, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Nhà phát hành:
-        <div class="col-md-10">
-            @Html.DropDownList("MaNPH", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.MaNPH, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Nhà phát hành:
+                <div class="col-md-10">
+                    @Html.DropDownList("MaNPH", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaNPH, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Hệ điều hành:
-        <div class="col-md-10">
-            @Html.DropDownList("MaHDH", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.MaHDH, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Hệ điều hành:
+                <div class="col-md-10">
+                    @Html.DropDownList("MaHDH", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaHDH, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Ngôn ngữ:
-        <div class="col-md-10">
-            @Html.DropDownList("MaNgonNgu", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.MaNgonNgu, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Ngôn ngữ:
+                <div class="col-md-10">
+                    @Html.DropDownList("MaNgonNgu", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaNgonNgu, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Ngày nhập:
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NgayCapNhat, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Ngày nhập:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NgayCapNhat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Đánh giá:
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.DanhGia, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.DanhGia, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Đánh giá:
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DanhGia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DanhGia, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        Hình Nền
-        <div class="col-md-10">
-            <input type="file" name="HinhNen" />
-            @Html.ValidationMessageFor(model => model.HinhNen, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                Hình Nền
+                <div class="col-md-10">
+                    <img id="previewnen" class="d-none" src="#" width="300" height="200" />
+                    <input name="HinhNen" type="file" accept="image/*" id="fileImageNen"/>
 
-    <div class="form-group">
-        Hình chi tiết 1
-        <div class="col-md-10">
-            <input type="file" name="HinhCT1" />
-            @Html.ValidationMessageFor(model => model.HinhCT1, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        Hình chi tiết 2
-        <div class="col-md-10">
-            <input type="file" name="HinhCT2" />
-            @Html.ValidationMessageFor(model => model.HinhCT2, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        Hình chi tiết 3
-        <div class="col-md-10">
-            <input type="file" name="HinhCT3" />
-            @Html.ValidationMessageFor(model => model.HinhCT3, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        Hình chi tiết 4
-        <div class="col-md-10">
-            <input type="file" name="HinhCT4" />
-            @Html.ValidationMessageFor(model => model.HinhCT4, "", new { @class = "text-danger" })
-        </div>
-    </div>
+                    @Html.ValidationMessageFor(model => model.HinhNen, "", new { @class = "text-danger" })
 
 
-    <div class="form-group">
-        <div class="col-md-10">
-            <input type="submit" value="Tạo App" class="btn btn-info" /> |
-            @Html.ActionLink("Quay về trang tổng hợp", "Index")
+                </div>
+            </div>
+
+            <div class="form-group">
+                Hình chi tiết 1
+                <div class="col-md-10">
+                    <img id="preview1" class="d-none" src="#" width="300" height="200" />
+                    <input type="file" name="HinhCT1" accept="image/*" id="fileImageCT1" />
+                    @Html.ValidationMessageFor(model => model.HinhCT1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Hình chi tiết 2
+                <div class="col-md-10">
+                    <img id="preview2" class="d-none" src="#" width="300" height="200" />
+                    <input type="file" name="HinhCT2"  accept="image/*" id="fileImageCT2" />
+                    @Html.ValidationMessageFor(model => model.HinhCT2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Hình chi tiết 3
+                <div class="col-md-10">
+                    <img id="preview3" class="d-none" src="#" width="300" height="200" />
+                    <input type="file" name="HinhCT3"accept="image/*" id="fileImageCT3" />
+                    @Html.ValidationMessageFor(model => model.HinhCT3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Hình chi tiết 4
+                <div class="col-md-10">
+                    <img id="preview4" class="d-none" src="#" width="300" height="200" />
+                    <input type="file" name="HinhCT4" accept="image/*" id="fileImageCT4"/>
+                    @Html.ValidationMessageFor(model => model.HinhCT4, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Tạo App" class="btn btn-info" /> |
+                    @Html.ActionLink("Quay về trang tổng hợp", "Index")
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     }
-    </div>
+</div>
+
+<script src="~/Scripts/UploadImage.js"></script>
+@*<script type="text/javascript">
+    //View Image when webpage is loaded
+    var url = $('.ImagePath').val();
+    ViewImage(url);
+    //Now handle change Event of Input type file
+    $('#pickupImage').change(function () {
+        //call upload method
+        uploadImage(this.files[0]);
+    });
+    //First, create a method to upload image to server after picked from PC
+    function uploadImage(file) {
+        var formData = new FormData();
+        formData.append("file", file);
+        $.ajax({
+            data: formData,
+            type: "POST",
+            url: '/Post/SaveFile',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returnImageURL) {
+                //Asign return Image URL to HTML.Hiddenfor
+                $('#ImagePath').val(returnImageURL);
+                //Call this method to view Image
+                ViewImage(returnImageURL);
+            }
+        });
+    }
+    //View Image
+    function ViewImage(url) {
+        if (url) {
+            $('#ImageViewing').attr('src', url);
+        }
+    }
+</script>*@
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+

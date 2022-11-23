@@ -33,9 +33,6 @@
             <div class="header-left-container col-lg-6 col-sm-5">
                 <div class="header-left">
 
-                    @*@Html.ActionLink(CitricStore.Resources.Language.Store,"Index","CitricStore", null, new {@class = "header-left-name header-left-name-btn" } )
-                   @Html.ActionLink(CitricStore.Resources.Language.FrequentlyAskedQuestions, "Câu hỏi thường gặp","CitricStore", null, new { @class = "header-left-name header-left-name-btn" })</a>
-                    @Html.ActionLink(CitricStore.Resources.Language.Support,"Hỗ trợ", "CitricStore" ,null, new { @class = "header-left-name header-left-name-btn" })</a>*@
 
                     <a class="header-left-name header-left-name-btn" href="@Url.Action("Index", "CitricStore")" style="color:black;">Cửa hàng</a>
                     <a style="width:200px; color:black; " class="header-left-name header-left-name-btn">Câu hỏi thường gặp</a>
@@ -50,11 +47,6 @@
                         @Html.Action("CartPartial","Cart")
                     </li>
 
-
-                    <li class="header-right-name">
-                        <img src="~/Images/Language.png" alt="Ngôn Ngữ" style="width:20px; height:20px" />
-                        @*@Html.Partial("_LanguagePartial")*@
-                    </li>
 
 
 

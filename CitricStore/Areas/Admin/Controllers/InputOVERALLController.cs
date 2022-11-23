@@ -12,7 +12,9 @@ namespace CitricStore.Areas.Admin.Controllers
 {
     public class InputOVERALLController : Controller
     {
-        private CitricStoreEntities5 db = new CitricStoreEntities5();
+
+        private CitricStoreEntities db = new CitricStoreEntities();
+
 
         // GET: Admin/InputOVERALL
         public ActionResult Index()

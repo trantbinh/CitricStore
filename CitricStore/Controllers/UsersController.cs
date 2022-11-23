@@ -13,7 +13,9 @@ namespace CitricStore.Controllers
 {
     public class UsersController : Controller
     {
-        private CitricStoreEntities5 database = new CitricStoreEntities5();
+
+        private CitricStoreEntities database = new CitricStoreEntities();
+
         //GET: User
         //ĐĂNG KÝ
         [HttpGet]

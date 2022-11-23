@@ -7,7 +7,9 @@ namespace CitricStore.Models
 {
     public class CartItem
     {
-        CitricStoreEntities5 db = new CitricStoreEntities5();
+
+        CitricStoreEntities db = new CitricStoreEntities();
+
         public int MaUngDung { get; set; }
         public string TenUngDung { get; set; }
         public string HinhNen { get; set; }
