@@ -30,6 +30,7 @@
             <div class="tenweb col-lg-1 col-sm-3">
                 <img src="~/Images/LOGO/CITRICSTORE.png" alt="Citric" style="width:auto; height:100px; margin-top:-18px; margin-left:-50px" />
             </div>
+
             <div class="header-left-container col-lg-6 col-sm-5">
                 <div class="header-left">
 
@@ -94,10 +95,13 @@
                     {
 
                     <div class="row">
-                        <input type="Text" class="searchbar-form col-lg-8" value="@ViewBag.Keyword" name="searchString" placeholder="Tên ứng dụng">
+                        <div class="col-xs-1">
+                            <input type="Text" class="searchbar-form" value="@ViewBag.Keyword" name="searchString" placeholder="Tên ứng dụng">
+                        </div>
 
-                        <input type="submit" class="btn col-lg-3 " value="Tìm kiếm" style=" background-color: #FCAE03; margin-left:6px; color:black; font-size:15px; text-align:center; padding-left:0px; padding-right:0px;">
-
+                        <div class="col-xs-1 ">
+                            <input type="submit" class="btn " value="Tìm kiếm" style=" background-color: #FCAE03; margin: -64px 0 0px 207px; color: black; font-size: 15px; text-align: center; padding-left: 0px; padding-right: 0px;">
+                        </div>
                     </div>
 
                     }
