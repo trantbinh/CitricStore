@@ -6,13 +6,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CitricStore.Models;
+using PagedList;
 
 namespace CitricStore.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
         // GET: Admin/Admin
-        CitricStoreEntities2 db = new CitricStoreEntities2();
+        CitricStoreEntities db = new CitricStoreEntities();
         public ActionResult Index()
         {
             return View();
@@ -33,10 +34,16 @@ namespace CitricStore.Areas.Admin.Controllers
         }
 
 
-        public ActionResult Order_KiemTraDonHang()
+        public ActionResult Order_KiemTraDonHang(int? page)
         {
+            if (page == null) page = 1;
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+
+
+
             var or = db.ORDER_INFO.OrderBy(s => s.NgayOrder).ToList();
-            return View(or);
+            return View(or.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Order_XuLyDonHang(int? idor)
@@ -122,5 +129,16 @@ namespace CitricStore.Areas.Admin.Controllers
             return PartialView(ud);
         }
 
+        public ActionResult Extension_Order_TenTrangThai(int idtt)
+        {
+            var name = db.TRANGTHAIDONHANGs.Where(s => s.Ma == idtt).ToList();
+            return PartialView(name);
+        }
+
+        public ActionResult Customer_ThongTinKhachHang()
+        {
+            var cus = db.KHACHHANGs.ToList();
+            return View(cus);
+        }
     }
 }

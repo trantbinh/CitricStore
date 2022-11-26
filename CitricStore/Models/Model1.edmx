@@ -957,7 +957,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CitricStoreEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CitricStoreEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="APPs" EntityType="Self.APP" />
           <EntitySet Name="ARCHIVE_ORDER_INFO" EntityType="Self.ARCHIVE_ORDER_INFO" />
           <EntitySet Name="BANKs" EntityType="Self.BANK" />
@@ -1055,7 +1055,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CitricStoreModelStoreContainer" CdmEntityContainer="CitricStoreEntities2">
+        <EntityContainerMapping StorageEntityContainer="CitricStoreModelStoreContainer" CdmEntityContainer="CitricStoreEntities">
           <EntitySetMapping Name="APPs">
             <EntityTypeMapping TypeName="CitricStoreModel.APP">
               <MappingFragment StoreEntitySet="APP">

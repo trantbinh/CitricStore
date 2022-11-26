@@ -2,16 +2,28 @@
 
 
 @foreach (var item in Model)
+
+
 {
-    @Html.Action("Order_InfoUngDung", "Admin", new { idud = item.MaUngDung })
 
-    <div>
-        Số lượng: @item.SoLuong
+<div class="row">
+    <div class="col-lg-7 col-md-6" style="margin-left: 0px; padding-left:0px; margin-right:0px; padding-right:0px;">
 
-        Đơn giá: @item.DonGia
+        @Html.Action("Order_InfoUngDung", "Admin", new { idud = item.MaUngDung })
 
-        Tổng tiền: 
+
     </div>
+
+    <div class="col-4 align-content-between align-middle" style="vertical-align:middle">
+        Số lượng: @item.SoLuong
+        <br />
+        Đơn giá: @String.Format("{0:0,0}", @item.DonGia) VND
+    </div>
+
+
+
+</div>
+
 
 
 }

@@ -7,7 +7,7 @@ namespace CitricStore.Models
 {
     public class OrderItem
     {
-        CitricStoreEntities2 db = new CitricStoreEntities2();
+        CitricStoreEntities db = new CitricStoreEntities();
 
         public int MaOr { get; set; }
         public DateTime NgayOr { get; set; }

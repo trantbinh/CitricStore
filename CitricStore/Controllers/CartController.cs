@@ -10,7 +10,7 @@ namespace CitricStore.Controllers
     public class CartController : Controller
     {
 
-        CitricStoreEntities2 db = new CitricStoreEntities2();
+        CitricStoreEntities db = new CitricStoreEntities();
 
         // GET: Cart
         public ActionResult Index()
@@ -136,7 +136,7 @@ namespace CitricStore.Controllers
         public ActionResult Page_Payment(ORDER_INFO or)
         {
             ViewBag.MaNganHang = new SelectList(db.BANKs, "BankID", "BankName");
-
+            var tongtien = GetTotalPrice();
             if (ModelState.IsValid)
             {
                 if (string.IsNullOrEmpty(or.TenOrder))
@@ -147,7 +147,7 @@ namespace CitricStore.Controllers
                 {
                     or.NgayOrder = DateTime.Now;
                     or.MaKH = int.Parse(Session["MaKH"].ToString());
-
+                    or.TongTien = tongtien;
                     db.ORDER_INFO.Add(or);
                     db.SaveChanges();
 

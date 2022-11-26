@@ -13,7 +13,7 @@ namespace CitricStore.Areas.Admin.Controllers
     public class InputDataNHAPHATHANHController : Controller
     {
 
-        private CitricStoreEntities2 db = new CitricStoreEntities2();
+        private CitricStoreEntities db = new CitricStoreEntities();
 
 
         // GET: Admin/InputDataNHAPHATHANH
