@@ -17,12 +17,15 @@ namespace CitricStore.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BANK()
         {
+            this.ARCHIVE_ORDER_INFO = new HashSet<ARCHIVE_ORDER_INFO>();
             this.ORDER_INFO = new HashSet<ORDER_INFO>();
         }
     
         public int BankID { get; set; }
         public string BankName { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ARCHIVE_ORDER_INFO> ARCHIVE_ORDER_INFO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_INFO> ORDER_INFO { get; set; }
     }

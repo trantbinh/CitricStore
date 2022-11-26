@@ -1,0 +1,82 @@
+﻿@using CitricStore.Models
+@model IEnumerable<CitricStore.Models.KHACHHANG>
+@{
+    ViewBag.Title = "Customer_ThongTinKhachHang";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+<style>
+    th, td {
+        text-align: center
+    }
+</style>
+
+<div class="container col-lg-6 col-md-12" style="margin:0px auto;">
+    <h2 style="text-align: center; color:white; margin-top:15px;">THÔNG TIN KHÁCH HÀNG</h2>
+    <div style="color:white; font-size:18px;">
+
+        <div class="row" style="margin-left: 0px; padding-left:0px; margin-top:35px;">
+            <table class="table" style="table-layout:fixed; width:100%; word-break: break-word; color:white;">
+                <tr>
+                    <th>
+                        Họ tên
+                    </th>
+                    <th>
+                        Giới tính
+                    </th>
+
+                    <th>
+                        Số điện thoại
+                    </th>
+                    <th>
+                        Ngày sinh
+                    </th>
+                    <th>
+                        Email
+                    </th>
+
+                    <th>
+                        Tên đăng nhập
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.HoTenKH
+                        </td>
+                        <td>
+                            @item.GioiTinh
+                        </td>
+                        <td>
+                            @item.DienthoaiKH
+                        </td>
+                        <td>
+                            @item.Ngaysinh
+
+                        </td>
+                        <td>
+                            @item.Email
+                        </td>
+                        <td>
+
+                            @item.TenDN
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
