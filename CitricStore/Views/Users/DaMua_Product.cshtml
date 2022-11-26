@@ -1,15 +1,28 @@
 ﻿@using CitricStore.Models
 
 
-@foreach(var item in Model) 
+@foreach (var item in Model)
 {
-    @Html.Action("DaMua_UngDung","Users", new {idud = item.MaUngDung})
 
-    <div>
-        Số lượng: @item.SoLuong
+    <div class="row">
+        <div class="col-12">
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link" style="color: white;"
+                   role="button" id="dropdownMenu" type="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    @Html.Action("DaMua_UngDung", "Users", new { idud = item.MaUngDung })
+                    <br />
+                </a>
 
-        Đơn giá: @item.DonGia
+                <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenu" style="">
+                    <div class="dropdown-backdrop" style="text-decoration:none">
+                        Số lượng: @item.SoLuong
+
+                        Đơn giá: @item.DonGia
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-} 
+}
