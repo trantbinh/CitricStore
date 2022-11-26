@@ -173,12 +173,36 @@ Create table GAME
 	EmailOrder varchar(50),
 	Constraint PK_ORDERINFO primary key (MaOrder)
  )
- alter table order_info
+  Create table ARCHIVE_ORDER_INFO
+ (
+	MaOrder int identity(1,1),
+	NgayOrder datetime,
+	MaKH int,
+	TenOrder nvarchar(max),
+	SDTOrder varchar(10),
+	DiaChiOrder nvarchar(max),
+	EmailOrder varchar(50),
+	Constraint PK_ARCHIVE_ORDERINFO primary key (MaOrder)
+ )
+
+ Create table TRANGTHAIDONHANG
+ (
+	Ma int identity(1,1),
+	Ten nvarchar(max),
+	constraint PK_TRANGTHAI primary key(Ma)
+ )
+
+ alter table archive_order_info
 add MaTaiKhoan varchar(50)
- alter table order_info
+ alter table archive_order_info
 add TenTaiKhoan nvarchar(max)
- alter table order_info
+ alter table archive_order_info
 add TongTien decimal(18,2)
+ alter table archive_order_info
+add MaNganHang int
+
+alter table order_info
+add TrangThaiXuLy int
 
 select * from ORDER_INFO
 
@@ -204,7 +228,7 @@ values (3, N'Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BIDV)')
 
 
 
-alter table ORDER_INFO add constraint FK_ORDERINFO_BANK
+alter table ARCHIVE_ORDER_INFO add constraint FK_AR_ORDERINFO_BANK
 						foreign key (MaNganHang)
 						references BANK(BankID)
 
@@ -222,7 +246,7 @@ select * from ORDER_PRODUCT
 
  )
 
-
+ select * from TRANGTHAIDONHANG
   Alter table ORDER_PRODUCT add constraint FK_ORDERPRODUCT_ORDERINFO
 					 foreign key (MaOrder)
 					 references ORDER_INFO (MaOrder) 
@@ -234,6 +258,17 @@ select * from ORDER_PRODUCT
   Alter table ORDER_INFO add constraint FK_ORDERINFO_KHACHHANG
 					 foreign key (MaKH)
 					 references KHACHHANG (MaKH) 
+
+
+					   Alter table ORDER_INFO add constraint FK_ORDERINFO_TRANGTHAI
+					 foreign key (TrangThaiXuLy)
+					 references TRANGTHAIDONHANG (Ma) 
+
+
+					 Alter table ARCHIVE_ORDER_INFO add constraint FK_AR_ORDERINFO_KHACHHANG
+					 foreign key (MaKH)
+					 references KHACHHANG (MaKH) 
+
 
  --KHOÁ NGOẠI
  Alter table APP add constraint FK_APP_NHAPHATHANH
@@ -315,8 +350,8 @@ set AppOrGame = N'Game'
 where Ma>27
 
 -- XOÁ CỘT TRONG BẢNG
-alter table Game
-drop column DungLuong
+alter table oRDER_info
+drop column TrangThaiXuLy
 
 Select * from Game
 -- NHẬP DỮ LIỆU
@@ -854,4 +889,7 @@ SET IDENTITY_INSERT [dbo].[GAME] OFF
 
 SELECT * FROM ORDER_INFO
 
+select * from Archive_order_info
+
 SELECT * FROM ORDER_PRODUCT
+
