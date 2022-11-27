@@ -15,25 +15,25 @@ namespace CitricStore.Models
         public string TenOr { get; set; }
         public string SDTOr { get; set; }
         public string EmailOr { get; set; }
-        public int? BankID { get; set; }
+        public int? IDBank { get; set; }
         public string MaTK { get; set; }
         public string TenTK { get; set; }
-        public decimal? TongTien { get; set; }
+        public decimal? TotalPrice { get; set; }
         public OrderItem(int MaOrd)
         {
             this.MaOr = MaOrd;
 
-            var or = db.ORDER_INFO.Single(s => s.MaOrder == MaOr);
+            var or = db.ORDER_INFO.Single(s => s.IDOrder == MaOr);
 
-            this.NgayOr = (DateTime)or.NgayOrder;
-            this.MaKhachHang = or.MaKH;
-            this.TenOr = or.TenOrder;
-            this.SDTOr = or.SDTOrder;
+            this.NgayOr = (DateTime)or.DateOrder;
+            this.MaKhachHang = or.IDCus;
+            this.TenOr = or.NameOrder;
+            this.SDTOr = or.PhoneOrder;
             this.EmailOr = or.EmailOrder;
-            this.BankID = or.MaNganHang;
-            this.MaTK = or.MaTaiKhoan;
-            this.TenTK = or.TenTaiKhoan;
-            this.TongTien = or.TongTien;
+            this.IDBank = or.IDBank;
+            this.MaTK = or.IDPayAccount;
+            this.TenTK = or.NamePayAccount;
+            this.TotalPrice = or.TotalPrice;
 
 
         }

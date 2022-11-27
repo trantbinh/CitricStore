@@ -20,21 +20,21 @@ namespace CitricStore.Models
             this.ORDER_PRODUCT = new HashSet<ORDER_PRODUCT>();
         }
     
-        public int MaOrder { get; set; }
-        public Nullable<System.DateTime> NgayOrder { get; set; }
-        public Nullable<int> MaKH { get; set; }
-        public string TenOrder { get; set; }
-        public string SDTOrder { get; set; }
+        public int IDOrder { get; set; }
+        public System.DateTime DateOrder { get; set; }
+        public int IDCus { get; set; }
+        public string NameOrder { get; set; }
+        public string PhoneOrder { get; set; }
         public string EmailOrder { get; set; }
-        public Nullable<int> MaNganHang { get; set; }
-        public string MaTaiKhoan { get; set; }
-        public string TenTaiKhoan { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
-        public Nullable<int> TrangThaiXuLy { get; set; }
+        public int IDBank { get; set; }
+        public string IDPayAccount { get; set; }
+        public string NamePayAccount { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
+        public Nullable<int> IDSttOrder { get; set; }
     
         public virtual BANK BANK { get; set; }
-        public virtual KHACHHANG KHACHHANG { get; set; }
-        public virtual TRANGTHAIDONHANG TRANGTHAIDONHANG { get; set; }
+        public virtual CUSTOMER CUSTOMER { get; set; }
+        public virtual ORDER_STATUS ORDER_STATUS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_PRODUCT> ORDER_PRODUCT { get; set; }
     }

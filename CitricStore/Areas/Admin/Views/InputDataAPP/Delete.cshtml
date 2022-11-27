@@ -1,147 +1,181 @@
-﻿@model CitricStore.Models.APP
+﻿@model CitricStore.Models.SOFTWARE
 
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<style>
+    td {
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .nonedecor {
+        text-decoration: none;
+    }
+
+    .edit-btn {
+        width: 200px;
+    }
+
+    .nonedecor:hover {
+        color: #FCAE03;
+    }
+</style>
 
 <div class="container" style="margin: 10px auto; width:100%; align-items:center">
 
-    <h2 style="text-align: center; color: white">DỮ LIỆU PHẦN MỀM (APP)</h2>
+    <h2 style="text-align: center; color: white">DỮ LIỆU PHẦN MỀM (SOFTWARE)</h2>
 
     <h3 style="text-align: center; color: white">XOÁ DỮ LIỆU</h3>
-    <div>
-        <dl class="dl-horizontal" style="color: white">
-            <dt>
-                Tên:
-            </dt>
+    <div class="row">
+        <div class="col-2"></div>
+        <table class="table align-middle col-8" style="color: white; width: 70%; table-layout: fixed;word-break: break-word; font-size:20px;">
+            <tr>
+                <td>
+                    <strong>Tên: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.NameSoft)
+                </td>
 
-            <dd>
-                @Html.DisplayFor(model => model.TenApp)
-            </dd>
+            </tr>
 
-            <dt>
-                Giới thiệu:
-            </dt>
+            <tr>
+                <td>
+                    <strong>Giới thiệu: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Description)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Dung lượng: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Capacity) MB
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Đơn giá: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Price)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Ngày cập nhật: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.UpdateDate)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Đánh giá:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Rating)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hệ điều hành:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PLATFORM.NamePlatform)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Ngôn ngữ:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.LANGUAGE.NameLanguage)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Nhà phát hành:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PUBLISHER.NamePublisher)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Thể loại:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CATEGORY_SOFTWARE.NameCatSoft)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình nền:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicBG" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 1:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicDetail1" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 2:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicDetail2" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 3:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicDetail3" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 4:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicDetail4" style="width:300px; height:180px" />
+                </td>
+            </tr>
 
-            <dd>
-                @Html.DisplayFor(model => model.GioiThieu)
-            </dd>
+            <tr>
+                <td colspan="2">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-            <dt>
-                Dung lượng:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DungLuong)
-            </dd>
-            <dt>
-                Đơn giá:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DonGia)
-            </dd>
-
-            <dt>
-                Ngày cập nhật:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.NgayCapNhat)
-            </dd>
-
-            <dt>
-                Đánh giá:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DanhGia)
-            </dd>
-            <dt>
-                Hệ điều hành:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.HEDIEUHANH.TenHDH)
-            </dd>
-
-            <dt>
-                Ngôn ngữ:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.NGONNGU.TenNgonNgu)
-            </dd>
-
-            <dt>
-                Nhà phát hành:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.NHAPHATHANH.TenNPH)
-            </dd>
-
-            <dt>
-                Thể loại:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.THELOAIAPP.TenTheLoai)
-            </dd>
-
-            <dt>
-                Hình Nền
-            </dt>
-
-            <dd>
-                <img src="~/Images/APP/@Model.HinhNen" style="width:600px; height:300px"/>
-            </dd>
-
-            <dt>
-                Hình chi tiết 1
-            </dt>
-
-            <dd>
-                <img src="~/Images/APP/@Model.HinhCT1" style="width:600px; height:300px" />
-            </dd>
-
-            <dt>
-                Hình chi tiết 2
-            </dt>
-
-            <dd>
-                <img src="~/Images/APP/@Model.HinhCT2" style="width:600px; height:300px" />
-            </dd>
-
-            <dt>
-                Hình chi tiết 3
-            </dt>
-
-            <dd>
-                <img src="~/Images/APP/@Model.HinhCT3" style="width:600px; height:300px" />
-            </dd>
-
-            <dt>
-                Hình chi tiết 4
-            </dt>
-
-            <dd>
-                <img src="~/Images/APP/@Model.HinhCT4" style="width:600px; height:300px" />
-            </dd>
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Xoá" class="btn btn-dark edit-btn" /> |
+                            @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
+                        </div>
+                    }
 
 
-        </dl>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
+                </td>
+            </tr>
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Xoá" class="btn btn-info" /> |
-                @Html.ActionLink("Quay về trang tổng hợp", "Index")
-            </div>
-        }
+        </table>
+
+
+        <div class="col-2"></div>
     </div>
-    </div>
+
+</div>

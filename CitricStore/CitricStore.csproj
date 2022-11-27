@@ -152,23 +152,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\APP.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ARCHIVE_ORDER_INFO.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\BANK.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\CATEGORY.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CATEGORY_GAME.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CATEGORY_SOFTWARE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CUSTOMER.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GAME.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\HEDIEUHANH.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KHACHHANG.cs">
+    <Compile Include="Models\LANGUAGE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -186,12 +189,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\NGONNGU.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NHAPHATHANH.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\ORDER_INFO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -199,19 +196,19 @@
     <Compile Include="Models\ORDER_PRODUCT.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ORDER_STATUS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OVERALL.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\THELOAI.cs">
+    <Compile Include="Models\PLATFORM.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\THELOAIAPP.cs">
+    <Compile Include="Models\PUBLISHER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\THELOAIGAME.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TRANGTHAIDONHANG.cs">
+    <Compile Include="Models\SOFTWARE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1381,6 +1378,9 @@
     <Content Include="Areas\Admin\Views\Admin\Order_TungDonHang.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Order_KiemTraDonHang.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Order_XuLyDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Extension_Order_TenTrangThai.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Customer_ThongTinKhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Order_InfoKhachHang.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -1388,8 +1388,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\Admin\Extension_Order_TenTrangThai.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Customer_ThongTinKhachHang.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\HomePage.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1441,7 +1439,7 @@
     <Content Include="Views\CitricStore\Details_GameMoi.cshtml" />
     <Content Include="Views\CitricStore\Details_GameCungTheLoai.cshtml" />
     <Content Include="Views\CitricStore\Details_TenNPH.cshtml" />
-    <Content Include="Views\CitricStore\Details_TenNgonNgu.cshtml" />
+    <Content Include="Views\CitricStore\Details_NameLanguage.cshtml" />
     <Content Include="Views\CitricStore\Details_TenHDH.cshtml" />
     <Content Include="Views\Users\EditInfo.cshtml" />
     <Content Include="Views\CitricStore\Index_GameMoi.cshtml" />
@@ -1474,13 +1472,12 @@
     <Content Include="Views\Users\Users_DaMua.cshtml" />
     <Content Include="Views\Users\DaMua_Product.cshtml" />
     <Content Include="Views\Users\DaMua_UngDung.cshtml" />
-    <Content Include="Views\CitricStore\Page_App_Filter_NgonNguVie.cshtml" />
-    <Content Include="Views\CitricStore\Page_App_Filter_NgonNgu.cshtml" />
-    <Content Include="Views\CitricStore\Page_App_Filter_NgonNguDropDown.cshtml" />
     <Content Include="Views\CitricStore\Extension_Overall_TenTheLoai.cshtml" />
     <Content Include="Views\CitricStore\Details_Overall_TheoDanhGia.cshtml" />
     <Content Include="Views\CitricStore\Details_Overall_Moi.cshtml" />
     <Content Include="Views\CitricStore\Details_Overall_CungTheLoai.cshtml" />
+    <Content Include="Views\Cart\Extension_GetBankName.cshtml" />
+    <Content Include="Views\CitricStore\Extension_Game_Slide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

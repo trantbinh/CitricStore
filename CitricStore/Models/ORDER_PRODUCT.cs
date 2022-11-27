@@ -15,10 +15,10 @@ namespace CitricStore.Models
     public partial class ORDER_PRODUCT
     {
         public int ID { get; set; }
-        public Nullable<int> MaUngDung { get; set; }
-        public Nullable<int> MaOrder { get; set; }
-        public Nullable<int> SoLuong { get; set; }
-        public Nullable<decimal> DonGia { get; set; }
+        public Nullable<int> IDOverall { get; set; }
+        public Nullable<int> IDOrder { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<decimal> Price { get; set; }
     
         public virtual ORDER_INFO ORDER_INFO { get; set; }
         public virtual OVERALL OVERALL { get; set; }

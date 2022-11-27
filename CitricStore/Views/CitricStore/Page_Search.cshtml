@@ -59,15 +59,15 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="bloggame">
                         <div class="imageblog">
-                            <img class="card-img-top imageblog-width-height" src="~/Images/OVERALL/@app.HinhNen" alt="Card image">
+                            <img class="card-img-top imageblog-width-height" src="~/Images/OVERALL/@app.PicBG" alt="Card image">
                         </div>
                             <div class="bloggame-title h4">
-                                <a class="fix-line">@app.Ten</a>
+                                <a class="fix-line">@app.NameOverall</a>
                             </div>
                             <div class="bloggame-theloai">
-                                Thể loại: @Html.Action("Extension_Overall_TenTheLoai", "CitricStore", new { idtheloai = app.MaTheLoai})
+                                Thể loại: @Html.Action("Extension_Overall_TenTheLoai", "CitricStore", new { idtheloai = app.IDCat})
                             </div>
-                            <a class="bloggame-download" href="@Url.Action("Details_Overall", "CitricStore", new {id=app.Ma})" style="text-decoration:none">
+                            <a class="bloggame-download" href="@Url.Action("Details_Overall", "CitricStore", new {id=app.IDOverall})" style="text-decoration:none">
                                 <div class="bloggame-download-btn">
                                     Chi Tiết
                                 </div>

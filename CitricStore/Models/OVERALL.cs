@@ -20,30 +20,29 @@ namespace CitricStore.Models
             this.ORDER_PRODUCT = new HashSet<ORDER_PRODUCT>();
         }
     
-        public int Ma { get; set; }
-        public string Ten { get; set; }
-        public string GioiThieu { get; set; }
-        public string DungLuong { get; set; }
-        public Nullable<int> MaNPH { get; set; }
-        public Nullable<int> MaHDH { get; set; }
-        public Nullable<int> MaNgonNgu { get; set; }
-        public Nullable<int> MaTheLoai { get; set; }
-        public Nullable<System.DateTime> NgayCapNhat { get; set; }
-        public string DanhGia { get; set; }
-        public Nullable<decimal> DonGia { get; set; }
-        public string HinhNen { get; set; }
-        public string HinhCT1 { get; set; }
-        public string HinhCT2 { get; set; }
-        public string HinhCT3 { get; set; }
-        public string HinhCT4 { get; set; }
-        public string LinkTai { get; set; }
-        public string AppOrGame { get; set; }
+        public int IDOverall { get; set; }
+        public string NameOverall { get; set; }
+        public string Description { get; set; }
+        public string Capacity { get; set; }
+        public Nullable<int> IDCat { get; set; }
+        public Nullable<int> IDPublisher { get; set; }
+        public Nullable<int> IDPlatform { get; set; }
+        public Nullable<int> IDLanguage { get; set; }
+        public Nullable<System.DateTime> UpdateDate { get; set; }
+        public string Rating { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public string PicBG { get; set; }
+        public string PicDetail1 { get; set; }
+        public string PicDetail2 { get; set; }
+        public string PicDetail3 { get; set; }
+        public string PicDetail4 { get; set; }
+        public string SoftOrGame { get; set; }
     
-        public virtual HEDIEUHANH HEDIEUHANH { get; set; }
-        public virtual NGONNGU NGONNGU { get; set; }
-        public virtual NHAPHATHANH NHAPHATHANH { get; set; }
+        public virtual CATEGORY CATEGORY { get; set; }
+        public virtual LANGUAGE LANGUAGE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER_PRODUCT> ORDER_PRODUCT { get; set; }
-        public virtual THELOAI THELOAI { get; set; }
+        public virtual PLATFORM PLATFORM { get; set; }
+        public virtual PUBLISHER PUBLISHER { get; set; }
     }
 }

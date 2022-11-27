@@ -145,15 +145,15 @@
                         <div class="bloggame">
                             <a href="" class="imageblog">
 
-                                <img class="imageblog-width-height" src="~/Images/APP/@app.HinhNen">
+                                <img class="imageblog-width-height" src="~/Images/APP/@app.PicBG">
                             </a>
                             <div class="bloggame-title h4">
-                                <a class="fix-line" href="">@app.TenApp</a>
+                                <a class="fix-line" href="">@app.NameSoft</a>
                             </div>
                             <div class="bloggame-theloai">
-                                Thể loại: @Html.Action("TenTheLoaiApp", "CitricStore", new { idtheloai = app.MaTheLoaiApp })
+                                Thể loại: @Html.Action("TenTheLoaiApp", "CitricStore", new { idtheloai = app.IDCatSoft })
                             </div>
-                            <a class="bloggame-download" href="@Url.Action("DetailsApp", "CitricStore", new {id=app.MaApp})" style="text-decoration:none">
+                            <a class="bloggame-download" href="@Url.Action("DetailsApp", "CitricStore", new {id=app.IDSoft})" style="text-decoration:none">
                                 <div class="bloggame-download-btn">
                                     Tải Xuống
                                 </div>

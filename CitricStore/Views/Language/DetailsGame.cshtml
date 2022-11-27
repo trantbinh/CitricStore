@@ -1,6 +1,6 @@
 ﻿@using CitricStore.Models
 @{
-    ViewBag.Title = @Model.TenGame;
+    ViewBag.Title = @Model.NameGame;
     Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
 }
 
@@ -9,11 +9,11 @@
 
 <div class="slideshow">
     <div class="display-container">
-        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.HinhNen">
-        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.HinhCT1">
-        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.HinhCT2">
-        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.HinhCT3">
-        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.HinhCT4">
+        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.PicBG">
+        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.PicDetail1">
+        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.PicDetail2">
+        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.PicDetail3">
+        <img class="slides animate-fading" onclick="changeImage()" src="~/Images/APP/@Model.PicDetail4">
         <!--Nút qua lại-->
         <button class="image-button button-left" onclick="plusDivs(-1)">&#10094;</button>
         <button class="image-button button-right" onclick="plusDivs(1)">&#10095;</button>
@@ -33,7 +33,7 @@
 <div class="col-12">
     <div class="row">
         <div class="col-lg-8 col-md-8 tenungdung" style=" padding-bottom:25px; padding-top:10px">
-            @Model.TenGame
+            @Model.NameGame
         </div>
         <div class="col-lg-4 col-md-4" style="padding-top:10px;">
             <a type="submit" class="nuttaigame float-end justify-content-center" style="text-align:center; align-items:center" href="@Model.LinkTai">
@@ -53,26 +53,26 @@
         <div class="tieudenoidung">
             <p class="tieude">NỘI DUNG</p>
             <p class="noidung">
-                @Model.GioiThieu
+                @Model.Description
             </p>
         </div>
         <hr>
         <div class="tieudechitiet">
 
             <p class="tieude">CHI TIẾT</p>
-            <p class="chitiet">Thể loại: @Html.Action("TenTheLoaiGame", "CitricStore", new { idtheloai = Model.MaTheLoaiGame })</p>
-            <p class="chitiet">Nhà phát hành: @Html.Action("Details_TenNPH", "CitricStore", new { idnph = Model.MaNPH })</p>
-            <p class="chitiet">Dung lượng: @Model.DungLuong MB</p>
-            <p class="chitiet">Ngôn ngữ: @Html.Action("Details_TenNgonNgu", "CitricStore", new { idngonngu = Model.MaNgonNgu })</p>
-            <p class="chitiet">Hệ điều hành: @Html.Action("Details_TenHDH", "CitricStore", new { idhdh = Model.MaHDH })</p>
-            <p class="chitiet">Ngày cập nhật: @Model.NgayCapNhat</p>
+            <p class="chitiet">Thể loại: @Html.Action("TenTheLoaiGame", "CitricStore", new { idtheloai = Model.IDCatGame })</p>
+            <p class="chitiet">Nhà phát hành: @Html.Action("Details_TenNPH", "CitricStore", new { idnph = Model.IDPublisher })</p>
+            <p class="chitiet">Dung lượng: @Model.Capacity MB</p>
+            <p class="chitiet">Ngôn ngữ: @Html.Action("Details_NameLanguage", "CitricStore", new { idngonngu = Model.IDLanguage })</p>
+            <p class="chitiet">Hệ điều hành: @Html.Action("Details_TenHDH", "CitricStore", new { idhdh = Model.IDPlatform })</p>
+            <p class="chitiet">Ngày cập nhật: @Model.UpdateDate</p>
         </div>
         <hr>
         <div class="game-list-container">
             <h1 class="game-list-title" style="margin-bottom: -20px;">TRÒ CHƠI CÙNG THỂ LOẠI</h1>
             <div class="game-list-wrapper">
                 <div class="game-list" id="game-list-scrollbar">
-                    @Html.Action("Details_GameCungTheLoai", "CitricStore", new { idtheloai = Model.MaTheLoaiGame })
+                    @Html.Action("Details_GameCungTheLoai", "CitricStore", new { idtheloai = Model.IDCatGame })
                 </div>
             </div>
         </div>

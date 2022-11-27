@@ -3,9 +3,9 @@
 @foreach (var ud in Model)
 {
     <div class="game-list-item">
-        <a href="@Url.Action("Details_Overall", "CitricStore", new { id = ud.Ma })">
-            <img class="game-list-item-img" src="~/Images/OVERALL/@ud.HinhNen" alt="Card Image">
-            <span class="game-list-item-title" style="color:white">@ud.Ten</span>
+        <a href="@Url.Action("Details_Overall", "CitricStore", new { id = ud.IDOverall })">
+            <img class="game-list-item-img" src="~/Images/OVERALL/@ud.PicBG" alt="Card Image">
+            <span class="game-list-item-title" style="color:white">@ud.NameOverall</span>
         </a>
     </div>
 }

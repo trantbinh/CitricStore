@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.APP
+﻿@model CitricStore.Models.SOFTWARE
 
 @{
     ViewBag.Title = "Details";
@@ -10,23 +10,32 @@
         text-align: center;
         padding-bottom:10px;
     }
+    .nonedecor{
+        text-decoration:none;
+    }
+    .edit-btn{
+       width:200px;
+    }
+    .nonedecor:hover {
+        color: #FCAE03;
+    }
 </style>
 
 <div class="container align-item-center" style="margin: 10px auto; width:100%">
 
-    <h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (APP)</h2>
+    <h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (SOFTWARE)</h2>
 
     <h3 style="text-align: center; color: white; margin-bottom:50px;">CHI TIẾT</h3>
 
     <div class="row">
         <div class="col-2"></div>
-        <table class="table align-middle col-8" style="color: white; width: 70%; table-layout: fixed;word-break: break-word; font-size:20px">
+        <table class="table align-middle col-8" style="color: white; width: 70%; table-layout: fixed;word-break: break-word; font-size:20px;">
             <tr>
                 <td>
                     <strong>Tên: </strong>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.TenApp)
+                    @Html.DisplayFor(model => model.NameSoft)
                 </td>
 
             </tr>
@@ -36,7 +45,7 @@
                     <strong>Giới thiệu: </strong>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.GioiThieu)
+                    @Html.DisplayFor(model => model.Description)
                 </td>
             </tr>
             <tr>
@@ -44,7 +53,7 @@
                     <strong>Dung lượng: </strong>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.DungLuong) MB
+                    @Html.DisplayFor(model => model.Capacity) MB
                 </td>
             </tr>
             <tr>
@@ -52,7 +61,7 @@
                     <strong>Đơn giá: </strong>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.DonGia)
+                    @Html.DisplayFor(model => model.Price)
                 </td>
             </tr>
             <tr>
@@ -60,7 +69,7 @@
                     <strong>Ngày cập nhật: </strong>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.NgayCapNhat)
+                    @Html.DisplayFor(model => model.UpdateDate)
                 </td>
             </tr>
             <tr>
@@ -68,7 +77,7 @@
                     <strong>Đánh giá:</strong>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.DanhGia)
+                    @Html.DisplayFor(model => model.Rating)
                 </td>
             </tr>
             <tr>
@@ -76,7 +85,7 @@
                     <strong>Hệ điều hành:</strong>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.HEDIEUHANH.TenHDH)
+                    @Html.DisplayFor(model => model.PLATFORM.NamePlatform)
                 </td>
             </tr>
             <tr>
@@ -84,7 +93,7 @@
                     <strong>Ngôn ngữ:</strong>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.NGONNGU.TenNgonNgu)
+                    @Html.DisplayFor(model => model.LANGUAGE.NameLanguage)
                 </td>
             </tr>
             <tr>
@@ -92,66 +101,65 @@
                     <strong>Nhà phát hành:</strong>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.NHAPHATHANH.TenNPH)
+                    @Html.DisplayFor(model => model.PUBLISHER.NamePublisher)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Thể loại:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CATEGORY_SOFTWARE.NameCatSoft)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình nền:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicBG" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 1:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicDetail1"style="width:300px; height:180px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 2:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicDetail2" style="width:300px; height:180px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 3:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicDetail3"style="width:300px; height:180px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 4:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/APP/@Model.PicDetail4" style="width:300px; height:180px" />
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2" class="">
-                    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaApp }, new { @class = "btn btn-success" }) |
-                    @Html.ActionLink("Quay về trang tổng hợp", "Index")
+                <td colspan="2">
+                    @Html.ActionLink("Sửa", "Edit", new { id = Model.IDSoft }, new { @class = "btn btn-dark edit-btn " }) |
+                    @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new {@class = "nonedecor" })
 
                 </td>
             </tr>
-
-            @*<dd>
-        <dt>
-            Thể loại:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.THELOAIAPP.TenTheLoai)
-        </dd>
-
-        <dt>
-            Hình Nền
-        </dt>
-
-        <dd>
-            <img src="~/Images/APP/@Model.HinhNen" style="width:600px; height:300px" />
-        </dd>
-
-        <dt>
-            Hình chi tiết 1
-        </dt>
-
-        <dd>
-            <img src="~/Images/APP/@Model.HinhCT1"  style="width:600px; height:300px"/>
-        </dd>
-
-        <dt>
-            Hình chi tiết 2
-        </dt>
-
-        <dd>
-            <img src="~/Images/APP/@Model.HinhCT2"  style="width:600px; height:300px"/>
-        </dd>
-
-        <dt>
-            Hình chi tiết 3
-        </dt>
-
-        <dd>
-            <img src="~/Images/APP/@Model.HinhCT3"  style="width:600px; height:300px"/>
-        </dd>
-
-        <dt>
-            Hình chi tiết 4
-        </dt>
-
-        <dd>
-            <img src="~/Images/APP/@Model.HinhCT4"  style="width:600px; height:300px"/>
-        </dd>*@
 
         </table>
 

@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.KHACHHANG
+﻿@model CitricStore.Models.CUSTOMER
 
 @{
     ViewBag.Title = "ResetPass";
@@ -20,29 +20,29 @@
 
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.MaKH)
-                @Html.HiddenFor(model => model.TenDN)
-                @Html.HiddenFor(model => model.Email)
-                @Html.HiddenFor(model => model.GioiTinh)
-                @Html.HiddenFor(model => model.DienthoaiKH)
-                @Html.HiddenFor(model => model.HoTenKH)
-                @Html.HiddenFor(model => model.Ngaysinh)
+                @Html.HiddenFor(model => model.IDCus)
+                @Html.HiddenFor(model => model.LogName)
+                @Html.HiddenFor(model => model.EmailCus)
+                @Html.HiddenFor(model => model.Sex)
+                @Html.HiddenFor(model => model.PhoneCus)
+                @Html.HiddenFor(model => model.NameCus)
+                @Html.HiddenFor(model => model.Birthday)
 
 
                 <div class="form-group">
-                    <strong>Tên đăng nhập:</strong> @Model.TenDN
+                    <strong>Tên đăng nhập:</strong> @Model.LogName
                 </div>
 
                 <div class="form-group">
-                    <strong>Email:</strong> @Model.Email
+                    <strong>Email:</strong> @Model.EmailCus
                 </div>
 
 
                 <div class="form-group">
                     Mật khẩu:
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Matkhau, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Matkhau, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.LogPass, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LogPass, "", new { @class = "text-danger" })
                     </div>
                 </div>
 

@@ -21,28 +21,28 @@
             @foreach (var item in Model)
             {
                 <div class="col-2">
-                    @item.NgayOrder
+                    @item.DateOrder
 
 
 
                 </div>
                 <div class="col-5" style="margin-left: 0px; padding-left:0px; margin-right:0px; padding-right:0px;">
-                    @Html.Action("Order_DonHang", "Admin", new { idor = item.MaOrder })
+                    @Html.Action("Order_DonHang", "Admin", new { idor = item.IDOrder })
 
                 </div>
 
                 <div class="col-3" style="text-align:center">
                     Tình trạng đơn hàng:
                     <br />
-                    @Html.Action("Extension_Order_TenTrangThai", "Admin", new { idtt = item.TrangThaiXuLy })
+                    @Html.Action("Extension_Order_TenTrangThai", "Admin", new { idtt = item.IDSttOrder })
                 </div>
                 <div class="col-2">
-                    @Html.ActionLink("Xử Lý Đơn Hàng", "Order_XuLyDonHang", new { idor = item.MaOrder }, new { @class = "btn btn-dark " })
+                    @Html.ActionLink("Xử Lý Đơn Hàng", "Order_XuLyDonHang", new { idor = item.IDOrder }, new { @class = "btn btn-dark " })
                 </div>
 
                 <div class="col-12" style="text-align:right">
                     <strong>
-                        Tổng tiền đơn hàng:  @String.Format("{0:0,0}", item.TongTien) VND
+                        Tổng tiền đơn hàng:  @String.Format("{0:0,0}", item.TotalPrice) VND
                     </strong>
                 </div>
 

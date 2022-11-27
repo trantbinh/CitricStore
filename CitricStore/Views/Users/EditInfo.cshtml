@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.KHACHHANG
+﻿@model CitricStore.Models.CUSTOMER
 
 @{
     ViewBag.Title = "EditInfo";
@@ -23,26 +23,26 @@
 
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.MaKH)
-                @Html.HiddenFor(model => model.TenDN)
+                @Html.HiddenFor(model => model.IDCus)
+                @Html.HiddenFor(model => model.LogName)
 
                 <div class="form-group">
-                    Tên Đăng Nhập: @Model.TenDN
+                    Tên Đăng Nhập: @Model.LogName
                 </div>
 
                 <div class="form-group">
                     Họ Tên:
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.HoTenKH, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.HoTenKH, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.NameCus, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NameCus, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Giới Tính:
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.GioiTinh, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Sex, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -50,8 +50,8 @@
                 <div class="form-group">
                     Điện Thoại:
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.DienthoaiKH, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DienthoaiKH, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.PhoneCus, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhoneCus, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -59,24 +59,24 @@
                 <div class="form-group">
                     Ngày Sinh:
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Ngaysinh, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Ngaysinh, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Email:
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.EmailCus, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EmailCus, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Mật Khẩu:
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Matkhau, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Matkhau, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.LogPass, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LogPass, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
             }
 
             <div>
-                @Html.ActionLink("Quay về", "ViewInfo","Users", new { idkh = Session["MaKH"]}, new { @class = "btn btn-dark combackviewinfo" })
+                @Html.ActionLink("Quay về", "ViewInfo","Users", new { idkh = Session["IDCus"]}, new { @class = "btn btn-dark combackviewinfo" })
             </div>
             </div>
 </div>

@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.NGONNGU
+﻿@model CitricStore.Models.LANGUAGE
 
 @{
     ViewBag.Title = "Create";
@@ -22,8 +22,8 @@
     <div class="form-group">
         Tên ngôn ngữ:
         <div class="col-md-10">
-            @Html.EditorFor(model => model.TenNgonNgu, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TenNgonNgu, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.NameLanguage, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NameLanguage, "", new { @class = "text-danger" })
         </div>
     </div>
 

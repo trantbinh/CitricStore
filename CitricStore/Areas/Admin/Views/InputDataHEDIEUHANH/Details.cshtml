@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.HEDIEUHANH
+﻿@model CitricStore.Models.PLATFORM
 
 @{
     ViewBag.Title = "Details";
@@ -22,13 +22,13 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.TenHDH)
+                @Html.DisplayFor(model => model.NamePlatform)
             </dd>
 
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Sửa", "Edit", new { id = Model.MaHDH }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.IDPlatform }, new { @class = "btn btn-success" }) |
         @Html.ActionLink("Quay về trang tổng hợp", "Index")
     </p>
     </div>

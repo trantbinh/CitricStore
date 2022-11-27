@@ -14,29 +14,26 @@ namespace CitricStore.Models
     
     public partial class GAME
     {
-        public int MaGame { get; set; }
-        public string TenGame { get; set; }
-        public string GioiThieu { get; set; }
-        public string DungLuong { get; set; }
-        public string NgonNgu { get; set; }
-        public string HeDieuHanh { get; set; }
-        public Nullable<int> MaTheLoaiGame { get; set; }
-        public Nullable<int> MaNPH { get; set; }
-        public Nullable<int> MaHDH { get; set; }
-        public Nullable<int> MaNgonNgu { get; set; }
-        public Nullable<System.DateTime> NgayCapNhat { get; set; }
-        public string DanhGia { get; set; }
-        public Nullable<decimal> DonGia { get; set; }
-        public string HinhNen { get; set; }
-        public string HinhCT1 { get; set; }
-        public string HinhCT2 { get; set; }
-        public string HinhCT3 { get; set; }
-        public string HinhCT4 { get; set; }
-        public string LinkTai { get; set; }
+        public int IDGame { get; set; }
+        public string NameGame { get; set; }
+        public string Description { get; set; }
+        public string Capacity { get; set; }
+        public Nullable<int> IDCatGame { get; set; }
+        public Nullable<int> IDPublisher { get; set; }
+        public Nullable<int> IDPlatform { get; set; }
+        public Nullable<int> IDLanguage { get; set; }
+        public Nullable<System.DateTime> UpdateDate { get; set; }
+        public string Rating { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public string PicBG { get; set; }
+        public string PicDetail1 { get; set; }
+        public string PicDetail2 { get; set; }
+        public string PicDetail3 { get; set; }
+        public string PicDetail4 { get; set; }
     
-        public virtual HEDIEUHANH HEDIEUHANH1 { get; set; }
-        public virtual NGONNGU NGONNGU1 { get; set; }
-        public virtual NHAPHATHANH NHAPHATHANH { get; set; }
-        public virtual THELOAIGAME THELOAIGAME { get; set; }
+        public virtual CATEGORY_GAME CATEGORY_GAME { get; set; }
+        public virtual LANGUAGE LANGUAGE { get; set; }
+        public virtual PLATFORM PLATFORM { get; set; }
+        public virtual PUBLISHER PUBLISHER { get; set; }
     }
 }

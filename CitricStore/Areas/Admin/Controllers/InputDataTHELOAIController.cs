@@ -15,10 +15,10 @@ namespace CitricStore.Areas.Admin.Controllers
 
         private CitricStoreEntities db = new CitricStoreEntities();
 
-        // GET: Admin/InputDataTHELOAI
+        // GET: Admin/InputDataCATEGORY
         public ActionResult Index()
         {
-            return View(db.THELOAIs.ToList());
+            return View(db.CATEGORies.ToList());
         }
 
         // GET: Admin/InputDataTHELOAI/Details/5
@@ -28,12 +28,12 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            THELOAI tHELOAI = db.THELOAIs.Find(id);
-            if (tHELOAI == null)
+            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            if (cATEGORY == null)
             {
                 return HttpNotFound();
             }
-            return View(tHELOAI);
+            return View(cATEGORY);
         }
 
         // GET: Admin/InputDataTHELOAI/Create
@@ -47,16 +47,16 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaTheLoai,TenTheLoai")] THELOAI tHELOAI)
+        public ActionResult Create([Bind(Include = "IDCat,NameCat")] CATEGORY cATEGORY)
         {
             if (ModelState.IsValid)
             {
-                db.THELOAIs.Add(tHELOAI);
+                db.CATEGORies.Add(cATEGORY);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tHELOAI);
+            return View(cATEGORY);
         }
 
         // GET: Admin/InputDataTHELOAI/Edit/5
@@ -66,12 +66,12 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            THELOAI tHELOAI = db.THELOAIs.Find(id);
-            if (tHELOAI == null)
+            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            if (cATEGORY == null)
             {
                 return HttpNotFound();
             }
-            return View(tHELOAI);
+            return View(cATEGORY);
         }
 
         // POST: Admin/InputDataTHELOAI/Edit/5
@@ -79,15 +79,15 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaTheLoai,TenTheLoai")] THELOAI tHELOAI)
+        public ActionResult Edit([Bind(Include = "IDCat,NameCat")] CATEGORY cATEGORY)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tHELOAI).State = EntityState.Modified;
+                db.Entry(cATEGORY).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tHELOAI);
+            return View(cATEGORY);
         }
 
         // GET: Admin/InputDataTHELOAI/Delete/5
@@ -97,12 +97,12 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            THELOAI tHELOAI = db.THELOAIs.Find(id);
-            if (tHELOAI == null)
+            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            if (cATEGORY == null)
             {
                 return HttpNotFound();
             }
-            return View(tHELOAI);
+            return View(cATEGORY);
         }
 
         // POST: Admin/InputDataTHELOAI/Delete/5
@@ -110,8 +110,8 @@ namespace CitricStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            THELOAI tHELOAI = db.THELOAIs.Find(id);
-            db.THELOAIs.Remove(tHELOAI);
+            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            db.CATEGORies.Remove(cATEGORY);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

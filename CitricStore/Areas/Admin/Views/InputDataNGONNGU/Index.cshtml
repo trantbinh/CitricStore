@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CitricStore.Models.NGONNGU>
+﻿@model IEnumerable<CitricStore.Models.LANGUAGE>
 
 @{
     ViewBag.Title = "Index";
@@ -51,20 +51,20 @@
         {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.MaNgonNgu)
+            @Html.DisplayFor(modelItem => item.IDLanguage)
         </td>
 
         <td>
-            @Html.DisplayFor(modelItem => item.TenNgonNgu)
+            @Html.DisplayFor(modelItem => item.NameLanguage)
         </td>
         <td>
-            @Html.ActionLink("Sửa", "Edit", new { id = item.MaNgonNgu }, new { @class = "index-btn" })
+            @Html.ActionLink("Sửa", "Edit", new { id = item.IDLanguage }, new { @class = "index-btn" })
         </td>
         <td>
-            @Html.ActionLink("Chi tiết", "Details", new { id = item.MaNgonNgu }, new { @class = "index-btn" })
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.IDLanguage }, new { @class = "index-btn" })
         </td>
         <td>
-            @Html.ActionLink("Xoá", "Delete", new { id = item.MaNgonNgu }, new { @class = "index-btn" })
+            @Html.ActionLink("Xoá", "Delete", new { id = item.IDLanguage }, new { @class = "index-btn" })
         </td>
     </tr>
         }

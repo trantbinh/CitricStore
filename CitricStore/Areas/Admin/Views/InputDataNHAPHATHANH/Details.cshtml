@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.NHAPHATHANH
+﻿@model CitricStore.Models.PUBLISHER
 
 @{
     ViewBag.Title = "Details";
@@ -22,13 +22,13 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.TenNPH)
+                @Html.DisplayFor(model => model.NamePublisher)
             </dd>
 
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Sửa", "Edit", new { id = Model.MaNPH }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.IDPublisher }, new { @class = "btn btn-success" }) |
         @Html.ActionLink("Quay về trang tổng hợp", "Index")
     </p>
 </div>

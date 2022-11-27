@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CitricStore.Models.HEDIEUHANH>
+﻿@model IEnumerable<CitricStore.Models.PLATFORM>
 
 @{
     ViewBag.Title = "Index";
@@ -50,20 +50,20 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MaHDH)
+                    @Html.DisplayFor(modelItem => item.IDPlatform)
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.TenHDH)
+                    @Html.DisplayFor(modelItem => item.NamePlatform)
                 </td>
                 <td>
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaHDH }, new { @class = "index-btn" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.IDPlatform }, new { @class = "index-btn" })
                 </td>
                 <td>
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.MaHDH }, new { @class = "index-btn" })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.IDPlatform }, new { @class = "index-btn" })
                 </td>
                 <td>
-                    @Html.ActionLink("Xoá", "Delete", new { id = item.MaHDH }, new { @class = "index-btn" })
+                    @Html.ActionLink("Xoá", "Delete", new { id = item.IDPlatform }, new { @class = "index-btn" })
                 </td>
             </tr>
         }
