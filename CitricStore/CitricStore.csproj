@@ -147,9 +147,7 @@
     <Compile Include="Controllers\CitricStoreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
-
     <Compile Include="Controllers\PhanTrangController.cs" />
-
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1471,13 +1469,12 @@
     <Content Include="Views\CitricStore\Details_Overall_TheoDanhGia.cshtml" />
     <Content Include="Views\CitricStore\Details_Overall_Moi.cshtml" />
     <Content Include="Views\CitricStore\Details_Overall_CungTheLoai.cshtml" />
+    <Content Include="Views\CitricStore\SP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-
     <Folder Include="Views\PhanTrang\" />
-
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

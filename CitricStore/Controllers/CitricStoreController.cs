@@ -323,7 +323,10 @@ namespace CitricStore.Controllers
         }
 
 
-
+        public ActionResult SP()
+        {
+            return View();
+        }
 
 
 
