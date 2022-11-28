@@ -5,14 +5,12 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 
-<h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" border="1">
     <tr>
-        <th>
+        <th style="color:white;">
             @Html.DisplayNameFor(model => model.TenTheLoai)
         </th>
         <th></th>
@@ -20,13 +18,13 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td style="color:white;">
             @Html.DisplayFor(modelItem => item.TenTheLoai)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaTheLoai }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaTheLoai }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaTheLoai })
+        <td style="color: white; width: 225px;">
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaTheLoai }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.MaTheLoai }, new { @class = "btn btn-danger" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaTheLoai }, new { @class = "btn btn-primary" })
         </td>
     </tr>
 }
