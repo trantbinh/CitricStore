@@ -300,6 +300,10 @@ html, main {
 }
 
 
-.dropdown:hover .dropdown-menu{
+.dropdown:hover, .dropdown-menu, .dropdown-menu-right{
+    display:block;
+}
+
+.drop-down-hover{
     display:block;
 }

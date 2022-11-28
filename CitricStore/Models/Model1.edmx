@@ -27,6 +27,22 @@
           <Property Name="HinhCT4" Type="nvarchar" MaxLength="30" />
           <Property Name="LinkTai" Type="ntext" />
         </EntityType>
+        <EntityType Name="ARCHIVE_ORDER_INFO">
+          <Key>
+            <PropertyRef Name="MaOrder" />
+          </Key>
+          <Property Name="MaOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayOrder" Type="datetime" />
+          <Property Name="MaKH" Type="int" />
+          <Property Name="TenOrder" Type="nvarchar(max)" />
+          <Property Name="SDTOrder" Type="varchar" MaxLength="10" />
+          <Property Name="DiaChiOrder" Type="nvarchar(max)" />
+          <Property Name="EmailOrder" Type="varchar" MaxLength="50" />
+          <Property Name="MaTaiKhoan" Type="varchar" MaxLength="50" />
+          <Property Name="TenTaiKhoan" Type="nvarchar(max)" />
+          <Property Name="TongTien" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MaNganHang" Type="int" />
+        </EntityType>
         <EntityType Name="BANK">
           <Key>
             <PropertyRef Name="BankID" />
@@ -106,6 +122,7 @@
           <Property Name="MaTaiKhoan" Type="varchar" MaxLength="50" />
           <Property Name="TenTaiKhoan" Type="nvarchar(max)" />
           <Property Name="TongTien" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TrangThaiXuLy" Type="int" />
         </EntityType>
         <EntityType Name="ORDER_PRODUCT">
           <Key>
@@ -161,6 +178,13 @@
           <Property Name="MaTheLoaiGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenTheLoai" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="TRANGTHAIDONHANG">
+          <Key>
+            <PropertyRef Name="Ma" />
+          </Key>
+          <Property Name="Ma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar(max)" />
+        </EntityType>
         <Association Name="FK_APP_HEDIEUHANH">
           <End Role="HEDIEUHANH" Type="Self.HEDIEUHANH" Multiplicity="0..1" />
           <End Role="APP" Type="Self.APP" Multiplicity="*" />
@@ -206,6 +230,30 @@
             </Principal>
             <Dependent Role="APP">
               <PropertyRef Name="MaTheLoaiApp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AR_ORDERINFO_BANK">
+          <End Role="BANK" Type="Self.BANK" Multiplicity="0..1" />
+          <End Role="ARCHIVE_ORDER_INFO" Type="Self.ARCHIVE_ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANK">
+              <PropertyRef Name="BankID" />
+            </Principal>
+            <Dependent Role="ARCHIVE_ORDER_INFO">
+              <PropertyRef Name="MaNganHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AR_ORDERINFO_KHACHHANG">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+          <End Role="ARCHIVE_ORDER_INFO" Type="Self.ARCHIVE_ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="ARCHIVE_ORDER_INFO">
+              <PropertyRef Name="MaKH" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -278,6 +326,18 @@
             </Principal>
             <Dependent Role="ORDER_INFO">
               <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERINFO_TRANGTHAI">
+          <End Role="TRANGTHAIDONHANG" Type="Self.TRANGTHAIDONHANG" Multiplicity="0..1" />
+          <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANGTHAIDONHANG">
+              <PropertyRef Name="Ma" />
+            </Principal>
+            <Dependent Role="ORDER_INFO">
+              <PropertyRef Name="TrangThaiXuLy" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -355,6 +415,7 @@
         </Association>
         <EntityContainer Name="CitricStoreModelStoreContainer">
           <EntitySet Name="APP" EntityType="Self.APP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ARCHIVE_ORDER_INFO" EntityType="Self.ARCHIVE_ORDER_INFO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BANK" EntityType="Self.BANK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GAME" EntityType="Self.GAME" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HEDIEUHANH" EntityType="Self.HEDIEUHANH" Schema="dbo" store:Type="Tables" />
@@ -367,6 +428,7 @@
           <EntitySet Name="THELOAI" EntityType="Self.THELOAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THELOAIAPP" EntityType="Self.THELOAIAPP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THELOAIGAME" EntityType="Self.THELOAIGAME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANGTHAIDONHANG" EntityType="Self.TRANGTHAIDONHANG" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_APP_HEDIEUHANH" Association="Self.FK_APP_HEDIEUHANH">
             <End Role="HEDIEUHANH" EntitySet="HEDIEUHANH" />
             <End Role="APP" EntitySet="APP" />
@@ -382,6 +444,14 @@
           <AssociationSet Name="FK_APP_THELOAIAPP" Association="Self.FK_APP_THELOAIAPP">
             <End Role="THELOAIAPP" EntitySet="THELOAIAPP" />
             <End Role="APP" EntitySet="APP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AR_ORDERINFO_BANK" Association="Self.FK_AR_ORDERINFO_BANK">
+            <End Role="BANK" EntitySet="BANK" />
+            <End Role="ARCHIVE_ORDER_INFO" EntitySet="ARCHIVE_ORDER_INFO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AR_ORDERINFO_KHACHHANG" Association="Self.FK_AR_ORDERINFO_KHACHHANG">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="ARCHIVE_ORDER_INFO" EntitySet="ARCHIVE_ORDER_INFO" />
           </AssociationSet>
           <AssociationSet Name="FK_GAME_HEDIEUHANH" Association="Self.FK_GAME_HEDIEUHANH">
             <End Role="HEDIEUHANH" EntitySet="HEDIEUHANH" />
@@ -405,6 +475,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ORDERINFO_KHACHHANG" Association="Self.FK_ORDERINFO_KHACHHANG">
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERINFO_TRANGTHAI" Association="Self.FK_ORDERINFO_TRANGTHAI">
+            <End Role="TRANGTHAIDONHANG" EntitySet="TRANGTHAIDONHANG" />
             <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
           </AssociationSet>
           <AssociationSet Name="FK_ORDERPRODUCT_ORDERINFO" Association="Self.FK_ORDERPRODUCT_ORDERINFO">
@@ -462,12 +536,31 @@
           <NavigationProperty Name="NHAPHATHANH" Relationship="Self.FK_APP_NHAPHATHANH" FromRole="APP" ToRole="NHAPHATHANH" />
           <NavigationProperty Name="THELOAIAPP" Relationship="Self.FK_APP_THELOAIAPP" FromRole="APP" ToRole="THELOAIAPP" />
         </EntityType>
+        <EntityType Name="ARCHIVE_ORDER_INFO">
+          <Key>
+            <PropertyRef Name="MaOrder" />
+          </Key>
+          <Property Name="MaOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayOrder" Type="DateTime" Precision="3" />
+          <Property Name="MaKH" Type="Int32" />
+          <Property Name="TenOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SDTOrder" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChiOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaTaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TenTaiKhoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TongTien" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MaNganHang" Type="Int32" />
+          <NavigationProperty Name="BANK" Relationship="Self.FK_AR_ORDERINFO_BANK" FromRole="ARCHIVE_ORDER_INFO" ToRole="BANK" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_AR_ORDERINFO_KHACHHANG" FromRole="ARCHIVE_ORDER_INFO" ToRole="KHACHHANG" />
+        </EntityType>
         <EntityType Name="BANK">
           <Key>
             <PropertyRef Name="BankID" />
           </Key>
           <Property Name="BankID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BankName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ARCHIVE_ORDER_INFO" Relationship="Self.FK_AR_ORDERINFO_BANK" FromRole="BANK" ToRole="ARCHIVE_ORDER_INFO" />
           <NavigationProperty Name="ORDER_INFO" Relationship="Self.FK_ORDERINFO_BANK" FromRole="BANK" ToRole="ORDER_INFO" />
         </EntityType>
         <EntityType Name="GAME">
@@ -520,6 +613,7 @@
           <Property Name="Ngaysinh" Type="DateTime" Precision="0" />
           <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ARCHIVE_ORDER_INFO" Relationship="Self.FK_AR_ORDERINFO_KHACHHANG" FromRole="KHACHHANG" ToRole="ARCHIVE_ORDER_INFO" />
           <NavigationProperty Name="ORDER_INFO" Relationship="Self.FK_ORDERINFO_KHACHHANG" FromRole="KHACHHANG" ToRole="ORDER_INFO" />
         </EntityType>
         <EntityType Name="NGONNGU">
@@ -556,8 +650,10 @@
           <Property Name="MaTaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TenTaiKhoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TongTien" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TrangThaiXuLy" Type="Int32" />
           <NavigationProperty Name="BANK" Relationship="Self.FK_ORDERINFO_BANK" FromRole="ORDER_INFO" ToRole="BANK" />
           <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_ORDERINFO_KHACHHANG" FromRole="ORDER_INFO" ToRole="KHACHHANG" />
+          <NavigationProperty Name="TRANGTHAIDONHANG" Relationship="Self.FK_ORDERINFO_TRANGTHAI" FromRole="ORDER_INFO" ToRole="TRANGTHAIDONHANG" />
           <NavigationProperty Name="ORDER_PRODUCT" Relationship="Self.FK_ORDERPRODUCT_ORDERINFO" FromRole="ORDER_INFO" ToRole="ORDER_PRODUCT" />
         </EntityType>
         <EntityType Name="ORDER_PRODUCT">
@@ -624,6 +720,14 @@
           <Property Name="TenTheLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="GAMEs" Relationship="Self.FK_GAME_THELOAIGAME" FromRole="THELOAIGAME" ToRole="GAME" />
         </EntityType>
+        <EntityType Name="TRANGTHAIDONHANG">
+          <Key>
+            <PropertyRef Name="Ma" />
+          </Key>
+          <Property Name="Ma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ORDER_INFO" Relationship="Self.FK_ORDERINFO_TRANGTHAI" FromRole="TRANGTHAIDONHANG" ToRole="ORDER_INFO" />
+        </EntityType>
         <Association Name="FK_APP_HEDIEUHANH">
           <End Role="HEDIEUHANH" Type="Self.HEDIEUHANH" Multiplicity="0..1" />
           <End Role="APP" Type="Self.APP" Multiplicity="*" />
@@ -669,6 +773,30 @@
             </Principal>
             <Dependent Role="APP">
               <PropertyRef Name="MaTheLoaiApp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AR_ORDERINFO_BANK">
+          <End Role="BANK" Type="Self.BANK" Multiplicity="0..1" />
+          <End Role="ARCHIVE_ORDER_INFO" Type="Self.ARCHIVE_ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANK">
+              <PropertyRef Name="BankID" />
+            </Principal>
+            <Dependent Role="ARCHIVE_ORDER_INFO">
+              <PropertyRef Name="MaNganHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AR_ORDERINFO_KHACHHANG">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+          <End Role="ARCHIVE_ORDER_INFO" Type="Self.ARCHIVE_ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="ARCHIVE_ORDER_INFO">
+              <PropertyRef Name="MaKH" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -780,6 +908,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ORDERINFO_TRANGTHAI">
+          <End Role="TRANGTHAIDONHANG" Type="Self.TRANGTHAIDONHANG" Multiplicity="0..1" />
+          <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRANGTHAIDONHANG">
+              <PropertyRef Name="Ma" />
+            </Principal>
+            <Dependent Role="ORDER_INFO">
+              <PropertyRef Name="TrangThaiXuLy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ORDERPRODUCT_ORDERINFO">
           <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="0..1" />
           <End Role="ORDER_PRODUCT" Type="Self.ORDER_PRODUCT" Multiplicity="*" />
@@ -816,10 +956,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-
         <EntityContainer Name="CitricStoreEntities" annotation:LazyLoadingEnabled="true">
-
           <EntitySet Name="APPs" EntityType="Self.APP" />
+          <EntitySet Name="ARCHIVE_ORDER_INFO" EntityType="Self.ARCHIVE_ORDER_INFO" />
           <EntitySet Name="BANKs" EntityType="Self.BANK" />
           <EntitySet Name="GAMEs" EntityType="Self.GAME" />
           <EntitySet Name="HEDIEUHANHs" EntityType="Self.HEDIEUHANH" />
@@ -832,6 +971,7 @@
           <EntitySet Name="THELOAIs" EntityType="Self.THELOAI" />
           <EntitySet Name="THELOAIAPPs" EntityType="Self.THELOAIAPP" />
           <EntitySet Name="THELOAIGAMEs" EntityType="Self.THELOAIGAME" />
+          <EntitySet Name="TRANGTHAIDONHANGs" EntityType="Self.TRANGTHAIDONHANG" />
           <AssociationSet Name="FK_APP_HEDIEUHANH" Association="Self.FK_APP_HEDIEUHANH">
             <End Role="HEDIEUHANH" EntitySet="HEDIEUHANHs" />
             <End Role="APP" EntitySet="APPs" />
@@ -847,6 +987,14 @@
           <AssociationSet Name="FK_APP_THELOAIAPP" Association="Self.FK_APP_THELOAIAPP">
             <End Role="THELOAIAPP" EntitySet="THELOAIAPPs" />
             <End Role="APP" EntitySet="APPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AR_ORDERINFO_BANK" Association="Self.FK_AR_ORDERINFO_BANK">
+            <End Role="BANK" EntitySet="BANKs" />
+            <End Role="ARCHIVE_ORDER_INFO" EntitySet="ARCHIVE_ORDER_INFO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AR_ORDERINFO_KHACHHANG" Association="Self.FK_AR_ORDERINFO_KHACHHANG">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="ARCHIVE_ORDER_INFO" EntitySet="ARCHIVE_ORDER_INFO" />
           </AssociationSet>
           <AssociationSet Name="FK_ORDERINFO_BANK" Association="Self.FK_ORDERINFO_BANK">
             <End Role="BANK" EntitySet="BANKs" />
@@ -884,6 +1032,10 @@
             <End Role="NHAPHATHANH" EntitySet="NHAPHATHANHs" />
             <End Role="OVERALL" EntitySet="OVERALLs" />
           </AssociationSet>
+          <AssociationSet Name="FK_ORDERINFO_TRANGTHAI" Association="Self.FK_ORDERINFO_TRANGTHAI">
+            <End Role="TRANGTHAIDONHANG" EntitySet="TRANGTHAIDONHANGs" />
+            <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
+          </AssociationSet>
           <AssociationSet Name="FK_ORDERPRODUCT_ORDERINFO" Association="Self.FK_ORDERPRODUCT_ORDERINFO">
             <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
             <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
@@ -902,9 +1054,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-
         <EntityContainerMapping StorageEntityContainer="CitricStoreModelStoreContainer" CdmEntityContainer="CitricStoreEntities">
-
           <EntitySetMapping Name="APPs">
             <EntityTypeMapping TypeName="CitricStoreModel.APP">
               <MappingFragment StoreEntitySet="APP">
@@ -925,6 +1075,23 @@
                 <ScalarProperty Name="HinhCT3" ColumnName="HinhCT3" />
                 <ScalarProperty Name="HinhCT4" ColumnName="HinhCT4" />
                 <ScalarProperty Name="LinkTai" ColumnName="LinkTai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ARCHIVE_ORDER_INFO">
+            <EntityTypeMapping TypeName="CitricStoreModel.ARCHIVE_ORDER_INFO">
+              <MappingFragment StoreEntitySet="ARCHIVE_ORDER_INFO">
+                <ScalarProperty Name="MaOrder" ColumnName="MaOrder" />
+                <ScalarProperty Name="NgayOrder" ColumnName="NgayOrder" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="TenOrder" ColumnName="TenOrder" />
+                <ScalarProperty Name="SDTOrder" ColumnName="SDTOrder" />
+                <ScalarProperty Name="DiaChiOrder" ColumnName="DiaChiOrder" />
+                <ScalarProperty Name="EmailOrder" ColumnName="EmailOrder" />
+                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="MaNganHang" ColumnName="MaNganHang" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1012,6 +1179,7 @@
                 <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
                 <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
                 <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="TrangThaiXuLy" ColumnName="TrangThaiXuLy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1071,6 +1239,14 @@
               <MappingFragment StoreEntitySet="THELOAIGAME">
                 <ScalarProperty Name="MaTheLoaiGame" ColumnName="MaTheLoaiGame" />
                 <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANGTHAIDONHANGs">
+            <EntityTypeMapping TypeName="CitricStoreModel.TRANGTHAIDONHANG">
+              <MappingFragment StoreEntitySet="TRANGTHAIDONHANG">
+                <ScalarProperty Name="Ma" ColumnName="Ma" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
