@@ -6,32 +6,27 @@
 }
 
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
 
-<div class="container" style="margin: 10px auto; width:100%; align-items:center">
+<div class="container col-lg-6 col-md-10" style="margin: 0px auto;align-items:center">
 
-    <h2 style="text-align: center; color:white">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
+    <h2 class="title">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
 
     <h3 style="text-align: center; color: white">XOÁ DỮ LIỆU</h3>
-    <div>
-        <dl class="dl-horizontal" style="color: white">
-            <dt>
-                Tên hệ điều hành:
-            </dt>
+    <div class="platform">
 
-            <dd>
-                @Html.DisplayFor(model => model.NamePlatform)
-            </dd>
 
-        </dl>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-actions no-color">
-                <input type="submit" value="Xoá" class="btn btn-info" /> |
-                @Html.ActionLink("Quay về trang tổng hợp", "Index")
-            </div>
-        }
+        <strong>Tên hệ điều hành: </strong>
+        @Html.DisplayFor(model => model.NamePlatform)
     </div>
-    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Xoá" class="btn btn-info" /> |
+    @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
+</div>
+    }
+</div>

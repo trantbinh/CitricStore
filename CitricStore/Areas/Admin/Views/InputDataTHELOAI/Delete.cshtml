@@ -1,33 +1,33 @@
 ﻿@model CitricStore.Models.CATEGORY
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Xoá";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>THELOAI</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NameCat)
-        </dt>
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
 
-        <dd>
-            @Html.DisplayFor(model => model.NameCat)
-        </dd>
+<div class="container col-lg-6 col-md-10" style="margin: 0px auto;align-items:center">
 
-    </dl>
+    <h2 class="title">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
 
-    @using (Html.BeginForm()) {
+    <h3 style="text-align: center; color: white">XOÁ DỮ LIỆU</h3>
+    <div class="platform">
+
+
+
+        <strong>Tên: </strong>
+        @Html.DisplayFor(model => model.NameCat)
+    </div>
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Xoá" class="btn btn-info" /> |
+            @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
         </div>
     }
 </div>

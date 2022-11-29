@@ -16,31 +16,32 @@
             {
                 @Html.AntiForgeryToken()
 
-            <div class="" style=" align-items:center;">
                 @Html.ValidationSummary(true, null, new { @class = "error" })
                 @Html.HiddenFor(model => model.IDCus)
                 @Html.HiddenFor(model => model.LogName)
 
-                <div class="form-group">
+                <div class="resetpass">
                     <strong>Tên Đăng Nhập:</strong> @Model.LogName
                 </div>
 
-                <div class="form-group">
+                <div class="resetpass">
                     Họ Tên:
                     <div class="col-md-12">
                         <input class="edit-form" name="NameCus" type="text" value="@Model.NameCus" />
                         <span data-valmsg-for="LinkName" data-valmsg-replace="true"></span>
-            
+
                         @Html.ValidationMessageFor(model => model.NameCus, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    Giới Tính:
+                <div style="margin-top:5px">
+
                     <div class="col-md-12">
-                        @Html.EditorFor(model => model.Sex, new { htmlAttributes = new { @class = "", @type = "radio", id = "sex_1", name = "Sex", value = "Nữ" } })
+                        Giới Tính:
+                        <input type="radio" id="sex_1" name="Sex" value="Nữ" style="margin-left: 20px">
                         <label class="form-label" for="sex_1"> Nữ </label>
-                        @Html.EditorFor(model => model.Sex, new { htmlAttributes = new { @class = "", @type = "radio", id = "sex_2", name = "Sex" ,value = "Nam" } })
+
+                        <input type="radio" id="sex_2" name="Sex" value="Nam" style="margin-left: 20px">
                         <label class="form-label" for="sex_2"> Nam </label>
 
                         @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
@@ -48,7 +49,7 @@
                 </div>
 
 
-                <div class="form-group">
+                <div style="margin-bottom:5px;">
                     Điện Thoại:
                     <div class="col-md-12">
                         @Html.EditorFor(model => model.PhoneCus, new { htmlAttributes = new { @class = "edit-form" } })
@@ -57,7 +58,7 @@
                 </div>
 
 
-                <div class="form-group">
+                <div class="resetpass">
                     Ngày Sinh:
                     <div class="col-md-12">
                         @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "edit-form" } })
@@ -65,7 +66,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="resetpass">
                     Email:
                     <div class="col-md-12">
                         @Html.EditorFor(model => model.EmailCus, new { htmlAttributes = new { @class = "edit-form" } })
@@ -73,24 +74,10 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    Mật Khẩu:
-                    <div class="col-md-12">
-                        @Html.EditorFor(model => model.LogPass, new { htmlAttributes = new { @class = "edit-form" } })
-                        @Html.ValidationMessageFor(model => model.LogPass, "", new { @class = "text-danger" })
-                    </div>
+                <div class="row justify-content-center">
+                    <input type="submit" value="Chỉnh sửa" class="btn btn-dark" style="width:40%; margin-top:20px; " />
                 </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10" style="padding-top:10px">
-                        <input type="submit" value="Lưu" class="btn btn-dark" />
-                    </div>
-                </div>
-            </div>
             }
 
-            <div>
-                @Html.ActionLink("Quay về", "ViewInfo","Users", new { idkh = Session["IDCus"]}, new { @class = "btn btn-dark combackviewinfo" })
-            </div>
-            </div>
+        </div>
 </div>

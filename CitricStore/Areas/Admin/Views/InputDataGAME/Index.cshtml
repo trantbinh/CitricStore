@@ -98,7 +98,7 @@
         @Html.DisplayFor(modelItem => item.Capacity)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Price)
+        @String.Format("{0:0,0}", item.Price)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.PLATFORM.NamePlatform)
@@ -114,7 +114,7 @@
     </td>
 
     <td>
-        @Html.DisplayFor(modelItem => item.UpdateDate)
+        @String.Format("{0:dd/MM/yy}", item.UpdateDate)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.Rating)

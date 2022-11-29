@@ -21,11 +21,15 @@
 
 /*trang fogotpass*/
 .comebacklogin {
-    color: aliceblue;
+    color: white;
     text-decoration: none;
     display:flex;
     justify-content:center;
 }
+    .comebacklogin:hover {
+        color: #FCAE03;
+        text-decoration:underline solid;
+    }
 
 /*trang chỉnh sửa thông tin cá nhân*/
 .combackviewinfo {
@@ -87,4 +91,39 @@
     list-style-type: none;
     color: #FCAE03;
     list-style: none;
+}
+
+.resetpass{
+    padding-top:5px; padding-bottom:5px;
+}
+
+/*Payment Success*/
+.continue {
+    text-align: center;
+    color: white;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #FCAE03;
+    height: fit-content;
+    width: fit-content;
+    font-size: 30px;
+    text-decoration:none
+}
+    .continue:hover {
+        color: #FCAE03;
+        
+    }
+
+.nonedecor {
+    text-decoration: none;
+}
+
+.edit-btn {
+    width: 200px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.nonedecor:hover {
+    color: #FCAE03;
 }

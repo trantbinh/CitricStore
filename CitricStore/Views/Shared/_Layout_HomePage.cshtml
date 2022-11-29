@@ -21,13 +21,13 @@
             <div class="tenweb col-lg-1 col-md-2 col-sm-3">
                 <img src="~/Images/LOGO/CITRICSTORE.png" alt="Citric" style="width:auto; height:100px; margin-top:-18px; margin-left:-50px" />
             </div>
-            <div class="header-left-container col-lg-6 col-md-6 col-sm-5">
+            <div class="header-left-container col-lg-5 col-md-6 col-sm-5">
                 <div class="header-left">
                     <a class="header-left-name header-left-name-btn" href="@Url.Action("Index", "CitricStore")" style="color:black;">Cửa hàng</a>
                     <a href="@Url.Action("Page_FAQ","CitricStore")" style="width:200px; color:black;" class="header-left-name header-left-name-btn">Câu hỏi thường gặp</a>
                 </div>
             </div>
-            <div class="header-right-container col-lg-4 col-md-3 col-sm-3" style="font-size:16px;">
+            <div class="header-right-container col-lg-5 col-md-3 col-sm-3" style="font-size:16px;">
                 <ul class="header-right">
                     <li class="header-right-name">
                         @Html.Action("CartPartial","Cart")
@@ -47,7 +47,10 @@
                                      style=" border: none; z-index: 1001;background-color: #FCAE03; animation:none;transition:none">
                                     @Html.ActionLink("Xem Thông Tin", "ViewInfo", "Users", new { idkh = Session["IDCus"] }, new { @class = "dropdown-item XemThongTin" })
 
+
                                     @Html.ActionLink("Đơn Hàng Đã Mua", "Users_DaMua", "Users", new { idkh = Session["IDCus"] }, new { @class = "dropdown-item XemThongTin" })
+
+                                    @Html.ActionLink("Đổi mật khẩu", "ChangePass", "Users", new { id = Session["IDCus"] }, new { @class = "dropdown-item XemThongTin" })
 
                                     @Html.ActionLink("Đăng Xuất", "LogOut", "Users", null, new { @class = "dropdown-item XemThongTin" })
                                 </div>

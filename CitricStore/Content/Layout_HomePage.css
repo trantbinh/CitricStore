@@ -123,10 +123,7 @@ html, main {
 /*-------------MAIN-------------*/
 #main {
     background-color: rgb(18,18,18);
-    padding-top:0px;
-    padding-bottom:180px;
-    margin-top:0px;
-    margin-bottom:0px;
+    padding-bottom:175px;
     
 
 }
@@ -143,17 +140,19 @@ html, main {
 
 .searchbar-container {
     height: 100%;
-    align-items:center;
+    align-items: center;
 }
 
 .searchbar {
-    top:50%;
-    transform:translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 50px;
     height: 50px;
     position: absolute;
     display: flex;
     border-radius: 24px;
 }
+
 .searchbar-form {
     display: block;
     padding: 0.375rem 0.75rem;
@@ -173,17 +172,16 @@ html, main {
     .searchbar-form:focus {
         color: #FCAE03;
         background-color: #fff;
-        border-color: #FCAE03;
+        border-color: #86b7fe;
         outline: 0;
-        box-shadow: 0 0 0 0.25rem #FCAE03;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
 
 
-.searchbar-form::-moz-placeholder {
-    color: #6c757d;
-    opacity: 1;
-}
-
+    .searchbar-form::-moz-placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
 .searchbar-form::placeholder {
     color: #6c757d;
     opacity: 1;
@@ -226,7 +224,7 @@ html, main {
     text-align: center;
     z-index: 5;
     position:absolute;
-    height:180px;
+    height:175px;
 
 }
 .footer-logo-name-container {

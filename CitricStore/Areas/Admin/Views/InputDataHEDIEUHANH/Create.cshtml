@@ -5,10 +5,11 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
 
-<div class="container" style="margin: 10px auto; width:100%; align-items:center">
+<div class="container col-lg-6 col-md-10" style="margin: 0px auto; align-items:center">
 
-    <h2 style="text-align: center; color:white">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
+    <h2 class="title">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
 
     <h3 style="text-align: center; color: white">TẠO MỚI</h3>
 
@@ -16,23 +17,23 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal" style="color: white; font-size:20px;">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                Tên hệ điều hành:
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.NamePlatform, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NamePlatform, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-10">
-                    <input type="submit" value="Tạo App" class="btn btn-info" /> |
-                    @Html.ActionLink("Quay về trang tổng hợp", "Index")
-                </div>
-            </div>
+<div class="form-horizontal" style="color: white; font-size:20px;">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        Tên hệ điều hành:
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.NamePlatform, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NamePlatform, "", new { @class = "text-danger" })
         </div>
+    </div>
+
+    <div class="form-group" style="margin-top:30px; margin-bottom:20px;">
+        <div class="col-md-12">
+            <input type="submit" value="Tạo mới" class="btn btn-info" style="font-size:20px; font-weight:500; width:20%" /> |
+            @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
+        </div>
+    </div>
+</div>
     }
 
 </div>

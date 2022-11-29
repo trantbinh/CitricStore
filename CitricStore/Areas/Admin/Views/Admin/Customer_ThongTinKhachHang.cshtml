@@ -6,7 +6,9 @@
 }
 <style>
     th, td {
-        text-align: center
+        text-align: center;
+        vertical-align:middle;
+
     }
 </style>
 
@@ -52,7 +54,7 @@
                             @item.PhoneCus
                         </td>
                         <td>
-                            @item.Birthday
+                            @String.Format("{0:dd MMM, yyy}", item.Birthday)
 
                         </td>
                         <td>

@@ -75,18 +75,24 @@
     margin: 0px auto;
 }
 
-/*trang reset*/
 
-.quayvedangnhap {
-    color: aliceblue;
+
+
+.nonedecor {
     text-decoration: none;
-    width: 45%;
-    margin-left: 26px;
 }
 
-.error {
-    text-decoration: none;
-    list-style-type: none;
+.edit-btn {
+    width: 200px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.nonedecor:hover {
     color: #FCAE03;
-    list-style: none;
+}
+
+.platform{
+    color:white;
+    font-size:25px
 }
