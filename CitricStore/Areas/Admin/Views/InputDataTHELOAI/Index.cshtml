@@ -5,28 +5,30 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 
-<h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" border="1">
     <tr>
+
         <th>
             @Html.DisplayNameFor(model => model.NameCat)
+
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameCat)
+
+        <td style="color:white;">
+            @Html.DisplayFor(modelItem => item.TenTheLoai)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDCat }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDCat }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDCat })
+        <td style="color: white; width: 225px;">
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDCat }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.IDCat }, new { @class = "btn btn-danger" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDCat }, new { @class = "btn btn-primary" })
+
         </td>
     </tr>
 }

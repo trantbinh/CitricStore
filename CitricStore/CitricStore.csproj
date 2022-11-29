@@ -1472,9 +1472,13 @@
     <Content Include="Views\CitricStore\Details_Overall_TheoDanhGia.cshtml" />
     <Content Include="Views\CitricStore\Details_Overall_Moi.cshtml" />
     <Content Include="Views\CitricStore\Details_Overall_CungTheLoai.cshtml" />
+
     <Content Include="Views\Cart\Extension_GetBankName.cshtml" />
     <Content Include="Views\CitricStore\Extension_Game_Slide.cshtml" />
     <Content Include="Views\CitricStore\Page_FAQ.cshtml" />
+
+    <Content Include="Views\CitricStore\SP.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -281,6 +281,7 @@ namespace CitricStore.Controllers
         }
 
 
+
         public ActionResult Extension_Game_Slide()
         {
             var game = LayGameMoi(5);
@@ -291,5 +292,14 @@ namespace CitricStore.Controllers
         {
             return View();
         }
+        public ActionResult SP()
+        {
+            return View();
+        }
+
+
+
+
+
     }
 }
