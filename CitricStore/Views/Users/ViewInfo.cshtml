@@ -3,7 +3,7 @@
 @using CitricStore.Models
 
 @{
-    ViewBag.Title = "Thành Viên";
+    ViewBag.Title = "Xem Thông Tin";
     Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
 }
 
@@ -11,24 +11,20 @@
 
 
 <style>
-    .viewinfo-container{
-        height:500px;
-    }
     .thongtin{
         padding-top: 10px;
         padding-bottom: 10px;
     }
     .edit-btn{
-        width: 70%;
+        width: 40%;
         margin: 0px auto;
     }
 
 
 </style>
-<div class="container viewinfo-container col-lg-6 col-md-12" style="margin:0px auto;">
-    <div style="margin: 0px auto; width: 70%;">
-        <h2 style="text-align: center; color:white;">THÔNG TIN THÀNH VIÊN</h2>
-        <div style="color:white; font-size:18px;">
+<div class="container col-lg-6 col-md-10" style="margin:0px auto;">
+        <h2 class="title">THÔNG TIN THÀNH VIÊN</h2>
+        <div style="color:white; font-size:18px; text-align:center">
 
             <div class="thongtin">
                 <strong>Họ Tên:</strong> @Model.NameCus
@@ -47,20 +43,19 @@
 
 
             <div class="thongtin">
-                <strong>Ngày Sinh: </strong> @Model.Birthday
+                <strong>Ngày Sinh: </strong> @String.Format("{0:dd MMM, yyy}",Model.Birthday) 
             </div>
 
             <div class="thongtin">
-                <strong>Email: </strong> @Model.Email
+                <strong>Email: </strong> @Model.EmailCus
             </div>
 
             <div class="thongtin">
                 <strong>Tên Đăng Nhập:</strong> @Model.LogName
             </div>
 
-            <div class="thongtin justify-content-center" style="align-items:center">
-                @Html.ActionLink("Sửa thông tin", "EditInfo", "Users" , new {id = Model.IDCus }, new {@class= "btn btn-dark edit-btn justify-content-center" })
+            <div class="thongtin">
+                @Html.ActionLink("Sửa thông tin", "EditInfo", "Users" , new {id = Model.IDCus }, new {@class= "btn btn-dark edit-btn" })
             </div>
         </div>
     </div>
-</div>

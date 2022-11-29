@@ -1,6 +1,6 @@
 ﻿@using CitricStore.Models
 @{
-    ViewBag.Title = "Trò chơi";
+    ViewBag.Title = "Tìm kiếm";
     Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
 }
 
@@ -67,7 +67,15 @@
                             <div class="bloggame-theloai">
                                 Thể loại: @Html.Action("Extension_Overall_TenTheLoai", "CitricStore", new { idtheloai = app.IDCat})
                             </div>
-                            <a class="bloggame-download" href="@Url.Action("Details_Overall", "CitricStore", new {id=app.IDOverall})" style="text-decoration:none">
+                            <a class="bloggame-download" 
+                               href="@if (app.SoftOrGame == "Game")
+                               { 
+                                   @Url.Action("DetailsGame", "CitricStore", new { id = app.IDOverall }); 
+                               }
+                               else
+                               {
+                                   @Url.Action("DetailsApp", "CitricStore", new { id = app.IDOverall });
+                               }" style="text-decoration:none">
                                 <div class="bloggame-download-btn">
                                     Chi Tiết
                                 </div>

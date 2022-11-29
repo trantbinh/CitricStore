@@ -146,13 +146,28 @@ namespace CitricStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditInfo([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Ngáyinh,EmailCus,Daduyet,Sex")] CUSTOMER kh)
+        public ActionResult EditInfo([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,NgaySinh,EmailCus,Sex")] CUSTOMER kh)
         {
             if (ModelState.IsValid)
             {
-                database.Entry(kh).State = EntityState.Modified;
-                database.SaveChanges();
-                return RedirectToAction("ViewInfo","Users", new { idkh = Session["IDCus"] });
+                var cusDB = database.CUSTOMERs.FirstOrDefault(c => c.IDCus == kh.IDCus);
+                if (cusDB != null)
+                {
+                    cusDB.NameCus = kh.NameCus;
+                    cusDB.PhoneCus = kh.PhoneCus;
+                    cusDB.LogPass = kh.LogPass;
+                    cusDB.Birthday = kh.Birthday;
+                    cusDB.EmailCus = kh.EmailCus;
+                    cusDB.Sex = kh.Sex;
+                }
+                    //var logmail = database.CUSTOMERs.FirstOrDefault(m => m.EmailCus == kh.EmailCus);
+                    //if (logmail != null)
+                    //    ModelState.AddModelError(string.Empty, "Đã tồn tại email này!");
+
+
+                    database.SaveChanges();
+                    return RedirectToAction("ViewInfo", "Users", new { idkh = Session["IDCus"] });
+
             }
             return View(kh);
         }

@@ -136,7 +136,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\InputDataAPPController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InputDataSOFTWAREController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InputDataBANKController.cs" />
     <Compile Include="Areas\Admin\Controllers\InputDataGAMEController.cs" />
     <Compile Include="Areas\Admin\Controllers\InputDataHEDIEUHANHController.cs" />
     <Compile Include="Areas\Admin\Controllers\InputDataNGONNGUController.cs" />
@@ -146,8 +147,6 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CitricStoreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LanguageController.cs" />
-    <Compile Include="Controllers\PhanTrangController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,6 +252,7 @@
     <Content Include="Content\bootstrap5\js\bootstrap.min.js" />
     <Content Include="Content\classify.css" />
     <Content Include="Content\HomePage.css" />
+    <Content Include="Content\Input.css" />
     <Content Include="Content\Layout_HomePage.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Question.css" />
@@ -1343,11 +1343,11 @@
     <Content Include="Areas\Admin\Views\InputOVERALL\Details.cshtml" />
     <Content Include="Areas\Admin\Views\InputOVERALL\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\InputOVERALL\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataAPP\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataAPP\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataAPP\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataAPP\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataAPP\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Index.cshtml" />
     <Content Include="Areas\Admin\Views\InputDataGAME\Create.cshtml" />
     <Content Include="Areas\Admin\Views\InputDataGAME\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\InputDataGAME\Details.cshtml" />
@@ -1388,6 +1388,11 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\InputDataBANK\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataBANK\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataBANK\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataBANK\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataBANK\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\HomePage.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1432,7 +1437,6 @@
     <Content Include="Views\CitricStore\DetailsApp.cshtml" />
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
-    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
     <Content Include="Views\CitricStore\Details_AppMoi.cshtml" />
     <Content Include="Views\CitricStore\Details_AppTheoDanhGia.cshtml" />
     <Content Include="Views\CitricStore\Details_GameTheoDanhGia.cshtml" />
@@ -1446,7 +1450,6 @@
     <Content Include="Views\Users\ViewInfo.cshtml" />
     <Content Include="Views\Users\FogotPass.cshtml" />
     <Content Include="Views\Users\ResetPass.cshtml" />
-    <Content Include="Views\CitricStore\Classify.cshtml" />
     <Content Include="Views\CitricStore\Page_GameTheoTheLoai.cshtml" />
     <Content Include="Views\CitricStore\Page_Search.cshtml" />
     <Content Include="Views\CitricStore\Page_App.cshtml" />
@@ -1454,13 +1457,6 @@
     <Content Include="Views\CitricStore\Page_AppTheoTheLoai.cshtml" />
     <Content Include="Views\CitricStore\TenTheLoaiGame.cshtml" />
     <Content Include="Views\CitricStore\Details_AppCungTheLoai.cshtml" />
-    <Content Include="Views\Shared\_LanguagePartial.cshtml" />
-    <Content Include="Views\Language\Index.cshtml" />
-    <Content Include="Views\Language\Login.cshtml" />
-    <Content Include="Views\Language\FogotPass.cshtml" />
-    <Content Include="Views\Language\Register.cshtml" />
-    <Content Include="Views\Language\DetailsGame.cshtml" />
-    <Content Include="Views\Language\DetailsApp.cshtml" />
     <Content Include="Views\Home\Question.cshtml" />
     <Content Include="Views\Cart\GetCartInfo.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
@@ -1478,11 +1474,11 @@
     <Content Include="Views\CitricStore\Details_Overall_CungTheLoai.cshtml" />
     <Content Include="Views\Cart\Extension_GetBankName.cshtml" />
     <Content Include="Views\CitricStore\Extension_Game_Slide.cshtml" />
+    <Content Include="Views\CitricStore\Page_FAQ.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Views\PhanTrang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

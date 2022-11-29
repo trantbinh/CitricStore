@@ -5,15 +5,15 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
 
+<div class="container col-lg-6 col-md-8" style="margin: 0px auto; width:100%; align-items:center">
 
-<div class="container" style="margin: 10px auto; width:100%; align-items:center">
-
-    <h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (APP)</h2>
+    <h2 class="title">DỮ LIỆU PHẦN MỀM (APP)</h2>
 
     <h3 style="text-align: center; color: white">TẠO MỚI</h3>
 
-    @using (Html.BeginForm("Create", "InputDataAPP", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Create", "InputDataSOFTWARE", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
@@ -21,7 +21,7 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 Tên phần mềm:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.NameSoft, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.NameSoft, "", new { @class = "text-danger" })
                 </div>
@@ -29,7 +29,7 @@
 
             <div class="form-group">
                 Giới thiệu:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
@@ -37,7 +37,7 @@
 
             <div class="form-group">
                 Dung lượng:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Capacity, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger" })
                 </div>
@@ -45,7 +45,7 @@
 
             <div class="form-group">
                 Đơn giá:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                 </div>
@@ -53,7 +53,7 @@
 
             <div class="form-group">
                 Thể loại:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.DropDownList("IDCatSoft", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.IDCatSoft, "", new { @class = "text-danger" })
                 </div>
@@ -61,7 +61,7 @@
 
             <div class="form-group">
                 Nhà phát hành:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.DropDownList("IDPublisher", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.IDPublisher, "", new { @class = "text-danger" })
                 </div>
@@ -69,7 +69,7 @@
 
             <div class="form-group">
                 Hệ điều hành:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.DropDownList("IDPlatform", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.IDPlatform, "", new { @class = "text-danger" })
                 </div>
@@ -77,7 +77,7 @@
 
             <div class="form-group">
                 Ngôn ngữ:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.DropDownList("IDLanguage", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.IDLanguage, "", new { @class = "text-danger" })
                 </div>
@@ -85,7 +85,7 @@
 
             <div class="form-group">
                 Ngày nhập:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.UpdateDate, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.UpdateDate, "", new { @class = "text-danger" })
                 </div>
@@ -93,7 +93,7 @@
 
             <div class="form-group">
                 Đánh giá:
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
                 </div>
@@ -101,7 +101,7 @@
 
             <div class="form-group">
                 Hình Nền
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <img id="previewnen" class="d-none" src="#" width="300" height="200" />
                     <input name="PicBG" type="file" accept="image/*" id="fileImageNen"/>
 
@@ -113,7 +113,7 @@
 
             <div class="form-group">
                 Hình chi tiết 1
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <img id="preview1" class="d-none" src="#" width="300" height="200" />
                     <input type="file" name="PicDetail1" accept="image/*" id="fileImageCT1" />
                     @Html.ValidationMessageFor(model => model.PicDetail1, "", new { @class = "text-danger" })
@@ -159,43 +159,6 @@
 </div>
 
 <script src="~/Scripts/UploadImage.js"></script>
-@*<script type="text/javascript">
-    //View Image when webpage is loaded
-    var url = $('.ImagePath').val();
-    ViewImage(url);
-    //Now handle change Event of Input type file
-    $('#pickupImage').change(function () {
-        //call upload method
-        uploadImage(this.files[0]);
-    });
-    //First, create a method to upload image to server after picked from PC
-    function uploadImage(file) {
-        var formData = new FormData();
-        formData.append("file", file);
-        $.ajax({
-            data: formData,
-            type: "POST",
-            url: '/Post/SaveFile',
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (returnImageURL) {
-                //Asign return Image URL to HTML.Hiddenfor
-                $('#ImagePath').val(returnImageURL);
-                //Call this method to view Image
-                ViewImage(returnImageURL);
-            }
-        });
-    }
-    //View Image
-    function ViewImage(url) {
-        if (url) {
-            $('#ImageViewing').attr('src', url);
-        }
-    }
-</script>*@
-
-
 
 
 

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CitricStore.Models.BANK>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameBank)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameBank)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDBank }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDBank }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDBank })
+        </td>
+    </tr>
+}
+
+</table>

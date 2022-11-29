@@ -13,7 +13,7 @@
     }
 </style>
 
-<h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (SOFTWARE)</h2>
+<h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (SOF   TWARE)</h2>
 
 <h3 style="text-align: center; color:white">TỔNG HỢP</h3>
 
@@ -96,7 +96,8 @@
                 @Html.DisplayFor(modelItem => item.Capacity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @*@Html.DisplayFor(modelItem => item.Price)*@
+                @String.Format("{0:0,0}", item.Price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PLATFORM.NamePlatform)
@@ -112,7 +113,9 @@
             </td>
 
             <td>
-                @Html.DisplayFor(modelItem => item.UpdateDate)
+                @*@Html.DisplayFor(modelItem => item.UpdateDate)*@
+                @String.Format("{0:dd/MM/yy}", item.UpdateDate)
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rating)

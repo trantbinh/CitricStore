@@ -124,7 +124,7 @@ html, main {
 #main {
     background-color: rgb(18,18,18);
     padding-top:0px;
-    padding-bottom:200px;
+    padding-bottom:180px;
     margin-top:0px;
     margin-bottom:0px;
     
@@ -149,7 +149,6 @@ html, main {
 .searchbar {
     top:50%;
     transform:translateY(-50%);
-    margin-left:50px;
     height: 50px;
     position: absolute;
     display: flex;
@@ -172,11 +171,11 @@ html, main {
 }
 
     .searchbar-form:focus {
-        color: #212529;
+        color: #FCAE03;
         background-color: #fff;
-        border-color: #86b7fe;
+        border-color: #FCAE03;
         outline: 0;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        box-shadow: 0 0 0 0.25rem #FCAE03;
     }
 
 
@@ -227,7 +226,7 @@ html, main {
     text-align: center;
     z-index: 5;
     position:absolute;
-    height:200px;
+    height:180px;
 
 }
 .footer-logo-name-container {
@@ -295,7 +294,6 @@ html, main {
 
 .ThanhVien {
     display: block;
-    padding: 0.5rem 1rem;
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
     text-decoration: none;
@@ -310,6 +308,6 @@ html, main {
     display:block;
 }
 
-.drop-down-hover{
+.drop-down-hover :hover{
     display:block;
 }

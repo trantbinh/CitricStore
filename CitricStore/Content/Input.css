@@ -1,4 +1,4 @@
-﻿*{
+﻿* {
     margin: 0;
 }
 
@@ -15,6 +15,7 @@
     color: white;
     text-decoration: none;
 }
+
     .ForgotPass:hover {
         color: #FCAE03;
     }
@@ -23,8 +24,8 @@
 .comebacklogin {
     color: aliceblue;
     text-decoration: none;
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
 }
 
 /*trang chỉnh sửa thông tin cá nhân*/
@@ -32,6 +33,7 @@
     color: aliceblue;
     text-decoration: none;
 }
+
 .edit-form {
     width: 100%;
     display: block;
@@ -67,11 +69,11 @@
         color: #6c757d;
         opacity: 1;
     }
-    .form-group{
-        align-items:center;
-        margin:0px auto;
-        
-    }
+
+.form-group {
+    align-items: center;
+    margin: 0px auto;
+}
 
 /*trang reset*/
 
