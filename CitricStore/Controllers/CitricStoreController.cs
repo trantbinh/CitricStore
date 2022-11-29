@@ -323,11 +323,21 @@ namespace CitricStore.Controllers
         }
 
 
+
         public ActionResult Extension_Game_Slide()
         {
             var game = LayGameMoi(5);
             return PartialView(game);
         }
+
+        public ActionResult SP()
+        {
+            return View();
+        }
+
+
+
+
 
     }
 }
