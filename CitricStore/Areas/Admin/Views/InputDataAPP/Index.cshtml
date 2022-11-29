@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CitricStore.Models.APP>
+﻿@model IEnumerable<CitricStore.Models.SOFTWARE>
 
 @{
     ViewBag.Title = "Phần mềm";
@@ -13,14 +13,13 @@
     }
 </style>
 
-<h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (APP)</h2>
+<h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (SOFTWARE)</h2>
 
 <h3 style="text-align: center; color:white">TỔNG HỢP</h3>
 
 <p>
     @Html.ActionLink("Tạo Mới", "Create", null, new { @class = "btn btn-primary" })
 </p>
-
 <table class="table-bordered" style="table-layout:fixed; width:100%; word-break: break-word; color:white;">
     <tr>
         <th>Mã</th>
@@ -83,66 +82,66 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.MaApp)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TenApp)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.GioiThieu)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DungLuong)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DonGia)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.HEDIEUHANH.TenHDH)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NGONNGU.TenNgonNgu)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NHAPHATHANH.TenNPH)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.THELOAIAPP.TenTheLoai)
-    </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDSoft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameSoft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PLATFORM.NamePlatform)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LANGUAGE.NameLanguage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PUBLISHER.NamePublisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CATEGORY_SOFTWARE.NameCatSoft)
+            </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.NgayCapNhat)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DanhGia)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.HinhNen)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.HinhCT1)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.HinhCT2)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.HinhCT3)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.HinhCT4)
-    </td>
-    <td>
-        @Html.ActionLink("Sửa", "Edit", new { id = item.MaApp }, new { @class = "btn btn-success" })
-    </td>
-    <td>
-        @Html.ActionLink("Chi tiết", "Details", new { id = item.MaApp }, new { @class = "btn btn-danger" })
-    </td>
-    <td>
-        @Html.ActionLink("Xoá", "Delete", new { id = item.MaApp }, new { @class = "btn btn-primary" })
-    </td>
-</tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PicBG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PicDetail1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PicDetail2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PicDetail3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PicDetail4)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.IDSoft }, new { @class = "btn btn-success" })
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.IDSoft }, new { @class = "btn btn-danger" })
+            </td>
+            <td>
+                @Html.ActionLink("Xoá", "Delete", new { id = item.IDSoft }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
     }
 
 </table>

@@ -1,7 +1,7 @@
-﻿@model CitricStore.Models.APP
+﻿@model CitricStore.Models.SOFTWARE
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Chỉnh Sửa";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 
@@ -14,9 +14,9 @@
     }
 </style>
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
-<div class="container-fluid" style="margin: 10px auto; align-items:center; color:white">
+<div class="container" style="margin: 10px auto; align-items:center; color:white">
 
-    <h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (APP)</h2>
+    <h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (SOFTWARE)</h2>
 
     <h3 style="text-align: center; color: white">CHỈNH SỬA </h3>
     <div class="row">
@@ -28,85 +28,85 @@
 
             <div class="form-horizontal " style="color: white; font-size:20px; padding-left:30px; padding-right:30px;">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.MaApp)
+                @Html.HiddenFor(model => model.IDSoft)
 
                 <div class="form-group">
                     Tên phần mềm:
                     <div class="col-12">
-                        @Html.EditorFor(model => model.TenApp, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.TenApp, "", new { @class = "text-dark" })
+                        @Html.EditorFor(model => model.NameSoft, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NameSoft, "", new { @class = "text-dark" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Giới thiệu:
                     <div class="col-12">
-                        @Html.EditorFor(model => model.GioiThieu, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.GioiThieu, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Dung lượng:
                     <div class="col-12">
-                        @Html.EditorFor(model => model.DungLuong, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DungLuong, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Capacity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Đơn giá:
                     <div class="col-12">
-                        @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Thể loại:
                     <div class="col-12">
-                        @Html.DropDownList("MaTheLoaiApp", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.MaTheLoaiApp, "", new { @class = "text-danger" })
+                        @Html.DropDownList("IDCatSoft", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDCatSoft, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Nhà phát hành:
                     <div class="col-12">
-                        @Html.DropDownList("MaNPH", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.MaNPH, "", new { @class = "text-danger" })
+                        @Html.DropDownList("IDPublisher", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDPublisher, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Hệ điều hành:
                     <div class="col-12">
-                        @Html.DropDownList("MaHDH", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.MaHDH, "", new { @class = "text-danger" })
+                        @Html.DropDownList("IDPlatform", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDPlatform, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Ngôn ngữ:
                     <div class="col-12">
-                        @Html.DropDownList("MaNgonNgu", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.MaNgonNgu, "", new { @class = "text-danger" })
+                        @Html.DropDownList("IDLanguage", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDLanguage, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Ngày nhập:
                     <div class="col-12">
-                        @Html.EditorFor(model => model.NgayCapNhat, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.NgayCapNhat, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.UpdateDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UpdateDate, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     Đánh giá:
                     <div class="col-12">
-                        @Html.EditorFor(model => model.DanhGia, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DanhGia, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -116,11 +116,12 @@
                         <div>
                             Chọn ảnh mới:
                             <img id="previewnen" class="d-none" src="#" width="300" height="200" style="margin-right:10px;" />
-                            <input name="HinhNen" type="file" accept="image/*" id="fileImageNen" />
+                            <input name="PicBG" type="file" accept="image/*" id="fileImageNen" />
 
+                            <br />
 
                             Ảnh hiện tại:
-                            <img src="~/Images/APP/@Model.HinhNen" width="300" height="200" style="margin-left:18px" />
+                            <img src="~/Images/APP/@Model.PicBG" width="300" height="200" style="margin-left:18px" />
 
                         </div>
                         
@@ -128,7 +129,7 @@
 
                         </div>
 
-                        @Html.ValidationMessageFor(model => model.HinhNen, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.PicBG, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group" style="margin-top:20px;">
@@ -137,17 +138,17 @@
                         <div>
                             Chọn ảnh mới:
                             <img id="preview1" class="d-none" src="#" width="300" height="200" style="margin-right:10px;" />
-                            <input name="HinhCT1" type="file" accept="image/*" id="fileImageCT1" />
+                            <input name="PicDetail1" type="file" accept="image/*" id="fileImageCT1" />
 
                         </div>
                         <br />
                         <div style="margin-top:7px;">
                             Ảnh hiện tại:
-                            <img src="~/Images/APP/@Model.HinhCT1" width="300" height="200" style="margin-left:18px" />
+                            <img src="~/Images/APP/@Model.PicDetail1" width="300" height="200" style="margin-left:18px" />
 
                         </div>
 
-                        @Html.ValidationMessageFor(model => model.HinhCT1, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.PicDetail1, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -157,16 +158,16 @@
                         <div>
                             Chọn ảnh mới:
                             <img id="preview2" class="d-none" src="#" width="300" height="200" style="margin-right:10px;" />
-                            <input name="HinhCT2" type="file" accept="image/*" id="fileImageCT2" />
+                            <input name="PicDetail2" type="file" accept="image/*" id="fileImageCT2" />
 
                         </div>
                         <br />
                         <div style="margin-top:7px;">
                             Ảnh hiện tại:
-                            <img src="~/Images/APP/@Model.HinhCT2" width="300" height="200" style="margin-left:18px" />
+                            <img src="~/Images/APP/@Model.PicDetail2" width="300" height="200" style="margin-left:18px" />
 
                         </div>
-                        @Html.ValidationMessageFor(model => model.HinhCT2, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.PicDetail2, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -176,16 +177,16 @@
                         <div>
                             Chọn ảnh mới:
                             <img id="preview3" class="d-none" src="#" width="300" height="200" style="margin-right:10px;" />
-                            <input name="HinhCT3" type="file" accept="image/*" id="fileImageCT3" />
+                            <input name="PicDetail3" type="file" accept="image/*" id="fileImageCT3" />
 
                         </div>
                         <br />
                         <div style="margin-top:7px;">
                             Ảnh hiện tại:
-                            <img src="~/Images/APP/@Model.HinhCT3" width="300" height="200" style="margin-left:18px" />
+                            <img src="~/Images/APP/@Model.PicDetail3" width="300" height="200" style="margin-left:18px" />
 
                         </div>
-                        @Html.ValidationMessageFor(model => model.HinhCT3, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.PicDetail3, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group" style="margin-top:20px;">
@@ -194,16 +195,16 @@
                         <div>
                             Chọn ảnh mới:
                             <img id="preview4" class="d-none" src="#" width="300" height="200" style="margin-right:10px;" />
-                            <input name="HinhCT4" type="file" accept="image/*" id="fileImageCT4" />
+                            <input name="PicDetail4" type="file" accept="image/*" id="fileImageCT4" />
 
                         </div>
                         <br />
                         <div style="margin-top:7px;">
                             Ảnh hiện tại:
-                            <img src="~/Images/APP/@Model.HinhCT4" width="300" height="200" style="margin-left:18px" />
+                            <img src="~/Images/APP/@Model.PicDetail4" width="300" height="200" style="margin-left:18px" />
 
                         </div>
-                        @Html.ValidationMessageFor(model => model.HinhCT4, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.PicDetail4, "", new { @class = "text-danger" })
                     </div>
                 </div>
 

@@ -25,20 +25,19 @@ namespace CitricStore.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<APP> APPs { get; set; }
-        public virtual DbSet<ARCHIVE_ORDER_INFO> ARCHIVE_ORDER_INFO { get; set; }
         public virtual DbSet<BANK> BANKs { get; set; }
+        public virtual DbSet<CATEGORY> CATEGORies { get; set; }
+        public virtual DbSet<CATEGORY_GAME> CATEGORY_GAME { get; set; }
+        public virtual DbSet<CATEGORY_SOFTWARE> CATEGORY_SOFTWARE { get; set; }
+        public virtual DbSet<CUSTOMER> CUSTOMERs { get; set; }
         public virtual DbSet<GAME> GAMEs { get; set; }
-        public virtual DbSet<HEDIEUHANH> HEDIEUHANHs { get; set; }
-        public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
-        public virtual DbSet<NGONNGU> NGONNGUs { get; set; }
-        public virtual DbSet<NHAPHATHANH> NHAPHATHANHs { get; set; }
+        public virtual DbSet<LANGUAGE> LANGUAGEs { get; set; }
         public virtual DbSet<ORDER_INFO> ORDER_INFO { get; set; }
         public virtual DbSet<ORDER_PRODUCT> ORDER_PRODUCT { get; set; }
+        public virtual DbSet<ORDER_STATUS> ORDER_STATUS { get; set; }
         public virtual DbSet<OVERALL> OVERALLs { get; set; }
-        public virtual DbSet<THELOAI> THELOAIs { get; set; }
-        public virtual DbSet<THELOAIAPP> THELOAIAPPs { get; set; }
-        public virtual DbSet<THELOAIGAME> THELOAIGAMEs { get; set; }
-        public virtual DbSet<TRANGTHAIDONHANG> TRANGTHAIDONHANGs { get; set; }
+        public virtual DbSet<PLATFORM> PLATFORMs { get; set; }
+        public virtual DbSet<PUBLISHER> PUBLISHERs { get; set; }
+        public virtual DbSet<SOFTWARE> SOFTWAREs { get; set; }
     }
 }

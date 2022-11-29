@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CitricStore.Models.THELOAI>
+﻿@model IEnumerable<CitricStore.Models.CATEGORY>
 
 @{
     ViewBag.Title = "Index";
@@ -10,21 +10,25 @@
 </p>
 <table class="table" border="1">
     <tr>
-        <th style="color:white;">
-            @Html.DisplayNameFor(model => model.TenTheLoai)
+
+        <th>
+            @Html.DisplayNameFor(model => model.NameCat)
+
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+
         <td style="color:white;">
             @Html.DisplayFor(modelItem => item.TenTheLoai)
         </td>
         <td style="color: white; width: 225px;">
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaTheLoai }, new { @class = "btn btn-success" }) 
-            @Html.ActionLink("Details", "Details", new { id=item.MaTheLoai }, new { @class = "btn btn-danger" }) 
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaTheLoai }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDCat }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.IDCat }, new { @class = "btn btn-danger" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDCat }, new { @class = "btn btn-primary" })
+
         </td>
     </tr>
 }

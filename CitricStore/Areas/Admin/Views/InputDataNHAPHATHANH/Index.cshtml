@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CitricStore.Models.NHAPHATHANH>
+﻿@model IEnumerable<CitricStore.Models.PUBLISHER>
 
 @{
     ViewBag.Title = "Index";
@@ -52,20 +52,20 @@
         {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.MaNPH)
+            @Html.DisplayFor(modelItem => item.IDPublisher)
         </td>
 
         <td>
-            @Html.DisplayFor(modelItem => item.TenNPH)
+            @Html.DisplayFor(modelItem => item.NamePublisher)
         </td>
         <td>
-            @Html.ActionLink("Sửa", "Edit", new { id = item.MaNPH }, new { @class = "index-btn" })
+            @Html.ActionLink("Sửa", "Edit", new { id = item.IDPublisher }, new { @class = "index-btn" })
         </td>
         <td>
-            @Html.ActionLink("Chi tiết", "Details", new { id = item.MaNPH }, new { @class = "index-btn" })
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.IDPublisher }, new { @class = "index-btn" })
         </td>
         <td>
-            @Html.ActionLink("Xoá", "Delete", new { id = item.MaNPH }, new { @class = "index-btn" })
+            @Html.ActionLink("Xoá", "Delete", new { id = item.IDPublisher }, new { @class = "index-btn" })
         </td>
         </tr>
         }

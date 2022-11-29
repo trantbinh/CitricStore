@@ -86,62 +86,62 @@
     {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.MaGame)
+        @Html.DisplayFor(modelItem => item.IDGame)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.TenGame)
+        @Html.DisplayFor(modelItem => item.NameGame)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.GioiThieu)
+        @Html.DisplayFor(modelItem => item.Description)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.DungLuong)
+        @Html.DisplayFor(modelItem => item.Capacity)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.DonGia)
+        @Html.DisplayFor(modelItem => item.Price)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.HEDIEUHANH1.TenHDH)
+        @Html.DisplayFor(modelItem => item.PLATFORM.NamePlatform)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.NGONNGU1.TenNgonNgu)
+        @Html.DisplayFor(modelItem => item.LANGUAGE.NameLanguage)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.NHAPHATHANH.TenNPH)
+        @Html.DisplayFor(modelItem => item.PUBLISHER.NamePublisher)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.THELOAIGAME.TenTheLoai)
+        @Html.DisplayFor(modelItem => item.CATEGORY_GAME.NameCatGame)
     </td>
 
     <td>
-        @Html.DisplayFor(modelItem => item.NgayCapNhat)
+        @Html.DisplayFor(modelItem => item.UpdateDate)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.DanhGia)
+        @Html.DisplayFor(modelItem => item.Rating)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.HinhNen)
+        @Html.DisplayFor(modelItem => item.PicBG)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.HinhCT1)
+        @Html.DisplayFor(modelItem => item.PicDetail1)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.HinhCT2)
+        @Html.DisplayFor(modelItem => item.PicDetail2)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.HinhCT3)
+        @Html.DisplayFor(modelItem => item.PicDetail3)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.HinhCT4)
+        @Html.DisplayFor(modelItem => item.PicDetail4)
     </td>
     <td>
-        @Html.ActionLink("Sửa", "Edit", new { id = item.MaGame }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Sửa", "Edit", new { id = item.IDGame }, new { @class = "btn btn-success" })
     </td>
     <td>
-        @Html.ActionLink("Chi tiết", "Details", new { id = item.MaGame }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Chi tiết", "Details", new { id = item.IDGame }, new { @class = "btn btn-danger" })
     </td>
     <td>
-        @Html.ActionLink("Xoá", "Delete", new { id = item.MaGame }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Xoá", "Delete", new { id = item.IDGame }, new { @class = "btn btn-primary" })
     </td>
 </tr>
     }

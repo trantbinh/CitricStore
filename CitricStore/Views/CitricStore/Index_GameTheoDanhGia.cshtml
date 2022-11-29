@@ -4,16 +4,16 @@
 {
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="bloggame">
-            <a class="imageblog" href="@Url.Action("DetailsGame", "CitricStore", new {id=game.MaGame})">
-                <img class="card-img-top imageblog-width-height" src="~/Images/GAME/@game.HinhNen" alt="Card image">
+            <a class="imageblog" href="@Url.Action("DetailsGame", "CitricStore", new {id=game.IDGame})">
+                <img class="card-img-top imageblog-width-height" src="~/Images/GAME/@game.PicBG" alt="Card image">
             </a>
-                <a class="bloggame-title h4" href="@Url.Action("DetailsGame", "CitricStore", new {id=game.MaGame})">
-                    @game.TenGame
+                <a class="bloggame-title h4" href="@Url.Action("DetailsGame", "CitricStore", new {id=game.IDGame})">
+                    @game.NameGame
                 </a>
                 <div class="bloggame-theloai">
-                    Thể loại: @Html.Action("TenTheLoaiGame", "CitricStore", new { idtheloai = game.MaTheLoaiGame })
+                    Thể loại: @Html.Action("TenTheLoaiGame", "CitricStore", new { idtheloai = game.IDCatGame })
                 </div>
-                <a class="bloggame-download" href="@Url.Action("DetailsGame", "CitricStore", new {id=game.MaGame})" style="text-decoration:none">
+                <a class="bloggame-download" href="@Url.Action("DetailsGame", "CitricStore", new {id=game.IDGame})" style="text-decoration:none">
                     <div class="bloggame-download-btn">
                         Chi Tiết
                     </div>

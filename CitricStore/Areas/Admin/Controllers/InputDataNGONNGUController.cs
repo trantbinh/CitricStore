@@ -18,7 +18,7 @@ namespace CitricStore.Areas.Admin.Controllers
         // GET: Admin/InputDataNGONNGU
         public ActionResult Index()
         {
-            return View(db.NGONNGUs.ToList());
+            return View(db.LANGUAGEs.ToList());
         }
 
         // GET: Admin/InputDataNGONNGU/Details/5
@@ -28,7 +28,7 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NGONNGU nGONNGU = db.NGONNGUs.Find(id);
+            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
             if (nGONNGU == null)
             {
                 return HttpNotFound();
@@ -47,11 +47,11 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaNgonNgu,TenNgonNgu")] NGONNGU nGONNGU)
+        public ActionResult Create([Bind(Include = "IDLanguage,NameLanguage")] LANGUAGE nGONNGU)
         {
             if (ModelState.IsValid)
             {
-                db.NGONNGUs.Add(nGONNGU);
+                db.LANGUAGEs.Add(nGONNGU);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NGONNGU nGONNGU = db.NGONNGUs.Find(id);
+            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
             if (nGONNGU == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaNgonNgu,TenNgonNgu")] NGONNGU nGONNGU)
+        public ActionResult Edit([Bind(Include = "IDLanguage,NameLanguage")] LANGUAGE nGONNGU)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NGONNGU nGONNGU = db.NGONNGUs.Find(id);
+            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
             if (nGONNGU == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace CitricStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            NGONNGU nGONNGU = db.NGONNGUs.Find(id);
-            db.NGONNGUs.Remove(nGONNGU);
+            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
+            db.LANGUAGEs.Remove(nGONNGU);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

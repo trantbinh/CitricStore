@@ -109,7 +109,7 @@ html, main {
     }
 
     .header-left-name-btn:hover:after, .header-left-name-btn:hover:before {
-        border-color: #fff;
+        border-color: black;
         transition: width 350ms ease-in-out;
         width: 70%;
     }
@@ -289,13 +289,19 @@ html, main {
     color: black;
 }
 
-.ThanhVien{
-    text-decoration:none;
-    color: white;
-   
+.DangNhap:hover{
+    color:black;
 }
 
-.ThanhVien :hover{
+.ThanhVien {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    text-decoration: none;
+    color: white;
+}
+.ThanhVien:hover, ThanhVien:focus, ThanhVien.disable{
     color:white;
 }
 

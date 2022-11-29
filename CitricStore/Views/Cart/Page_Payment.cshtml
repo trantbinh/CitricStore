@@ -70,16 +70,16 @@
             <div class="form-group">
                 Tên Nhận Hàng:
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.TenOrder, new { htmlAttributes = new { @class = "search-form" } })
-                    @Html.ValidationMessageFor(model => model.TenOrder, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.NameOrder, new { htmlAttributes = new { @class = "search-form" } })
+                    @Html.ValidationMessageFor(model => model.NameOrder, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
                 Số Điện Thoại:
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SDTOrder, new { htmlAttributes = new { @class = "search-form" } })
-                    @Html.ValidationMessageFor(model => model.SDTOrder, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.PhoneOrder, new { htmlAttributes = new { @class = "search-form" } })
+                    @Html.ValidationMessageFor(model => model.PhoneOrder, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -93,22 +93,22 @@
             <div class="form-group">
                 Ngân Hàng Thanh Toán:
                 <div class="col-md-10">
-                    @Html.DropDownList("MaNganHang", null, htmlAttributes: new { @class = "search-form" })
-                    @Html.ValidationMessageFor(model => model.MaNganHang, "", new { @class = "text-danger" })
+                    @Html.DropDownList("IDBank", null, htmlAttributes: new { @class = "search-form" })
+                    @Html.ValidationMessageFor(model => model.IDBank, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 Mã Tài Khoản:
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.MaTaiKhoan, new { htmlAttributes = new { @class = "search-form" } })
-                    @Html.ValidationMessageFor(model => model.MaTaiKhoan, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.IDPayAccount, new { htmlAttributes = new { @class = "search-form" } })
+                    @Html.ValidationMessageFor(model => model.IDPayAccount, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 Tên Chủ Tài Khoản:
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.TenTaiKhoan, new { htmlAttributes = new { @class = "search-form" } })
-                    @Html.ValidationMessageFor(model => model.TenTaiKhoan, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.NamePayAccount, new { htmlAttributes = new { @class = "search-form" } })
+                    @Html.ValidationMessageFor(model => model.NamePayAccount, "", new { @class = "text-danger" })
                 </div>
             </div>
 

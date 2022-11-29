@@ -19,7 +19,7 @@ namespace CitricStore.Areas.Admin.Controllers
         // GET: Admin/InputDataNHAPHATHANH
         public ActionResult Index()
         {
-            return View(db.NHAPHATHANHs.ToList());
+            return View(db.PUBLISHERs.ToList());
         }
 
         // GET: Admin/InputDataNHAPHATHANH/Details/5
@@ -29,12 +29,12 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NHAPHATHANH nHAPHATHANH = db.NHAPHATHANHs.Find(id);
-            if (nHAPHATHANH == null)
+            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
+            if (pUBLISHER == null)
             {
                 return HttpNotFound();
             }
-            return View(nHAPHATHANH);
+            return View(pUBLISHER);
         }
 
         // GET: Admin/InputDataNHAPHATHANH/Create
@@ -43,21 +43,21 @@ namespace CitricStore.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/InputDataNHAPHATHANH/Create
+        // POST: Admin/InputDataPLATFORM/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaNPH,TenNPH")] NHAPHATHANH nHAPHATHANH)
+        public ActionResult Create([Bind(Include = "IDPublisher,NamePublisher")] PUBLISHER pUBLISHER)
         {
             if (ModelState.IsValid)
             {
-                db.NHAPHATHANHs.Add(nHAPHATHANH);
+                db.PUBLISHERs.Add(pUBLISHER);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nHAPHATHANH);
+            return View(pUBLISHER);
         }
 
         // GET: Admin/InputDataNHAPHATHANH/Edit/5
@@ -67,12 +67,12 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NHAPHATHANH nHAPHATHANH = db.NHAPHATHANHs.Find(id);
-            if (nHAPHATHANH == null)
+            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
+            if (pUBLISHER == null)
             {
                 return HttpNotFound();
             }
-            return View(nHAPHATHANH);
+            return View(pUBLISHER);
         }
 
         // POST: Admin/InputDataNHAPHATHANH/Edit/5
@@ -80,15 +80,15 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaNPH,TenNPH")] NHAPHATHANH nHAPHATHANH)
+        public ActionResult Edit([Bind(Include = "IDPublisher,NamePublisher")] PUBLISHER pUBLISHER)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nHAPHATHANH).State = EntityState.Modified;
+                db.Entry(pUBLISHER).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(nHAPHATHANH);
+            return View(pUBLISHER);
         }
 
         // GET: Admin/InputDataNHAPHATHANH/Delete/5
@@ -98,12 +98,12 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NHAPHATHANH nHAPHATHANH = db.NHAPHATHANHs.Find(id);
-            if (nHAPHATHANH == null)
+            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
+            if (pUBLISHER == null)
             {
                 return HttpNotFound();
             }
-            return View(nHAPHATHANH);
+            return View(pUBLISHER);
         }
 
         // POST: Admin/InputDataNHAPHATHANH/Delete/5
@@ -111,8 +111,8 @@ namespace CitricStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            NHAPHATHANH nHAPHATHANH = db.NHAPHATHANHs.Find(id);
-            db.NHAPHATHANHs.Remove(nHAPHATHANH);
+            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
+            db.PUBLISHERs.Remove(pUBLISHER);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

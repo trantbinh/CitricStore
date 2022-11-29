@@ -127,7 +127,7 @@ namespace CitricStore.Controllers
         [HttpGet]
         public ActionResult Page_Payment()
         {
-            ViewBag.MaNganHang = new SelectList(db.BANKs, "BankID", "BankName");
+            ViewBag.IDBank = new SelectList(db.BANKs, "IDBank", "BankName");
 
             return View();
         }
@@ -135,24 +135,24 @@ namespace CitricStore.Controllers
         [HttpPost]
         public ActionResult Page_Payment(ORDER_INFO or)
         {
-            ViewBag.MaNganHang = new SelectList(db.BANKs, "BankID", "BankName");
+            ViewBag.IDBank = new SelectList(db.BANKs, "IDBank", "BankName");
             var tongtien = GetTotalPrice();
             if (ModelState.IsValid)
             {
-                if (string.IsNullOrEmpty(or.TenOrder))
+                if (string.IsNullOrEmpty(or.NameOrder))
                     ModelState.AddModelError(string.Empty, "Tên nhận hàng không được để trống");
-                if (string.IsNullOrEmpty(or.SDTOrder))
+                if (string.IsNullOrEmpty(or.PhoneOrder))
                     ModelState.AddModelError(string.Empty, "Số điện thoại nhận hàng không được để trống");
                 if (ModelState.IsValid)
                 {
-                    or.NgayOrder = DateTime.Now;
-                    or.MaKH = int.Parse(Session["MaKH"].ToString());
-                    or.TongTien = tongtien;
+                    or.DateOrder = DateTime.Now;
+                    or.IDCus = int.Parse(Session["IDCus"].ToString());
+                    or.TotalPrice = tongtien;
                     db.ORDER_INFO.Add(or);
                     db.SaveChanges();
 
-                    var order = db.ORDER_INFO.FirstOrDefault(s => s.MaOrder == or.MaOrder).MaOrder;
-                    Session["MaOrder"] = order;
+                    var order = db.ORDER_INFO.FirstOrDefault(s => s.IDOrder == or.IDOrder).IDOrder;
+                    Session["IDOrder"] = order;
 
                 }
                 else
@@ -167,7 +167,7 @@ namespace CitricStore.Controllers
         //Hiển thị thông tin thanh toán và nhận hàng
         public ActionResult Page_ShowPayment(int idor)
         {
-            var or = db.ORDER_INFO.FirstOrDefault(s => s.MaOrder == idor);
+            var or = db.ORDER_INFO.FirstOrDefault(s => s.IDOrder == idor);
              
             return PartialView(or);
         }
@@ -193,10 +193,10 @@ namespace CitricStore.Controllers
             foreach (var item in myCart)
             {
                 var details = new ORDER_PRODUCT();
-                details.MaUngDung = item.MaUngDung;
-                details.MaOrder = int.Parse(Session["MaOrder"].ToString());
-                details.SoLuong = item.SoLuong;
-                details.DonGia = item.DonGia;
+                details.IDOverall = item.MaUngDung;
+                details.IDOrder = int.Parse(Session["IDOrder"].ToString());
+                details.Quantity = item.SoLuong;
+                details.Price = item.Price;
                 db.ORDER_PRODUCT.Add(details);
                 db.SaveChanges();
             }
@@ -209,6 +209,10 @@ namespace CitricStore.Controllers
             return View();
         }
 
-
+        public ActionResult Extension_GetBankName(int idbk)
+        {
+            var bk = db.BANKs.FirstOrDefault(b => b.IDBank == idbk);
+            return PartialView(bk);
+        }
     }
 }

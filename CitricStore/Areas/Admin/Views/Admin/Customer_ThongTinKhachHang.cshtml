@@ -1,5 +1,5 @@
 ﻿@using CitricStore.Models
-@model IEnumerable<CitricStore.Models.KHACHHANG>
+@model IEnumerable<CitricStore.Models.CUSTOMER>
 @{
     ViewBag.Title = "Customer_ThongTinKhachHang";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
@@ -43,24 +43,24 @@
                 {
                     <tr>
                         <td>
-                            @item.HoTenKH
+                            @item.NameCus
                         </td>
                         <td>
-                            @item.GioiTinh
+                            @item.Sex
                         </td>
                         <td>
-                            @item.DienthoaiKH
+                            @item.PhoneCus
                         </td>
                         <td>
-                            @item.Ngaysinh
+                            @item.Birthday
 
                         </td>
                         <td>
-                            @item.Email
+                            @item.EmailCus
                         </td>
                         <td>
 
-                            @item.TenDN
+                            @item.LogName
                         </td>
                     </tr>
                 }

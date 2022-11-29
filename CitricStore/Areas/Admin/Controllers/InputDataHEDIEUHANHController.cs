@@ -19,7 +19,7 @@ namespace CitricStore.Areas.Admin.Controllers
         // GET: Admin/InputDataHEDIEUHANH
         public ActionResult Index()
         {
-            return View(db.HEDIEUHANHs.ToList());
+            return View(db.PLATFORMs.ToList());
         }
 
         // GET: Admin/InputDataHEDIEUHANH/Details/5
@@ -29,12 +29,12 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HEDIEUHANH hEDIEUHANH = db.HEDIEUHANHs.Find(id);
-            if (hEDIEUHANH == null)
+            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
+            if (pLATFORM == null)
             {
                 return HttpNotFound();
             }
-            return View(hEDIEUHANH);
+            return View(pLATFORM);
         }
 
         // GET: Admin/InputDataHEDIEUHANH/Create
@@ -48,16 +48,16 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaHDH,TenHDH")] HEDIEUHANH hEDIEUHANH)
+        public ActionResult Create([Bind(Include = "IDPlatform,NamePlatform")] PLATFORM pLATFORM)
         {
             if (ModelState.IsValid)
             {
-                db.HEDIEUHANHs.Add(hEDIEUHANH);
+                db.PLATFORMs.Add(pLATFORM);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(hEDIEUHANH);
+            return View(pLATFORM);
         }
 
         // GET: Admin/InputDataHEDIEUHANH/Edit/5
@@ -67,12 +67,12 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HEDIEUHANH hEDIEUHANH = db.HEDIEUHANHs.Find(id);
-            if (hEDIEUHANH == null)
+            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
+            if (pLATFORM == null)
             {
                 return HttpNotFound();
             }
-            return View(hEDIEUHANH);
+            return View(pLATFORM);
         }
 
         // POST: Admin/InputDataHEDIEUHANH/Edit/5
@@ -80,15 +80,15 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaHDH,TenHDH")] HEDIEUHANH hEDIEUHANH)
+        public ActionResult Edit([Bind(Include = "IDPlatform,NamePlatform")] PLATFORM pLATFORM)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hEDIEUHANH).State = EntityState.Modified;
+                db.Entry(pLATFORM).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(hEDIEUHANH);
+            return View(pLATFORM);
         }
 
         // GET: Admin/InputDataHEDIEUHANH/Delete/5
@@ -98,12 +98,12 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HEDIEUHANH hEDIEUHANH = db.HEDIEUHANHs.Find(id);
-            if (hEDIEUHANH == null)
+            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
+            if (pLATFORM == null)
             {
                 return HttpNotFound();
             }
-            return View(hEDIEUHANH);
+            return View(pLATFORM);
         }
 
         // POST: Admin/InputDataHEDIEUHANH/Delete/5
@@ -111,8 +111,8 @@ namespace CitricStore.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            HEDIEUHANH hEDIEUHANH = db.HEDIEUHANHs.Find(id);
-            db.HEDIEUHANHs.Remove(hEDIEUHANH);
+            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
+            db.PLATFORMs.Remove(pLATFORM);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

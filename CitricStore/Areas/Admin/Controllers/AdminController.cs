@@ -42,7 +42,7 @@ namespace CitricStore.Areas.Admin.Controllers
 
 
 
-            var or = db.ORDER_INFO.OrderBy(s => s.NgayOrder).ToList();
+            var or = db.ORDER_INFO.OrderBy(s => s.DateOrder).ToList();
             return View(or.ToPagedList(pageNumber, pageSize));
         }
 
@@ -58,14 +58,14 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TrangThaiXuLy = new SelectList(db.TRANGTHAIDONHANGs, "Ma", "Ten", or.TrangThaiXuLy);
+            ViewBag.IDSttOrder = new SelectList(db.ORDER_STATUS, "IDStt", "NameStt", or.IDSttOrder);
 
             return View(or);
 
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Order_XuLyDonHang([Bind(Include = "MaOrder,NgayOrder,MaKH,TenOrder,SDTOrder,EmailOrder,MaNganHang,MaTaiKhoan,TenTaiKhoan,TongTien,TrangThaiXuLy")] ORDER_INFO or)
+        public ActionResult Order_XuLyDonHang([Bind(Include = "IDOrder,DateOrder,IDCus,NameOrder,PhoneOrder,EmailOrder,IDBank,IDPayAccount,NamePayAccount,TotalPrice,IDSttOrder")] ORDER_INFO or)
         {
             if (ModelState.IsValid)
             {
@@ -76,68 +76,37 @@ namespace CitricStore.Areas.Admin.Controllers
             return View(or);
         }
 
-        public ActionResult Order_TungDonHang(int? id)
+        public ActionResult Order_TungDonHang(int idor)
         {
-            var or = db.ORDER_INFO.ToList();
+            var or = db.ORDER_PRODUCT.Where(s => s.IDOrder == idor).ToList();
             return PartialView(or);
-
         }
-
-        //[HttpPost, ActionName("Order_TungDonHang")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed()
-        //{
-
-        //    List<OrderItem> myOrder = GetOrder();
-
-        //    foreach (var or in myOrder)
-        //    {
-        //        var ar = new ARCHIVE_ORDER_INFO();
-        //        ar.MaOrder = or.MaOr;
-        //        ar.NgayOrder = (DateTime)or.NgayOr;
-        //        ar.MaKH = or.MaKhachHang;
-        //        ar.TenOrder = or.TenOr;
-        //        ar.SDTOrder = or.SDTOr;
-        //        ar.EmailOrder = or.EmailOr;
-        //        ar.MaNganHang = or.BankID;
-        //        ar.MaTaiKhoan = or.MaTK;
-        //        ar.TenTaiKhoan = or.TenTK;
-        //        ar.TongTien = or.TongTien;
-        //        db.ARCHIVE_ORDER_INFO.Add(ar);
-
-        //        ORDER_INFO aPP = db.ORDER_INFO.Find(or.MaOr);
-        //        db.ORDER_INFO.Remove(aPP);
-        //        db.SaveChanges();
-
-        //    }
-        //    return RedirectToAction("Order_KiemTraDonHang");
-        //}
 
         public ActionResult Order_DonHang(int idor)
         {
-            var or = db.ORDER_PRODUCT.Where(s => s.MaOrder == idor).ToList();
+            var or = db.ORDER_PRODUCT.Where(s => s.IDOrder == idor).ToList();
             return PartialView(or);
         }
-        public ActionResult Order_InfoKhachHang(int idkh)
+        public ActionResult Order_InfoKhachHang(int idor)
         {
-            var kh = db.KHACHHANGs.Where(s => s.MaKH == idkh).ToList();
-            return PartialView(kh);
+            var or = db.ORDER_INFO.FirstOrDefault(s => s.IDOrder == idor);
+            return PartialView(or);
         }
         public ActionResult Order_InfoUngDung(int idud)
         {
-            var ud = db.OVERALLs.Where(s => s.Ma == idud);
+            var ud = db.OVERALLs.Where(s => s.IDOverall == idud);
             return PartialView(ud);
         }
 
         public ActionResult Extension_Order_TenTrangThai(int idtt)
         {
-            var name = db.TRANGTHAIDONHANGs.Where(s => s.Ma == idtt).ToList();
+            var name = db.ORDER_STATUS.Where(s => s.IDStt == idtt).ToList();
             return PartialView(name);
         }
 
         public ActionResult Customer_ThongTinKhachHang()
         {
-            var cus = db.KHACHHANGs.ToList();
+            var cus = db.CUSTOMERs.ToList();
             return View(cus);
         }
     }

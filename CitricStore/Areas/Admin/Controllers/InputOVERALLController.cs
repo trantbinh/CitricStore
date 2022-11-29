@@ -19,7 +19,7 @@ namespace CitricStore.Areas.Admin.Controllers
         // GET: Admin/InputOVERALL
         public ActionResult Index()
         {
-            var oVERALLs = db.OVERALLs.Include(o => o.HEDIEUHANH).Include(o => o.NGONNGU).Include(o => o.NHAPHATHANH).Include(o => o.THELOAI);
+            var oVERALLs = db.OVERALLs.Include(o => o.PLATFORM).Include(o => o.LANGUAGE).Include(o => o.PUBLISHER).Include(o => o.CATEGORY);
             return View(oVERALLs.ToList());
         }
 
@@ -41,10 +41,10 @@ namespace CitricStore.Areas.Admin.Controllers
         // GET: Admin/InputOVERALL/Create
         public ActionResult Create()
         {
-            ViewBag.MaHDH = new SelectList(db.HEDIEUHANHs, "MaHDH", "TenHDH");
-            ViewBag.MaNgonNgu = new SelectList(db.NGONNGUs, "MaNgonNgu", "TenNgonNgu");
-            ViewBag.MaNPH = new SelectList(db.NHAPHATHANHs, "MaNPH", "TenNPH");
-            ViewBag.MaTheLoai = new SelectList(db.THELOAIs, "MaTheLoai", "TenTheLoai");
+            ViewBag.IDPlatform = new SelectList(db.PLATFORMs, "IDPlatform", "NamePlatform");
+            ViewBag.IDLanguage = new SelectList(db.LANGUAGEs, "IDLanguage", "NameLanguage");
+            ViewBag.IDPublisher = new SelectList(db.PUBLISHERs , "IDPublisher", "NamePublisher");
+            ViewBag.IDCat = new SelectList(db.CATEGORies, "IDCat", "NameCat");
             return View();
         }
 
@@ -53,7 +53,7 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Ma,Ten,GioiThieu,DungLuong,LinkTai,MaNPH,MaHDH,MaNgonNgu,MaTheLoai,NgayCapNhat,DanhGia,DonGia,HinhNen,HinhCT1,HinhCT2,HinhCT3,HinhCT4,AppOrGame")] OVERALL oVERALL)
+        public ActionResult Create([Bind(Include = "IDOverall,NameOverall,Description,Capacity,LinkTai,IDPublisher,IDPlatform,IDLanguage,IDCat,UpdateDate,Rating,Price,PicBG,PicDetail1,PicDetail2,PicDetail3,PicDetail4,SoftOrGame")] OVERALL oVERALL)
         {
             if (ModelState.IsValid)
             {
@@ -62,10 +62,10 @@ namespace CitricStore.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaHDH = new SelectList(db.HEDIEUHANHs, "MaHDH", "TenHDH", oVERALL.MaHDH);
-            ViewBag.MaNgonNgu = new SelectList(db.NGONNGUs, "MaNgonNgu", "TenNgonNgu", oVERALL.MaNgonNgu);
-            ViewBag.MaNPH = new SelectList(db.NHAPHATHANHs, "MaNPH", "TenNPH", oVERALL.MaNPH);
-            ViewBag.MaTheLoai = new SelectList(db.THELOAIs, "MaTheLoai", "TenTheLoai", oVERALL.MaTheLoai);
+            ViewBag.IDPlatform = new SelectList(db.PLATFORMs, "IDPlatform", "NamePlatform", oVERALL.IDPlatform);
+            ViewBag.IDLanguage = new SelectList(db.LANGUAGEs, "IDLanguage", "NameLanguage", oVERALL.IDLanguage);
+            ViewBag.IDPublisher = new SelectList(db.PUBLISHERs, "IDPublisher", "NamePublisher", oVERALL.IDPublisher);
+            ViewBag.IDCat = new SelectList(db.CATEGORies, "IDCat", "NameCat", oVERALL.IDCat);
             return View(oVERALL);
         }
 
@@ -81,10 +81,10 @@ namespace CitricStore.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MaHDH = new SelectList(db.HEDIEUHANHs, "MaHDH", "TenHDH", oVERALL.MaHDH);
-            ViewBag.MaNgonNgu = new SelectList(db.NGONNGUs, "MaNgonNgu", "TenNgonNgu", oVERALL.MaNgonNgu);
-            ViewBag.MaNPH = new SelectList(db.NHAPHATHANHs, "MaNPH", "TenNPH", oVERALL.MaNPH);
-            ViewBag.MaTheLoai = new SelectList(db.THELOAIs, "MaTheLoai", "TenTheLoai", oVERALL.MaTheLoai);
+            ViewBag.IDPlatform = new SelectList(db.PLATFORMs, "IDPlatform", "NamePlatform", oVERALL.IDPlatform);
+            ViewBag.IDLanguage = new SelectList(db.LANGUAGEs, "IDLanguage", "NameLanguage", oVERALL.IDLanguage);
+            ViewBag.IDPublisher = new SelectList(db.PUBLISHERs, "IDPublisher", "NamePublisher", oVERALL.IDPublisher);
+            ViewBag.IDCat = new SelectList(db.CATEGORies, "IDCat", "NameCat", oVERALL.IDCat);
             return View(oVERALL);
         }
 
@@ -93,7 +93,7 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Ma,Ten,GioiThieu,DungLuong,LinkTai,MaNPH,MaHDH,MaNgonNgu,MaTheLoai,NgayCapNhat,DanhGia,DonGia,HinhNen,HinhCT1,HinhCT2,HinhCT3,HinhCT4,AppOrGame")] OVERALL oVERALL)
+        public ActionResult Edit([Bind(Include = "IDOverall,NameOverall,Description,Capacity,LinkTai,IDPublisher,IDPlatform,IDLanguage,IDCat,UpdateDate,Rating,Price,PicBG,PicDetail1,PicDetail2,PicDetail3,PicDetail4,SoftOrGame")] OVERALL oVERALL)
         {
             if (ModelState.IsValid)
             {
@@ -101,10 +101,10 @@ namespace CitricStore.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaHDH = new SelectList(db.HEDIEUHANHs, "MaHDH", "TenHDH", oVERALL.MaHDH);
-            ViewBag.MaNgonNgu = new SelectList(db.NGONNGUs, "MaNgonNgu", "TenNgonNgu", oVERALL.MaNgonNgu);
-            ViewBag.MaNPH = new SelectList(db.NHAPHATHANHs, "MaNPH", "TenNPH", oVERALL.MaNPH);
-            ViewBag.MaTheLoai = new SelectList(db.THELOAIs, "MaTheLoai", "TenTheLoai", oVERALL.MaTheLoai);
+            ViewBag.IDPlatform = new SelectList(db.PLATFORMs, "IDPlatform", "NamePlatform", oVERALL.IDPlatform);
+            ViewBag.IDLanguage = new SelectList(db.LANGUAGEs, "IDLanguage", "NameLanguage", oVERALL.IDLanguage);
+            ViewBag.IDPublisher = new SelectList(db.PUBLISHERs, "IDPublisher", "NamePublisher", oVERALL.IDPublisher);
+            ViewBag.IDCat = new SelectList(db.CATEGORies, "IDCat", "NameCat", oVERALL.IDCat);
             return View(oVERALL);
         }
 

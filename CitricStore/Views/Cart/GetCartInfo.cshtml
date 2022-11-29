@@ -23,7 +23,7 @@
     
    
     
-<div class="container" style="margin:0px auto; min-height:900px;">
+<div class="container" style="margin:0px auto; ">
 
     <h2 style="text-align: center; color:white">THÔNG TIN GIỎ HÀNG</h2>
     <div style="color:white; font-size:18px;">
@@ -42,11 +42,11 @@
 
                 {
                     <tr>
-                        <td><img src="~/Images/OVERALL/@product.HinhNen" style="width:100px; height:100px;" /></td>
+                        <td><img src="~/Images/OVERALL/@product.PicBG" style="width:100px; height:100px;" /></td>
                         <td class="align-middle" style="font-size:25px; font-weight:500;">@product.TenUngDung</td>
 
                         <td class="align-middle">@product.SoLuong</td>
-                        <td class="align-middle">@String.Format("{0:0,0}", @product.DonGia) VND</td>
+                        <td class="align-middle">@String.Format("{0:0,0}", @product.Price) VND</td>
                         <td class="align-middle">@String.Format("{0:0,0}", @product.FinalPrice()) VND</td>
                     </tr>
                 }

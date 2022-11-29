@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.HEDIEUHANH
+﻿@model CitricStore.Models.PLATFORM
 
 @{
     ViewBag.Title = "Create";
@@ -21,8 +21,8 @@
             <div class="form-group">
                 Tên hệ điều hành:
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.TenHDH, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.TenHDH, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.NamePlatform, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NamePlatform, "", new { @class = "text-danger" })
                 </div>
             </div>
 

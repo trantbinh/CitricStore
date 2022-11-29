@@ -31,23 +31,23 @@
         <div style="color:white; font-size:18px;">
 
             <div class="thongtin">
-                <strong>Họ Tên:</strong> @Model.HoTenKH
+                <strong>Họ Tên:</strong> @Model.NameCus
             </div>
 
             <div class="thongtin">
-                <strong>Giới Tính: </strong>@Model.GioiTinh
-
-            </div>
-
-
-            <div class="thongtin">
-                <strong>Điện Thoại:</strong> @Model.DienthoaiKH
+                <strong>Giới Tính: </strong>@Model.Sex
 
             </div>
 
 
             <div class="thongtin">
-                <strong>Ngày Sinh: </strong> @Model.Ngaysinh
+                <strong>Điện Thoại:</strong> @Model.PhoneCus
+
+            </div>
+
+
+            <div class="thongtin">
+                <strong>Ngày Sinh: </strong> @Model.Birthday
             </div>
 
             <div class="thongtin">
@@ -55,11 +55,11 @@
             </div>
 
             <div class="thongtin">
-                <strong>Tên Đăng Nhập:</strong> @Model.TenDN
+                <strong>Tên Đăng Nhập:</strong> @Model.LogName
             </div>
 
             <div class="thongtin justify-content-center" style="align-items:center">
-                @Html.ActionLink("Sửa thông tin", "EditInfo", "Users" , new {id = Model.MaKH }, new {@class= "btn btn-dark edit-btn justify-content-center" })
+                @Html.ActionLink("Sửa thông tin", "EditInfo", "Users" , new {id = Model.IDCus }, new {@class= "btn btn-dark edit-btn justify-content-center" })
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.NGONNGU
+﻿@model CitricStore.Models.LANGUAGE
 
 @{
     ViewBag.Title = "Details";
@@ -22,13 +22,13 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.TenNgonNgu)
+                @Html.DisplayFor(model => model.NameLanguage)
             </dd>
 
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Sửa", "Edit", new { id = Model.MaNgonNgu }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.IDLanguage }, new { @class = "btn btn-success" }) |
         @Html.ActionLink("Quay về trang tổng hợp", "Index")
     </p>
 </div>

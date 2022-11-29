@@ -12,30 +12,30 @@ namespace CitricStore.Models
 
         public int MaUngDung { get; set; }
         public string TenUngDung { get; set; }
-        public string HinhNen { get; set; }
-        public decimal DonGia { get; set; }
+        public string PicBG { get; set; }
+        public decimal Price { get; set; }
         public int SoLuong { get; set; }
         public string LoaiUngDung { get; set; }
 
         //Tính thành tiền = DongGia * SoLuong
         public decimal FinalPrice()
         {
-            return SoLuong * DonGia;
+            return SoLuong * Price;
         }
         public CartItem(int MaUD)
         {
             this.MaUngDung = MaUD;
 
-            var ud = db.OVERALLs.Single(s => s.Ma == MaUD);
-            this.TenUngDung = ud.Ten;
+            var ud = db.OVERALLs.Single(s => s.IDOverall == MaUD);
+            this.TenUngDung = ud.NameOverall;
 
-            this.HinhNen = ud.HinhNen;
+            this.PicBG = ud.PicBG;
 
-            this.DonGia = (decimal)ud.DonGia;
+            this.Price = (decimal)ud.Price;
 
             this.SoLuong = 1;
 
-            this.LoaiUngDung = ud.AppOrGame ;
+            this.LoaiUngDung = ud.SoftOrGame ;
         }
 
     }
