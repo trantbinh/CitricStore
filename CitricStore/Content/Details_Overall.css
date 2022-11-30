@@ -1,0 +1,32 @@
+﻿.tenungdung {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.chayhinhanh {
+    margin-top: 20px;
+}
+
+.price {
+    color: white;
+    font-size: 30px;
+    text-align: center
+}
+
+.nuttaigame {
+    margin: 25px auto;
+    display: block;
+}
+.tieude {
+    margin-top: 20px;
+}
+.danhgiacuanguoidung {
+    font-size: 40px;
+    color: white;
+    text-align: right;
+}
+.goiyungdung {
+    margin-bottom: -20px;
+}
