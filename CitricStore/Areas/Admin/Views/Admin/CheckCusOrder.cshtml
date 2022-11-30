@@ -22,22 +22,19 @@
             {
                 <div class="col-2">
                     @item.DateOrder
-
-
-
                 </div>
                 <div class="col-5" style="margin-left: 0px; padding-left:0px; margin-right:0px; padding-right:0px;">
-                    @Html.Action("Order_DonHang", "Admin", new { idor = item.IDOrder })
+                    @Html.Action("CheckCusOrder_EachProduct", "Admin", new { idor = item.IDOrder })
 
                 </div>
 
                 <div class="col-3" style="text-align:center">
                     Tình trạng đơn hàng:
                     <br />
-                    @Html.Action("Extension_Order_TenTrangThai", "Admin", new { idtt = item.IDSttOrder })
+                    @Html.Action("Extension_GetNameStatus", "Admin", new { idtt = item.IDSttOrder })
                 </div>
                 <div class="col-2">
-                    @Html.ActionLink("Xử Lý Đơn Hàng", "Order_XuLyDonHang", new { idor = item.IDOrder }, new { @class = "btn btn-dark " })
+                    @Html.ActionLink("Xử Lý Đơn Hàng", "CheckCusOrder_Processing", new { idor = item.IDOrder }, new { @class = "btn btn-dark " })
                 </div>
 
                 <div class="col-12" style="text-align:right">
@@ -51,8 +48,6 @@
 
 
         </div>
-
-
     </div>
     <div style="color: aliceblue">
 
@@ -62,7 +57,7 @@
 
     <div style="color: aliceblue;" class="pagecolor">
 
-        @Html.PagedListPager(Model, page => Url.Action("Order_KiemTraDonHang", null, new { page }))
+        @Html.PagedListPager(Model, page => Url.Action("CheckCusOrder", null, new { page }))
     </div>
 
 

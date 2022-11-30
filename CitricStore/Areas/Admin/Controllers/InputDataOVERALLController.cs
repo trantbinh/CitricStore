@@ -10,7 +10,7 @@ using CitricStore.Models;
 
 namespace CitricStore.Areas.Admin.Controllers
 {
-    public class InputOVERALLController : Controller
+    public class InputDataOVERALLController : Controller
     {
 
         private CitricStoreEntities db = new CitricStoreEntities();

@@ -10,108 +10,109 @@ using CitricStore.Models;
 
 namespace CitricStore.Areas.Admin.Controllers
 {
-    public class InputDataTHELOAIController : Controller
+    public class InputDataPLATFORMController : Controller
     {
 
         private CitricStoreEntities db = new CitricStoreEntities();
 
-        // GET: Admin/InputDataCATEGORY
+
+        // GET: Admin/InputDataHEDIEUHANH
         public ActionResult Index()
         {
-            return View(db.CATEGORies.ToList());
+            return View(db.PLATFORMs.ToList());
         }
 
-        // GET: Admin/InputDataTHELOAI/Details/5
+        // GET: Admin/InputDataHEDIEUHANH/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CATEGORY cATEGORY = db.CATEGORies.Find(id);
-            if (cATEGORY == null)
+            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
+            if (pLATFORM == null)
             {
                 return HttpNotFound();
             }
-            return View(cATEGORY);
+            return View(pLATFORM);
         }
 
-        // GET: Admin/InputDataTHELOAI/Create
+        // GET: Admin/InputDataHEDIEUHANH/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/InputDataTHELOAI/Create
+        // POST: Admin/InputDataHEDIEUHANH/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDCat,NameCat")] CATEGORY cATEGORY)
+        public ActionResult Create([Bind(Include = "IDPlatform,NamePlatform")] PLATFORM pLATFORM)
         {
             if (ModelState.IsValid)
             {
-                db.CATEGORies.Add(cATEGORY);
+                db.PLATFORMs.Add(pLATFORM);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cATEGORY);
+            return View(pLATFORM);
         }
 
-        // GET: Admin/InputDataTHELOAI/Edit/5
+        // GET: Admin/InputDataHEDIEUHANH/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CATEGORY cATEGORY = db.CATEGORies.Find(id);
-            if (cATEGORY == null)
+            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
+            if (pLATFORM == null)
             {
                 return HttpNotFound();
             }
-            return View(cATEGORY);
+            return View(pLATFORM);
         }
 
-        // POST: Admin/InputDataTHELOAI/Edit/5
+        // POST: Admin/InputDataHEDIEUHANH/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDCat,NameCat")] CATEGORY cATEGORY)
+        public ActionResult Edit([Bind(Include = "IDPlatform,NamePlatform")] PLATFORM pLATFORM)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cATEGORY).State = EntityState.Modified;
+                db.Entry(pLATFORM).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cATEGORY);
+            return View(pLATFORM);
         }
 
-        // GET: Admin/InputDataTHELOAI/Delete/5
+        // GET: Admin/InputDataHEDIEUHANH/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CATEGORY cATEGORY = db.CATEGORies.Find(id);
-            if (cATEGORY == null)
+            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
+            if (pLATFORM == null)
             {
                 return HttpNotFound();
             }
-            return View(cATEGORY);
+            return View(pLATFORM);
         }
 
-        // POST: Admin/InputDataTHELOAI/Delete/5
+        // POST: Admin/InputDataHEDIEUHANH/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CATEGORY cATEGORY = db.CATEGORies.Find(id);
-            db.CATEGORies.Remove(cATEGORY);
+            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
+            db.PLATFORMs.Remove(pLATFORM);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

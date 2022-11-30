@@ -10,109 +10,108 @@ using CitricStore.Models;
 
 namespace CitricStore.Areas.Admin.Controllers
 {
-    public class InputDataNHAPHATHANHController : Controller
+    public class InputDataCATEGORYController : Controller
     {
 
         private CitricStoreEntities db = new CitricStoreEntities();
 
-
-        // GET: Admin/InputDataNHAPHATHANH
+        // GET: Admin/InputDataCATEGORY
         public ActionResult Index()
         {
-            return View(db.PUBLISHERs.ToList());
+            return View(db.CATEGORies.ToList());
         }
 
-        // GET: Admin/InputDataNHAPHATHANH/Details/5
+        // GET: Admin/InputDataTHELOAI/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
-            if (pUBLISHER == null)
+            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            if (cATEGORY == null)
             {
                 return HttpNotFound();
             }
-            return View(pUBLISHER);
+            return View(cATEGORY);
         }
 
-        // GET: Admin/InputDataNHAPHATHANH/Create
+        // GET: Admin/InputDataTHELOAI/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/InputDataPLATFORM/Create
+        // POST: Admin/InputDataTHELOAI/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDPublisher,NamePublisher")] PUBLISHER pUBLISHER)
+        public ActionResult Create([Bind(Include = "IDCat,NameCat")] CATEGORY cATEGORY)
         {
             if (ModelState.IsValid)
             {
-                db.PUBLISHERs.Add(pUBLISHER);
+                db.CATEGORies.Add(cATEGORY);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(pUBLISHER);
+            return View(cATEGORY);
         }
 
-        // GET: Admin/InputDataNHAPHATHANH/Edit/5
+        // GET: Admin/InputDataTHELOAI/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
-            if (pUBLISHER == null)
+            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            if (cATEGORY == null)
             {
                 return HttpNotFound();
             }
-            return View(pUBLISHER);
+            return View(cATEGORY);
         }
 
-        // POST: Admin/InputDataNHAPHATHANH/Edit/5
+        // POST: Admin/InputDataTHELOAI/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDPublisher,NamePublisher")] PUBLISHER pUBLISHER)
+        public ActionResult Edit([Bind(Include = "IDCat,NameCat")] CATEGORY cATEGORY)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pUBLISHER).State = EntityState.Modified;
+                db.Entry(cATEGORY).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(pUBLISHER);
+            return View(cATEGORY);
         }
 
-        // GET: Admin/InputDataNHAPHATHANH/Delete/5
+        // GET: Admin/InputDataTHELOAI/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
-            if (pUBLISHER == null)
+            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            if (cATEGORY == null)
             {
                 return HttpNotFound();
             }
-            return View(pUBLISHER);
+            return View(cATEGORY);
         }
 
-        // POST: Admin/InputDataNHAPHATHANH/Delete/5
+        // POST: Admin/InputDataTHELOAI/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
-            db.PUBLISHERs.Remove(pUBLISHER);
+            CATEGORY cATEGORY = db.CATEGORies.Find(id);
+            db.CATEGORies.Remove(cATEGORY);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

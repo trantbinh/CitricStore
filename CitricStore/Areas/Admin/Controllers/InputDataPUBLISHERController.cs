@@ -10,108 +10,109 @@ using CitricStore.Models;
 
 namespace CitricStore.Areas.Admin.Controllers
 {
-    public class InputDataNGONNGUController : Controller
+    public class InputDataPUBLISHERController : Controller
     {
+
         private CitricStoreEntities db = new CitricStoreEntities();
 
 
-        // GET: Admin/InputDataNGONNGU
+        // GET: Admin/InputDataNHAPHATHANH
         public ActionResult Index()
         {
-            return View(db.LANGUAGEs.ToList());
+            return View(db.PUBLISHERs.ToList());
         }
 
-        // GET: Admin/InputDataNGONNGU/Details/5
+        // GET: Admin/InputDataNHAPHATHANH/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
-            if (nGONNGU == null)
+            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
+            if (pUBLISHER == null)
             {
                 return HttpNotFound();
             }
-            return View(nGONNGU);
+            return View(pUBLISHER);
         }
 
-        // GET: Admin/InputDataNGONNGU/Create
+        // GET: Admin/InputDataNHAPHATHANH/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/InputDataNGONNGU/Create
+        // POST: Admin/InputDataPLATFORM/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDLanguage,NameLanguage")] LANGUAGE nGONNGU)
+        public ActionResult Create([Bind(Include = "IDPublisher,NamePublisher")] PUBLISHER pUBLISHER)
         {
             if (ModelState.IsValid)
             {
-                db.LANGUAGEs.Add(nGONNGU);
+                db.PUBLISHERs.Add(pUBLISHER);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(nGONNGU);
+            return View(pUBLISHER);
         }
 
-        // GET: Admin/InputDataNGONNGU/Edit/5
+        // GET: Admin/InputDataNHAPHATHANH/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
-            if (nGONNGU == null)
+            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
+            if (pUBLISHER == null)
             {
                 return HttpNotFound();
             }
-            return View(nGONNGU);
+            return View(pUBLISHER);
         }
 
-        // POST: Admin/InputDataNGONNGU/Edit/5
+        // POST: Admin/InputDataNHAPHATHANH/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDLanguage,NameLanguage")] LANGUAGE nGONNGU)
+        public ActionResult Edit([Bind(Include = "IDPublisher,NamePublisher")] PUBLISHER pUBLISHER)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nGONNGU).State = EntityState.Modified;
+                db.Entry(pUBLISHER).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(nGONNGU);
+            return View(pUBLISHER);
         }
 
-        // GET: Admin/InputDataNGONNGU/Delete/5
+        // GET: Admin/InputDataNHAPHATHANH/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
-            if (nGONNGU == null)
+            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
+            if (pUBLISHER == null)
             {
                 return HttpNotFound();
             }
-            return View(nGONNGU);
+            return View(pUBLISHER);
         }
 
-        // POST: Admin/InputDataNGONNGU/Delete/5
+        // POST: Admin/InputDataNHAPHATHANH/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
-            db.LANGUAGEs.Remove(nGONNGU);
+            PUBLISHER pUBLISHER = db.PUBLISHERs.Find(id);
+            db.PUBLISHERs.Remove(pUBLISHER);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

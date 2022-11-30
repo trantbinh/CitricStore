@@ -10,109 +10,108 @@ using CitricStore.Models;
 
 namespace CitricStore.Areas.Admin.Controllers
 {
-    public class InputDataHEDIEUHANHController : Controller
+    public class InputDataLANGUAGEController : Controller
     {
-
         private CitricStoreEntities db = new CitricStoreEntities();
 
 
-        // GET: Admin/InputDataHEDIEUHANH
+        // GET: Admin/InputDataNGONNGU
         public ActionResult Index()
         {
-            return View(db.PLATFORMs.ToList());
+            return View(db.LANGUAGEs.ToList());
         }
 
-        // GET: Admin/InputDataHEDIEUHANH/Details/5
+        // GET: Admin/InputDataNGONNGU/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
-            if (pLATFORM == null)
+            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
+            if (nGONNGU == null)
             {
                 return HttpNotFound();
             }
-            return View(pLATFORM);
+            return View(nGONNGU);
         }
 
-        // GET: Admin/InputDataHEDIEUHANH/Create
+        // GET: Admin/InputDataNGONNGU/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/InputDataHEDIEUHANH/Create
+        // POST: Admin/InputDataNGONNGU/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDPlatform,NamePlatform")] PLATFORM pLATFORM)
+        public ActionResult Create([Bind(Include = "IDLanguage,NameLanguage")] LANGUAGE nGONNGU)
         {
             if (ModelState.IsValid)
             {
-                db.PLATFORMs.Add(pLATFORM);
+                db.LANGUAGEs.Add(nGONNGU);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(pLATFORM);
+            return View(nGONNGU);
         }
 
-        // GET: Admin/InputDataHEDIEUHANH/Edit/5
+        // GET: Admin/InputDataNGONNGU/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
-            if (pLATFORM == null)
+            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
+            if (nGONNGU == null)
             {
                 return HttpNotFound();
             }
-            return View(pLATFORM);
+            return View(nGONNGU);
         }
 
-        // POST: Admin/InputDataHEDIEUHANH/Edit/5
+        // POST: Admin/InputDataNGONNGU/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDPlatform,NamePlatform")] PLATFORM pLATFORM)
+        public ActionResult Edit([Bind(Include = "IDLanguage,NameLanguage")] LANGUAGE nGONNGU)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pLATFORM).State = EntityState.Modified;
+                db.Entry(nGONNGU).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(pLATFORM);
+            return View(nGONNGU);
         }
 
-        // GET: Admin/InputDataHEDIEUHANH/Delete/5
+        // GET: Admin/InputDataNGONNGU/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
-            if (pLATFORM == null)
+            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
+            if (nGONNGU == null)
             {
                 return HttpNotFound();
             }
-            return View(pLATFORM);
+            return View(nGONNGU);
         }
 
-        // POST: Admin/InputDataHEDIEUHANH/Delete/5
+        // POST: Admin/InputDataNGONNGU/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PLATFORM pLATFORM = db.PLATFORMs.Find(id);
-            db.PLATFORMs.Remove(pLATFORM);
+            LANGUAGE nGONNGU = db.LANGUAGEs.Find(id);
+            db.LANGUAGEs.Remove(nGONNGU);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
