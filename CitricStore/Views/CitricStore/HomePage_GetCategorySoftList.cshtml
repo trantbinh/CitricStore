@@ -2,7 +2,7 @@
 
     @foreach (var theloai in Model)
     {
-    <a href="@Url.Action("Page_AppTheoTheLoai","CitricStore", new {id=theloai.IDCat })"
+    <a href="@Url.Action("Page_Category","CitricStore", new {id=theloai.IDCat })"
        class="dropdown-item" style="word-break:break-all">
         @theloai.NameCat
     </a>
