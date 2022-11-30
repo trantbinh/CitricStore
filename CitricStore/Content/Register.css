@@ -1,0 +1,36 @@
+﻿.login {
+    margin-top: 10px;
+    text-decoration: none;
+    color: #FCAE03;
+}
+
+    .login:hover {
+        color: #FCAE03;
+        text-decoration: underline solid;
+    }
+
+.error {
+    text-decoration: none;
+    list-style-type: none;
+    color: #FCAE03;
+    list-style: none;
+}
+.thandangky {
+    margin: 0px auto;
+}
+.tieude {
+    text-align: center;
+    color: white;
+}
+.chitiet {
+    color: white;
+    font-size: 18px;
+}
+.nutgioitinh {
+    margin-left: 20px
+}
+.nutdangky {
+    width: 50%;
+    margin: 10px auto;
+    margin-bottom: 20px;
+}

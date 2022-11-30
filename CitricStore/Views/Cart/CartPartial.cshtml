@@ -1,3 +1,4 @@
-﻿<a href="@Url.Action("GetCartInfo", "Cart")" style="text-decoration: none; color: black; font-weight: bold; font-size:16px">
-    <img src="~/Images/LOGO/Cart.png" style="width:30px; height:30px;"/> (@ViewBag.TotalNumber)
+﻿<link href="~/Content/CartPartial.css" rel="stylesheet" />
+<a href="@Url.Action("GetCartInfo", "Cart")" class="getcartinfo">
+    <img src="~/Images/LOGO/Cart.png" class="hinhanhcart"/> (@ViewBag.TotalNumber)
 </a>

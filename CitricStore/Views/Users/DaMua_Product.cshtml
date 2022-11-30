@@ -3,7 +3,7 @@
 @foreach (var item in Model)
 {
     <div class="row align-middle">
-        <div class="col-lg-5 col-md-5" style="text-align:center">
+        <div class="col-lg-5 col-md-5 itemorder">
             @Html.Action("DaMua_UngDung", "Users", new { idud = item.IDOrder })
         </div>
         <div class="col-lg-5 col-md-5 align-middle">

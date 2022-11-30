@@ -7,30 +7,10 @@
 }
 
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
-
-<style>
-    .login-container {
-        height: 700px;
-    }
-
-    .login-btn {
-        width: 46%;
-        margin-left: 10px;
-    }
-
-    .pagecolor li {
-        text-decoration: none;
-        color: white;
-        border:solid 1px;
-        border-radius: 5px;
-        margin-right:6px;
-        width: 25px;
-        text-align:center;
-    }
-</style>
-<div class="container col-lg-6 col-md-12" style="margin:0px auto;">
-    <h2 style="text-align: center; color:white;">ĐƠN HÀNG ĐÃ MUA</h2>
-    <div style="color:white; font-size:18px;">
+<link href="~/Content/Users_DaMua.css" rel="stylesheet" />
+<div class="container col-lg-6 col-md-12 donhang">
+    <h2 class="tieude">ĐƠN HÀNG ĐÃ MUA</h2>
+    <div class="madonhang">
         @foreach (var item in Model)
         {
                         @Html.Action("DaMua_Product", "Users", new { idor = item.IDOrder })
@@ -40,11 +20,11 @@
 </div>
 
 <br />
-<div style="color: white">
+<div class="pagecolor">
     Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
 
 </div>
-<div style="color: white;" class="pagecolor">
+<div class="pagecolor">
     @Html.PagedListPager(Model, page => Url.Action("Users_DaMua", null, new { page}))
 </div>
 

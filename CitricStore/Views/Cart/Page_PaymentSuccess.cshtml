@@ -4,21 +4,18 @@
     Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
 }
 <link rel="stylesheet" href="~/Content/User.css" />
+<link href="~/Content/Page_PaymentSuccess.css" rel="stylesheet" />
 
-<div class="container col-lg-10 col-md-12" style="color:white; text-align:center;">
-    <h2 style="font-size: 45px; margin-top: 50px;">Thanh toán thành công!</h2>
-    <p style=" text-align:center; font-size:30px; margin-top:50px;"> Chúng tôi sẽ bàn giao ứng dụng đến tài khoản của bạn trong thời gian sớm nhất.</p>
+<div class="container col-lg-10 col-md-12 camonkhachhang">
+    <h2 class="xacnhandonhangthanhcong">Thanh toán thành công!</h2>
+    <p class="loicamonkhachhang"> Chúng tôi sẽ bàn giao ứng dụng đến tài khoản của bạn trong thời gian sớm nhất.</p>
 
-    <h2 style="margin-top:50px;">   Cảm ơn bạn đã lựa chọn CitricStore!  </h2>
+    <h2 class="loicamonkhidungweb">   Cảm ơn bạn đã lựa chọn CitricStore!  </h2>
 
-    <p style="margin-top:20px;">Mọi chi tiết thắc mắc vui lòng liên hệ qua: <strong>citricstore@gmail.com</strong> </p>
+    <p class="thacmaclienhe">Mọi chi tiết thắc mắc vui lòng liên hệ qua: <strong>citricstore@gmail.com</strong> </p>
 
-
-
-
-
-
-    <div class="row justify-content-center" style="margin-top:80px;">
+    <br />
+    <div class="row justify-content-center tieptuc">
     <a class="continue" href="@Url.Action("Index","CitricStore")">
 
 

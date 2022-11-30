@@ -6,59 +6,11 @@
 }
 
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
-<style>
-    .register-btn {
-        width: 46%;
-        margin-left: 10px;
-    }
-    .search-form {
-        width:100%;
-        display: block;
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        color: #212529;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid #ced4da;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        border-radius: 0.375rem;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
+<link href="~/Content/Page_Payment.css" rel="stylesheet" />
 
-        .search-form:focus {
-            color: #212529;
-            background-color: #fff;
-            border-color: #86b7fe;
-            outline: 0;
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-        }
-
-
-        .search-form::-moz-placeholder {
-            color: #6c757d;
-            opacity: 1;
-        }
-
-        .search-form::placeholder {
-            color: #6c757d;
-            opacity: 1;
-        }
-
-    .giohang {
-        text-decoration: none;
-        color: white;
-        font-size: 16px;
-        margin-left: 470px;
-    }
-
-</style>
-
-<div class="container col-lg-6 col-md-10" style="margin:0px auto;">
+<div class="container col-lg-6 col-md-10 thanthongtindonhang">
     <h2 class="title">THÔNG TIN NHẬN HÀNG VÀ THANH TOÁN</h2>
-    <div class="align-items-center justify-content-center"style="color:white; font-size:18px;">
+    <div class="align-items-center justify-content-center chitiet">
 
         @using (Html.BeginForm())
         {
@@ -114,7 +66,7 @@
 
 
             <div class="row justify-content-center">
-                    <input type="submit" value="Xác nhận thanh toán" class="btn btn-dark" style="margin-top:20px; font-size:18px; width:50%" />
+                    <input type="submit" value="Xác nhận thanh toán" class="btn btn-dark nutxatnhanthanhtoan" />
             </div>
         </div>
         }

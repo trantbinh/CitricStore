@@ -1,0 +1,19 @@
+﻿.thanedit {
+    margin: 10px auto;
+    align-items: center;
+    color: white;
+}
+.tieude {
+    text-align: center;
+    color: white;
+}
+.chitiet {
+    color: white;
+    font-size: 20px;
+}
+.noidungchitiet {
+    table-layout: fixed;
+    width: 100%;
+    word-break: break-word;
+    color: white;
+}

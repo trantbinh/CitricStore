@@ -7,30 +7,19 @@
 
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/Input.css" />
-
-<style>
-    th, td {
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    .index-btn {
-        text-decoration: none;
-        color: white;
-    }
-</style>
+<link href="~/Content/IndexBank.css" rel="stylesheet" />
 
 
-<div class="container" style="margin:0px auto; align-items:center">
-    <h2 style="text-align: center; color:white">DỮ LIỆU NHÀ PHÁT HÀNH</h2>
+<div class="container thandulieu" >
+    <h2 class="tieude">DỮ LIỆU NHÀ PHÁT HÀNH</h2>
 
-    <h3 style="text-align: center; color:white">TỔNG HỢP</h3>
+    <h3 class="tieude">TỔNG HỢP</h3>
 
     <p>
         @Html.ActionLink("Tạo Mới", "Create", null, new { @class = "btn btn-primary" })
     </p>
 
-    <table class="table" style="table-layout:fixed; width:100%; word-break: break-word; color:white; border-spacing:10px 10px;">
+    <table class="table chitiet">
         <tr>
             <th>
                 Mã

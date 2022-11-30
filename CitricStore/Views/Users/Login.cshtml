@@ -5,31 +5,13 @@
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/User.css" />
-<style>
-    .login {
-        margin-top: 10px;
-        text-decoration: none;
-        color: #FCAE03;
-    }
-
-        .login:hover {
-            color: #FCAE03;
-            text-decoration: underline solid;
-        }
-
-    .error {
-        text-decoration: none;
-        list-style-type: none;
-        color: #FCAE03;
-        list-style: none;
-    }
-</style>
+<link href="~/Content/Login.css" rel="stylesheet" />
 
 <div class="container col-lg-6 col-md-10" style="margin:0px auto;">
 
     <h2 class="title">ĐĂNG NHẬP</h2>
-    <h2 style="color: #FCAE03; margin: 0px auto; font-size: 20px; text-align:center">@ViewBag.ThongBao</h2>
-    <div style="color:white; font-size:18px;">
+    <h2 class="thongbao">@ViewBag.ThongBao</h2>
+    <div class="chitiet">
 
         @using (Html.BeginForm("Login", "Users"))
         {
@@ -44,11 +26,11 @@
             </div>
             <div class="row">
 
-                <div class="col-6 justify-content-end align-content-end " style="align-items: end; display:flex;">
-                    <button type="submit" class="btn btn-dark" style="width:70%; margin-left:0px">Đăng Nhập</button>
+                <div class="col-6 justify-content-end align-content-end chuanutdangnhap">
+                    <button type="submit" class="btn btn-dark nutdangnhap">Đăng Nhập</button>
 
                 </div>
-                <div class="col-6" style="padding-top:5px;">
+                <div class="col-6 quenmatkhau">
                     <a class="ForgotPass" href=@Url.Action("FogotPass", "Users")>
                         Quên mật khẩu ?
 
@@ -59,9 +41,7 @@
             </div>
 
             <hr />
-            <p style="text-align:center" >Bạn chưa có tài khoản? @Html.ActionLink("Đăng Ký.", "Register", "Users", null, new { @class = "login" })</p>
-
-
+            <p class="hoinguoidung" >Bạn chưa có tài khoản? @Html.ActionLink("Đăng Ký.", "Register", "Users", null, new { @class = "login" })</p>
 
 
         }

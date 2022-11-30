@@ -209,6 +209,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\admin.css" />
     <Content Include="Content\AppPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -230,6 +231,15 @@
     <Content Include="Content\bootstrap5\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap5\css\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap5\css\bootstrap.rtl.min.css" />
+    <Content Include="Content\create.css" />
+    <Content Include="Content\delete.css" />
+    <Content Include="Content\deleteoverall.css" />
+    <Content Include="Content\DetailsBank.css" />
+    <Content Include="Content\CartPartial.css" />
+    <Content Include="Content\ChangePass.css" />
+    <Content Include="Content\Customer_ThongTinKhachHang.css" />
+    <Content Include="Content\DaMua_Product.css" />
+    <Content Include="Content\DaMua_UngDung.css" />
     <Content Include="Content\Details_Overall.css" />
     <Content Include="Content\bootstrap5\js\bootstrap.bundle.js" />
     <Content Include="Content\bootstrap5\js\bootstrap.bundle.min.js" />
@@ -238,16 +248,32 @@
     <Content Include="Content\bootstrap5\js\bootstrap.js" />
     <Content Include="Content\bootstrap5\js\bootstrap.min.js" />
     <Content Include="Content\classify.css" />
+    <Content Include="Content\edit.css" />
+    <Content Include="Content\EditInfo.css" />
+    <Content Include="Content\editoverall.css" />
+    <Content Include="Content\FogotPass.css" />
+    <Content Include="Content\GetCartInfo.css" />
     <Content Include="Content\HomePage.css" />
+    <Content Include="Content\IndexBank.css" />
+    <Content Include="Content\IndexOverall.css" />
     <Content Include="Content\Input.css" />
     <Content Include="Content\Layout_HomePage.css" />
+    <Content Include="Content\Login.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Page_Category.css" />
+    <Content Include="Content\Page_CheckOrder.css" />
     <Content Include="Content\Page_FAQ.css" />
+    <Content Include="Content\Page_Payment.css" />
+    <Content Include="Content\Page_PaymentSuccess.css" />
+    <Content Include="Content\Page_ShowPagement.css" />
     <Content Include="Content\Question.css" />
     <Content Include="Content\Rating,js.js" />
+    <Content Include="Content\Register.css" />
+    <Content Include="Content\ResetPass.css" />
     <Content Include="Content\Search.css" />
     <Content Include="Content\User.css" />
+    <Content Include="Content\Users_DaMua.css" />
+    <Content Include="Content\ViewInfo.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
