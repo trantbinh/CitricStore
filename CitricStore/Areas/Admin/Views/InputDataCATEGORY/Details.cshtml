@@ -1,34 +1,19 @@
 ﻿@model CitricStore.Models.CATEGORY
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/Input.css" />
-<style>
-    td {
-        text-align: center;
-        padding-bottom: 10px;
-    }
-</style>
-
-<div class="container" style="margin: 10px auto; ">
-
+<div class="container">
     <h2 class="title">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
-
     <h3 class="minititle">CHI TIẾT</h3>
-
     <div class="platform">
-
-
-
         <strong>Tên hệ điều hành: </strong>
         @Html.DisplayFor(model => model.NameCat)
     </div>
-
-
     <p>
         @Html.ActionLink("Sửa", "Edit", new { id = Model.IDCat }, new { @class = "btn btn-success" })  |
         @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })

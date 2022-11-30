@@ -1,35 +1,19 @@
 ﻿@model IEnumerable<CitricStore.Models.PLATFORM>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Hệ điều hành";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/Input.css" />
-
-<style>
-    th, td {
-        text-align: center;
-        vertical-align:middle;
-    }
-
-    .index-btn {
-        text-decoration: none;
-        color: white;
-    }
-</style>
-
-
-<div class="container" style="margin:0px auto; align-items:center">
+<div class="container">
     <h2 class="title">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
-
-    <h3 style="text-align: center; color:white">TỔNG HỢP</h3>
-
+    <h3 class="minititle">TỔNG HỢP</h3>
     <p>
         @Html.ActionLink("Tạo Mới", "Create", null, new { @class = "btn btn-primary" })
     </p>
 
-    <table class="table" style="table-layout:fixed; width:100%; word-break: break-word; color:white; border-spacing:10px 10px;">
+    <table class="table index-table">
         <tr>
             <th>
                 Mã
@@ -46,9 +30,7 @@
             <th>
                 Xoá
             </th>
-
         </tr>
-
         @foreach (var item in Model)
         {
             <tr>
@@ -70,6 +52,5 @@
                 </td>
             </tr>
         }
-
     </table>
 </div>

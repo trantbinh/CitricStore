@@ -1,6 +1,6 @@
 ﻿@model CitricStore.Models.BANK
 @{
-    ViewBag.Title = "Ngân hàng";
+    ViewBag.Title = "Tạo mới";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 
@@ -21,8 +21,8 @@
                     @Html.ValidationMessageFor(model => model.NameBank, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div class="form-group create-formgroup">
-                <div class="col-md-12">
+            <div class="form-group">
+                <div class="col-md-12 create-formgroup">
                     <input type="submit" value="Tạo mới" class="btn btn-info create-btn"/> |
                     @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
                 </div>

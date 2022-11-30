@@ -1,27 +1,18 @@
 ﻿@model CitricStore.Models.OVERALL
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/Input.css" />
-<style>
-    td {
-        text-align: center;
-        padding-bottom: 10px;
-    }
-</style>
-
-<div class="container" style="margin: 10px auto;">
-
+<div class="container">
     <h2 class="title">DỮ LIỆU TRÒ CHƠI (GAME)</h2>
-
     <h3 class="minititle">CHI TIẾT</h3>
     <div class="row">
         <div class="col-2"></div>
-        <table class="table align-middle col-8" style="color: white; width: 70%; table-layout: fixed;word-break: break-word; font-size:20px;">
+        <table class="table align-middle col-8 index-table">
             <tr>
                 <td>
                     <strong>Tên: </strong>
@@ -31,7 +22,6 @@
                 </td>
 
             </tr>
-
             <tr>
                 <td>
                     <strong>Giới thiệu: </strong>
@@ -145,19 +135,13 @@
                     <img src="~/Images/OVERALL/@Model.PicDetail4" style="width:300px; height:180px" />
                 </td>
             </tr>
-
             <tr>
                 <td colspan="2">
-                    @Html.ActionLink("Sửa", "Edit", new { id = Model.IDOverall }, new { @class = "btn btn-dark edit-btn" }) |
-
+                    @Html.ActionLink("Sửa", "Edit", new { id = Model.IDOverall }, new { @class = "btn btn-dark save-btn" }) |
                     @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
-
                 </td>
             </tr>
-
         </table>
-
-
         <div class="col-2"></div>
     </div>
 </div>

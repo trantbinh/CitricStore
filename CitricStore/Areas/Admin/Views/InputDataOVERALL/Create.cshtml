@@ -1,7 +1,7 @@
 ﻿@model CitricStore.Models.OVERALL
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Tạo mới";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 
@@ -10,11 +10,12 @@
 <div class="container col-lg-6 col-md-10">
     <h2 class="title">DỮ LIỆU ỨNG DỤNG</h2>
     <h3 class="minititle">TẠO MỚI</h3>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create", "InputDataOVERALL", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         <div class="form-horizontal form-decor">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
             <div class="form-group">
                 Tên ứng dụng:
                 <div class="col-md-12">
@@ -149,8 +150,8 @@
                     @Html.ValidationMessageFor(model => model.PicDetail4, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div class="form-group create-formgroup">
-                <div class="col-md-12">
+            <div class="form-group">
+                <div class="col-md-12 create-formgroup">
                     <input type="submit" value="Tạo mới" class="btn btn-info create-btn" /> |
                     @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
                 </div>

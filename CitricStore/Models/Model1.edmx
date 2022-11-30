@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CitricStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CitricStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BANK">
           <Key>
             <PropertyRef Name="IDBank" />
@@ -266,7 +266,8 @@
             <End Role="OVERALL" EntitySet="OVERALL" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CitricStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -284,8 +285,8 @@
           </Key>
           <Property Name="IDCat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameCat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_CATEGORY" FromRole="CATEGORY" ToRole="OVERALL" />
           <Property Name="SoftOrGame" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_CATEGORY" FromRole="CATEGORY" ToRole="OVERALL" />
         </EntityType>
         <EntityType Name="CUSTOMER">
           <Key>
@@ -370,6 +371,7 @@
           <Property Name="PicDetail3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PicDetail4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SoftOrGame" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LinkTai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CATEGORY" Relationship="Self.FK_OVERALL_CATEGORY" FromRole="OVERALL" ToRole="CATEGORY" />
           <NavigationProperty Name="LANGUAGE" Relationship="Self.FK_OVERALL_LANGUAGE" FromRole="OVERALL" ToRole="LANGUAGE" />
           <NavigationProperty Name="ORDER_PRODUCT" Relationship="Self.FK_ORDERPRODUCT_OVERALL" FromRole="OVERALL" ToRole="ORDER_PRODUCT" />
@@ -547,7 +549,7 @@
             <End Role="PUBLISHER" EntitySet="PUBLISHERs" />
             <End Role="OVERALL" EntitySet="OVERALLs" />
           </AssociationSet>
-          </EntityContainer>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -565,9 +567,9 @@
           <EntitySetMapping Name="CATEGORies">
             <EntityTypeMapping TypeName="CitricStoreModel.CATEGORY">
               <MappingFragment StoreEntitySet="CATEGORY">
-                <ScalarProperty Name="SoftOrGame" ColumnName="SoftOrGame" />
                 <ScalarProperty Name="IDCat" ColumnName="IDCat" />
                 <ScalarProperty Name="NameCat" ColumnName="NameCat" />
+                <ScalarProperty Name="SoftOrGame" ColumnName="SoftOrGame" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -649,6 +651,7 @@
                 <ScalarProperty Name="PicDetail3" ColumnName="PicDetail3" />
                 <ScalarProperty Name="PicDetail4" ColumnName="PicDetail4" />
                 <ScalarProperty Name="SoftOrGame" ColumnName="SoftOrGame" />
+                <ScalarProperty Name="LinkTai" ColumnName="LinkTai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
