@@ -1,17 +1,14 @@
 ﻿@model CitricStore.Models.LANGUAGE
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Tạo mới";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/Input.css" />
-
 <div class="container col-lg-6 col-md-10">
-
-    <h2 style="text-align: center; color:white">DỮ LIỆU NGÔN NGỮ</h2>
-
+    <h2 class="title">DỮ LIỆU NGÔN NGỮ</h2>
     <h3 class="minititle">TẠO MỚI</h3>
 
     @using (Html.BeginForm())
@@ -28,13 +25,12 @@
                 </div>
             </div>
 
-            <div class="form-group create-formgroup">
-                <div class="col-md-12">
+            <div class="form-group">
+                <div class="col-md-12 create-formgroup">
                     <input type="submit" value="Tạo mới" class="btn btn-info create-btn"/> |
                     @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
                 </div>
             </div>
         </div>
     }
-
 </div>

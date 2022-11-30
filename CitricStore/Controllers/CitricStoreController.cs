@@ -37,7 +37,7 @@ namespace CitricStore.Controllers
         }
         public ActionResult HomePage_SuggestGame()
         {
-            var listSuggestGame = GetGame_UpdateDate(8);
+            var listSuggestGame = GetGame_Rating(8);
             return PartialView(listSuggestGame);
         }
 
