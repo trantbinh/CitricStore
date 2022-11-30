@@ -6,6 +6,7 @@
 
 
 <link rel="stylesheet" href="~/Content/AppPage.css" />
+<link href="~/Content/Details_Overall.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -17,7 +18,7 @@
 </script>
 
 
-<div class="row" style="margin-top:20px;">
+<div class="row chayhinhanh">
     <div class="col-lg-8">
         <div class="slideshow">
             <div class="display-container">
@@ -44,15 +45,15 @@
     </div>
 
     <div class="col-lg-4">
-        <div class="tenungdung" style=" padding-bottom:10px; padding-top:10px; text-align:center; margin-top:100px;">
+        <div class="tenungdung">
             @Model.NameOverall
         </div>
 
-        <div class="price" style="color: white; font-size: 30px; text-align: center">
+        <div class="price">
             @String.Format("{0:0,0}", Model.Price) VND
         </div>
 
-        <a class="nuttaigame align-items-center" style="margin: 25px auto; display:block;"
+        <a class="nuttaigame align-items-center"
            href="@Url.Action("AddToCart","Cart", new {id = Model.IDOverall})">
             Thêm vào giỏ hàng
         </a>
@@ -61,7 +62,7 @@
 
 <div class="col-12">
     <div class="row">
-        <p class="tieude" style="margin-top:20px">NỘI DUNG</p>
+        <p class="tieude">NỘI DUNG</p>
         <p class="noidung">
             @Model.Description
         </p>
@@ -71,7 +72,7 @@
         <p class="tieude">ĐÁNH GIÁ CỦA NGƯỜI DÙNG</p>
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
-            <div class="col-lg-2 col-md-2" style="font-size:40px; color:white; text-align:right;">@Model.Rating</div>
+            <div class="col-lg-2 col-md-2 danhgiacuanguoidung">@Model.Rating</div>
 
             <div class="col-lg-4 col-md-6 danhgia justify-content-start align-bottom">
                 <span class="stars" data-rating="@Model.Rating" data-num-stars="5"></span>
@@ -91,7 +92,7 @@
         </div>
         <hr>
         <div class="game-list-container">
-            <h1 class="game-list-title" style="margin-bottom: -20px;">ỨNG DỤNG CÙNG THỂ LOẠI</h1>
+            <h1 class="game-list-title goiyungdung">ỨNG DỤNG CÙNG THỂ LOẠI</h1>
             <div class="game-list-wrapper">
                 <div class="game-list" id="game-list-scrollbar">
                     @Html.Action("Details_Overall_SameCategory", "CitricStore", new { idcat = Model.IDCat })
