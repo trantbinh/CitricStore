@@ -11,9 +11,7 @@ namespace CitricStore.Controllers
 {
     public class CitricStoreController : Controller
     {
-
         CitricStoreEntities database = new CitricStoreEntities();
-
 
         //Lọc Game theo ngày cập nhật -> Game Mới
         public ActionResult Index()
@@ -22,9 +20,9 @@ namespace CitricStore.Controllers
             return View(kh);
         }
 
-        private List<GAME> LayGameMoi(int soluong)
+        private List<OVERALL> LayGameMoi(int soluong)
         {
-            return database.GAMEs.OrderByDescending(game => game.UpdateDate).Take(soluong).ToList();
+            return database.OVERALLs.Where(s => s.SoftOrGame == "Game").OrderByDescending(game => game.UpdateDate).Take(soluong).ToList();
         }
         public ActionResult Index_GameMoi()
         {
@@ -33,9 +31,9 @@ namespace CitricStore.Controllers
         }
 
         //Lọc Game theo đánh giá -> Game Đề Xuất
-        private List<GAME> LayGameTheoDanhGia(int soluong)
+        private List<OVERALL> LayGameTheoDanhGia(int soluong)
         {
-            return database.GAMEs.OrderByDescending(game => game.Rating).Take(soluong).ToList();
+            return database.OVERALLs.Where(s => s.SoftOrGame == "Game").OrderByDescending(game => game.Rating).Take(soluong).ToList();
         }
         public ActionResult Index_GameTheoDanhGia()
         {
@@ -44,9 +42,9 @@ namespace CitricStore.Controllers
         }
 
         //Lọc App theo ngày cập nhật -> App Mới
-        private List<SOFTWARE> LayAppMoi(int soluong)
+        private List<OVERALL> LayAppMoi(int soluong)
         {
-            return database.SOFTWAREs.OrderByDescending(app => app.UpdateDate).Take(soluong).ToList();
+            return database.OVERALLs.Where(s => s.SoftOrGame == "Soft").OrderByDescending(app => app.UpdateDate).Take(soluong).ToList();
         }
         public ActionResult Index_AppMoi()
         {
@@ -56,9 +54,9 @@ namespace CitricStore.Controllers
 
 
         //Lọc App theo đánh giá -> App Đề Xuất
-        private List<SOFTWARE> LayAppTheoDanhGia(int soluong)
+        private List<OVERALL> LayAppTheoDanhGia(int soluong)
         {
-            return database.SOFTWAREs.OrderByDescending(app => app.Rating).Take(soluong).ToList();
+            return database.OVERALLs.Where(s => s.SoftOrGame == "Soft").OrderByDescending(app => app.Rating).Take(soluong).ToList();
         }
         public ActionResult Index_AppTheoDanhGia()
         {
@@ -69,47 +67,47 @@ namespace CitricStore.Controllers
         //Dropdown Navbar
         public ActionResult Index_LayTheLoaiApp()
         {
-            var dsTheLoai = database.CATEGORY_SOFTWARE.ToList();
+            var dsTheLoai = database.CATEGORies.Where(s => s.SoftOrGame == "Soft").ToList();
             return PartialView(dsTheLoai);
         }
         public ActionResult Index_LayTheLoaiGame()
         {
-            var dsTheLoai = database.CATEGORY_GAME.ToList();
+            var dsTheLoai = database.CATEGORies.Where(s => s.SoftOrGame == "Game").ToList();
             return PartialView(dsTheLoai);
         }
 
-        public ActionResult Page_GameTheoTheLoai(int id, string sortOrder)
-        {
-            ViewBag.RateSortParm = String.IsNullOrEmpty(sortOrder) ? "rate_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            var games = from s in database.GAMEs
-                        where s.IDCatGame == id
-                        select s;
-            switch (sortOrder)
-            {
-                case "rate_desc":
-                    games = games.OrderByDescending(s => s.Rating);
-                    break;
-                case "Date":
-                    games = games.OrderBy(s => s.UpdateDate);
-                    break;
-                case "date_desc":
-                    games = games.OrderByDescending(s => s.UpdateDate);
-                    break;
-                default:
-                    games = games.OrderBy(s => s.IDGame);
-                    break;
-            }
-            return View(games.ToList());
-        }
+        //public ActionResult Page_GameTheoTheLoai(int id, string sortOrder)
+        //{
+        //    ViewBag.RateSortParm = String.IsNullOrEmpty(sortOrder) ? "rate_desc" : "";
+        //    ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+        //    var games = from s in database.OVERALLs
+        //                where s.IDCatGame == id
+        //                select s;
+        //    switch (sortOrder)
+        //    {
+        //        case "rate_desc":
+        //            games = games.OrderByDescending(s => s.Rating);
+        //            break;
+        //        case "Date":
+        //            games = games.OrderBy(s => s.UpdateDate);
+        //            break;
+        //        case "date_desc":
+        //            games = games.OrderByDescending(s => s.UpdateDate);
+        //            break;
+        //        default:
+        //            games = games.OrderBy(s => s.IDGame);
+        //            break;
+        //    }
+        //    return View(games.ToList());
+        //}
 
 
         public ActionResult Page_AppTheoTheLoai(int id, string sortOrder)
         {
             ViewBag.RateSortParm = String.IsNullOrEmpty(sortOrder) ? "rate_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            var apps = from s in database.SOFTWAREs
-                        where s.IDCatSoft == id
+            var apps = from s in database.OVERALLs
+                        where s.IDCat == id
                         select s;
             switch (sortOrder)
             {
@@ -123,7 +121,7 @@ namespace CitricStore.Controllers
                     apps = apps.OrderByDescending(s => s.UpdateDate);
                     break;
                 default:
-                    apps = apps.OrderBy(s => s.IDSoft);
+                    apps = apps.OrderBy(s => s.IDOverall);
                     break;
             } 
             return View(apps);
@@ -152,53 +150,53 @@ namespace CitricStore.Controllers
 
 
 
-        public ActionResult DetailsApp(int id)
-        {
-            var app = database.SOFTWAREs.FirstOrDefault(s => s.IDSoft == id);
-            return View(app);
-        }
+        //public ActionResult DetailsApp(int id)
+        //{
+        //    var app = database.SOFTWAREs.FirstOrDefault(s => s.IDSoft == id);
+        //    return View(app);
+        //}
 
-        //DetailsApp
-        public ActionResult Details_AppMoi()
-        {
-            var dsAppMoi = LayAppMoi(8);
-            return PartialView(dsAppMoi);
-        }
+        ////DetailsApp
+        //public ActionResult Details_AppMoi()
+        //{
+        //    var dsAppMoi = LayAppMoi(8);
+        //    return PartialView(dsAppMoi);
+        //}
 
-        public ActionResult Details_AppTheoDanhGia()
-        {
-            var dsAppDeXuat = LayAppTheoDanhGia(8);
-            return PartialView(dsAppDeXuat);
-        }
-        public ActionResult Details_AppCungTheLoai(int idtheloai)
-        {
-            var dsNPH = database.SOFTWAREs.Where(ud => ud.IDCatSoft == idtheloai).ToList();
-            return PartialView(dsNPH);
-        }
-        //--------------------------DETAILS GAME--------------------------
-        public ActionResult DetailsGame(int id)
-        {
-            var game = database.GAMEs.FirstOrDefault(s => s.IDGame == id);
-            return View(game);
-        }
+        //public ActionResult Details_AppTheoDanhGia()
+        //{
+        //    var dsAppDeXuat = LayAppTheoDanhGia(8);
+        //    return PartialView(dsAppDeXuat);
+        //}
+        //public ActionResult Details_AppCungTheLoai(int idtheloai)
+        //{
+        //    var dsNPH = database.SOFTWAREs.Where(ud => ud.IDCatSoft == idtheloai).ToList();
+        //    return PartialView(dsNPH);
+        //}
+        ////--------------------------DETAILS GAME--------------------------
+        //public ActionResult DetailsGame(int id)
+        //{
+        //    var game = database.GAMEs.FirstOrDefault(s => s.IDGame == id);
+        //    return View(game);
+        //}
 
-        public ActionResult Details_GameTheoDanhGia()
-        {
-            var dsGameDeXuat = LayGameTheoDanhGia(8);
-            return PartialView(dsGameDeXuat);
-        }
+        //public ActionResult Details_GameTheoDanhGia()
+        //{
+        //    var dsGameDeXuat = LayGameTheoDanhGia(8);
+        //    return PartialView(dsGameDeXuat);
+        //}
 
-        public ActionResult Details_GameMoi()
-        {
-            var dsGameMoi = LayGameMoi(8);
-            return PartialView(dsGameMoi);
-        }
+        //public ActionResult Details_GameMoi()
+        //{
+        //    var dsGameMoi = LayGameMoi(8);
+        //    return PartialView(dsGameMoi);
+        //}
 
-        public ActionResult Details_GameCungTheLoai(int idtheloai)
-        {
-            var dsNPH = database.GAMEs.Where(ud => ud.IDCatGame == idtheloai).ToList();
-            return PartialView(dsNPH);
-        }
+        //public ActionResult Details_GameCungTheLoai(int idtheloai)
+        //{
+        //    var dsNPH = database.GAMEs.Where(ud => ud.IDCatGame == idtheloai).ToList();
+        //    return PartialView(dsNPH);
+        //}
 
 
         //--------------------------GET NAME--------------------------\
@@ -206,13 +204,12 @@ namespace CitricStore.Controllers
         //Lấy tên thể loại app
         public ActionResult TenTheLoaiApp(int idtheloai)
         {
-            var theloai = database.CATEGORY_SOFTWARE.Where(g => g.IDCatSoft == idtheloai).ToList();
-
+            var theloai = database.CATEGORies.Where(g => g.IDCat == idtheloai).ToList();
             return PartialView(theloai);
         }
         public ActionResult TenTheLoaiGame(int idtheloai)
         {
-            var theloai = database.CATEGORY_GAME.Where(g => g.IDCatGame == idtheloai).ToList();
+            var theloai = database.CATEGORies.Where(g => g.IDCat == idtheloai).ToList();
             return PartialView(theloai);
         }
         //Lấy tên của nhà phát hành
@@ -282,11 +279,11 @@ namespace CitricStore.Controllers
 
 
 
-        public ActionResult Extension_Game_Slide()
-        {
-            var game = LayGameMoi(5);
-            return PartialView(game);
-        }
+        //public ActionResult Extension_Game_Slide()
+        //{
+        //    var game = LayGameMoi(5);
+        //    return PartialView(game);
+        //}
 
         public ActionResult Page_FAQ()
         {

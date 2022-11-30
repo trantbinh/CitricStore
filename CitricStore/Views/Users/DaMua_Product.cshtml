@@ -3,26 +3,17 @@
 
 @foreach (var item in Model)
 {
-
-    <div class="row">
-        <div class="col-12">
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link" style="color: white;"
-                   role="button" id="dropdownMenu" type="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    @Html.Action("DaMua_UngDung", "Users", new { idud = item.MaUngDung })
-                    <br />
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenu" style="">
-                    <div class="dropdown-backdrop" style="text-decoration:none">
-                        Số lượng: @item.SoLuong
-
-                        Đơn giá: @item.Price
-                    </div>
-                </div>
-            </div>
+    <div class="row align-middle">
+        <div class="col-lg-5 col-md-5" style="text-align:center">
+            @Html.Action("DaMua_UngDung", "Users", new { idud = item.IDOrder })
+        </div>
+        <div class="col-lg-5 col-md-5 align-middle">
+            <strong>Số lượng:</strong> @item.Quantity
+            <br />
+            <strong>Đơn giá:</strong> @String.Format("{0:0,0}", item.Price)
         </div>
     </div>
+
+
+
 }

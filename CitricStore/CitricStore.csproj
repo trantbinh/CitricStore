@@ -136,9 +136,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\InputDataSOFTWAREController.cs" />
     <Compile Include="Areas\Admin\Controllers\InputDataBANKController.cs" />
-    <Compile Include="Areas\Admin\Controllers\InputDataGAMEController.cs" />
     <Compile Include="Areas\Admin\Controllers\InputDataHEDIEUHANHController.cs" />
     <Compile Include="Areas\Admin\Controllers\InputDataNGONNGUController.cs" />
     <Compile Include="Areas\Admin\Controllers\InputDataNHAPHATHANHController.cs" />
@@ -158,16 +156,7 @@
     <Compile Include="Models\CATEGORY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CATEGORY_GAME.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CATEGORY_SOFTWARE.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\CUSTOMER.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GAME.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LANGUAGE.cs">
@@ -205,9 +194,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PUBLISHER.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SOFTWARE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1343,16 +1329,6 @@
     <Content Include="Areas\Admin\Views\InputOVERALL\Details.cshtml" />
     <Content Include="Areas\Admin\Views\InputOVERALL\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\InputOVERALL\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataSOFTWARE\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataGAME\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataGAME\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataGAME\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataGAME\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataGAME\Index.cshtml" />
     <Content Include="Areas\Admin\Views\InputDataHEDIEUHANH\Create.cshtml" />
     <Content Include="Areas\Admin\Views\InputDataHEDIEUHANH\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\InputDataHEDIEUHANH\Details.cshtml" />

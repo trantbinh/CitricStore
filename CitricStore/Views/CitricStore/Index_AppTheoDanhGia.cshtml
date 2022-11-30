@@ -4,20 +4,23 @@
 {
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="bloggame">
-            <a class="imageblog" href="@Url.Action("DetailsApp", "CitricStore", new {id=app.IDSoft})">
+            <a class="imageblog" href="@Url.Action("Details_Overall", "CitricStore", new {id=app.IDOverall})">
                 <img class="card-img-top imageblog-width-height" src="~/Images/APP/@app.PicBG" alt="Card image">
             </a>
-            <a class="bloggame-title h4" href="@Url.Action("DetailsApp", "CitricStore", new {id=app.IDSoft})">
-                @app.NameSoft
+
+            <a class="bloggame-title h4" href="@Url.Action("Details_Overall", "CitricStore", new {id=app.IDOverall})">
+                @app.NameOverall
             </a>
+
             <div class="bloggame-theloai">
-                Thể loại: @Html.Action("TenTheLoaiApp", "CitricStore", new { idtheloai = app.IDCatSoft })
+                Thể loại: @Html.Action("Extension_Overall_TenTheLoai", "CitricStore", new { idtheloai = app.IDCat })
             </div>
-            <a class="bloggame-download" href="@Url.Action("DetailsApp", "CitricStore", new {id=app.IDSoft})" style="text-decoration:none">
+            <a class="bloggame-download" href="@Url.Action("Details_Overall", "CitricStore", new {id=app.IDOverall})" style="text-decoration:none">
                 <div class="bloggame-download-btn">
                     Chi Tiết
                 </div>
             </a>
+
         </div>
     </div>
 }

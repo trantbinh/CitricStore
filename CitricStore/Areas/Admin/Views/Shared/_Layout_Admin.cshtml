@@ -35,7 +35,7 @@
 
             <div class="header-left-container col-lg-6 col-md-6">
                 <ul class="header-left">
-                    <li class="header-left-name" style="margin-left:50px;">
+                    <li class="header-left-name" style="">
                         <div class="dropdown">
                             <a href="#" class="dropdown-toggle" style="color: black; text-decoration:none;"
                                role="button" id="dropdownMenu" type="button"
@@ -46,11 +46,8 @@
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu"
                                  style=" border: none; background-color: #FCAE03; animation:none;transition:none">
-                                <a href="@Url.Action("Index","InputDataSOFTWARE")" class=" dropdown-item">
-                                    Phần mềm
-                                </a>
-                                <a href="@Url.Action("Index","InputDataGAME")" class=" dropdown-item">
-                                    Trò chơi
+                                <a href="@Url.Action("Index","InputOVERALL")" class=" dropdown-item">
+                                    Ứng dụng
                                 </a>
                                 <a href="@Url.Action("Index","InputDataHEDIEUHANH")" class=" dropdown-item">
                                     Hệ điều hành
@@ -72,7 +69,7 @@
                         </div>
                     </li>
 
-                    <li class="header-left-name" style="margin-left:50px; text-align:left; width:190px;">
+                    <li class="header-left-name" style="margin-left:50px; text-align:left; width:380px;">
                         <a href="@Url.Action("Order_KiemTraDonHang","Admin")" style="text-decoration: none; color: black;">
                             KIỂM TRA ĐƠN HÀNG
 
@@ -81,7 +78,7 @@
 
                     </li>
 
-                    <li class="header-left-name" style=" text-align: left; width: 250px; ">
+                    <li class="header-left-name" style=" text-align: left; width: 100%; margin-left: 0px;">
                         <a href="@Url.Action("Customer_ThongTinKhachHang","Admin")" style="text-decoration: none; color: black">
                             THÔNG TIN KHÁCH HÀNG
                         </a>

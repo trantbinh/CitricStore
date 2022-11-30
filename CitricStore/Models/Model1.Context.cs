@@ -27,10 +27,7 @@ namespace CitricStore.Models
     
         public virtual DbSet<BANK> BANKs { get; set; }
         public virtual DbSet<CATEGORY> CATEGORies { get; set; }
-        public virtual DbSet<CATEGORY_GAME> CATEGORY_GAME { get; set; }
-        public virtual DbSet<CATEGORY_SOFTWARE> CATEGORY_SOFTWARE { get; set; }
         public virtual DbSet<CUSTOMER> CUSTOMERs { get; set; }
-        public virtual DbSet<GAME> GAMEs { get; set; }
         public virtual DbSet<LANGUAGE> LANGUAGEs { get; set; }
         public virtual DbSet<ORDER_INFO> ORDER_INFO { get; set; }
         public virtual DbSet<ORDER_PRODUCT> ORDER_PRODUCT { get; set; }
@@ -38,6 +35,5 @@ namespace CitricStore.Models
         public virtual DbSet<OVERALL> OVERALLs { get; set; }
         public virtual DbSet<PLATFORM> PLATFORMs { get; set; }
         public virtual DbSet<PUBLISHER> PUBLISHERs { get; set; }
-        public virtual DbSet<SOFTWARE> SOFTWAREs { get; set; }
     }
 }

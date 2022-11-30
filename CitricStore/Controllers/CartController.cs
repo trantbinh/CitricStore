@@ -12,12 +12,6 @@ namespace CitricStore.Controllers
 
         CitricStoreEntities db = new CitricStoreEntities();
 
-        // GET: Cart
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         //Hàm để lấy giỏ hàng hiện tại
         public List<CartItem> GetCart()
         {
@@ -36,12 +30,8 @@ namespace CitricStore.Controllers
         //Thêm một sản phẩm vào giỏ
         public ActionResult AddToCart(int id)
         {
-            //Lấy giỏ hàng hiện tại
-
             List<CartItem> myCart = GetCart();
-
-
-            CartItem currentProduct = myCart.FirstOrDefault(p => p.MaUngDung == id);
+            CartItem currentProduct = myCart.FirstOrDefault(p => p.IDApp == id);
             if (currentProduct == null)
             {
                 currentProduct = new CartItem(id);
@@ -49,15 +39,10 @@ namespace CitricStore.Controllers
             }
             else
             {
-                currentProduct.SoLuong++; //Sản phẩm đã có trong giỏ thì tăng số lượng lên 1
+                currentProduct.Quantity++; 
             }
 
-            if (currentProduct.LoaiUngDung == "Game")
-                return RedirectToAction("DetailsGame", "CitricStore", new { id = id });
-            else 
-                return RedirectToAction("DetailsApp", "CitricStore", new { id = id });
-
-            //return RedirectToAction("Details_Overall", "CitricStore", new { id = id });
+            return RedirectToAction("Details_Overall", "CitricStore", new { id = id });
         }
 
 
@@ -68,7 +53,7 @@ namespace CitricStore.Controllers
             int totalNumber = 0;
             List<CartItem> myCart = GetCart();
             if (myCart != null)
-                totalNumber = myCart.Sum(sp => sp.SoLuong);
+                totalNumber = myCart.Sum(sp => sp.Quantity);
             return totalNumber;
         }
 
@@ -99,19 +84,44 @@ namespace CitricStore.Controllers
         }
 
         //Xoá sản phẩm khỏi giỏ hàng
-        //public ActionResult RemoveItem()
-        //{
-        //    var cart = Get();
-        //    var cartitem = cart.Find(p => p.product.ProductId == productid);
-        //    if (cartitem != null)
-        //    {
-        //        // Đã tồn tại, tăng thêm 1
-        //        cart.Remove(cartitem);
-        //    }
+        public ActionResult RemoveItem(int idpro)
 
-        //    SaveCartSession(cart);
-        //    return RedirectToAction(nameof(Cart));
-        //}
+        {
+            List<CartItem> myCart = GetCart();
+            CartItem pro = myCart.SingleOrDefault(n => n.IDApp == idpro);
+            if(pro != null)
+            {
+                myCart.RemoveAll(n => n.IDApp == idpro);
+                return RedirectToAction("GetCartInfo");
+            }
+            if (myCart == null || myCart.Count == 0)
+            {
+                return RedirectToAction("Index", "CitricStore");
+            }
+            return RedirectToAction("GetCartInfo");
+
+        }
+        // Cập nhật lại số lượng giỏ hàng
+        public ActionResult UpdateQuantity(int idpro, FormCollection f)
+        {
+            List<CartItem> myCart = GetCart();
+            CartItem pro = myCart.SingleOrDefault(n => n.IDApp == idpro);
+            if (pro != null)
+            {
+                pro.Quantity = int.Parse(f["changequantity"].ToString());
+            }
+            return RedirectToAction("GetCartInfo");
+
+        }
+
+        //Khách hàng xoá toàn bộ giỏ hàng
+        public ActionResult RemoveAllCart()
+        {
+            List<CartItem> myCart = GetCart();
+            myCart.Clear();
+            return RedirectToAction("Index", "CitricStore");
+        }
+
 
         //Icon giỏ hàng trên layout
         public ActionResult CartPartial()
@@ -194,9 +204,9 @@ namespace CitricStore.Controllers
             foreach (var item in myCart)
             {
                 var details = new ORDER_PRODUCT();
-                details.IDOverall = item.MaUngDung;
+                details.IDOverall = item.IDApp;
                 details.IDOrder = int.Parse(Session["IDOrder"].ToString());
-                details.Quantity = item.SoLuong;
+                details.Quantity = item.Quantity;
                 details.Price = item.Price;
                 db.ORDER_PRODUCT.Add(details);
                 db.SaveChanges();

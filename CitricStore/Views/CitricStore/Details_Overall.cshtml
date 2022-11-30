@@ -1,6 +1,6 @@
 ﻿@using CitricStore.Models
 @{
-    ViewBag.Title = "Details_Overall";
+    ViewBag.Title = Model.NameOverall;
     Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
 }
 
@@ -70,13 +70,13 @@
 
         <p class="tieude">ĐÁNH GIÁ CỦA NGƯỜI DÙNG</p>
         <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-3" style="font-size:40px; color:white; text-align:right;">@Model.Rating</div>
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-2 col-md-2" style="font-size:40px; color:white; text-align:right;">@Model.Rating</div>
 
-            <div class="col-lg-3 danhgia justify-content-start align-bottom">
+            <div class="col-lg-4 col-md-6 danhgia justify-content-start align-bottom">
                 <span class="stars" data-rating="@Model.Rating" data-num-stars="5"></span>
             </div>
-            <div class="col-lg-3"></div>
+            <div class="col-lg-3 col-md-2"></div>
 
         </div>
         <hr>
@@ -87,11 +87,11 @@
             <p class="chitiet">Dung lượng: @Model.Capacity MB</p>
             <p class="chitiet">Ngôn ngữ: @Html.Action("Details_NameLanguage", "CitricStore", new { idngonngu = Model.IDLanguage })</p>
             <p class="chitiet">Hệ điều hành: @Html.Action("Details_TenHDH", "CitricStore", new { idhdh = Model.IDPlatform })</p>
-            <p class="chitiet">Ngày cập nhật: @Model.UpdateDate</p>
+            <p class="chitiet">Ngày cập nhật: @String.Format("{0:dd MMM, yyy}", Model.UpdateDate)</p>
         </div>
         <hr>
         <div class="game-list-container">
-            <h1 class="game-list-title" style="margin-bottom: -20px;">CÙNG THỂ LOẠI</h1>
+            <h1 class="game-list-title" style="margin-bottom: -20px;">ỨNG DỤNG CÙNG THỂ LOẠI</h1>
             <div class="game-list-wrapper">
                 <div class="game-list" id="game-list-scrollbar">
                     @Html.Action("Details_Overall_CungTheLoai", "CitricStore", new { idtheloai = Model.IDCat })
@@ -100,7 +100,7 @@
         </div>
 
         <div class="game-list-container">
-            <h1 class="game-list-title">MỚI</h1>
+            <h1 class="game-list-title">ỨNG DỤNG MỚI</h1>
             <div class="game-list-wrapper">
                 <div class="game-list" id="game-list-scrollbar">
                     @Html.Action("Details_Overall_Moi", "CitricStore")
@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="game-list-container">
-            <h1 class="game-list-title">HOT</h1>
+            <h1 class="game-list-title">ỨNG DỤNG HOT</h1>
             <div class="game-list-wrapper">
                 <div class="game-list" id="game-list-scrollbar">
                     @Html.Action("Details_Overall_TheoDanhGia", "CitricStore")
