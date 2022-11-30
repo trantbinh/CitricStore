@@ -72,7 +72,7 @@ namespace CitricStore.Controllers
             List<CartItem> myCart = GetCart();
             if (myCart == null || myCart.Count == 0)
             {
-                return RedirectToAction("Index", "CitricStore");
+                return RedirectToAction("HomePage", "CitricStore");
             }
             ViewBag.TotalNumber = GetTotalNumber();
             ViewBag.TotalPrice = GetTotalPrice();
@@ -92,7 +92,7 @@ namespace CitricStore.Controllers
             }
             if (myCart == null || myCart.Count == 0)
             {
-                return RedirectToAction("Index", "CitricStore");
+                return RedirectToAction("HomePage", "CitricStore");
             }
             return RedirectToAction("Page_GetCartInfo");
 
@@ -115,7 +115,7 @@ namespace CitricStore.Controllers
         {
             List<CartItem> myCart = GetCart();
             myCart.Clear();
-            return RedirectToAction("Index", "CitricStore");
+            return RedirectToAction("HomePage", "CitricStore");
         }
 
 

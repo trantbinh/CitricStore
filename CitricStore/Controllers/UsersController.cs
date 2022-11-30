@@ -94,7 +94,7 @@ namespace CitricStore.Controllers
                         {
                             return RedirectToAction("AdminPage", "Admin/Admin");
                         }    
-                        return RedirectToAction("Index", "CitricStore");
+                        return RedirectToAction("HomePage", "CitricStore");
                     }
                     else
                     {
@@ -164,7 +164,7 @@ namespace CitricStore.Controllers
             Session.Remove("LogName");
             Session.Remove("IDCus");
 
-            return RedirectToAction("Index","CitricStore");
+            return RedirectToAction("HomePage","CitricStore");
         }
 
 
