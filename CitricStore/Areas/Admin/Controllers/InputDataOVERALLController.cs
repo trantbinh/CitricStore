@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -53,10 +54,56 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDOverall,NameOverall,Description,Capacity,LinkTai,IDPublisher,IDPlatform,IDLanguage,IDCat,UpdateDate,Rating,Price,PicBG,PicDetail1,PicDetail2,PicDetail3,PicDetail4,SoftOrGame")] OVERALL oVERALL)
+        public ActionResult Create([Bind(Include = "IDOverall,NameOverall,Description,Capacity,IDPublisher,IDPlatform,IDLanguage,IDCat,UpdateDate,Rating,Price,PicBG,PicDetail1,PicDetail2,PicDetail3,PicDetail4,SoftOrGame")] OVERALL oVERALL,
+            HttpPostedFileBase PicBG, HttpPostedFileBase PicDetail1, HttpPostedFileBase PicDetail2, HttpPostedFileBase PicDetail3, HttpPostedFileBase PicDetail4)
         {
             if (ModelState.IsValid)
             {
+                if (PicBG != null)
+                {
+                    var fileName = Path.GetFileName(PicBG.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                    oVERALL.PicBG = fileName;
+                    PicBG.SaveAs(path);
+                }
+                if (PicDetail1 != null)
+                {
+                    var fileName = Path.GetFileName(PicDetail1.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                    oVERALL.PicDetail1 = fileName;
+                    PicDetail1.SaveAs(path);
+                }
+                if (PicDetail2 != null)
+                {
+                    var fileName = Path.GetFileName(PicDetail2.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                    oVERALL.PicDetail2 = fileName;
+                    PicDetail2.SaveAs(path);
+                }
+                if (PicDetail3 != null)
+                {
+                    var fileName = Path.GetFileName(PicDetail3.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                    oVERALL.PicDetail3 = fileName;
+                    PicDetail3.SaveAs(path);
+                }
+                if (PicDetail4 != null)
+                {
+                    var fileName = Path.GetFileName(PicDetail4.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                    oVERALL.PicDetail4 = fileName;
+                    PicDetail4.SaveAs(path);
+                }
                 db.OVERALLs.Add(oVERALL);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -93,11 +140,70 @@ namespace CitricStore.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDOverall,NameOverall,Description,Capacity,LinkTai,IDPublisher,IDPlatform,IDLanguage,IDCat,UpdateDate,Rating,Price,PicBG,PicDetail1,PicDetail2,PicDetail3,PicDetail4,SoftOrGame")] OVERALL oVERALL)
+        public ActionResult Edit([Bind(Include = "IDOverall,NameOverall,Description,Capacity,LinkTai,IDPublisher,IDPlatform,IDLanguage,IDCat,UpdateDate,Rating,Price,PicBG,PicDetail1,PicDetail2,PicDetail3,PicDetail4,SoftOrGame")] OVERALL oVERALL,
+            HttpPostedFileBase PicBG, HttpPostedFileBase PicDetail1, HttpPostedFileBase PicDetail2, HttpPostedFileBase PicDetail3, HttpPostedFileBase PicDetail4)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(oVERALL).State = EntityState.Modified;
+                var appDB = db.OVERALLs.FirstOrDefault(s => s.IDOverall == oVERALL.IDOverall);
+                if(appDB != null)
+                {
+                    appDB.NameOverall = oVERALL.NameOverall;
+                    appDB.Description = oVERALL.Description;
+                    appDB.Capacity = oVERALL.Capacity;
+                    appDB.IDCat = oVERALL.IDCat;
+                    appDB.IDPublisher = oVERALL.IDPublisher;
+                    appDB.IDPlatform = oVERALL.IDPlatform;
+                    appDB.IDLanguage = oVERALL.IDLanguage;
+                    appDB.UpdateDate = oVERALL.UpdateDate;
+                    appDB.Rating = oVERALL.Rating;
+                    appDB.Price = oVERALL.Price;
+                    if (PicBG != null)
+                    {
+                        var fileName = Path.GetFileName(PicBG.FileName);
+
+                        var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                        appDB.PicBG = fileName;
+                        PicBG.SaveAs(path);
+                    }
+                    if (PicDetail1 != null)
+                    {
+                        var fileName = Path.GetFileName(PicDetail1.FileName);
+
+                        var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                        appDB.PicDetail1 = fileName;
+                        PicDetail1.SaveAs(path);
+                    }
+                    if (PicDetail2 != null)
+                    {
+                        var fileName = Path.GetFileName(PicDetail2.FileName);
+
+                        var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                        appDB.PicDetail2 = fileName;
+                        PicDetail2.SaveAs(path);
+                    }
+                    if (PicDetail3 != null)
+                    {
+                        var fileName = Path.GetFileName(PicDetail3.FileName);
+
+                        var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                        appDB.PicDetail3 = fileName;
+                        PicDetail3.SaveAs(path);
+                    }
+                    if (PicDetail4 != null)
+                    {
+                        var fileName = Path.GetFileName(PicDetail4.FileName);
+
+                        var path = Path.Combine(Server.MapPath("~/Images/OVERALL"), fileName);
+
+                        appDB.PicDetail4 = fileName;
+                        PicDetail4.SaveAs(path);
+                    }
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -133,7 +239,6 @@ namespace CitricStore.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -10,11 +10,12 @@
 <div class="container col-lg-6 col-md-10">
     <h2 class="title">DỮ LIỆU ỨNG DỤNG</h2>
     <h3 class="minititle">TẠO MỚI</h3>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create", "InputDataOVERALL", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         <div class="form-horizontal form-decor">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
             <div class="form-group">
                 Tên ứng dụng:
                 <div class="col-md-12">

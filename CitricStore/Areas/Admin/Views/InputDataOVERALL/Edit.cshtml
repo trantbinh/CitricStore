@@ -10,7 +10,7 @@
 <div class="container col-lg-6 col-md-10">
     <h2 class="title">DỮ LIỆU ỨNG DỤNG</h2>
     <h3 class="minititle">CHỈNH SỬA </h3>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "InputDataOVERALL", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
