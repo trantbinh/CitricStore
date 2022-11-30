@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.BANK
+﻿@model CitricStore.Models.CATEGORY
 
 @{
     ViewBag.Title = "Edit";
@@ -10,10 +10,9 @@
 
 <div class="container col-lg-6 col-md-10">
 
-    <h2 class="title">DỮ LIỆU NGÂN HÀNG</h2>
+    <h2 class="title">DỮ LIỆU THỂ LOẠI</h2>
 
     <h3 class="minititle">CHỈNH SỬA </h3>
-
 
     @using (Html.BeginForm())
     {
@@ -21,15 +20,16 @@
 
         <div class="form-horizontal form-decor">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.IDBank)
+            @Html.HiddenFor(model => model.IDCat)
 
             <div class="form-group">
-                Tên ngân hàng:
+                Tên thể loại:
                 <div class="col-md-12">
-                    @Html.EditorFor(model => model.NameBank, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.NameBank, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.NameCat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NameCat, "", new { @class = "text-danger" })
                 </div>
             </div>
+
 
             <div class="form-group save-formgroup">
                 <div class="col-md-offset-2 col-md-12">
@@ -38,6 +38,6 @@
                 </div>
             </div>
         </div>
-    }
+}
 
-</div>
+    </div>

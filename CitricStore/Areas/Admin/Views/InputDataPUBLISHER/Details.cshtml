@@ -1,9 +1,10 @@
-﻿@model CitricStore.Models.BANK
+﻿@model CitricStore.Models.PUBLISHER
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
+
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/Input.css" />
 <style>
@@ -15,16 +16,22 @@
 
 <div class="container" style="margin: 10px auto; ">
 
-    <h2 class="title">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
+    <h2 style="text-align: center; color:white">DỮ LIỆU NHÀ PHÁT HÀNH</h2>
 
     <h3 class="minititle">CHI TIẾT</h3>
 
+
+
+
     <div class="platform">
-        <strong>Tên ngân hàng: </strong>
-        @Html.DisplayFor(model => model.NameBank)
+
+
+
+        <strong>Tên nhà phát hành: </strong>
+        @Html.DisplayFor(model => model.NamePublisher)
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.IDBank }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.IDPublisher }, new { @class = "btn btn-success" }) |
         @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
     </p>
 </div>

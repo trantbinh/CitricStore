@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.BANK
+﻿@model CitricStore.Models.PUBLISHER
 
 @{
     ViewBag.Title = "Delete";
@@ -10,14 +10,18 @@
 
 <div class="container col-lg-6 col-md-10">
 
-    <h2 class="title">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
+
+    <h2 style="text-align: center; color:white">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
 
     <h3 class="minititle">XOÁ DỮ LIỆU</h3>
     <div class="platform">
 
-        <strong>Tên hệ điều hành: </strong>
-        @Html.DisplayFor(model => model.NameBank)
+
+
+        <strong>Tên nhà phát hành: </strong>
+        @Html.DisplayFor(model => model.NamePublisher)
     </div>
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()

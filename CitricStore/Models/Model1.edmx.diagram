@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a5f1193ada204f219d14d6cff079df86" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="CitricStoreModel.BANK" Width="1.5" PointX="3.75" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CitricStoreModel.CATEGORY" Width="1.5" PointX="3.75" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CitricStoreModel.CUSTOMER" Width="1.5" PointX="3.75" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CitricStoreModel.LANGUAGE" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CitricStoreModel.ORDER_INFO" Width="1.5" PointX="6" PointY="18.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CitricStoreModel.ORDER_PRODUCT" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CitricStoreModel.ORDER_STATUS" Width="1.5" PointX="3.75" PointY="23" IsExpanded="true" />
-        <EntityTypeShape EntityType="CitricStoreModel.OVERALL" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CitricStoreModel.PLATFORM" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CitricStoreModel.PUBLISHER" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
+      <Diagram DiagramId="a5f1193ada204f219d14d6cff079df86" Name="Diagram1" ZoomLevel="110">
+        <EntityTypeShape EntityType="CitricStoreModel.BANK" Width="1.5" PointX="8.125" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CitricStoreModel.CATEGORY" Width="1.5" PointX="4.375" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CitricStoreModel.CUSTOMER" Width="1.5" PointX="8.125" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CitricStoreModel.LANGUAGE" Width="1.5" PointX="0.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CitricStoreModel.ORDER_INFO" Width="1.5" PointX="6.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CitricStoreModel.ORDER_PRODUCT" Width="1.5" PointX="4.375" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CitricStoreModel.ORDER_STATUS" Width="1.5" PointX="6.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CitricStoreModel.OVERALL" Width="1.5" PointX="2.375" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CitricStoreModel.PLATFORM" Width="1.5" PointX="0.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CitricStoreModel.PUBLISHER" Width="1.5" PointX="0.5" PointY="10.25" IsExpanded="true" />
         <AssociationConnector Association="CitricStoreModel.FK_ORDERINFO_BANK" ManuallyRouted="false" />
         <AssociationConnector Association="CitricStoreModel.FK_OVERALL_CATEGORY" ManuallyRouted="false" />
         <AssociationConnector Association="CitricStoreModel.FK_ORDERINFO_CUSTOMER" ManuallyRouted="false" />
