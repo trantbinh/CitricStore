@@ -1,0 +1,37 @@
+﻿@using CitricStore.Models
+
+
+<div class="slideshow">
+    <div class="display-container">
+        @foreach (var item in Model)
+        {
+
+            <div class="slides">
+                <img class="imageslides animate-fading" onclick="changeImage()" src="~/Images/OVERALL/@item.PicBG">
+                <div class="imageslides-caption">
+                    <div class="imageslides-content">
+                        <h3 class="imageslides-title">@item.NameOverall</h3>
+                        <p class="imageslides-description">
+                            @item.Description
+                        </p>
+                        <a href="@Url.Action("Details_Overall", "CitricStore", new {id=item.IDOverall})" class="imageslides-more-btn">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        }
+            <!--Nút qua lại-->
+            <button class="image-button button-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="image-button button-right" onclick="plusDivs(1)">&#10095;</button>
+
+            <!-- Chấm tròn -->
+            <div class="badge" style="width:100%">
+                <span class="image-badge" onclick="currentDiv(1)"></span>
+                <span class="image-badge" onclick="currentDiv(2)"></span>
+                <span class="image-badge" onclick="currentDiv(3)"></span>
+                <span class="image-badge" onclick="currentDiv(4)"></span>
+                <span class="image-badge" onclick="currentDiv(5)"></span>
+            </div>
+        </div>
+</div>
+<script language="Javascript" src="~/Scripts/SlideImageAuto.js"></script>
+

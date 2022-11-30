@@ -82,11 +82,11 @@
         <hr>
         <div class="tieudechitiet">
             <p class="tieude">CHI TIẾT</p>
-            <p class="chitiet">Thể loại: @Html.Action("Extension_Overall_TenTheLoai", "CitricStore", new { idtheloai = Model.IDCat })</p>
-            <p class="chitiet">Nhà phát hành: @Html.Action("Details_TenNPH", "CitricStore", new { idnph = Model.IDPublisher })</p>
+            <p class="chitiet">Thể loại: @Html.Action("Extension_GetNameCategory", "CitricStore", new { idcat = Model.IDCat })</p>
+            <p class="chitiet">Nhà phát hành: @Html.Action("Extension_GetNamePublisher", "CitricStore", new { idnph = Model.IDPublisher })</p>
             <p class="chitiet">Dung lượng: @Model.Capacity MB</p>
-            <p class="chitiet">Ngôn ngữ: @Html.Action("Details_NameLanguage", "CitricStore", new { idngonngu = Model.IDLanguage })</p>
-            <p class="chitiet">Hệ điều hành: @Html.Action("Details_TenHDH", "CitricStore", new { idhdh = Model.IDPlatform })</p>
+            <p class="chitiet">Ngôn ngữ: @Html.Action("Extension_GetNameLanguage", "CitricStore", new { idlang = Model.IDLanguage })</p>
+            <p class="chitiet">Hệ điều hành: @Html.Action("Extension_GetNamePlatform", "CitricStore", new { idplat = Model.IDPlatform })</p>
             <p class="chitiet">Ngày cập nhật: @String.Format("{0:dd MMM, yyy}", Model.UpdateDate)</p>
         </div>
         <hr>
@@ -94,7 +94,7 @@
             <h1 class="game-list-title" style="margin-bottom: -20px;">ỨNG DỤNG CÙNG THỂ LOẠI</h1>
             <div class="game-list-wrapper">
                 <div class="game-list" id="game-list-scrollbar">
-                    @Html.Action("Details_Overall_CungTheLoai", "CitricStore", new { idtheloai = Model.IDCat })
+                    @Html.Action("Details_Overall_SameCategory", "CitricStore", new { idcat = Model.IDCat })
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
             <h1 class="game-list-title">ỨNG DỤNG MỚI</h1>
             <div class="game-list-wrapper">
                 <div class="game-list" id="game-list-scrollbar">
-                    @Html.Action("Details_Overall_Moi", "CitricStore")
+                    @Html.Action("Details_Overall_GetNew", "CitricStore")
                 </div>
             </div>
         </div>
@@ -111,7 +111,7 @@
             <h1 class="game-list-title">ỨNG DỤNG HOT</h1>
             <div class="game-list-wrapper">
                 <div class="game-list" id="game-list-scrollbar">
-                    @Html.Action("Details_Overall_TheoDanhGia", "CitricStore")
+                    @Html.Action("Details_Overall_GetSuggest", "CitricStore")
                 </div>
             </div>
         </div>
