@@ -253,6 +253,8 @@
     <Content Include="Images\LOGO\CITRICSTORE.png" />
     <Content Include="Images\LOGO\LOGO_Black.png" />
     <Content Include="Images\LOGO\LOGO_White.png" />
+    <Content Include="Images\LOGO\HalloweenBG2.jpg" />
+    <Content Include="Images\LOGO\HalloweenBG1.jpg" />
     <Content Include="Images\OVERALL\APP10.1.jpg" />
     <Content Include="Images\OVERALL\APP10.2.jpg" />
     <Content Include="Images\OVERALL\APP10.3.jpg" />
@@ -367,7 +369,7 @@
     <Content Include="Images\OVERALL\BG18.jpg" />
     <Content Include="Images\OVERALL\BG19.jpg" />
     <Content Include="Images\OVERALL\BG2.jpg" />
-    <Content Include="Images\OVERALL\BG20.jpg" />
+    <Content Include="Images\OVERALL\BG26.jpg" />
     <Content Include="Images\OVERALL\BG27.jpg" />
     <Content Include="Images\OVERALL\BG28.jpg" />
     <Content Include="Images\OVERALL\BG29.jpg" />
@@ -748,7 +750,6 @@
     <Content Include="Images\OVERALL\Game94.2.jpg" />
     <Content Include="Images\OVERALL\Game94.3.jpg" />
     <Content Include="Images\OVERALL\game94.4.jpg" />
-    <Content Include="Images\OVERALL\Game95.1.jpg" />
     <Content Include="Images\OVERALL\Game95.2.jpg" />
     <Content Include="Images\OVERALL\Game95.3.jpg" />
     <Content Include="Images\OVERALL\Game95.4.jpg" />
@@ -768,8 +769,6 @@
     <Content Include="Images\OVERALL\Game99.2.jpg" />
     <Content Include="Images\OVERALL\Game99.3.jpg" />
     <Content Include="Images\OVERALL\Game99.4.jpg" />
-    <Content Include="Images\LOGO\HalloweenBG2.jpg" />
-    <Content Include="Images\LOGO\HalloweenBG1.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -840,6 +839,11 @@
     <Content Include="Areas\Admin\Views\Admin\Extension_GetNameStatus.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\CheckCusInfo.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\CheckCusOrder_InfoCus.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataBANK\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataBANK\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataBANK\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataBANK\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InputDataBANK\Index.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -847,11 +851,7 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\InputDataBANK\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataBANK\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataBANK\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataBANK\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\InputDataBANK\Index.cshtml" />
+    <Content Include="Images\OVERALL\Game95.1jpg" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\HomePage.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -920,7 +920,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Images\HEHE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
