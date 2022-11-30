@@ -375,7 +375,6 @@
           <NavigationProperty Name="ORDER_PRODUCT" Relationship="Self.FK_ORDERPRODUCT_OVERALL" FromRole="OVERALL" ToRole="ORDER_PRODUCT" />
           <NavigationProperty Name="PLATFORM" Relationship="Self.FK_OVERALL_PLATFORM" FromRole="OVERALL" ToRole="PLATFORM" />
           <NavigationProperty Name="PUBLISHER" Relationship="Self.FK_OVERALL_PUBLISHER" FromRole="OVERALL" ToRole="PUBLISHER" />
-          <Property Name="LinkTai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PLATFORM">
           <Key>
@@ -633,7 +632,6 @@
           <EntitySetMapping Name="OVERALLs">
             <EntityTypeMapping TypeName="CitricStoreModel.OVERALL">
               <MappingFragment StoreEntitySet="OVERALL">
-                <ScalarProperty Name="LinkTai" ColumnName="LinkTai" />
                 <ScalarProperty Name="IDOverall" ColumnName="IDOverall" />
                 <ScalarProperty Name="NameOverall" ColumnName="NameOverall" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

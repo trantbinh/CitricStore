@@ -18,7 +18,7 @@
 
     <h2 class="title">DỮ LIỆU TRÒ CHƠI (GAME)</h2>
 
-    <h3 style="text-align: center; color: white">XOÁ DỮ LIỆU</h3>
+    <h3 class="minititle">XOÁ DỮ LIỆU</h3>
     <div class="row">
         <div class="col-2"></div>
         <table class="table align-middle col-8" style="color: white; width: 70%; table-layout: fixed;word-break: break-word; font-size:20px;">
@@ -27,7 +27,7 @@
                     <strong>Tên: </strong>
                 </td>
                 <td>
-                    @Html.DisplayNameFor(model => model.NameOverall)
+                    @Html.DisplayFor(model => model.NameOverall)
                 </td>
 
             </tr>
@@ -102,6 +102,14 @@
                 </td>
                 <td>
                     @Html.DisplayFor(model => model.CATEGORY.NameCat)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Soft/Game:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SoftOrGame)
                 </td>
             </tr>
 
