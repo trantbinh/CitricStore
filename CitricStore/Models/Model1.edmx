@@ -18,20 +18,7 @@
           </Key>
           <Property Name="IDCat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameCat" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CATEGORY_GAME">
-          <Key>
-            <PropertyRef Name="IDCatGame" />
-          </Key>
-          <Property Name="IDCatGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameCatGame" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CATEGORY_SOFTWARE">
-          <Key>
-            <PropertyRef Name="IDCatSoft" />
-          </Key>
-          <Property Name="IDCatSoft" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameCatSoft" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoftOrGame" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="CUSTOMER">
           <Key>
@@ -45,27 +32,6 @@
           <Property Name="LogPass" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Birthday" Type="datetime" />
           <Property Name="Sex" Type="nvarchar" MaxLength="3" />
-        </EntityType>
-        <EntityType Name="GAME">
-          <Key>
-            <PropertyRef Name="IDGame" />
-          </Key>
-          <Property Name="IDGame" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameGame" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Description" Type="ntext" />
-          <Property Name="Capacity" Type="nvarchar" MaxLength="10" />
-          <Property Name="IDCatGame" Type="int" />
-          <Property Name="IDPublisher" Type="int" />
-          <Property Name="IDPlatform" Type="int" />
-          <Property Name="IDLanguage" Type="int" />
-          <Property Name="UpdateDate" Type="datetime" />
-          <Property Name="Rating" Type="nvarchar" MaxLength="5" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="PicBG" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail1" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail2" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail3" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail4" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="LANGUAGE">
           <Key>
@@ -122,12 +88,13 @@
           <Property Name="UpdateDate" Type="datetime" />
           <Property Name="Rating" Type="nvarchar" MaxLength="5" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="PicBG" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail1" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail2" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail3" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail4" Type="nvarchar" MaxLength="30" />
+          <Property Name="PicBG" Type="nvarchar(max)" />
+          <Property Name="PicDetail1" Type="nvarchar(max)" />
+          <Property Name="PicDetail2" Type="nvarchar(max)" />
+          <Property Name="PicDetail3" Type="nvarchar(max)" />
+          <Property Name="PicDetail4" Type="nvarchar(max)" />
           <Property Name="SoftOrGame" Type="nvarchar" MaxLength="10" />
+          <Property Name="LinkTai" Type="ntext" />
         </EntityType>
         <EntityType Name="PLATFORM">
           <Key>
@@ -143,75 +110,6 @@
           <Property Name="IDPublisher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NamePublisher" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
-        <EntityType Name="SOFTWARE">
-          <Key>
-            <PropertyRef Name="IDSoft" />
-          </Key>
-          <Property Name="IDSoft" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameSoft" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Description" Type="ntext" />
-          <Property Name="Capacity" Type="nvarchar" MaxLength="10" />
-          <Property Name="IDCatSoft" Type="int" />
-          <Property Name="IDPublisher" Type="int" />
-          <Property Name="IDPlatform" Type="int" />
-          <Property Name="IDLanguage" Type="int" />
-          <Property Name="UpdateDate" Type="datetime" />
-          <Property Name="Rating" Type="nvarchar" MaxLength="5" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="PicBG" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail1" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail2" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail3" Type="nvarchar" MaxLength="30" />
-          <Property Name="PicDetail4" Type="nvarchar" MaxLength="30" />
-        </EntityType>
-        <Association Name="FK_GAME_CATEGORYGAME">
-          <End Role="CATEGORY_GAME" Type="Self.CATEGORY_GAME" Multiplicity="0..1" />
-          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY_GAME">
-              <PropertyRef Name="IDCatGame" />
-            </Principal>
-            <Dependent Role="GAME">
-              <PropertyRef Name="IDCatGame" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GAME_LANGUAGE">
-          <End Role="LANGUAGE" Type="Self.LANGUAGE" Multiplicity="0..1" />
-          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LANGUAGE">
-              <PropertyRef Name="IDLanguage" />
-            </Principal>
-            <Dependent Role="GAME">
-              <PropertyRef Name="IDLanguage" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GAME_PLATFORM">
-          <End Role="PLATFORM" Type="Self.PLATFORM" Multiplicity="0..1" />
-          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLATFORM">
-              <PropertyRef Name="IDPlatform" />
-            </Principal>
-            <Dependent Role="GAME">
-              <PropertyRef Name="IDPlatform" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GAME_PUBLISHER">
-          <End Role="PUBLISHER" Type="Self.PUBLISHER" Multiplicity="0..1" />
-          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PUBLISHER">
-              <PropertyRef Name="IDPublisher" />
-            </Principal>
-            <Dependent Role="GAME">
-              <PropertyRef Name="IDPublisher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ORDERINFO_BANK">
           <End Role="BANK" Type="Self.BANK" Multiplicity="1" />
           <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="*" />
@@ -320,61 +218,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SOFTWARE_CATEGORYSOFTWARE">
-          <End Role="CATEGORY_SOFTWARE" Type="Self.CATEGORY_SOFTWARE" Multiplicity="0..1" />
-          <End Role="SOFTWARE" Type="Self.SOFTWARE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY_SOFTWARE">
-              <PropertyRef Name="IDCatSoft" />
-            </Principal>
-            <Dependent Role="SOFTWARE">
-              <PropertyRef Name="IDCatSoft" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SOFTWARE_LANGUAGE">
-          <End Role="LANGUAGE" Type="Self.LANGUAGE" Multiplicity="0..1" />
-          <End Role="SOFTWARE" Type="Self.SOFTWARE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LANGUAGE">
-              <PropertyRef Name="IDLanguage" />
-            </Principal>
-            <Dependent Role="SOFTWARE">
-              <PropertyRef Name="IDLanguage" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SOFTWARE_PLATFORM">
-          <End Role="PLATFORM" Type="Self.PLATFORM" Multiplicity="0..1" />
-          <End Role="SOFTWARE" Type="Self.SOFTWARE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLATFORM">
-              <PropertyRef Name="IDPlatform" />
-            </Principal>
-            <Dependent Role="SOFTWARE">
-              <PropertyRef Name="IDPlatform" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SOFTWARE_PUBLISHER">
-          <End Role="PUBLISHER" Type="Self.PUBLISHER" Multiplicity="0..1" />
-          <End Role="SOFTWARE" Type="Self.SOFTWARE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PUBLISHER">
-              <PropertyRef Name="IDPublisher" />
-            </Principal>
-            <Dependent Role="SOFTWARE">
-              <PropertyRef Name="IDPublisher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="CitricStoreModelStoreContainer">
           <EntitySet Name="BANK" EntityType="Self.BANK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CATEGORY_GAME" EntityType="Self.CATEGORY_GAME" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CATEGORY_SOFTWARE" EntityType="Self.CATEGORY_SOFTWARE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GAME" EntityType="Self.GAME" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LANGUAGE" EntityType="Self.LANGUAGE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ORDER_INFO" EntityType="Self.ORDER_INFO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ORDER_PRODUCT" EntityType="Self.ORDER_PRODUCT" Schema="dbo" store:Type="Tables" />
@@ -382,23 +229,6 @@
           <EntitySet Name="OVERALL" EntityType="Self.OVERALL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PLATFORM" EntityType="Self.PLATFORM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PUBLISHER" EntityType="Self.PUBLISHER" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SOFTWARE" EntityType="Self.SOFTWARE" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_GAME_CATEGORYGAME" Association="Self.FK_GAME_CATEGORYGAME">
-            <End Role="CATEGORY_GAME" EntitySet="CATEGORY_GAME" />
-            <End Role="GAME" EntitySet="GAME" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GAME_LANGUAGE" Association="Self.FK_GAME_LANGUAGE">
-            <End Role="LANGUAGE" EntitySet="LANGUAGE" />
-            <End Role="GAME" EntitySet="GAME" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GAME_PLATFORM" Association="Self.FK_GAME_PLATFORM">
-            <End Role="PLATFORM" EntitySet="PLATFORM" />
-            <End Role="GAME" EntitySet="GAME" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GAME_PUBLISHER" Association="Self.FK_GAME_PUBLISHER">
-            <End Role="PUBLISHER" EntitySet="PUBLISHER" />
-            <End Role="GAME" EntitySet="GAME" />
-          </AssociationSet>
           <AssociationSet Name="FK_ORDERINFO_BANK" Association="Self.FK_ORDERINFO_BANK">
             <End Role="BANK" EntitySet="BANK" />
             <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
@@ -435,22 +265,6 @@
             <End Role="PUBLISHER" EntitySet="PUBLISHER" />
             <End Role="OVERALL" EntitySet="OVERALL" />
           </AssociationSet>
-          <AssociationSet Name="FK_SOFTWARE_CATEGORYSOFTWARE" Association="Self.FK_SOFTWARE_CATEGORYSOFTWARE">
-            <End Role="CATEGORY_SOFTWARE" EntitySet="CATEGORY_SOFTWARE" />
-            <End Role="SOFTWARE" EntitySet="SOFTWARE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SOFTWARE_LANGUAGE" Association="Self.FK_SOFTWARE_LANGUAGE">
-            <End Role="LANGUAGE" EntitySet="LANGUAGE" />
-            <End Role="SOFTWARE" EntitySet="SOFTWARE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SOFTWARE_PLATFORM" Association="Self.FK_SOFTWARE_PLATFORM">
-            <End Role="PLATFORM" EntitySet="PLATFORM" />
-            <End Role="SOFTWARE" EntitySet="SOFTWARE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SOFTWARE_PUBLISHER" Association="Self.FK_SOFTWARE_PUBLISHER">
-            <End Role="PUBLISHER" EntitySet="PUBLISHER" />
-            <End Role="SOFTWARE" EntitySet="SOFTWARE" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -471,22 +285,7 @@
           <Property Name="IDCat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameCat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_CATEGORY" FromRole="CATEGORY" ToRole="OVERALL" />
-        </EntityType>
-        <EntityType Name="CATEGORY_GAME">
-          <Key>
-            <PropertyRef Name="IDCatGame" />
-          </Key>
-          <Property Name="IDCatGame" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameCatGame" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="GAMEs" Relationship="Self.FK_GAME_CATEGORYGAME" FromRole="CATEGORY_GAME" ToRole="GAME" />
-        </EntityType>
-        <EntityType Name="CATEGORY_SOFTWARE">
-          <Key>
-            <PropertyRef Name="IDCatSoft" />
-          </Key>
-          <Property Name="IDCatSoft" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameCatSoft" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="SOFTWAREs" Relationship="Self.FK_SOFTWARE_CATEGORYSOFTWARE" FromRole="CATEGORY_SOFTWARE" ToRole="SOFTWARE" />
+          <Property Name="SoftOrGame" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CUSTOMER">
           <Key>
@@ -502,40 +301,13 @@
           <Property Name="Sex" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ORDER_INFO" Relationship="Self.FK_ORDERINFO_CUSTOMER" FromRole="CUSTOMER" ToRole="ORDER_INFO" />
         </EntityType>
-        <EntityType Name="GAME">
-          <Key>
-            <PropertyRef Name="IDGame" />
-          </Key>
-          <Property Name="IDGame" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameGame" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Capacity" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="IDCatGame" Type="Int32" />
-          <Property Name="IDPublisher" Type="Int32" />
-          <Property Name="IDPlatform" Type="Int32" />
-          <Property Name="IDLanguage" Type="Int32" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
-          <Property Name="Rating" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PicBG" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CATEGORY_GAME" Relationship="Self.FK_GAME_CATEGORYGAME" FromRole="GAME" ToRole="CATEGORY_GAME" />
-          <NavigationProperty Name="LANGUAGE" Relationship="Self.FK_GAME_LANGUAGE" FromRole="GAME" ToRole="LANGUAGE" />
-          <NavigationProperty Name="PLATFORM" Relationship="Self.FK_GAME_PLATFORM" FromRole="GAME" ToRole="PLATFORM" />
-          <NavigationProperty Name="PUBLISHER" Relationship="Self.FK_GAME_PUBLISHER" FromRole="GAME" ToRole="PUBLISHER" />
-        </EntityType>
         <EntityType Name="LANGUAGE">
           <Key>
             <PropertyRef Name="IDLanguage" />
           </Key>
           <Property Name="IDLanguage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameLanguage" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="GAMEs" Relationship="Self.FK_GAME_LANGUAGE" FromRole="LANGUAGE" ToRole="GAME" />
           <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_LANGUAGE" FromRole="LANGUAGE" ToRole="OVERALL" />
-          <NavigationProperty Name="SOFTWAREs" Relationship="Self.FK_SOFTWARE_LANGUAGE" FromRole="LANGUAGE" ToRole="SOFTWARE" />
         </EntityType>
         <EntityType Name="ORDER_INFO">
           <Key>
@@ -592,17 +364,18 @@
           <Property Name="UpdateDate" Type="DateTime" Precision="3" />
           <Property Name="Rating" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PicBG" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PicBG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PicDetail1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PicDetail2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PicDetail3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PicDetail4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SoftOrGame" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CATEGORY" Relationship="Self.FK_OVERALL_CATEGORY" FromRole="OVERALL" ToRole="CATEGORY" />
           <NavigationProperty Name="LANGUAGE" Relationship="Self.FK_OVERALL_LANGUAGE" FromRole="OVERALL" ToRole="LANGUAGE" />
           <NavigationProperty Name="ORDER_PRODUCT" Relationship="Self.FK_ORDERPRODUCT_OVERALL" FromRole="OVERALL" ToRole="ORDER_PRODUCT" />
           <NavigationProperty Name="PLATFORM" Relationship="Self.FK_OVERALL_PLATFORM" FromRole="OVERALL" ToRole="PLATFORM" />
           <NavigationProperty Name="PUBLISHER" Relationship="Self.FK_OVERALL_PUBLISHER" FromRole="OVERALL" ToRole="PUBLISHER" />
+          <Property Name="LinkTai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PLATFORM">
           <Key>
@@ -610,9 +383,7 @@
           </Key>
           <Property Name="IDPlatform" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NamePlatform" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="GAMEs" Relationship="Self.FK_GAME_PLATFORM" FromRole="PLATFORM" ToRole="GAME" />
           <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_PLATFORM" FromRole="PLATFORM" ToRole="OVERALL" />
-          <NavigationProperty Name="SOFTWAREs" Relationship="Self.FK_SOFTWARE_PLATFORM" FromRole="PLATFORM" ToRole="SOFTWARE" />
         </EntityType>
         <EntityType Name="PUBLISHER">
           <Key>
@@ -620,34 +391,7 @@
           </Key>
           <Property Name="IDPublisher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NamePublisher" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="GAMEs" Relationship="Self.FK_GAME_PUBLISHER" FromRole="PUBLISHER" ToRole="GAME" />
           <NavigationProperty Name="OVERALLs" Relationship="Self.FK_OVERALL_PUBLISHER" FromRole="PUBLISHER" ToRole="OVERALL" />
-          <NavigationProperty Name="SOFTWAREs" Relationship="Self.FK_SOFTWARE_PUBLISHER" FromRole="PUBLISHER" ToRole="SOFTWARE" />
-        </EntityType>
-        <EntityType Name="SOFTWARE">
-          <Key>
-            <PropertyRef Name="IDSoft" />
-          </Key>
-          <Property Name="IDSoft" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameSoft" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Capacity" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="IDCatSoft" Type="Int32" />
-          <Property Name="IDPublisher" Type="Int32" />
-          <Property Name="IDPlatform" Type="Int32" />
-          <Property Name="IDLanguage" Type="Int32" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
-          <Property Name="Rating" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PicBG" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PicDetail4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CATEGORY_SOFTWARE" Relationship="Self.FK_SOFTWARE_CATEGORYSOFTWARE" FromRole="SOFTWARE" ToRole="CATEGORY_SOFTWARE" />
-          <NavigationProperty Name="LANGUAGE" Relationship="Self.FK_SOFTWARE_LANGUAGE" FromRole="SOFTWARE" ToRole="LANGUAGE" />
-          <NavigationProperty Name="PLATFORM" Relationship="Self.FK_SOFTWARE_PLATFORM" FromRole="SOFTWARE" ToRole="PLATFORM" />
-          <NavigationProperty Name="PUBLISHER" Relationship="Self.FK_SOFTWARE_PUBLISHER" FromRole="SOFTWARE" ToRole="PUBLISHER" />
         </EntityType>
         <Association Name="FK_ORDERINFO_BANK">
           <End Role="BANK" Type="Self.BANK" Multiplicity="1" />
@@ -673,30 +417,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GAME_CATEGORYGAME">
-          <End Role="CATEGORY_GAME" Type="Self.CATEGORY_GAME" Multiplicity="0..1" />
-          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY_GAME">
-              <PropertyRef Name="IDCatGame" />
-            </Principal>
-            <Dependent Role="GAME">
-              <PropertyRef Name="IDCatGame" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SOFTWARE_CATEGORYSOFTWARE">
-          <End Role="CATEGORY_SOFTWARE" Type="Self.CATEGORY_SOFTWARE" Multiplicity="0..1" />
-          <End Role="SOFTWARE" Type="Self.SOFTWARE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORY_SOFTWARE">
-              <PropertyRef Name="IDCatSoft" />
-            </Principal>
-            <Dependent Role="SOFTWARE">
-              <PropertyRef Name="IDCatSoft" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ORDERINFO_CUSTOMER">
           <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
           <End Role="ORDER_INFO" Type="Self.ORDER_INFO" Multiplicity="*" />
@@ -709,42 +429,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GAME_LANGUAGE">
-          <End Role="LANGUAGE" Type="Self.LANGUAGE" Multiplicity="0..1" />
-          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LANGUAGE">
-              <PropertyRef Name="IDLanguage" />
-            </Principal>
-            <Dependent Role="GAME">
-              <PropertyRef Name="IDLanguage" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GAME_PLATFORM">
-          <End Role="PLATFORM" Type="Self.PLATFORM" Multiplicity="0..1" />
-          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLATFORM">
-              <PropertyRef Name="IDPlatform" />
-            </Principal>
-            <Dependent Role="GAME">
-              <PropertyRef Name="IDPlatform" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_GAME_PUBLISHER">
-          <End Role="PUBLISHER" Type="Self.PUBLISHER" Multiplicity="0..1" />
-          <End Role="GAME" Type="Self.GAME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PUBLISHER">
-              <PropertyRef Name="IDPublisher" />
-            </Principal>
-            <Dependent Role="GAME">
-              <PropertyRef Name="IDPublisher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_OVERALL_LANGUAGE">
           <End Role="LANGUAGE" Type="Self.LANGUAGE" Multiplicity="0..1" />
           <End Role="OVERALL" Type="Self.OVERALL" Multiplicity="*" />
@@ -753,18 +437,6 @@
               <PropertyRef Name="IDLanguage" />
             </Principal>
             <Dependent Role="OVERALL">
-              <PropertyRef Name="IDLanguage" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SOFTWARE_LANGUAGE">
-          <End Role="LANGUAGE" Type="Self.LANGUAGE" Multiplicity="0..1" />
-          <End Role="SOFTWARE" Type="Self.SOFTWARE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LANGUAGE">
-              <PropertyRef Name="IDLanguage" />
-            </Principal>
-            <Dependent Role="SOFTWARE">
               <PropertyRef Name="IDLanguage" />
             </Dependent>
           </ReferentialConstraint>
@@ -829,37 +501,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SOFTWARE_PLATFORM">
-          <End Role="PLATFORM" Type="Self.PLATFORM" Multiplicity="0..1" />
-          <End Role="SOFTWARE" Type="Self.SOFTWARE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLATFORM">
-              <PropertyRef Name="IDPlatform" />
-            </Principal>
-            <Dependent Role="SOFTWARE">
-              <PropertyRef Name="IDPlatform" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SOFTWARE_PUBLISHER">
-          <End Role="PUBLISHER" Type="Self.PUBLISHER" Multiplicity="0..1" />
-          <End Role="SOFTWARE" Type="Self.SOFTWARE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PUBLISHER">
-              <PropertyRef Name="IDPublisher" />
-            </Principal>
-            <Dependent Role="SOFTWARE">
-              <PropertyRef Name="IDPublisher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="CitricStoreEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BANKs" EntityType="Self.BANK" />
           <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
-          <EntitySet Name="CATEGORY_GAME" EntityType="Self.CATEGORY_GAME" />
-          <EntitySet Name="CATEGORY_SOFTWARE" EntityType="Self.CATEGORY_SOFTWARE" />
           <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
-          <EntitySet Name="GAMEs" EntityType="Self.GAME" />
           <EntitySet Name="LANGUAGEs" EntityType="Self.LANGUAGE" />
           <EntitySet Name="ORDER_INFO" EntityType="Self.ORDER_INFO" />
           <EntitySet Name="ORDER_PRODUCT" EntityType="Self.ORDER_PRODUCT" />
@@ -867,7 +512,6 @@
           <EntitySet Name="OVERALLs" EntityType="Self.OVERALL" />
           <EntitySet Name="PLATFORMs" EntityType="Self.PLATFORM" />
           <EntitySet Name="PUBLISHERs" EntityType="Self.PUBLISHER" />
-          <EntitySet Name="SOFTWAREs" EntityType="Self.SOFTWARE" />
           <AssociationSet Name="FK_ORDERINFO_BANK" Association="Self.FK_ORDERINFO_BANK">
             <End Role="BANK" EntitySet="BANKs" />
             <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
@@ -876,37 +520,13 @@
             <End Role="CATEGORY" EntitySet="CATEGORies" />
             <End Role="OVERALL" EntitySet="OVERALLs" />
           </AssociationSet>
-          <AssociationSet Name="FK_GAME_CATEGORYGAME" Association="Self.FK_GAME_CATEGORYGAME">
-            <End Role="CATEGORY_GAME" EntitySet="CATEGORY_GAME" />
-            <End Role="GAME" EntitySet="GAMEs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SOFTWARE_CATEGORYSOFTWARE" Association="Self.FK_SOFTWARE_CATEGORYSOFTWARE">
-            <End Role="CATEGORY_SOFTWARE" EntitySet="CATEGORY_SOFTWARE" />
-            <End Role="SOFTWARE" EntitySet="SOFTWAREs" />
-          </AssociationSet>
           <AssociationSet Name="FK_ORDERINFO_CUSTOMER" Association="Self.FK_ORDERINFO_CUSTOMER">
             <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
             <End Role="ORDER_INFO" EntitySet="ORDER_INFO" />
           </AssociationSet>
-          <AssociationSet Name="FK_GAME_LANGUAGE" Association="Self.FK_GAME_LANGUAGE">
-            <End Role="LANGUAGE" EntitySet="LANGUAGEs" />
-            <End Role="GAME" EntitySet="GAMEs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GAME_PLATFORM" Association="Self.FK_GAME_PLATFORM">
-            <End Role="PLATFORM" EntitySet="PLATFORMs" />
-            <End Role="GAME" EntitySet="GAMEs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_GAME_PUBLISHER" Association="Self.FK_GAME_PUBLISHER">
-            <End Role="PUBLISHER" EntitySet="PUBLISHERs" />
-            <End Role="GAME" EntitySet="GAMEs" />
-          </AssociationSet>
           <AssociationSet Name="FK_OVERALL_LANGUAGE" Association="Self.FK_OVERALL_LANGUAGE">
             <End Role="LANGUAGE" EntitySet="LANGUAGEs" />
             <End Role="OVERALL" EntitySet="OVERALLs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SOFTWARE_LANGUAGE" Association="Self.FK_SOFTWARE_LANGUAGE">
-            <End Role="LANGUAGE" EntitySet="LANGUAGEs" />
-            <End Role="SOFTWARE" EntitySet="SOFTWAREs" />
           </AssociationSet>
           <AssociationSet Name="FK_ORDERINFO_ORDERSTATUS" Association="Self.FK_ORDERINFO_ORDERSTATUS">
             <End Role="ORDER_STATUS" EntitySet="ORDER_STATUS" />
@@ -928,15 +548,7 @@
             <End Role="PUBLISHER" EntitySet="PUBLISHERs" />
             <End Role="OVERALL" EntitySet="OVERALLs" />
           </AssociationSet>
-          <AssociationSet Name="FK_SOFTWARE_PLATFORM" Association="Self.FK_SOFTWARE_PLATFORM">
-            <End Role="PLATFORM" EntitySet="PLATFORMs" />
-            <End Role="SOFTWARE" EntitySet="SOFTWAREs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SOFTWARE_PUBLISHER" Association="Self.FK_SOFTWARE_PUBLISHER">
-            <End Role="PUBLISHER" EntitySet="PUBLISHERs" />
-            <End Role="SOFTWARE" EntitySet="SOFTWAREs" />
-          </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -954,24 +566,9 @@
           <EntitySetMapping Name="CATEGORies">
             <EntityTypeMapping TypeName="CitricStoreModel.CATEGORY">
               <MappingFragment StoreEntitySet="CATEGORY">
+                <ScalarProperty Name="SoftOrGame" ColumnName="SoftOrGame" />
                 <ScalarProperty Name="IDCat" ColumnName="IDCat" />
                 <ScalarProperty Name="NameCat" ColumnName="NameCat" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CATEGORY_GAME">
-            <EntityTypeMapping TypeName="CitricStoreModel.CATEGORY_GAME">
-              <MappingFragment StoreEntitySet="CATEGORY_GAME">
-                <ScalarProperty Name="IDCatGame" ColumnName="IDCatGame" />
-                <ScalarProperty Name="NameCatGame" ColumnName="NameCatGame" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CATEGORY_SOFTWARE">
-            <EntityTypeMapping TypeName="CitricStoreModel.CATEGORY_SOFTWARE">
-              <MappingFragment StoreEntitySet="CATEGORY_SOFTWARE">
-                <ScalarProperty Name="IDCatSoft" ColumnName="IDCatSoft" />
-                <ScalarProperty Name="NameCatSoft" ColumnName="NameCatSoft" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -986,28 +583,6 @@
                 <ScalarProperty Name="LogPass" ColumnName="LogPass" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GAMEs">
-            <EntityTypeMapping TypeName="CitricStoreModel.GAME">
-              <MappingFragment StoreEntitySet="GAME">
-                <ScalarProperty Name="IDGame" ColumnName="IDGame" />
-                <ScalarProperty Name="NameGame" ColumnName="NameGame" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-                <ScalarProperty Name="IDCatGame" ColumnName="IDCatGame" />
-                <ScalarProperty Name="IDPublisher" ColumnName="IDPublisher" />
-                <ScalarProperty Name="IDPlatform" ColumnName="IDPlatform" />
-                <ScalarProperty Name="IDLanguage" ColumnName="IDLanguage" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="PicBG" ColumnName="PicBG" />
-                <ScalarProperty Name="PicDetail1" ColumnName="PicDetail1" />
-                <ScalarProperty Name="PicDetail2" ColumnName="PicDetail2" />
-                <ScalarProperty Name="PicDetail3" ColumnName="PicDetail3" />
-                <ScalarProperty Name="PicDetail4" ColumnName="PicDetail4" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1058,6 +633,7 @@
           <EntitySetMapping Name="OVERALLs">
             <EntityTypeMapping TypeName="CitricStoreModel.OVERALL">
               <MappingFragment StoreEntitySet="OVERALL">
+                <ScalarProperty Name="LinkTai" ColumnName="LinkTai" />
                 <ScalarProperty Name="IDOverall" ColumnName="IDOverall" />
                 <ScalarProperty Name="NameOverall" ColumnName="NameOverall" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1091,28 +667,6 @@
               <MappingFragment StoreEntitySet="PUBLISHER">
                 <ScalarProperty Name="IDPublisher" ColumnName="IDPublisher" />
                 <ScalarProperty Name="NamePublisher" ColumnName="NamePublisher" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SOFTWAREs">
-            <EntityTypeMapping TypeName="CitricStoreModel.SOFTWARE">
-              <MappingFragment StoreEntitySet="SOFTWARE">
-                <ScalarProperty Name="IDSoft" ColumnName="IDSoft" />
-                <ScalarProperty Name="NameSoft" ColumnName="NameSoft" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
-                <ScalarProperty Name="IDCatSoft" ColumnName="IDCatSoft" />
-                <ScalarProperty Name="IDPublisher" ColumnName="IDPublisher" />
-                <ScalarProperty Name="IDPlatform" ColumnName="IDPlatform" />
-                <ScalarProperty Name="IDLanguage" ColumnName="IDLanguage" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="PicBG" ColumnName="PicBG" />
-                <ScalarProperty Name="PicDetail1" ColumnName="PicDetail1" />
-                <ScalarProperty Name="PicDetail2" ColumnName="PicDetail2" />
-                <ScalarProperty Name="PicDetail3" ColumnName="PicDetail3" />
-                <ScalarProperty Name="PicDetail4" ColumnName="PicDetail4" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,11 +1,9 @@
 ﻿@using CitricStore.Models
-
-
-
-@foreach(var ud in Model)
+@foreach (var ud in Model)
 {
-    <div style="color:white;" class="dropdown-toggle">
-        <img style="width:100px; height:50px" src="~/Images/OVERALL/@ud.PicBG" />
-        Tên Ứng Dụng: @ud.NameOverall
-    </div>
+        <img style="width:150px; height:100px" src="~/Images/OVERALL/@ud.PicBG" />
+        <br />
+        <div>
+            @ud.NameOverall
+        </div>
 }

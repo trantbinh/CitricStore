@@ -10,32 +10,31 @@ namespace CitricStore.Models
 
         CitricStoreEntities db = new CitricStoreEntities();
 
-        public int MaUngDung { get; set; }
-        public string TenUngDung { get; set; }
+        public int IDApp { get; set; }
+        public string NameApp { get; set; }
         public string PicBG { get; set; }
         public decimal Price { get; set; }
-        public int SoLuong { get; set; }
-        public string LoaiUngDung { get; set; }
+        public int Quantity { get; set; }
+        public string SoftOrGame { get; set; }
 
-        //Tính thành tiền = DongGia * SoLuong
         public decimal FinalPrice()
         {
-            return SoLuong * Price;
+            return Quantity * Price;
         }
         public CartItem(int MaUD)
         {
-            this.MaUngDung = MaUD;
+            this.IDApp = MaUD;
 
             var ud = db.OVERALLs.Single(s => s.IDOverall == MaUD);
-            this.TenUngDung = ud.NameOverall;
+            this.NameApp = ud.NameOverall;
 
             this.PicBG = ud.PicBG;
 
             this.Price = (decimal)ud.Price;
 
-            this.SoLuong = 1;
+            this.Quantity = 1;
 
-            this.LoaiUngDung = ud.SoftOrGame ;
+            this.SoftOrGame = ud.SoftOrGame ;
         }
 
     }

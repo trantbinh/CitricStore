@@ -17,19 +17,13 @@ namespace CitricStore.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LANGUAGE()
         {
-            this.GAMEs = new HashSet<GAME>();
             this.OVERALLs = new HashSet<OVERALL>();
-            this.SOFTWAREs = new HashSet<SOFTWARE>();
         }
     
         public int IDLanguage { get; set; }
         public string NameLanguage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GAME> GAMEs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OVERALL> OVERALLs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SOFTWARE> SOFTWAREs { get; set; }
     }
 }

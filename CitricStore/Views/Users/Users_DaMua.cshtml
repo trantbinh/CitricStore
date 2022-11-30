@@ -33,29 +33,18 @@
     <div style="color:white; font-size:18px;">
         @foreach (var item in Model)
         {
-            <table>
-                <tr>
-                    <td>
                         @Html.Action("DaMua_Product", "Users", new { idor = item.IDOrder })
-                        
-                    </td>
-                </tr>
-            </table>
             <hr />
         }
     </div>
-
 </div>
 
 <br />
-<div style="color: aliceblue">
-
+<div style="color: white">
     Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
 
 </div>
-
-<div style="color: aliceblue;" class="pagecolor">
-
+<div style="color: white;" class="pagecolor">
     @Html.PagedListPager(Model, page => Url.Action("Users_DaMua", null, new { page}))
 </div>
 
