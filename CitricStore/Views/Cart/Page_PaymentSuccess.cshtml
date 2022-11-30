@@ -1,12 +1,30 @@
 ﻿
 @{
-    ViewBag.Title = "Page_PaymentSuccess";
+    ViewBag.Title = "Thanh toán thành công";
     Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
 }
+<link rel="stylesheet" href="~/Content/User.css" />
 
-<div class="container" style="color:white; text-align:center; min-height:900px; font-size:45px; margin-top:50px;">
-    <h2>Bạn đã thanh toán thành công!</h2>
+<div class="container col-lg-10 col-md-12" style="color:white; text-align:center;">
+    <h2 style="font-size: 45px; margin-top: 50px;">Thanh toán thành công!</h2>
+    <p style=" text-align:center; font-size:30px; margin-top:50px;"> Chúng tôi sẽ bàn giao ứng dụng đến tài khoản của bạn trong thời gian sớm nhất.</p>
 
+    <h2 style="margin-top:50px;">   Cảm ơn bạn đã lựa chọn CitricStore!  </h2>
+
+    <p style="margin-top:20px;">Mọi chi tiết thắc mắc vui lòng liên hệ qua: <strong>citricstore@gmail.com</strong> </p>
+
+
+
+
+
+
+    <div class="row justify-content-center" style="margin-top:80px;">
+    <a class="continue" href="@Url.Action("Index","CitricStore")">
+
+
+        Tiếp tục mua sắm
+    </a>
+    </div>
 
 </div>
 

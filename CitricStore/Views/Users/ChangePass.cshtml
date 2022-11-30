@@ -1,0 +1,53 @@
+﻿@model CitricStore.Models.CUSTOMER
+
+@{
+    ViewBag.Title = "ChangePass";
+    Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/User.css" />
+
+<div class="container col-lg-6 col-md-10 col-sm-12" style="margin:0px auto;">
+    <h2 class="title">ĐỔI MẬT KHẨU</h2>
+    <h2 style="color: #FCAE03; margin: 0px auto; font-size: 20px; text-align:center">@ViewBag.ThongBao</h2>
+
+    <div style="color:white; font-size:18px;">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IDCus)
+            @Html.HiddenFor(model => model.LogName)
+            @Html.HiddenFor(model => model.EmailCus)
+            @Html.HiddenFor(model => model.Sex)
+            @Html.HiddenFor(model => model.PhoneCus)
+            @Html.HiddenFor(model => model.NameCus)
+            @Html.HiddenFor(model => model.Birthday)
+
+
+            <div style="margin-top:15px; margin-bottom:5px;">
+                <strong>Tên đăng nhập:</strong> @Model.LogName
+            </div>
+
+            <div class="resetpass">
+                <strong>Mật khẩu:</strong>
+
+                <div class="col-md-12">
+                    <input type="password" class="form-control" id="pass" name="LogPass" required>
+
+                    @Html.ValidationMessageFor(model => model.LogPass, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <input type="submit" value="Lưu" class="btn btn-dark" style="width:30%; margin-top:10px; " />
+            </div>
+
+        </div>
+        }
+    </div>
+</div>

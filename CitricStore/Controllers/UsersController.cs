@@ -104,7 +104,7 @@ namespace CitricStore.Controllers
                     }
                     else
                     {
-                        ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                        ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng!";
                     }
 
                 }
@@ -146,13 +146,28 @@ namespace CitricStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditInfo([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Ngáyinh,EmailCus,Daduyet,Sex")] CUSTOMER kh)
+        public ActionResult EditInfo([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Birthday,EmailCus,Sex")] CUSTOMER kh)
         {
             if (ModelState.IsValid)
             {
-                database.Entry(kh).State = EntityState.Modified;
-                database.SaveChanges();
-                return RedirectToAction("ViewInfo","Users", new { idkh = Session["IDCus"] });
+                var cusDB = database.CUSTOMERs.FirstOrDefault(c => c.IDCus == kh.IDCus);
+                if (cusDB != null)
+                {
+                    cusDB.NameCus = kh.NameCus;
+                    cusDB.PhoneCus = kh.PhoneCus;
+                    cusDB.LogPass = kh.LogPass;
+                    cusDB.Birthday = kh.Birthday;
+                    cusDB.EmailCus = kh.EmailCus;
+                    cusDB.Sex = kh.Sex;
+                }
+                    //var logmail = database.CUSTOMERs.FirstOrDefault(m => m.EmailCus == kh.EmailCus);
+                    //if (logmail != null)
+                    //    ModelState.AddModelError(string.Empty, "Đã tồn tại email này!");
+
+
+                    database.SaveChanges();
+                    return RedirectToAction("ViewInfo", "Users", new { idkh = Session["IDCus"] });
+
             }
             return View(kh);
         }
@@ -175,8 +190,7 @@ namespace CitricStore.Controllers
         }
 
         [HttpPost]
-
-        public ActionResult FogotPass( CUSTOMER kh)
+        public ActionResult FogotPass(CUSTOMER kh)
         {
             if (ModelState.IsValid)
             {
@@ -234,23 +248,74 @@ namespace CitricStore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ResetPass([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Ngáyinh,EmailCus,Daduyet,Sex")] CUSTOMER kh)
+        public ActionResult ResetPass([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Birthday,EmailCus,Daduyet,Sex")] CUSTOMER kh)
         {
             if (ModelState.IsValid)
             {
-                database.Entry(kh).State = EntityState.Modified;
-                database.SaveChanges();
+                var pas = database.CUSTOMERs.FirstOrDefault(p => p.IDCus == kh.IDCus);
+                if(kh.LogPass != pas.LogPass)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        pas.LogPass = kh.LogPass;
+                        database.SaveChanges();
+                        ViewBag.ThongBao = "Đổi mật khẩu thành công!";
+                    }
 
-                ViewBag.ThongBao = "Đổi mật khẩu thành công!";
+                }
+                else
+                {
+                    ViewBag.ThongBao = "Vui lòng nhập mật khẩu mới!";
+                }
             }
             return View(kh);
         }
 
 
 
-        //Đơn đã mua
+        //Đổi mật khẩu
+        public ActionResult ChangePass(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CUSTOMER kh = database.CUSTOMERs.Find(id);
+            if (kh == null)
+            {
+                return HttpNotFound();
+            }
+            return View(kh);
 
-       
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePass([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Birthday,EmailCus,Daduyet,Sex")] CUSTOMER kh)
+        {
+            if (ModelState.IsValid)
+            {
+                var pas = database.CUSTOMERs.FirstOrDefault(p => p.IDCus == kh.IDCus);
+                if (kh.LogPass != pas.LogPass)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        pas.LogPass = kh.LogPass;
+                        database.SaveChanges();
+                        ViewBag.ThongBao = "Đổi mật khẩu thành công!";
+                    }
+
+                }
+                else
+                {
+                    ViewBag.ThongBao = "Vui lòng nhập mật khẩu mới!";
+                }
+            }
+            return View(kh);
+        }
+
+
+
 
         private List<ORDER_INFO> DonHang(int idkh)
         {

@@ -1,10 +1,9 @@
-﻿@model CitricStore.Models.CATEGORY
+﻿@model CitricStore.Models.BANK
 
 @{
-    ViewBag.Title = "Xoá";
+    ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
-
 
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/Input.css" />
@@ -18,8 +17,8 @@
 
 
 
-        <strong>Tên: </strong>
-        @Html.DisplayFor(model => model.NameCat)
+        <strong>Tên hệ điều hành: </strong>
+        @Html.DisplayFor(model => model.NameBank)
     </div>
     @using (Html.BeginForm())
     {

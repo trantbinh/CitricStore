@@ -25,15 +25,15 @@
 <body style="background-color:rgb(18,18,18)" id="body-container">
     <header id="header" class="container-fluid">
         <div class="row">
-            <div class="col-lg-1 col-md-1 d-flex justify-content-center" style="align-items:center;">
+            <div class="col-lg-1 col-md-1 col-sm-1 d-flex justify-content-center" style="align-items:center;">
                 <img src="~/Images/LOGO/LOGO_Black.png" alt="Citric Logo" style="width:50px; height:50px;" />
             </div>
-            <div class="tenweb col-lg-1 col-md-1">
+            <div class="tenweb col-lg-1 col-md-2 col-sm-3">
                 <img src="~/Images/LOGO/CITRICSTORE.png" alt="Citric" style="width:auto; height:100px; margin-top:-18px; margin-left:-50px" />
             </div>
 
 
-            <div class="header-left-container col-lg-6 col-md-5">
+            <div class="header-left-container col-lg-6 col-md-6">
                 <ul class="header-left">
                     <li class="header-left-name" style="margin-left:50px;">
                         <div class="dropdown">
@@ -45,8 +45,8 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu"
-                                 style=" border: none;     background-color: #FCAE03; animation:none;transition:none">
-                                <a href="@Url.Action("Index","InputDataAPP")" class=" dropdown-item">
+                                 style=" border: none; background-color: #FCAE03; animation:none;transition:none">
+                                <a href="@Url.Action("Index","InputDataSOFTWARE")" class=" dropdown-item">
                                     Phần mềm
                                 </a>
                                 <a href="@Url.Action("Index","InputDataGAME")" class=" dropdown-item">
@@ -64,8 +64,8 @@
                                 <a href="@Url.Action("Index","InputDataTHELOAI")" class=" dropdown-item">
                                     Thể loại
                                 </a>
-                                <a href="@Url.Action("Index","InputOVERALL")" class=" dropdown-item">
-                                    Overall
+                                <a href="@Url.Action("Index","InputDataBANK")" class=" dropdown-item">
+                                    Ngân hàng
                                 </a>
 
                             </div>
@@ -73,7 +73,7 @@
                     </li>
 
                     <li class="header-left-name" style="margin-left:50px; text-align:left; width:190px;">
-                        <a href="@Url.Action("Order_KiemTraDonHang")" style="text-decoration: none; color: black;">
+                        <a href="@Url.Action("Order_KiemTraDonHang","Admin")" style="text-decoration: none; color: black;">
                             KIỂM TRA ĐƠN HÀNG
 
                         </a>
@@ -82,15 +82,14 @@
                     </li>
 
                     <li class="header-left-name" style=" text-align: left; width: 250px; ">
-                        <a href="@Url.Action("Customer_ThongTinKhachHang")" style="text-decoration: none; color: black">
+                        <a href="@Url.Action("Customer_ThongTinKhachHang","Admin")" style="text-decoration: none; color: black">
                             THÔNG TIN KHÁCH HÀNG
-
                         </a>
                     </li>
 
                 </ul>
             </div>
-            <div class="header-right-container col-lg-4 col-md-5" style="font-size:16px;">
+            <div class="header-right-container col-lg-4 col-md-3" style="font-size:16px;">
                 <ul class="header-right">
                     <li class="header-right-name">
                         @if (Session["TaiKhoan"] != null)
@@ -133,30 +132,20 @@
 
     </div>
 
-    <footer id="footer" class="container-fluid">
+    <footer id="footer" class="container-fluid" style="">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 justify-content-center" style="align-items:center;">
+                <div class="col-lg-5 col-md-5 justify-content-center" style="align-items:center;">
 
                     <img src="~/Images/LOGO/LOGO_Black.png" alt="Citric Logo" style="width:50px; height:50px;margin-top:50px" />
                     <br />
                     <img src="~/Images/LOGO/CITRICSTORE.png" alt="Citric" style="width:auto; height:100px; margin-top:-20px" />
                 </div>
-                <div class="col-lg-3 col-md-5 d-flex justify-content-center justify-content-lg-between" style="align-self:center">
+                <div class="col-lg-5 col-md-5 d-flex justify-content-center justify-content-lg-between" style="align-self:center">
                     <p>
                         <strong>Citric Store</strong>
                         là một trình duyệt dùng để tìm kiếm và tải các ứng dụng tiện ích, miễn phí. Nơi gợi ý, cung cấp thông tin, chức năng về các ứng dụng đến người dùng.
                     </p>
-                </div>
-                <div class="col-lg-3 col-md-3" style="margin-top:25px;">
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2">
-                            <a href="#" class="nav-link p-0 text-muted">Cửa hàng</a>
-                        </li>
-                        <li class="nav-item mb-2"><a style="color: black" href="#" class="nav-link p-0 text-muted">Câu hỏi thường gặp</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Hỗ trợ</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Ngôn ngữ</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

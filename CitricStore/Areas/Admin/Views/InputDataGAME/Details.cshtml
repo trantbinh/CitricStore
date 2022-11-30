@@ -6,136 +6,158 @@
 }
 
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
+<style>
+    td {
+        text-align: center;
+        padding-bottom: 10px;
+    }
+</style>
 
-<div class="container" style="margin: 10px auto; width:100%; align-items:center">
+<div class="container" style="margin: 10px auto;">
 
-    <h2 style="text-align: center; color:white">DỮ LIỆU TRÒ CHƠI (GAME)</h2>
+    <h2 class="title">DỮ LIỆU TRÒ CHƠI (GAME)</h2>
 
     <h3 style="text-align: center; color: white">CHI TIẾT</h3>
+    <div class="row">
+        <div class="col-2"></div>
+        <table class="table align-middle col-8" style="color: white; width: 70%; table-layout: fixed;word-break: break-word; font-size:20px;">
+            <tr>
+                <td>
+                    <strong>Tên: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.NameGame)
+                </td>
 
-    <div>
-        <dl class="dl-horizontal" style="color: white">
-            <dt>
-                Tên:
-            </dt>
+            </tr>
 
-            <dd>
-                @Html.DisplayFor(model => model.NameGame)
-            </dd>
+            <tr>
+                <td>
+                    <strong>Giới thiệu: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Description)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Dung lượng: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Capacity) MB
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Đơn giá: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Price)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Ngày cập nhật: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.UpdateDate)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Đánh giá:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Rating)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hệ điều hành:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PLATFORM.NamePlatform)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Ngôn ngữ:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.LANGUAGE.NameLanguage)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Nhà phát hành:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PUBLISHER.NamePublisher)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Thể loại:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CATEGORY_GAME.NameCatGame)
+                </td>
+            </tr>
 
-            <dt>
-                Giới thiệu:
-            </dt>
+            <tr>
+                <td>
+                    <strong>Hình nền:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/GAME/@Model.PicBG" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 1:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/GAME/@Model.PicDetail1" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 2:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/GAME/@Model.PicDetail2" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 3:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/GAME/@Model.PicDetail3" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 4:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/GAME/@Model.PicDetail4" style="width:300px; height:180px" />
+                </td>
+            </tr>
 
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
+            <tr>
+                <td colspan="2">
+                    @Html.ActionLink("Sửa", "Edit", new { id = Model.IDGame }, new { @class = "btn btn-dark edit-btn" }) |
 
-            <dt>
-                Dung lượng:
-            </dt>
+                    @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
 
-            <dd>
-                @Html.DisplayFor(model => model.Capacity)
-            </dd>
-            <dt>
-                Đơn giá:
-            </dt>
+                </td>
+            </tr>
 
-            <dd>
-                @Html.DisplayFor(model => model.Price)
-            </dd>
+        </table>
 
-            <dt>
-                Ngày cập nhật:
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.UpdateDate)
-            </dd>
-
-            <dt>
-                Đánh giá:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Rating)
-            </dd>
-            <dt>
-                Hệ điều hành:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.PLATFORM.NamePlatform)
-            </dd>
-
-            <dt>
-                Ngôn ngữ:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.LANGUAGE.NameLanguage)
-            </dd>
-
-            <dt>
-                Nhà phát hành:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.PUBLISHER.NamePublisher)
-            </dd>
-
-            <dt>
-                Thể loại:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.CATEGORY_GAME.NameCatGame)
-            </dd>
-
-            <dt>
-                Hình Nền
-            </dt>
-
-            <dd>
-                <img src="~/Images/GAME/@Model.PicBG" style="width:600px; height:300px" />
-            </dd>
-
-            <dt>
-                Hình chi tiết 1
-            </dt>
-
-            <dd>
-                <img src="~/Images/GAME/@Model.PicDetail1" style="width:600px; height:300px" />
-            </dd>
-
-            <dt>
-                Hình chi tiết 2
-            </dt>
-
-            <dd>
-                <img src="~/Images/GAME/@Model.PicDetail2" style="width:600px; height:300px" />
-            </dd>
-
-            <dt>
-                Hình chi tiết 3
-            </dt>
-
-            <dd>
-                <img src="~/Images/GAME/@Model.PicDetail3" style="width:600px; height:300px" />
-            </dd>
-
-            <dt>
-                Hình chi tiết 4
-            </dt>
-
-            <dd>
-                <img src="~/Images/GAME/@Model.PicDetail4" style="width:600px; height:300px" />
-            </dd>
-        </dl>
+        <div class="col-2"></div>
     </div>
-    <p>
-        @Html.ActionLink("Sửa", "Edit", new { id = Model.IDGame }, new { @class = "btn btn-success" }) |
-        @Html.ActionLink("Quay về trang tổng hợp", "Index")
-    </p>
-    </div>
+</div>

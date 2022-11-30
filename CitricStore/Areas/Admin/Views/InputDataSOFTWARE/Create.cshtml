@@ -1,30 +1,29 @@
-﻿@model CitricStore.Models.GAME
+﻿@model CitricStore.Models.SOFTWARE
 
 @{
     ViewBag.Title = "Tạo mới";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
-
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/Input.css" />
 
 <div class="container col-lg-6 col-md-10" style="margin: 0px auto; align-items:center">
 
-    <h2 class="title">DỮ LIỆU TRÒ CHƠI(GAME)</h2>
+    <h2 class="title">DỮ LIỆU PHẦN MỀM (APP)</h2>
 
     <h3 style="text-align: center; color: white">TẠO MỚI</h3>
 
-    @using (Html.BeginForm("Create", "InputDataGAME", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Create", "InputDataSOFTWARE", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
 <div class="form-horizontal" style="color: white; font-size:20px;">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        Tên trò chơi:
+        Tên phần mềm:
         <div class="col-md-12">
-            @Html.EditorFor(model => model.NameGame, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NameGame, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.NameSoft, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NameSoft, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -52,12 +51,11 @@
         </div>
     </div>
 
-
     <div class="form-group">
         Thể loại:
         <div class="col-md-12">
-            @Html.DropDownList("IDCatGame", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.IDCatGame, "", new { @class = "text-danger" })
+            @Html.DropDownList("IDCatSoft", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IDCatSoft, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -101,7 +99,6 @@
         </div>
     </div>
 
-
     <div class="form-group">
         Hình Nền
         <div class="col-md-12">
@@ -125,7 +122,7 @@
 
     <div class="form-group">
         Hình chi tiết 2
-        <div class="col-md-12">
+        <div class="col-md-10">
             <img id="preview2" class="d-none" src="#" width="300" height="200" />
             <input type="file" name="PicDetail2" accept="image/*" id="fileImageCT2" />
             @Html.ValidationMessageFor(model => model.PicDetail2, "", new { @class = "text-danger" })
@@ -134,7 +131,7 @@
 
     <div class="form-group">
         Hình chi tiết 3
-        <div class="col-md-12">
+        <div class="col-md-10">
             <img id="preview3" class="d-none" src="#" width="300" height="200" />
             <input type="file" name="PicDetail3" accept="image/*" id="fileImageCT3" />
             @Html.ValidationMessageFor(model => model.PicDetail3, "", new { @class = "text-danger" })
@@ -143,24 +140,29 @@
 
     <div class="form-group">
         Hình chi tiết 4
-        <div class="col-md-12">
+        <div class="col-md-10">
             <img id="preview4" class="d-none" src="#" width="300" height="200" />
             <input type="file" name="PicDetail4" accept="image/*" id="fileImageCT4" />
             @Html.ValidationMessageFor(model => model.PicDetail4, "", new { @class = "text-danger" })
         </div>
     </div>
+
+
     <div class="form-group" style="margin-top:30px; margin-bottom:20px;">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <input type="submit" value="Tạo mới" class="btn btn-info" style="font-size:20px; font-weight:500; width:20%" /> |
             @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
         </div>
     </div>
 </div>
     }
-
 </div>
 
 <script src="~/Scripts/UploadImage.js"></script>
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

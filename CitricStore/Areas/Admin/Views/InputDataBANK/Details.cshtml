@@ -1,4 +1,4 @@
-﻿@model CitricStore.Models.LANGUAGE
+﻿@model CitricStore.Models.BANK
 
 @{
     ViewBag.Title = "Details";
@@ -15,21 +15,16 @@
 
 <div class="container" style="margin: 10px auto; ">
 
-
-    <h2 style="text-align: center; color:white">DỮ LIỆU NGÔN NGỮ</h2>
+    <h2 class="title">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
 
     <h3 style="text-align: center; color: white">CHI TIẾT</h3>
 
-
     <div class="platform">
-
-
-
-        <strong>Tên ngôn ngữ: </strong>
-        @Html.DisplayFor(model => model.NameLanguage)
+        <strong>Tên ngân hàng: </strong>
+        @Html.DisplayFor(model => model.NameBank)
     </div>
     <p>
-        @Html.ActionLink("Sửa", "Edit", new { id = Model.IDLanguage}, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IDBank }, new { @class = "btn btn-success" }) |
         @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
     </p>
 </div>

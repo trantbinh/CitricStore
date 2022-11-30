@@ -127,7 +127,7 @@ namespace CitricStore.Controllers
         [HttpGet]
         public ActionResult Page_Payment()
         {
-            ViewBag.IDBank = new SelectList(db.BANKs, "IDBank", "BankName");
+            ViewBag.IDBank = new SelectList(db.BANKs, "IDBank", "NameBank");
 
             return View();
         }
@@ -135,7 +135,7 @@ namespace CitricStore.Controllers
         [HttpPost]
         public ActionResult Page_Payment(ORDER_INFO or)
         {
-            ViewBag.IDBank = new SelectList(db.BANKs, "IDBank", "BankName");
+            ViewBag.IDBank = new SelectList(db.BANKs, "IDBank", "NameBank");
             var tongtien = GetTotalPrice();
             if (ModelState.IsValid)
             {
@@ -148,6 +148,7 @@ namespace CitricStore.Controllers
                     or.DateOrder = DateTime.Now;
                     or.IDCus = int.Parse(Session["IDCus"].ToString());
                     or.TotalPrice = tongtien;
+                    or.IDSttOrder = 1;
                     db.ORDER_INFO.Add(or);
                     db.SaveChanges();
 

@@ -1,20 +1,14 @@
 ﻿@model CitricStore.Models.CUSTOMER
 
 @{
-    ViewBag.Title = "FogotPass";
+    ViewBag.Title = "Quên mật khẩu";
     Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/User.css" />
 
-<style>
-    .ThanhVien {
-        color: aliceblue;
-    }
-</style>
-
-<div class="login-container col-lg-5 col-md-11" style="margin:0px auto;">
-    <h2 style="text-align: center; color:white">QUÊN MẬT KHẨU ?</h2>
+<div class="col-lg-6 col-md-10 col-sm-12" style="margin:0px auto;">
+    <h2 class="title">QUÊN MẬT KHẨU ?</h2>
     <h2 style="color: #FCAE03; margin: 0px auto; font-size: 20px;">@ViewBag.ThongBao</h2>
 
     <div style="color:white; font-size:18px;">
@@ -28,14 +22,14 @@
             </div>
             <div class="mb-3 mt-3">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" name="Email" required>
+                <input type="email" class="form-control" id="email" name="EmailCus" required>
             </div>
 
-            <div class="row">
+            <div class="row justify-content-center">
 
-                <button type="submit" class="btn btn-dark">Đặt lại mật khẩu</button>
+                <button type="submit" class="btn btn-dark" style="width:50%; margin-top:5px; margin-bottom:10px;">Đặt lại mật khẩu</button>
 
-                @Html.ActionLink("Quay về trang đăng nhập", "Login", "Users",null, new {@class = "comebacklogin"})
+                @Html.ActionLink("Đăng nhập", "Login", "Users",null, new {@class = "comebacklogin"})
 
 
             </div>

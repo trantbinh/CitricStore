@@ -11,20 +11,20 @@ using CitricStore.Models;
 
 namespace CitricStore.Areas.Admin.Controllers
 {
-    public class InputDataAPPController : Controller
+    public class InputDataSOFTWAREController : Controller
     {
 
         private CitricStoreEntities db = new CitricStoreEntities();
 
 
-        // GET: Admin/InputDataAPP
+        // GET: Admin/InputDataSOFTWARE
         public ActionResult Index()
         {
             var aPPs = db.SOFTWAREs.Include(a => a.PLATFORM).Include(a => a.LANGUAGE).Include(a => a.PUBLISHER).Include(a => a.CATEGORY_SOFTWARE);
             return View(aPPs.ToList());
         }
 
-        // GET: Admin/InputDataAPP/Details/5
+        // GET: Admin/InputDataSOFTWARE/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,7 +39,7 @@ namespace CitricStore.Areas.Admin.Controllers
             return View(aPP);
         }
 
-        // GET: Admin/InputDataAPP/Create
+        // GET: Admin/InputDataSOFTWARE/Create
         public ActionResult Create()
         {
             ViewBag.IDPlatform = new SelectList(db.PLATFORMs, "IDPlatform", "NamePlatform");
@@ -49,7 +49,7 @@ namespace CitricStore.Areas.Admin.Controllers
             return View();
         }
 
-        // POST: Admin/InputDataAPP/Create
+        // POST: Admin/InputDataSOFTWARE/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -116,7 +116,7 @@ namespace CitricStore.Areas.Admin.Controllers
             return View(aPP);
         }
 
-        // GET: Admin/InputDataAPP/Edit/5
+        // GET: Admin/InputDataSOFTWARE/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -135,7 +135,7 @@ namespace CitricStore.Areas.Admin.Controllers
             return View(aPP);
         }
 
-        // POST: Admin/InputDataAPP/Edit/5
+        // POST: Admin/InputDataSOFTWARE/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -215,7 +215,7 @@ namespace CitricStore.Areas.Admin.Controllers
             return View(sOFTWARE);
         }
 
-        // GET: Admin/InputDataAPP/Delete/5
+        // GET: Admin/InputDataSOFTWARE/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -230,7 +230,7 @@ namespace CitricStore.Areas.Admin.Controllers
             return View(aPP);
         }
 
-        // POST: Admin/InputDataAPP/Delete/5
+        // POST: Admin/InputDataSOFTWARE/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

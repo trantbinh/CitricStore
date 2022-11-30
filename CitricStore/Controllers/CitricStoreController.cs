@@ -126,43 +126,8 @@ namespace CitricStore.Controllers
                     apps = apps.OrderBy(s => s.IDSoft);
                     break;
             } 
-            return View(apps.ToList());
+            return View(apps);
         }
-
-
-        //FILTER
-        public ActionResult Page_App_Filter_NgonNgu(int idnn, string sortOrder)
-        {
-            ViewBag.RateSortParm = String.IsNullOrEmpty(sortOrder) ? "rate_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            var apps = from s in database.SOFTWAREs
-                       where s.IDLanguage == idnn
-                       select s;
-            switch (sortOrder)
-            {
-                case "rate_desc":
-                    apps = apps.OrderByDescending(s => s.Rating);
-                    break;
-                case "Date":
-                    apps = apps.OrderBy(s => s.UpdateDate);
-                    break;
-                case "date_desc":
-                    apps = apps.OrderByDescending(s => s.UpdateDate);
-                    break;
-                default:
-                    apps = apps.OrderBy(s => s.IDSoft);
-                    break;
-            }
-
-            return View(apps.ToList()) ;
-        }
-
-        public ActionResult Page_App_Filter_NgonNguDropDown()
-        {
-            var nn = database.LANGUAGEs.ToList();
-            return PartialView(nn);
-        }
-
 
 
 
@@ -210,13 +175,6 @@ namespace CitricStore.Controllers
             var dsNPH = database.SOFTWAREs.Where(ud => ud.IDCatSoft == idtheloai).ToList();
             return PartialView(dsNPH);
         }
-        //App theo NPH
-        public ActionResult AppTheoNPH_Details(int idnph)
-        {
-            var dsNPH = database.GAMEs.Where(ud => ud.IDPublisher == idnph).ToList();
-            return PartialView(dsNPH);
-        }
-
         //--------------------------DETAILS GAME--------------------------
         public ActionResult DetailsGame(int id)
         {
@@ -330,6 +288,10 @@ namespace CitricStore.Controllers
             return PartialView(game);
         }
 
+        public ActionResult Page_FAQ()
+        {
+            return View();
+        }
         public ActionResult SP()
         {
             return View();

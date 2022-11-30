@@ -1,32 +1,24 @@
 ﻿@model CitricStore.Models.SOFTWARE
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
 <style>
     td {
         text-align: center;
-        padding-bottom:10px;
+        padding-bottom: 10px;
     }
-    .nonedecor{
-        text-decoration:none;
-    }
-    .edit-btn{
-       width:200px;
-    }
-    .nonedecor:hover {
-        color: #FCAE03;
-    }
+
 </style>
 
-<div class="container align-item-center" style="margin: 10px auto; width:100%">
+<div class="container" style="margin: 10px auto;  align-items:center">
 
-    <h2 style="text-align: center; color:white">DỮ LIỆU PHẦN MỀM (SOFTWARE)</h2>
+    <h2 style="text-align: center; color: white">DỮ LIỆU PHẦN MỀM (SOFTWARE)</h2>
 
-    <h3 style="text-align: center; color: white; margin-bottom:50px;">CHI TIẾT</h3>
-
+    <h3 style="text-align: center; color: white">XOÁ DỮ LIỆU</h3>
     <div class="row">
         <div class="col-2"></div>
         <table class="table align-middle col-8" style="color: white; width: 70%; table-layout: fixed;word-break: break-word; font-size:20px;">
@@ -125,7 +117,7 @@
                     <strong>Hình chi tiết 1:</strong>
                 </td>
                 <td>
-                    <img src="~/Images/APP/@Model.PicDetail1"style="width:300px; height:180px"/>
+                    <img src="~/Images/APP/@Model.PicDetail1" style="width:300px; height:180px" />
                 </td>
             </tr>
             <tr>
@@ -133,7 +125,7 @@
                     <strong>Hình chi tiết 2:</strong>
                 </td>
                 <td>
-                    <img src="~/Images/APP/@Model.PicDetail2" style="width:300px; height:180px"/>
+                    <img src="~/Images/APP/@Model.PicDetail2" style="width:300px; height:180px" />
                 </td>
             </tr>
             <tr>
@@ -141,7 +133,7 @@
                     <strong>Hình chi tiết 3:</strong>
                 </td>
                 <td>
-                    <img src="~/Images/APP/@Model.PicDetail3"style="width:300px; height:180px"/>
+                    <img src="~/Images/APP/@Model.PicDetail3" style="width:300px; height:180px" />
                 </td>
             </tr>
             <tr>
@@ -155,8 +147,17 @@
 
             <tr>
                 <td colspan="2">
-                    @Html.ActionLink("Sửa", "Edit", new { id = Model.IDSoft }, new { @class = "btn btn-dark edit-btn " }) |
-                    @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new {@class = "nonedecor" })
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Xoá" class="btn btn-dark edit-btn" /> |
+                            @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
+                        </div>
+                    }
+
+
 
                 </td>
             </tr>
@@ -166,6 +167,5 @@
 
         <div class="col-2"></div>
     </div>
-
 
 </div>

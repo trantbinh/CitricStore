@@ -6,10 +6,10 @@
 
 {
 
-        <p>Sản phẩm trong đơn hàng:</p>
+        <h4 style="margin-bottom:30px">Sản phẩm trong đơn hàng:</h4>
         <div class="col-lg-7 col-md-6" style="margin-left: 0px; padding-left:0px; margin-right:0px; padding-right:0px;">
 
-            @Html.Action("Order_InfoUngDung", "Admin", new { idud = item.MaUngDung })
+            @Html.Action("Order_InfoUngDung", "Admin", new { idud = item.IDOverall })
 
 
         </div>
@@ -18,7 +18,7 @@
 
 
         <div class="col-4 align-content-between align-middle" style="vertical-align:middle">
-            Số lượng: @item.SoLuong
+            Số lượng: @item.Quantity
             <br />
             Đơn giá: @String.Format("{0:0,0}", @item.Price) VND
         </div>

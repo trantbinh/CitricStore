@@ -16,14 +16,6 @@
     color: white;
 }
 
-#filter-game {
-    display: block;
-    padding: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    color: #fff;
-}
-
 .imageblog-width-height{
     width:280px
 }
@@ -37,53 +29,6 @@
 }
 
 
-.filter-btn {
-    background-color: #FCAE03;
-    border-color: black;
-    border-style: solid;
-    display: inline-block;
-    padding: 9px 19px;
-    font-size: .87rem;
-    font-weight: 600;
-    line-height: 1.2;
-    text-align: center;
-    text-transform: uppercase;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 0;
-    -webkit-transition: 0.15s all;
-    -o-transition: 0.15s all;
-    transition: 0.15s all;
-    border-radius:4px;
-    margin-top:18px;
-}
-
-.form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-.filter-btn, .filter-btn:hover, .filter-btn.hover, .filter-btn:active, .filter-btn.active, .filter-btn:focus {
-    color: #fff;
-    text-decoration: none;
-    animation:none;
-    transition:none;
-}
 
 /* Slide image auto */
 .slideshow {
@@ -275,8 +220,11 @@
     width: 100%;
 }
 
+.dexuat-apps {
+    width: 100%;
+}
+
 .bloggame {
-    border-spacing: 20px 20px;
     width: auto;
     height: auto;
     margin: 0px auto;
@@ -284,7 +232,6 @@
 }
 
 .imageblog {
-    position: relative;
     display: block;
     overflow: hidden;
     border-radius: 4px;
@@ -300,43 +247,38 @@
 }
 
 .bloggame-title {
-    margin-bottom: 10px;
-    font-size: 16px;
     color: white;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 20px;
     text-align: center;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-    .bloggame-title > a.fix-line {
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .bloggame-title > a {
-        color: inherit;
-        text-decoration: none;
-        -webkit-transition: 0.15s color;
-        -o-transition: 0.15s color;
-        transition: 0.15s color;
-        display: block;
+    .bloggame-title:hover {
+        color: #FCAE03;
     }
 
 .bloggame-theloai {
-    font-size: 13px;
+    color: white;
+    font-size: 16px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    min-height: 45px;
 }
 
 .bloggame-download {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .bloggame-download-btn {
@@ -344,13 +286,15 @@
     justify-content: center;
     align-items: center;
     margin: 0px auto;
+    text-decoration: none;
+    color: white;
 }
 
 .bloggame-download-btn {
     background-color: #293139;
     border-color: #101215;
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
     height: 35px;
     width: 100px;
@@ -361,46 +305,42 @@
     cursor: pointer;
 }
 
-
-
-.filter-tieude{
+    .bloggame-download-btn:hover {
+        color: white;
+    }
+.filter-title{
     color:white;
-    font-size:16px;
-}
-.dungluong-dropdown {
-    color: black;
-    background-color: white;
-    width: 100%;
-    height: 35px;
-    border: 2px solid;
-    border-color: black;
-    text-decoration: none;
-    padding-left:15px;
-    margin-top:10px;
-}
-
-.dungluong-dropdown:hover{
-    text-decoration:none;
-    animation:none;
-    transition:none;
-    color: black;
-}
-
-
-.dungluong-dropdown-menu {
-    width: 100%;
-    animation: none;
-    transition: none;
-    background-color: white;
-    border: none;
-    padding: 0px;
-    border-radius: unset;
-    border: 2px solid;
-    border-color: black;
+    font-weight:500;
 }
 
 .filter-container {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     align-items: center;
+}
+
+.filter-1 {
+    text-decoration: none;
+    border: 2px solid;
+    border-color: #FCAE03;
+    border-radius:4px;
+    width:fit-content;
+    text-align:center;
+}
+.filter-2 {
+    text-decoration: none;
+    border: 2px solid;
+    border-color: #FCAE03;
+    border-radius: 4px;
+    width: fit-content;
+    text-align: center;
+    margin-left:20px;
+}
+
+.filter-1:hover {
+    color:white;
+}
+
+.filter-2:hover{
+    color:white;
 }

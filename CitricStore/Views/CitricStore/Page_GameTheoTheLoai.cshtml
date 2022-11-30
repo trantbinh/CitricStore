@@ -53,88 +53,19 @@
 </div>
 <script language="Javascript" src="~/Scripts/HomePage.js"></script>
 
-<div class="dexuat-container">
 
     <div class="dexuat-name">
         <div class="line"></div>
-        <span>TRÒ CHƠI MỚI</span>
+        <span>TRÒ CHƠI</span>
         <div class="line"></div>
     </div>
 
-
     <div class="row filter-container">
-        <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-            <div class="dropdown filter-tieude">
-                <strong>Sắp Xếp:</strong>
-                <a href="#" class="dropdown-toggle  dungluong-dropdown"
-                   role="button" id="dropdownMenu" type="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Kiểu sắp xếp
-                </a>
-
-                <div class="dropdown-menu dungluong-dropdown-menu" aria-labelledby="dropdownMenu" style="border-radius: 9px;">
-                    @Html.ActionLink("Trò chơi mới nhất", "Page_GameTheoTheLoai", new {sortOrder = ViewBag.DateSortParm }, new {@class = "chonloc"})
-                    <br />
-                    @Html.ActionLink("Trò chơi hay nhất", "Page_GameTheoTheLoai", new {sortOrder = ViewBag.RateSortParm }, new { @class = "chonloc"})
-                </div>
-            </div>
+        <div class="col-md-2 col-sm-2 col-lg-1 filter-title">
+            Sắp xếp:
         </div>
-
-        @*<div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-            <div class="dropdown filter-tieude">
-                <strong>Dung Lượng:</strong>
-                <a href="#" class="dropdown-toggle  dungluong-dropdown"
-                   role="button" id="dropdownMenu" type="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Chọn dung lượng
-                </a>
-
-                <div class="dropdown-menu dungluong-dropdown-menu" aria-labelledby="dropdownMenu">
-                    <a href="#" class="dropdown-item">Dưới 10GB</a>
-                    <a href="#" class="dropdown-item">Dưới 20GB</a>
-                    <a href="#" class="dropdown-item">Dưới 30GB</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 filter-row">
-            <div class="dropdown filter-tieude">
-                Ngôn Ngữ:
-                <a href="#" class="dropdown-toggle  dungluong-dropdown"
-                   role="button" id="dropdownMenu" type="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Chọn ngôn ngữ
-                </a>
-
-                <div class="dropdown-menu dungluong-dropdown-menu" aria-labelledby="dropdownMenu">
-                    <a href="#" class="dropdown-item">Dưới 10GB</a>
-                    <a href="#" class="dropdown-item">Dưới 20GB</a>
-                    <a href="#" class="dropdown-item">Dưới 30GB</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 filter-row">
-            <div class="dropdown filter-tieude">
-                Nền Tảng:
-                <a href="#" class="dropdown-toggle  dungluong-dropdown"
-                   role="button" id="dropdownMenu" type="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Chọn hệ điều hành
-                </a>
-
-                <div class="dropdown-menu dungluong-dropdown-menu" aria-labelledby="dropdownMenu">
-                    <a href="#" class="dropdown-item">Dưới 10GB</a>
-                    <a href="#" class="dropdown-item">Dưới 20GB</a>
-                    <a href="#" class="dropdown-item">Dưới 30GB</a>
-                </div>
-            </div>
-        </div>*@
-
+        @Html.ActionLink("Trò chơi mới nhất", "Page_GameTheoTheLoai", new { sortOrder = ViewBag.DateSortParm }, new { @class = "col-5 filter-1" })
+        @Html.ActionLink("Trò chơi hay nhất", "Page_GameTheoTheLoai", new { sortOrder = ViewBag.RateSortParm }, new { @class = "col-5 filter-2" })
     </div>
 
     <div class="dexuat-container">
@@ -144,19 +75,18 @@
                 {
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="bloggame">
-                            <a href="" class="imageblog">
-
-                                <img class="imageblog-width-height" src="~/Images/GAME/@game.PicBG">
+                            <a class="imageblog" href="@Url.Action("DetailsGame", "CitricStore", new {id=game.IDGame})">
+                                <img class="card-img-top imageblog-width-height" src="~/Images/GAME/@game.PicBG" alt="Card image">
                             </a>
-                            <div class="bloggame-title h4">
-                                <a class="fix-line" href="">@game.NameGame</a>
-                            </div>
+                            <a class="bloggame-title h4" href="@Url.Action("DetailsGame", "CitricStore", new {id=game.IDGame})">
+                                @game.NameGame
+                            </a>
                             <div class="bloggame-theloai">
                                 Thể loại: @Html.Action("TenTheLoaiGame", "CitricStore", new { idtheloai = game.IDCatGame })
                             </div>
                             <a class="bloggame-download" href="@Url.Action("DetailsGame", "CitricStore", new {id=game.IDGame})" style="text-decoration:none">
                                 <div class="bloggame-download-btn">
-                                    Tải Xuống
+                                    Chi Tiết
                                 </div>
                             </a>
                         </div>
@@ -164,5 +94,4 @@
                 }
             </div>
         </div>
-    </div>
     </div>

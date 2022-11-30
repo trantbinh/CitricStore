@@ -1,9 +1,10 @@
-﻿@model IEnumerable<CitricStore.Models.CATEGORY>
+﻿@model IEnumerable<CitricStore.Models.BANK>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
 }
+
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/Input.css" />
 
@@ -21,20 +22,20 @@
 
 
 <div class="container" style="margin:0px auto; align-items:center">
-    <h2 class="title">DỮ LIỆU THỂ LOẠI</h2>
+    <h2 class="title">DỮ LIỆU NGÂN HÀNG</h2>
 
     <h3 style="text-align: center; color:white">TỔNG HỢP</h3>
-
 
     <p>
         @Html.ActionLink("Tạo Mới", "Create", null, new { @class = "btn btn-primary" })
     </p>
+
     <table class="table" style="table-layout:fixed; width:100%; word-break: break-word; color:white; border-spacing:10px 10px;">
         <tr>
             <th>
                 Mã
             </th>
-            <th>
+            <th style="width:50%">
                 Tên
             </th>
             <th>
@@ -54,20 +55,20 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IDCat)
+                    @Html.DisplayFor(modelItem => item.IDBank)
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.NameCat)
+                    @Html.DisplayFor(modelItem => item.NameBank)
                 </td>
                 <td>
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.IDCat}, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.IDBank }, new { @class = "btn btn-success" })
                 </td>
                 <td>
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.IDCat}, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.IDBank}, new { @class = "btn btn-danger" })
                 </td>
                 <td>
-                    @Html.ActionLink("Xoá", "Delete", new { id = item.IDCat}, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Xoá", "Delete", new { id = item.IDBank }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }

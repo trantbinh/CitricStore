@@ -1,4 +1,4 @@
-﻿*{
+﻿* {
     margin: 0;
 }
 
@@ -15,27 +15,25 @@
     color: white;
     text-decoration: none;
 }
+
     .ForgotPass:hover {
         color: #FCAE03;
     }
 
 /*trang fogotpass*/
 .comebacklogin {
-    color: white;
+    color: aliceblue;
     text-decoration: none;
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
 }
-    .comebacklogin:hover {
-        color: #FCAE03;
-        text-decoration:underline solid;
-    }
 
 /*trang chỉnh sửa thông tin cá nhân*/
 .combackviewinfo {
     color: aliceblue;
     text-decoration: none;
 }
+
 .edit-form {
     width: 100%;
     display: block;
@@ -71,48 +69,14 @@
         color: #6c757d;
         opacity: 1;
     }
-    .form-group{
-        align-items:center;
-        margin:0px auto;
-        
-    }
 
-/*trang reset*/
-
-.quayvedangnhap {
-    color: aliceblue;
-    text-decoration: none;
-    width: 45%;
-    margin-left: 26px;
+.form-group {
+    align-items: center;
+    margin: 0px auto;
 }
 
-.error {
-    text-decoration: none;
-    list-style-type: none;
-    color: #FCAE03;
-    list-style: none;
-}
 
-.resetpass{
-    padding-top:5px; padding-bottom:5px;
-}
 
-/*Payment Success*/
-.continue {
-    text-align: center;
-    color: white;
-    border: 2px solid;
-    border-radius: 10px;
-    border-color: #FCAE03;
-    height: fit-content;
-    width: fit-content;
-    font-size: 30px;
-    text-decoration:none
-}
-    .continue:hover {
-        color: #FCAE03;
-        
-    }
 
 .nonedecor {
     text-decoration: none;
@@ -126,4 +90,9 @@
 
 .nonedecor:hover {
     color: #FCAE03;
+}
+
+.platform{
+    color:white;
+    font-size:25px
 }
