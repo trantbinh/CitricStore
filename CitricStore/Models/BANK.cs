@@ -19,6 +19,7 @@ namespace CitricStore.Models
         {
             this.ORDER_INFO = new HashSet<ORDER_INFO>();
         }
+    
         public int IDBank { get; set; }
         public string NameBank { get; set; }
     

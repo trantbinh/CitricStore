@@ -19,6 +19,7 @@ namespace CitricStore.Models
         public Nullable<int> IDOrder { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> Price { get; set; }
+    
         public virtual ORDER_INFO ORDER_INFO { get; set; }
         public virtual OVERALL OVERALL { get; set; }
     }

@@ -36,7 +36,9 @@ namespace CitricStore.Models
         public string PicDetail2 { get; set; }
         public string PicDetail3 { get; set; }
         public string PicDetail4 { get; set; }
-        public string SoftOrGame { get; set; }    
+        public string SoftOrGame { get; set; }
+        public string LinkTai { get; set; }
+    
         public virtual CATEGORY CATEGORY { get; set; }
         public virtual LANGUAGE LANGUAGE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

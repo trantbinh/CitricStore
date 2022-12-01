@@ -95,6 +95,7 @@
     font-size: 20px;
     position: absolute;
     bottom: 0;
+    align-items:center
 }
 
 .badge-white {
@@ -159,10 +160,10 @@
 }
 
 .imageslides-more-btn {
-    margin-top: 25px;
+    margin: 0px auto;
     text-align: center;
-    height: 15px;
-    width: 70px;
+    height: 30px;
+    width: fit-content;
     color: black;
     background-color: white;
     border-color: white;
@@ -174,13 +175,18 @@
     text-transform: uppercase;
     transition: 0.15s all;
     cursor: pointer;
+    text-decoration: none
 }
+
+    .imageslides-more-btn:hover {
+        color: #FCAE03;
+        text-decoration: underline solid;
+    }
 
 .imageslides-title {
     font-size: 17px;
-    margin-top: 30%;
+    margin-top: 20%;
 }
-
 
 .dexuat-container {
     width: 100%;

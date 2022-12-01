@@ -847,6 +847,7 @@
     <Content Include="Areas\Admin\Views\InputDataBANK\Details.cshtml" />
     <Content Include="Areas\Admin\Views\InputDataBANK\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\InputDataBANK\Index.cshtml" />
+    <Content Include="Images\OVERALL\Game95.1jpg" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -854,7 +855,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Images\OVERALL\Game95.1jpg" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\HomePage.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
