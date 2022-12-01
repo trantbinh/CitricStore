@@ -12,39 +12,44 @@
 
 
 <div class="container col-lg-6 col-md-10 thanthongtinthanhvien">
-        <h2 class="title">THÔNG TIN THÀNH VIÊN</h2>
-        <div class="chitiet">
+    <h2 class="title">THÔNG TIN THÀNH VIÊN</h2>
+    <div class="chitiet">
 
-            <div class="thongtin">
-                <strong>Họ Tên:</strong> @Model.NameCus
-            </div>
+        <div class="thongtin">
+            <strong>Họ Tên:</strong> @Model.NameCus
+        </div>
 
-            <div class="thongtin">
-                <strong>Giới Tính: </strong>@Model.Sex
+        <div class="thongtin">
+            <strong>Giới Tính: </strong>@Model.Sex
 
-            </div>
-
-
-            <div class="thongtin">
-                <strong>Điện Thoại:</strong> @Model.PhoneCus
-
-            </div>
+        </div>
 
 
-            <div class="thongtin">
-                <strong>Ngày Sinh: </strong> @String.Format("{0:dd MMM, yyy}",Model.Birthday) 
-            </div>
+        <div class="thongtin">
+            <strong>Điện Thoại:</strong> @Model.PhoneCus
 
-            <div class="thongtin">
-                <strong>Email: </strong> @Model.EmailCus
-            </div>
+        </div>
 
-            <div class="thongtin">
-                <strong>Tên Đăng Nhập:</strong> @Model.LogName
-            </div>
 
-            <div class="thongtin">
-                @Html.ActionLink("Sửa thông tin", "EditInfo", "Users" , new {id = Model.IDCus }, new {@class= "btn btn-dark edit-btn" })
-            </div>
+        <div class="thongtin">
+            <strong>Ngày Sinh: </strong> @String.Format("{0:dd MMM, yyy}", Model.Birthday)
+        </div>
+
+        <div class="thongtin">
+            <strong>Email: </strong> @Model.EmailCus
+        </div>
+
+        <div class="thongtin">
+            <strong>Tên Đăng Nhập:</strong> @Model.LogName
+        </div>
+
+        <div class="thongtin">
+            @Html.ActionLink("Sửa thông tin", "EditInfo", "Users", new { id = Model.IDCus },
+           new { @class = "btn btn-dark edit-btn" })
         </div>
     </div>
+
+</div>
+
+
+

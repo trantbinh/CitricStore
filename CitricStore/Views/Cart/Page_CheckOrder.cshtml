@@ -36,7 +36,8 @@
                 <tr class="chitietchothanhtoangiatien">
                     <td></td>
                     <td colspan="2" class="tongsoluong">Tống số lượng: @ViewBag.TotalNumber</td>
-                    <td colspan="2" class="tongthanhtoan">Tổng thanh toán: @String.Format("{0:0,0}", @ViewBag.TotalPrice) VND</td>
+                    <td colspan="2" 
+                        class="tongthanhtoan">Tổng thanh toán: @String.Format("{0:0,0}", @ViewBag.TotalPrice) VND</td>
                 </tr>
             </tbody>
         </table>
@@ -46,19 +47,17 @@
     @Html.Action("Page_ShowPayment", "Cart", new { idor = Session["IDOrder"] })
 
 
-
-
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-<div class="row">
-    <div class=" col-4"></div>
-    <div class=" col-4 no-color d-flex align-items-end justify-content-center xacnhandonhang">
-        <input type="submit" value="Xác nhận đơn hàng" class="btn btn-dark nutxatnhandonhang" />
-    </div>
-    <div class="col-4"></div>
-</div>
+        <div class="row">
+            <div class=" col-4"></div>
+            <div class=" col-4 no-color d-flex align-items-end justify-content-center xacnhandonhang">
+                <input type="submit" value="Xác nhận đơn hàng" class="btn btn-dark nutxatnhandonhang" />
+            </div>
+            <div class="col-4"></div>
+        </div>
 
     }
 </div>
