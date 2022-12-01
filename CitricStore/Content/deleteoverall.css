@@ -1,0 +1,15 @@
+﻿td {
+    text-align: center;
+    padding-bottom: 10px;
+}
+.thanxoa {
+    margin: 10px auto;
+    align-items: center;
+}
+.chitiet {
+    color: white;
+    width: 70%;
+    table-layout: fixed;
+    word-break: break-word;
+    font-size: 20px;
+}

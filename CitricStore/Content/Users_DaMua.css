@@ -1,0 +1,32 @@
+﻿.login-container {
+    height: 700px;
+}
+
+.login-btn {
+    width: 46%;
+    margin-left: 10px;
+}
+
+.pagecolor li {
+    text-decoration: none;
+    color: white;
+    border: solid 1px;
+    border-radius: 5px;
+    margin-right: 6px;
+    width: 25px;
+    text-align: center;
+}
+.donhang {
+    margin: 0px auto;
+}
+.tieude {
+    text-align: center;
+    color: white;
+}
+.madonhang {
+    color: white;
+    font-size: 18px;
+}
+.pagecolor {
+    color: white;
+}

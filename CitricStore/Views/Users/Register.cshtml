@@ -4,29 +4,13 @@
     Layout = "~/Views/Shared/_Layout_HomePage.cshtml";
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
-<style>
-    .login {
-        margin-top: 10px;
-        text-decoration: none;
-        color: #FCAE03;
-    }
-        .login:hover {
-            color: #FCAE03;
-            text-decoration: underline solid;
-        }
-    .error {
-        text-decoration: none;
-        list-style-type: none;
-        color: #FCAE03;
-        list-style: none;
-    }
-</style>
+<link href="~/Content/Register.css" rel="stylesheet" />
 
 <div class="container " >
     <div class="row" >
-        <div class="col-lg-6 col-md-10"  style="margin:0px auto;">
-            <h2 style="text-align: center; color:white">ĐĂNG KÝ THÀNH VIÊN</h2>
-            <div style="color:white; font-size:18px;">
+        <div class="col-lg-6 col-md-10 thandangky">
+            <h2 class="tieude">ĐĂNG KÝ THÀNH VIÊN</h2>
+            <div class="chitiet">
                 @using (Html.BeginForm("Register", "Users"))
                 {
                         @Html.ValidationSummary(true, null, new { @class = "error" })
@@ -37,10 +21,10 @@
 
                     <div class="mb-3 mt-3">
                         Giới tính:
-                        <input type="radio" id="sex_1" name="Sex" value="Nữ" style="margin-left: 20px">
+                        <input type="radio" id="sex_1" name="Sex" value="Nữ" class="nutgioitinh">
                         <label class="form-label" for="sex_1"> Nữ </label>
 
-                        <input type="radio" id="sex_2" name="Sex" value="Nam" style="margin-left: 20px">
+                        <input type="radio" id="sex_2" name="Sex" value="Nam" class="nutgioitinh">
                         <label class="form-label" for="sex_2"> Nam </label>
 
                     </div>
@@ -69,7 +53,7 @@
 
                     <div class="row" style="text-align:center">
 
-                        <button type="submit" class="btn btn-dark" style="width:50%; margin: 10px auto; margin-bottom:20px">Đăng Ký</button>
+                        <button type="submit" class="btn btn-dark nutdangky">Đăng Ký</button>
 
                         <hr />
                         <p>Bạn đã có tài khoản? @Html.ActionLink("Đăng Nhập.", "Login", null, new { @class = "login" })</p>
@@ -83,3 +67,7 @@
         </div>
     </div>
 </div>
+
+
+
+

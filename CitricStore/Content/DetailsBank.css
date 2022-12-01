@@ -1,0 +1,18 @@
+﻿.td {
+    text-align: center;
+    padding-bottom: 10px;
+}
+.thandulieu {
+    margin: 10px auto;
+}
+.chitiet {
+    text-align: center;
+    color: white;
+}
+.chitietDetailoverall {
+    color: white;
+    width: 70%;
+    table-layout: fixed;
+    word-break: break-word;
+    font-size: 20px;
+}

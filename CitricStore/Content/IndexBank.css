@@ -1,0 +1,24 @@
+﻿.th, td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.index-btn {
+    text-decoration: none;
+    color: white;
+}
+.thandulieu {
+    margin: 0px auto;
+    align-items: center;
+}
+.tieude {
+    text-align: center;
+    color: white;
+}
+.chitiet {
+    table-layout: fixed;
+    width: 100%;
+    word-break: break-word;
+    color: white;
+    border-spacing: 10px 10px;
+}

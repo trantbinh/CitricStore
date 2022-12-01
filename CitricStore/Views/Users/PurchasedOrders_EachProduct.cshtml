@@ -3,8 +3,10 @@
 @foreach (var item in Model)
 {
     <div class="row align-middle">
+
         <div class="col-lg-5 col-md-5" style="text-align:center">
             @Html.Action("PurchasedOrders_AppInfo", "Users", new { idud = item.IDOverall })
+
         </div>
         <div class="col-lg-5 col-md-5 align-middle">
             <strong>Số lượng:</strong> @item.Quantity
@@ -13,3 +15,4 @@
         </div>
     </div>
 }
+

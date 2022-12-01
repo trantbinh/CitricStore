@@ -18,16 +18,6 @@ namespace CitricStore.Areas.Admin.Controllers
         {
             return View();
         }
-        public List<OrderItem> GetOrder()
-        {
-            List<OrderItem> myOrder = Session["Order"] as List<OrderItem>;
-            if (myOrder == null)
-            {
-                myOrder = new List<OrderItem>();
-                Session["Order"] = myOrder;
-            }
-            return myOrder;
-        }
         public ActionResult CheckCusOrder(int? page)
         {
             if (page == null) page = 1;
@@ -54,7 +44,8 @@ namespace CitricStore.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CheckCusOrder_Processing([Bind(Include = "IDOrder,DateOrder,IDCus,NameOrder,PhoneOrder,EmailOrder,IDBank,IDPayAccount,NamePayAccount,TotalPrice,IDSttOrder")] ORDER_INFO or)
+        public ActionResult CheckCusOrder_Processing([Bind(Include = "IDOrder,DateOrder,IDCus,NameOrder," +
+            "PhoneOrder,EmailOrder,IDBank,IDPayAccount,NamePayAccount,TotalPrice,IDSttOrder")] ORDER_INFO or)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +82,6 @@ namespace CitricStore.Areas.Admin.Controllers
             var name = db.ORDER_STATUS.Where(s => s.IDStt == idtt).ToList();
             return PartialView(name);
         }
-
         public ActionResult CheckCusInfo()
         {
             var cus = db.CUSTOMERs.ToList();
@@ -99,3 +89,4 @@ namespace CitricStore.Areas.Admin.Controllers
         }
     }
 }
+
