@@ -9,19 +9,18 @@ namespace CitricStore.Controllers
 {
     public class CartController : Controller
     {
-
         CitricStoreEntities db = new CitricStoreEntities();
 
         //Hàm để lấy giỏ hàng hiện tại
         public List<CartItem> GetCart()
         {
-            List<CartItem> myCart = Session["GioHang"] as List<CartItem>;
+            List<CartItem> myCart = Session["Cart"] as List<CartItem>;
 
             //Nếu giỏ hàng chưa tồn tại thì tạo mới và đưa vào Session
             if (myCart == null)
             {
                 myCart = new List<CartItem>();
-                Session["GioHang"] = myCart;
+                Session["Cart"] = myCart;
             }
             return myCart;
         }
@@ -41,13 +40,11 @@ namespace CitricStore.Controllers
             {
                 currentProduct.Quantity++; 
             }
-
             return RedirectToAction("Details_Overall", "CitricStore", new { id = id });
         }
 
 
         //Tính tổng số lượng mặt hàng được mua
-
         private int GetTotalNumber()
         {
             int totalNumber = 0;
@@ -58,7 +55,7 @@ namespace CitricStore.Controllers
         }
 
 
-        //tính tổng tiền của các sản phẩm được mua
+        //Tính tổng tiền của các sản phẩm được mua
         private decimal GetTotalPrice()
         {
             decimal totalPrice = 0;
@@ -70,17 +67,16 @@ namespace CitricStore.Controllers
 
 
         //Hiển thị thông tin bên trong giỏ hàng
-        public ActionResult GetCartInfo()
+        public ActionResult Page_GetCartInfo()
         {
             List<CartItem> myCart = GetCart();
-            //Nếu giỏ hàng trống thì trả về trang ban đầu
             if (myCart == null || myCart.Count == 0)
             {
-                return RedirectToAction("Index", "CitricStore");
+                return RedirectToAction("HomePage", "CitricStore");
             }
             ViewBag.TotalNumber = GetTotalNumber();
             ViewBag.TotalPrice = GetTotalPrice();
-            return View(myCart); //Trả về View hiển thị thông tin giỏ hàng
+            return View(myCart);
         }
 
         //Xoá sản phẩm khỏi giỏ hàng
@@ -92,13 +88,13 @@ namespace CitricStore.Controllers
             if(pro != null)
             {
                 myCart.RemoveAll(n => n.IDApp == idpro);
-                return RedirectToAction("GetCartInfo");
+                return RedirectToAction("Page_GetCartInfo");
             }
             if (myCart == null || myCart.Count == 0)
             {
-                return RedirectToAction("Index", "CitricStore");
+                return RedirectToAction("HomePage", "CitricStore");
             }
-            return RedirectToAction("GetCartInfo");
+            return RedirectToAction("Page_GetCartInfo");
 
         }
         // Cập nhật lại số lượng giỏ hàng
@@ -110,7 +106,7 @@ namespace CitricStore.Controllers
             {
                 pro.Quantity = int.Parse(f["changequantity"].ToString());
             }
-            return RedirectToAction("GetCartInfo");
+            return RedirectToAction("Page_GetCartInfo");
 
         }
 
@@ -119,18 +115,17 @@ namespace CitricStore.Controllers
         {
             List<CartItem> myCart = GetCart();
             myCart.Clear();
-            return RedirectToAction("Index", "CitricStore");
+            return RedirectToAction("HomePage", "CitricStore");
         }
 
 
         //Icon giỏ hàng trên layout
-        public ActionResult CartPartial()
+        public ActionResult Extension_CartPartial()
         {
             ViewBag.TotalNumber = GetTotalNumber();
             ViewBag.TotalPrice = GetTotalPrice();
             return PartialView();
         }
-
 
 
         //Trang thanh toán và thông tin nhận hàng
@@ -164,7 +159,6 @@ namespace CitricStore.Controllers
 
                     var order = db.ORDER_INFO.FirstOrDefault(s => s.IDOrder == or.IDOrder).IDOrder;
                     Session["IDOrder"] = order;
-
                 }
                 else
                 {
@@ -174,17 +168,14 @@ namespace CitricStore.Controllers
             return RedirectToAction("Page_CheckOrder", "Cart");
         }
 
-
         //Hiển thị thông tin thanh toán và nhận hàng
         public ActionResult Page_ShowPayment(int idor)
         {
             var or = db.ORDER_INFO.FirstOrDefault(s => s.IDOrder == idor);
-             
             return PartialView(or);
         }
 
         //Trang kiểm tra đơn hàng -> xác nhận đã thanh toán
-      
         [HttpGet]
         public ActionResult Page_CheckOrder()
         {
@@ -216,7 +207,6 @@ namespace CitricStore.Controllers
         public ActionResult Page_PaymentSuccess()
         {
             Session.Remove("GioHang");
-
             return View();
         }
 

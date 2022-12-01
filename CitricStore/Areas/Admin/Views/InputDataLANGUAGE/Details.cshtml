@@ -1,0 +1,22 @@
+﻿@model CitricStore.Models.LANGUAGE
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
+
+<div class="container">
+    <h2 class="title">DỮ LIỆU NGÔN NGỮ</h2>
+    <h3 class="minititle">CHI TIẾT</h3>
+
+    <div class="platform">
+        <strong>Tên ngôn ngữ: </strong>
+        @Html.DisplayFor(model => model.NameLanguage)
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.IDLanguage}, new { @class = "btn btn-success details-btn" }) |
+        @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
+    </p>
+</div>

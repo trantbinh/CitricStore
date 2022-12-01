@@ -13,11 +13,10 @@ namespace CitricStore.Controllers
 {
     public class UsersController : Controller
     {
-
         private CitricStoreEntities database = new CitricStoreEntities();
-
         //GET: User
-        //ĐĂNG KÝ
+
+        //Đăng ký
         [HttpGet]
         public ActionResult Register()
         {
@@ -40,7 +39,6 @@ namespace CitricStore.Controllers
                 if (string.IsNullOrEmpty(kh.PhoneCus))
                     ModelState.AddModelError(string.Empty, "Điện thoại không được để trống");
 
-                //Kiểm tra xem có người nào đã đăng kí với tên đăng nhập này hay chưa
                 var logname = database.CUSTOMERs.FirstOrDefault(k => k.LogName == kh.LogName);
                 if (logname != null)
                     ModelState.AddModelError(string.Empty, "Tên đăng nhập đã được dùng");
@@ -80,15 +78,12 @@ namespace CitricStore.Controllers
                     ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
                 if (ModelState.IsValid)
                 {
-                    
                     var khach = database.CUSTOMERs.FirstOrDefault(k => k.LogName == kh.LogName && k.LogPass == kh.LogPass);
 
                     var makh = database.CUSTOMERs.Where(g => g.LogName == kh.LogName).Select(g => g.IDCus);
 
                     if (khach != null)
                     {
-
-                        //Lưu vào session
                         Session["TaiKhoan"] = khach;
 
                         Session["LogName"] = database.CUSTOMERs.FirstOrDefault(k => k.LogName == kh.LogName).LogName;
@@ -97,10 +92,9 @@ namespace CitricStore.Controllers
 
                         if(kh.LogName == "admin")
                         {
-                            return RedirectToAction("Index", "Admin/Admin");
+                            return RedirectToAction("AdminPage", "Admin/Admin");
                         }    
-                        return RedirectToAction("Index", "CitricStore");
-
+                        return RedirectToAction("HomePage", "CitricStore");
                     }
                     else
                     {
@@ -114,9 +108,6 @@ namespace CitricStore.Controllers
             return View();
 
         }
-
-
-
 
         //XEM THÔNG TIN KHÁCH HÀNG
         public ActionResult ViewInfo(int idkh)
@@ -173,18 +164,18 @@ namespace CitricStore.Controllers
             Session.Remove("LogName");
             Session.Remove("IDCus");
 
-            return RedirectToAction("Index","CitricStore");
+            return RedirectToAction("HomePage","CitricStore");
         }
 
 
         //Quên mật khẩu
-        public ActionResult FogotPass()
+        public ActionResult ForgotPass()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult FogotPass(CUSTOMER kh)
+        public ActionResult ForgotPass(CUSTOMER kh)
         {
             if (ModelState.IsValid)
             {
@@ -194,34 +185,22 @@ namespace CitricStore.Controllers
                     ModelState.AddModelError(String.Empty, "Tên đăng nhập không được để trống");
                 if (ModelState.IsValid)
                 {
-
                     var khach = database.CUSTOMERs.FirstOrDefault(k => k.LogName == kh.LogName && k.EmailCus == kh.EmailCus);
 
                     var makh = database.CUSTOMERs.Where(g => g.LogName == kh.LogName).Select(g => g.IDCus);
-
                     if (khach != null)
                     {
-                        //Session["TaiKhoan"] = khach;
-
-                        //Session["LogName"] = database.CUSTOMERs.FirstOrDefault(k => k.LogName == kh.LogName).LogName;
-
                         Session["IDCus"] = database.CUSTOMERs.FirstOrDefault(k => k.LogName == kh.LogName).IDCus;
 
                         return RedirectToAction("ResetPass", "Users", new {id = Session["IDCus"] });
-
-
                     }
                     else
                     {
                         ViewBag.ThongBao = "Tên đăng nhập hoặc email không đúng";
                     }
-
                 }
-
-
             }
             return View();
-
         }
 
         //Reset Password
@@ -255,7 +234,6 @@ namespace CitricStore.Controllers
                         database.SaveChanges();
                         ViewBag.ThongBao = "Đổi mật khẩu thành công!";
                     }
-
                 }
                 else
                 {
@@ -264,8 +242,6 @@ namespace CitricStore.Controllers
             }
             return View(kh);
         }
-
-
 
         //Đổi mật khẩu
         public ActionResult ChangePass(int? id)
@@ -298,7 +274,6 @@ namespace CitricStore.Controllers
                         database.SaveChanges();
                         ViewBag.ThongBao = "Đổi mật khẩu thành công!";
                     }
-
                 }
                 else
                 {
@@ -308,35 +283,25 @@ namespace CitricStore.Controllers
             return View(kh);
         }
 
-
-
-
-        private List<ORDER_INFO> DonHang(int idkh)
-        {
-            return database.ORDER_INFO.Where(s => s.IDCus == idkh).OrderBy(x => x.IDOrder).ToList();
-        }
-        public ActionResult Users_DaMua(int?page)
+        public ActionResult PurchasedOrders(int?page)
         {
             if (page == null) page = 1;
-
             int pageSize = 3;
-
             int pageNumber = (page ?? 1);
 
             int idkh = (int)Session["IDCus"];
-
             var info = database.ORDER_INFO.Where(s => s.IDCus == idkh).OrderBy(s => s.IDOrder);
             
             return View(info.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult DaMua_Product(int idor)
+        public ActionResult PurchasedOrders_EachProduct(int idor)
         {
             var or = database.ORDER_PRODUCT.Where(s => s.IDOrder == idor);
             return PartialView(or);
         }
 
-        public ActionResult DaMua_UngDung(int idud)
+        public ActionResult PurchasedOrders_AppInfo(int idud)
         {
             var ud = database.OVERALLs.Where(s => s.IDOverall == idud) ;
             return PartialView(ud);

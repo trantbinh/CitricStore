@@ -1,0 +1,26 @@
+﻿@model CitricStore.Models.PLATFORM
+
+@{
+    ViewBag.Title = "Xoá";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
+<div class="container col-lg-6 col-md-10">
+    <h2 class="title">DỮ LIỆU HỆ ĐIỀU HÀNH</h2>
+    <h3 class="minititle">XOÁ DỮ LIỆU</h3>
+    <div class="platform">
+        <strong>Tên hệ điều hành: </strong>
+        @Html.DisplayFor(model => model.NamePlatform)
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-info save-btn" /> |
+            @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
+        </div>
+    }
+</div>

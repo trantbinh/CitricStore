@@ -1,16 +1,4 @@
 ﻿<!DOCTYPE html>
-<style>
-    .pagecolor li {
-        text-decoration: none;
-        color: aliceblue;
-        border: solid 1px;
-        border-radius: 5px;
-        margin-right: 6px;
-        width: 25px;
-        text-align: center;
-    }
-</style>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -29,9 +17,8 @@
                 <img src="~/Images/LOGO/LOGO_Black.png" alt="Citric Logo" style="width:50px; height:50px;" />
             </div>
             <div class="tenweb col-lg-1 col-md-2 col-sm-3">
-                <img src="~/Images/LOGO/CITRICSTORE.png" alt="Citric" style="width:auto; height:100px; margin-top:-18px; margin-left:-50px" />
+                <img class="tenweb-img" src="~/Images/LOGO/CITRICSTORE.png" alt="Citric"/>
             </div>
-
 
             <div class="header-left-container col-lg-6 col-md-6">
                 <ul class="header-left">
@@ -46,19 +33,19 @@
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu"
                                  style=" border: none; background-color: #FCAE03; animation:none;transition:none">
-                                <a href="@Url.Action("Index","InputOVERALL")" class=" dropdown-item">
+                                <a href="@Url.Action("Index","InputDataOVERALL")" class=" dropdown-item">
                                     Ứng dụng
                                 </a>
-                                <a href="@Url.Action("Index","InputDataHEDIEUHANH")" class=" dropdown-item">
+                                <a href="@Url.Action("Index","InputDataPLATFORM")" class=" dropdown-item">
                                     Hệ điều hành
                                 </a>
-                                <a href="@Url.Action("Index","InputDataNGONNGU")" class=" dropdown-item">
+                                <a href="@Url.Action("Index","InputDataLANGUAGE")" class=" dropdown-item">
                                     Ngôn ngữ
                                 </a>
-                                <a href="@Url.Action("Index","InputDataNHAPHATHANH")" class=" dropdown-item">
+                                <a href="@Url.Action("Index","InputDataPUBLISHER")" class=" dropdown-item">
                                     Nhà phát hành
                                 </a>
-                                <a href="@Url.Action("Index","InputDataTHELOAI")" class=" dropdown-item">
+                                <a href="@Url.Action("Index","InputDataCATEGORY")" class=" dropdown-item">
                                     Thể loại
                                 </a>
                                 <a href="@Url.Action("Index","InputDataBANK")" class=" dropdown-item">
@@ -70,7 +57,7 @@
                     </li>
 
                     <li class="header-left-name" style="margin-left:50px; text-align:left; width:380px;">
-                        <a href="@Url.Action("Order_KiemTraDonHang","Admin")" style="text-decoration: none; color: black;">
+                        <a href="@Url.Action("CheckCusOrder","Admin")" style="text-decoration: none; color: black;">
                             KIỂM TRA ĐƠN HÀNG
 
                         </a>
@@ -79,7 +66,7 @@
                     </li>
 
                     <li class="header-left-name" style=" text-align: left; width: 100%; margin-left: 0px;">
-                        <a href="@Url.Action("Customer_ThongTinKhachHang","Admin")" style="text-decoration: none; color: black">
+                        <a href="@Url.Action("CheckCusInfo","Admin")" style="text-decoration: none; color: black">
                             THÔNG TIN KHÁCH HÀNG
                         </a>
                     </li>

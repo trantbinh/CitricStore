@@ -1,0 +1,161 @@
+﻿@model CitricStore.Models.OVERALL
+
+@{
+    ViewBag.Title = "Xoá";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
+<div class="container">
+    <h2 class="title">DỮ LIỆU ỨNG DỤNG</h2>
+    <h3 class="minititle">XOÁ DỮ LIỆU</h3>
+    <div class="row">
+        <div class="col-2"></div>
+        <table class="table align-middle col-8 index-table">
+            <tr>
+                <td>
+                    <strong>Tên: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.NameOverall)
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <strong>Giới thiệu: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Description)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Dung lượng: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Capacity) MB
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Đơn giá: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Price)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Ngày cập nhật: </strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.UpdateDate)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Đánh giá:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Rating)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hệ điều hành:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PLATFORM.NamePlatform)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Ngôn ngữ:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.LANGUAGE.NameLanguage)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Nhà phát hành:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PUBLISHER.NamePublisher)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Thể loại:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CATEGORY.NameCat)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Soft/Game:</strong>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.SoftOrGame)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình nền:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/OVERALL/@Model.PicBG" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 1:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/OVERALL/@Model.PicDetail1" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 2:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/OVERALL/@Model.PicDetail2" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 3:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/OVERALL/@Model.PicDetail3" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Hình chi tiết 4:</strong>
+                </td>
+                <td>
+                    <img src="~/Images/OVERALL/@Model.PicDetail4" style="width:300px; height:180px" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Xoá" class="btn btn-dark save-btn" /> |
+                            @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
+                        </div>
+                    }
+                </td>
+            </tr>
+        </table>
+        <div class="col-2"></div>
+    </div>
+</div>

@@ -8,32 +8,60 @@
     margin-top: 15px
 }
 
-/*trang login*/
-
-
-.ForgotPass {
+.minititle {
+    text-align: center;
     color: white;
-    text-decoration: none;
 }
 
-    .ForgotPass:hover {
-        color: #FCAE03;
-    }
-
-/*trang fogotpass*/
-.comebacklogin {
-    color: aliceblue;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
+.form-decor {
+    color: white;
+    font-size: 20px;
 }
 
-/*trang chỉnh sửa thông tin cá nhân*/
-.combackviewinfo {
-    color: aliceblue;
-    text-decoration: none;
+.create-btn {
+    font-size: 20px;
+    font-weight: 500;
+    width: 20%
 }
-
+.create-formgroup {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.save-btn {
+    font-size: 20px;
+    font-weight: 500;
+    width: 20%;
+}
+.save-formgroup {
+    margin-top: 20px;
+}
+th, td {
+    text-align: center;
+    vertical-align: middle;
+}
+.index-btn {
+    text-decoration: none;
+    color: white;
+}
+.index-table {
+    table-layout: fixed;
+    width: 100%;
+    word-break: break-word;
+    color: white;
+    border-spacing: 10px 10px;
+}
+.details-btn {
+    font-size: 20px;
+    font-weight: 500;
+    width: 20%;
+}
+.overall-table {
+    color: white;
+    width: 70%;
+    table-layout: fixed;
+    word-break: break-word;
+    font-size: 20px;
+}
 .edit-form {
     width: 100%;
     display: block;
@@ -80,6 +108,7 @@
 
 .nonedecor {
     text-decoration: none;
+    font-size:18px;
 }
 
 .edit-btn {
@@ -94,5 +123,12 @@
 
 .platform{
     color:white;
-    font-size:25px
+    font-size:25px;
+    margin-bottom:15px;
+}
+.adminpage {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    font-size: 30px;
 }

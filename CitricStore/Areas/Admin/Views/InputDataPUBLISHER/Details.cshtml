@@ -1,0 +1,23 @@
+﻿@model CitricStore.Models.PUBLISHER
+
+@{
+    ViewBag.Title = "Chi tiết";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
+<link rel="stylesheet" href="~/Content/Input.css" />
+
+<div class="container">
+    <h2 class="title">DỮ LIỆU NHÀ PHÁT HÀNH</h2>
+    <h3 class="minititle">CHI TIẾT</h3>
+
+    <div class="platform">
+        <strong>Tên nhà phát hành: </strong>
+        @Html.DisplayFor(model => model.NamePublisher)
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.IDPublisher }, new { @class = "btn btn-success save-btn" }) |
+        @Html.ActionLink("Quay về trang tổng hợp", "Index", null, new { @class = "nonedecor" })
+    </p>
+</div>

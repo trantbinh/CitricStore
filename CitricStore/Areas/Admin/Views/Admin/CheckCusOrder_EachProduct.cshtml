@@ -1,0 +1,18 @@
+﻿@using CitricStore.Models
+
+<link href="~/Content/admin.css" rel="stylesheet" />
+@foreach (var item in Model)
+{
+<div class="row">
+    <div class="col-lg-7 col-md-6 xemdonhang" >
+        @Html.Action("Order_InfoUngDung", "Admin", new { idud = item.IDOverall })
+    </div>
+
+    <div class="col-4 align-content-between align-middle chitietdonhang">
+        Số lượng: @item.Quantity
+        <br />
+        Đơn giá: @String.Format("{0:0,0}", @item.Price) VND
+    </div>
+</div>
+}
+

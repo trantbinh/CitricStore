@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/User.css" />
 <link href="~/Content/Login.css" rel="stylesheet" />
-
 <div class="container col-lg-6 col-md-10" style="margin:0px auto;">
 
     <h2 class="title">ĐĂNG NHẬP</h2>
@@ -25,7 +24,6 @@
                 <input type="password" class="form-control" id="pass" name="LogPass" required>
             </div>
             <div class="row">
-
                 <div class="col-6 justify-content-end align-content-end chuanutdangnhap">
                     <button type="submit" class="btn btn-dark nutdangnhap">Đăng Nhập</button>
 
@@ -35,16 +33,18 @@
                         Quên mật khẩu ?
 
                     </a>
-
                 </div>
-
             </div>
 
             <hr />
-            <p class="hoinguoidung" >Bạn chưa có tài khoản? @Html.ActionLink("Đăng Ký.", "Register", "Users", null, new { @class = "login" })</p>
-
-
+            <p class="hoinguoidung" >Bạn chưa có tài khoản? @Html.ActionLink("Đăng Ký.", "Register", "Users", 
+                                                           null, new { @class = "login" })</p>
         }
     </div>
 </div>
+
+
+
+
+
 

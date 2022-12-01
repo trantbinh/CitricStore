@@ -30,6 +30,12 @@ html, main {
     height: 60px;
     text-align: center;
 }
+.tenweb-img {
+    width: auto;
+    height: 100px;
+    margin-top: -18px;
+    margin-left: -50px
+}
 
 .header-left-container {
     height: 60px;
