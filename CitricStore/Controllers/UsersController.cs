@@ -137,7 +137,8 @@ namespace CitricStore.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditInfo([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Birthday,EmailCus,Sex")] CUSTOMER kh)
+        public ActionResult EditInfo([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Birthday,EmailCus,Sex")] 
+        CUSTOMER kh)
         {
             if (ModelState.IsValid)
             {
@@ -185,7 +186,7 @@ namespace CitricStore.Controllers
                     ModelState.AddModelError(String.Empty, "Tên đăng nhập không được để trống");
                 if (ModelState.IsValid)
                 {
-                    var khach = database.CUSTOMERs.FirstOrDefault(k => k.LogName == kh.LogName && k.EmailCus == kh.EmailCus);
+                   var khach = database.CUSTOMERs.FirstOrDefault(k => k.LogName == kh.LogName && k.EmailCus == kh.EmailCus);
 
                     var makh = database.CUSTOMERs.Where(g => g.LogName == kh.LogName).Select(g => g.IDCus);
                     if (khach != null)
@@ -221,7 +222,8 @@ namespace CitricStore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ResetPass([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Birthday,EmailCus,Daduyet,Sex")] CUSTOMER kh)
+        public ActionResult ResetPass([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Birthday,EmailCus,Daduyet," +
+            "Sex")] CUSTOMER kh)
         {
             if (ModelState.IsValid)
             {
@@ -261,7 +263,8 @@ namespace CitricStore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangePass([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Birthday,EmailCus,Daduyet,Sex")] CUSTOMER kh)
+        public ActionResult ChangePass([Bind(Include = "IDCus,NameCus,PhoneCus,LogName,LogPass,Birthday,EmailCus,Daduyet,Sex")] 
+        CUSTOMER kh)
         {
             if (ModelState.IsValid)
             {

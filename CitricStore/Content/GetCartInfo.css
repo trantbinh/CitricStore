@@ -1,0 +1,56 @@
+﻿.ThanhVien {
+    color: aliceblue;
+}
+
+.thanhtoan-btn {
+    margin: 0px auto;
+    right: 0px;
+    margin-right: 0px;
+    align-items: end;
+}
+
+th, td, input {
+    vertical-align: middle;
+    align-items: center;
+}
+
+.phanthanhtoan {
+    margin: 0px auto;
+}
+.h2 {
+    text-align: center;
+    color: white;
+}
+
+.phanthongtin {
+    color: white;
+    font-size: 18px;
+}
+.thongtinchitiet {
+    color: white;
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+}
+.hinhanhproduct {
+    width: 130px;
+    height: 100px;
+}
+.tenapp {
+    font-size: 25px;
+    font-weight: 500;
+    word-break: break-all;
+    padding-left: 15px;
+}
+.soluongthanhtoan {
+    font-size: 22px;
+    font-weight: 500;
+    text-align: right;
+    color: white;
+}
+.soluong {
+    text-align: right;
+}
+.tongthanhtoan {
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+﻿.login {
+    margin-top: 10px;
+    text-decoration: none;
+    color: #FCAE03;
+}
+
+    .login:hover {
+        color: #FCAE03;
+        text-decoration: underline solid;
+    }
+
+.error {
+    text-decoration: none;
+    list-style-type: none;
+    color: #FCAE03;
+    list-style: none;
+}
+.thongbao {
+    color: #FCAE03;
+    margin: 0px auto;
+    font-size: 20px;
+    text-align: center;
+}
+.chitiet {
+    color: white;
+    font-size: 18px;
+}
+.chuanutdangnhap {
+    align-items: end;
+    display: flex;
+}
+.nutdangnhap {
+    width: 70%;
+    margin-left: 0px;
+}
+.quenmatkhau {
+    padding-top: 5px;
+}
+.hoinguoidung {
+    text-align: center;
+}

@@ -6,12 +6,13 @@
 }
 <link rel="stylesheet" href="~/Content/bootstrap5/css/bootstrap.css" />
 <link rel="stylesheet" href="~/Content/User.css" />
+<link href="~/Content/FogotPass.css" rel="stylesheet" />
 
-<div class="col-lg-6 col-md-10 col-sm-12" style="margin:0px auto;">
+<div class="col-lg-6 col-md-10 col-sm-12 thanquenmatkhau">
     <h2 class="title">QUÊN MẬT KHẨU ?</h2>
-    <h2 style="color: #FCAE03; margin: 0px auto; font-size: 20px;">@ViewBag.ThongBao</h2>
+    <h2 class="thongbao">@ViewBag.ThongBao</h2>
 
-    <div style="color:white; font-size:18px;">
+    <div class="chitiet">
 
         @using (Html.BeginForm("ForgotPass", "Users"))
         {
@@ -27,7 +28,7 @@
 
             <div class="row justify-content-center">
 
-                <button type="submit" class="btn btn-dark" style="width:50%; margin-top:5px; margin-bottom:10px;">Đặt lại mật khẩu</button>
+                <button type="submit" class="btn btn-dark nutdatlaimatkhau">Đặt lại mật khẩu</button>
 
                 @Html.ActionLink("Đăng nhập", "Login", "Users",null, new {@class = "comebacklogin"})
 
@@ -37,3 +38,7 @@
 
     </div>
 </div>
+
+
+
+

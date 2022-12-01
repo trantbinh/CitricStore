@@ -133,7 +133,6 @@ namespace CitricStore.Controllers
         public ActionResult Page_Payment()
         {
             ViewBag.IDBank = new SelectList(db.BANKs, "IDBank", "NameBank");
-
             return View();
         }
 
@@ -217,3 +216,6 @@ namespace CitricStore.Controllers
         }
     }
 }
+
+
+

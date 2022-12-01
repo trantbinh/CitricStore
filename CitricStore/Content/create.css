@@ -1,0 +1,21 @@
+﻿.thandulieu {
+    margin: 0px auto;
+    align-items: center;
+}
+.tieude {
+    text-align: center;
+    color: white;
+}
+.chitiet {
+    color: white;
+    font-size: 20px;
+}
+.nuttaomoi {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.hinhdangnuttaomoi {
+    font-size: 20px;
+    font-weight: 500;
+    width: 20%;
+}

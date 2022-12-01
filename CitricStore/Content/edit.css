@@ -1,0 +1,20 @@
+﻿.thanchinhsua {
+    margin: 0px auto;
+    align-items: center;
+}
+.tieude {
+    text-align: center;
+    color: white;
+}
+.chitiet {
+    color: white;
+    font-size: 20px;
+}
+.nutluu {
+    margin-top: 20px;
+}
+.bieutuongnutluu {
+    font-size: 20px;
+    font-weight: 500;
+    width: 30%;
+}

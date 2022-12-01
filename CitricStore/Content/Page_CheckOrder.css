@@ -1,0 +1,55 @@
+﻿.thanhtoan {
+    color: white;
+    font-size: 16px;
+    margin-left: 200px;
+}
+.thanthongtindonhang {
+    margin: 0px auto;
+}
+.kiemtrathongtindonhang {
+    text-align: center;
+    color: white;
+}
+.thongtinchitiet {
+    color: white;
+    font-size: 18px;
+}
+.chitietsoluongdongiathanhtien {
+    color: white;
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+}
+.hinhanhoverall {
+    width: 130px;
+    height: 100px;
+}
+.tenapp {
+    font-size: 25px;
+    font-weight: 500;
+}
+.chitietchothanhtoangiatien {
+    font-size: 22px;
+    font-weight: 500;
+    text-align: right;
+    color: white;
+}
+.tongsoluong {
+    text-align: right;
+}
+.tongthanhtoan {
+    text-align: center;
+}
+.thongtinthanhtoanvanhanhang {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+.xacnhandonhang {
+    margin: 0 auto;
+}
+.nutxatnhandonhang {
+    margin-top: 20px;
+    font-size: 23px;
+    margin-bottom: 20px;
+}

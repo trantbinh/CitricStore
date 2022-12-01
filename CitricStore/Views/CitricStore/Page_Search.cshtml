@@ -30,15 +30,16 @@
                         <div class="bloggame-theloai">
                             Thể loại: @Html.Action("Extension_GetNameCategory", "CitricStore", new { idcat = app.IDCat })
                         </div>
-                        <a class="bloggame-download" href="@Url.Action("Details_Overall", "CitricStore", new {id=app.IDOverall})" style="text-decoration:none">
+                        <a class="bloggame-download" href="@Url.Action("Details_Overall", "CitricStore", new {id=app.IDOverall})" 
+                           style="text-decoration:none">
                             <div class="bloggame-download-btn">
                                 Chi Tiết
                             </div>
                         </a>
                     </div>
                 </div>
-
             }
         </div>
+    </div>
 </div>
-</div>
+
