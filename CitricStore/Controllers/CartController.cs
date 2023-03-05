@@ -205,7 +205,7 @@ namespace CitricStore.Controllers
         }
         public ActionResult Page_PaymentSuccess()
         {
-            Session.Remove("GioHang");
+            Session.Remove("Cart");
             return View();
         }
 

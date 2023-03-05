@@ -101,7 +101,6 @@ namespace CitricStore.Controllers
             return View(apps);
         }
 
-
         //Trang tìm kiếm
         public ActionResult Page_Search(string searchString)
         {
@@ -140,6 +139,7 @@ namespace CitricStore.Controllers
             return PartialView(name);
         }
 
+        //Lấy tên thể loại
         public ActionResult Extension_GetNameCategory(int idcat)
         {
             var name = database.CATEGORies.Where(g => g.IDCat == idcat).ToList();
@@ -147,6 +147,7 @@ namespace CitricStore.Controllers
         }
 
         //--------------------------DETAILS OVERALL--------------------------
+        //Trang chi tiết
         public ActionResult Details_Overall(int id)
         {
             var ud = database.OVERALLs.FirstOrDefault(s => s.IDOverall == id);
@@ -161,7 +162,6 @@ namespace CitricStore.Controllers
             var listNewOverall = GetOverall_UpdateDate(8);
             return PartialView(listNewOverall);
         }
-
         private List<OVERALL> GetOverall_Rating(int quantity)
         {
             return database.OVERALLs.OrderByDescending(ud => ud.Rating).Take(quantity).ToList();

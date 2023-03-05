@@ -3,8 +3,8 @@
 @foreach (var item in Model)
 {
         <h4 style="margin-bottom:30px">Sản phẩm trong đơn hàng:</h4>
-        <div class="col-lg-7 col-md-6 tenchitietsanpham" >
-            @Html.Action("Order_InfoUngDung", "Admin", new { idud = item.IDOverall })
+        <div class="col-lg-7 col-md-6 tenchitietsanpham">
+            @Html.Action("CheckCusOrder_AppInfo", "Admin", new { idud = item.IDOverall })
         </div>
         <div class="col-4 align-content-between align-middle chitietsoluongdongia">
             Số lượng: @item.Quantity
